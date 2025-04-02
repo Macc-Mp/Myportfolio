@@ -1,0 +1,32 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure the body and html take full height */
+}
+
+
+.footer {
+    width: 100%; /* Full width of the viewport */
+    height: 30vh; /* Set the height of the footer */
+    background-color: black; /* Background color for the footer */
+    margin-top: auto; /* Push the footer to the bottom */
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center; /* Center the button vertically */
+    
+}
+
+.footer button {
+    color: black; /* Black text for visibility */
+    border: 2px solid black; /* Add a black border for contrast */
+    padding: 8px 16px; /* Add padding for better appearance */
+    border-radius: 4px; /* Optional: Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.footer button:hover {
+    background-color: black; /* Change background on hover */
+    color: white; /* Invert text color on hover */
+}
+
+

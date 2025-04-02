@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+
+
+  body {
+   
+    margin: 0;
+    font-family: Arial, sans-serif;
+    
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    color: white;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    font-family: "Space Mono", monospace;
+    font-style: normal;    
+    
+
+  }
+  
+  .logo {
+    border-radius: 5px;
+    margin: 0px 0px 0px 30px;
+    font-size: 1.5em;
+  
+  }
+  
+  .nav-links {
+    display: none; /* Hide the menu by default */
+    list-style: none;
+    padding: 0;
+   
+    margin-right: 150px;
+
+  }
+
+  .nav-links li{
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .nav-links li a{
+    color: whitesmoke;
+    text-decoration: none;
+  }
+  
+  .nav-links.open {
+    display: block; /* Show the menu when the 'open' class is added */
+  }
+  
+  .hamburger {
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Add spacing between the spans */
+    position: absolute; /* Position it properly */
+    top: 15px; /* Adjust based on your navbar height */
+    right: 20px; /* Align it to the right */
+    z-index: 10; /* Ensure it appears above other elements */
+    margin-top: 5px;
+    margin-right: 50px;
+  
+  
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white; /* Ensure it's visible on a dark background */
+    border-radius: 2px; /* Optional: Add rounded corners */
+    
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      margin-left: 50px;
+      display: none; /* Hide the menu by default */
+      flex-direction: column;
+      background-color:white;
+      position: absolute;
+      top: 60px; /* Adjust based on navbar height */
+      right: 0;
+      width: 200px;
+      padding: 10px;
+      z-index: 9;
+    }
+  
+    .nav-links.open {
+      display: inline-block;
+    }
+  
+    .hamburger {
+      display: flex; /* Show the hamburger button */
+    }
+  }

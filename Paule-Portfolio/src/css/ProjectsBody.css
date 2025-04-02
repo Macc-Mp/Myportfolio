@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+
+.ProjectsBody{
+    position: relative;
+    height: auto;
+    width: 100%; /* Full width of the viewport */
+    background-color: #3b444b; /* Background color for the footer */
+    margin-top: auto; /* Push the footer to the bottom */
+   
+    justify-content: flex-start; /* Center the button horizontally */
+   
+    
+    padding: 50px 50px;
+    align-items: center; /* Center the button vertically */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+   
+     
+}
+
+.ProjectsBody h2{
+    font-size: 35px;
+    position: relative;
+    bottom: 30px;
+    left: -15px;
+
+    color: whitesmoke;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+ 
+}
+
+.ProjectsBody .pj1 h5,
+.ProjectsBody .pj2 h5,
+.ProjectsBody .pj3 h5{
+    color: white;
+    position: relative;
+    text-align: center;
+    bottom: 160px;
+    left: 220px;
+}
+
+.ProjectsBody .pj1,
+.ProjectsBody .pj2,
+.ProjectsBody .pj3{
+    padding-top: 50px;
+    margin-bottom: 20px;
+
+}
+
+.ProjectsBody .pj1,
+.ProjectsBody .pj2,
+.ProjectsBody .pj3 {
+    position: relative;
+    border-radius: 50px;
+    background-color: black;
+    border-style:ridge;
+    border-color: whitesmoke;
+    width: 100%;
+    height: 350px; /* Automatically adjust height based on content */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the left */
+    padding-bottom: 80px;
+}
+
+.ProjectsBody .pj1 .left-card,
+.ProjectsBody .pj2 .left-card,
+.ProjectsBody .pj3 .left-card{
+    width: 35%;
+    height: 100%;
+    background-color: white;
+    border-radius: 1rem;
+    text-align: center;
+    align-items: center;
+
+    margin: 80px 0px 0px 20px;
+  
+}
+
+.ProjectsBody .pj1 .right-card,
+.ProjectsBody .pj2 .right-card,
+.ProjectsBody .pj3 .right-card{
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    border-radius: 1rem;
+    text-align: center;
+    align-items: center;
+
+    margin: 80px 0px 0px 60px;
+  
+}
+

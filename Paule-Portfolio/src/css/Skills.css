@@ -1,0 +1,48 @@
+.Skill-container{
+    position: relative;
+    height: auto;
+    width: 100%; /* Full width of the viewport */
+    background-color: steelblue  ; /* Background color for the footer */
+    margin-top: auto; /* Push the footer to the bottom */
+   
+    justify-content: flex-start; /* Center the button horizontally */
+   
+    
+    padding: 50px 50px;
+    align-items: center; /* Center the button vertically */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.puzzles {
+    width: 100px; /* Adjust the size of the image */
+    height: auto;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for other effects */
+}
+
+.puzzles.shaking {
+    animation: shake .5s ease-in-out; /* Apply the shake animation */
+}
+
+
+@keyframes shake {
+  /*  0% { transform: translateY(0); }
+    25% { transform: translateY(-15px); }
+    50% { transform: translateY(10px); }
+    75% { transform: translateY(-20px); }
+    100% { transform: translateY(0); } */
+    
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+
+}
+
+.Skill-container .skills-list h3{
+    position: relative;
+    bottom: 180px;
+    left: 110px;
+    color: white;
+}
