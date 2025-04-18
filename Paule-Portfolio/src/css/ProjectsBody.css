@@ -5,7 +5,7 @@
     position: relative;
     height: auto;
     width: 100%; /* Full width of the viewport */
-    background-color: #3b444b; /* Background color for the footer */
+    background-color: #0d1321; /* Rich Black */
     margin-top: auto; /* Push the footer to the bottom */
    
     justify-content: flex-start; /* Center the button horizontally */
@@ -28,11 +28,36 @@
     bottom: 30px;
     left: -15px;
 
-    color: whitesmoke;
+    color: #eef0f2;
     font-family: "Space Mono", monospace;
     font-weight: 700;
     font-style: normal;
  
+}
+.ProjectsBody .pj1 h3, 
+.ProjectsBody .pj2 h3, 
+.ProjectsBody .pj3 h3{
+    color: black;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+    position: relative;
+    bottom: 160px;
+    left: 220px;
+}
+
+.ProjectsBody .pj1 p,
+.ProjectsBody .pj2 p,
+.ProjectsBody .pj3 p{
+    color: black;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    bottom: 70px;
+    right: 50px;
+    text-align: justify;
+    line-height: 1.5;
 }
 
 .ProjectsBody .pj1 h5,
@@ -58,7 +83,7 @@
 .ProjectsBody .pj3 {
     position: relative;
     border-radius: 50px;
-    background-color: black;
+    background-color: #e0dfd5;
     border-style:ridge;
     border-color: whitesmoke;
     width: 100%;
@@ -74,7 +99,6 @@
 .ProjectsBody .pj3 .left-card{
     width: 35%;
     height: 100%;
-    background-color: white;
     border-radius: 1rem;
     text-align: center;
     align-items: center;
@@ -88,8 +112,8 @@
 .ProjectsBody .pj3 .right-card{
     width: 50%;
     height: 100%;
-    background-color: white;
-    border-radius: 1rem;
+
+    border-radius: 2rem;
     text-align: center;
     align-items: center;
 

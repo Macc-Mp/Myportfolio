@@ -8,7 +8,7 @@ body, html {
 .footer {
     width: 100%; /* Full width of the viewport */
     height: 30vh; /* Set the height of the footer */
-    background-color: black; /* Background color for the footer */
+    background-color: #0d1321; /*Isabelline */
     margin-top: auto; /* Push the footer to the bottom */
     display: flex;
     justify-content: center; /* Center the button horizontally */

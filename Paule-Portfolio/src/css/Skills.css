@@ -2,7 +2,7 @@
     position: relative;
     height: auto;
     width: 100%; /* Full width of the viewport */
-    background-color: steelblue  ; /* Background color for the footer */
+    background-color: #0d1321  ; /*Air force blue*/
     margin-top: auto; /* Push the footer to the bottom */
    
     justify-content: flex-start; /* Center the button horizontally */
