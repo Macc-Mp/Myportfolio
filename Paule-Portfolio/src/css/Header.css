@@ -53,19 +53,20 @@ body, html {
     margin: 0; /* Remove margin */
     margin-bottom: 30px;
    
-    font-family: "Space Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
+
   
 }
 
 .text p {
     color: rgba(245, 245, 245, 0.784);
     text-align: left;
-    margin: -10px 0 0 0; /* Negative top margin to push it upwards */
+    margin: 20px 0 0 0; /* Negative top margin to push it upwards */
     padding: 0; /* Remove padding */
     line-height: 1.2; /* Adjust line height for better spacing */
-
+    position: relative;
+    bottom: 20px; /* Adjust this value to move the text upwards */
+    left: -15px; /* Adjust this value to move the text to the left */
+    text-align: justify;
     font-family: "Space Mono", monospace;
     font-weight: 400;
     font-style: normal;

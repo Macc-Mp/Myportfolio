@@ -1,14 +1,6 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* Ensure the body and html take full height */
-}
-
-
 .footer {
-    width: 100%; /* Full width of the viewport */
-    height: 30vh; /* Set the height of the footer */
-    background-color: #0d1321; /*Isabelline */
+    height: 400px;
+    background-color: steelblue; /*Isabelline */
     margin-top: auto; /* Push the footer to the bottom */
     display: flex;
     justify-content: center; /* Center the button horizontally */
@@ -17,9 +9,11 @@ body, html {
 }
 
 .footer button {
+    position: relative;
+    left: 300px;
     color: black; /* Black text for visibility */
-    border: 2px solid black; /* Add a black border for contrast */
-    padding: 8px 16px; /* Add padding for better appearance */
+  
+  
     border-radius: 4px; /* Optional: Rounded corners */
     cursor: pointer; /* Change cursor to pointer on hover */
 }
@@ -30,3 +24,29 @@ body, html {
 }
 
 
+.footer .left-card{
+    background-color: black;
+    padding-top: 50px;
+    position: relative;
+    bottom: -50px;
+    width: 200px;
+    height: 150px;
+    right: 500px;
+    border-radius: 10px;
+ 
+}
+
+.footer .left-card h3, p{
+    color: white;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+    position: relative;
+    bottom: 50px;
+    left: 50px;
+
+    color: white;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+}

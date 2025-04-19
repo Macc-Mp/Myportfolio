@@ -16,12 +16,14 @@ function Header() {
             </p>
 
             <div className='images'>
-            <img src= {contact} alt='linked-in' />
+            <a href='#footer'>
+            <img src= {contact} alt='contact' />
+            </a>
             <a href='https://www.linkedin.com/in/moises-paule-6968ab328/'>    
             <img src= {linkedin} alt='linked-in' />
             </a>
             <a href ='https://github.com/Macc-Mp'>
-                <img src= {github} alt='linked-in'  />
+                <img src= {github} alt='github'  />
             </a>
             </div>
 
