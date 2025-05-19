@@ -41,8 +41,12 @@
 }
 
 .Skill-container .skills-list h3{
+    background-color: cadetblue;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     position: relative;
-    bottom: 180px;
-    left: 110px;
+    bottom: 150px;
+    left: 150px;
     color: white;
 }

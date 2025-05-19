@@ -1,6 +1,6 @@
 .footer {
     height: 400px;
-    background-color: steelblue; /*Isabelline */
+    background-color: rgb(35, 63, 85); /*Isabelline */
     margin-top: auto; /* Push the footer to the bottom */
     display: flex;
     justify-content: center; /* Center the button horizontally */

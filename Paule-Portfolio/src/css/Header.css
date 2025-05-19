@@ -14,7 +14,8 @@ body, html {
     display: flex;
     justify-content: flex-start; /* Center the button horizontally */
     box-sizing: border-box;
-    background: url('../assets/Header/paths.gif');
+    /*background-color: #232b2b; */
+    background: url('../assets/Header/paths.gif'); 
     align-items: center; /* Center the button vertically */
 }
 
@@ -115,4 +116,34 @@ body, html {
 width: 95%;
 opacity: 0;
 }
+}
+
+.picture-container{
+    margin-top: 30px;;
+    margin-right: 350px;
+    /* Set a fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Make the container circular */
+   
+}
+.picture-container img {
+    border-style: dashed;
+    border-width: 20px;
+    width: 250%;       /* Make image fill the container */
+    height: 50%;      /* Make image fill the container */
+    object-fit: cover; /* Ensure image covers the area */
+    border-radius: 50%; /* Make the image itself circular */
+    position: relative;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+.fade-image.hide {
+    opacity: 1;
+}
+
+.fade-image.show {
+    opacity: 1;
 }
