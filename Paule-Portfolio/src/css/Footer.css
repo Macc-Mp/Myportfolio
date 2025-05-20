@@ -1,52 +1,110 @@
 .footer {
-    height: 400px;
-    background-color: rgb(35, 63, 85); /*Isabelline */
-    margin-top: auto; /* Push the footer to the bottom */
+    height: auto;
+    background-color: rgb(35, 63, 85);
+    margin-top: auto;
     display: flex;
-    justify-content: center; /* Center the button horizontally */
-    align-items: center; /* Center the button vertically */
-    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
 }
 
+/* Button styles */
 .footer button {
-    position: relative;
-    left: 300px;
-    color: black; /* Black text for visibility */
-  
-  
-    border-radius: 4px; /* Optional: Rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    width: 80%;
+    max-width: 300px;
+    color: black;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
 }
 
 .footer button:hover {
-    background-color: black; /* Change background on hover */
-    color: white; /* Invert text color on hover */
-}
-
-
-.footer .left-card{
     background-color: black;
-    padding-top: 50px;
-    position: relative;
-    bottom: -50px;
-    width: 200px;
-    height: 150px;
-    right: 500px;
-    border-radius: 10px;
- 
+    color: white;
 }
 
-.footer .left-card h3, p{
-    color: white;
-    font-family: "Space Mono", monospace;
-    font-weight: 700;
-    font-style: normal;
-    position: relative;
-    bottom: 50px;
-    left: 50px;
+/* Left card styles */
+.footer .left-card {
+    background-color: black;
+    padding: 2rem;
+    width: 20vw; /* Responsive width */
+    max-width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
 
+/* Text inside the left-card */
+.footer .left-card h3, .footer .left-card p {
     color: white;
     font-family: "Space Mono", monospace;
     font-weight: 700;
-    font-style: normal;
+    font-size: 0.9rem;
+}
+
+/* Tablet-friendly adjustments */
+@media (max-width: 768px) {
+    .footer {
+        padding: 1.5rem;
+    }
+
+    .footer button {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .footer .left-card {
+        width: 80%;
+        max-width: none;
+    }
+}
+
+/* Mobile optimization for 480px and below */
+@media (max-width: 480px) {
+    .footer {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .footer button {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .footer .left-card {
+        width: 95%;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .footer .left-card h3, .footer .left-card p {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 200px) {
+    .footer {
+        padding: 0.5rem; /* Minimal padding */
+    }
+
+    .footer button {
+        width: 100%;
+        font-size: 0.7rem; /* Further reduce font size */
+        padding: 0.4rem 0.8rem;
+    }
+
+    .footer .left-card {
+        width: 100%; /* Maximize space usage */
+        padding: 0.5rem;
+        border-radius: 5px; /* Smaller rounding */
+    }
+
+    .footer .left-card h3, .footer .left-card p {
+        font-size: 0.7rem; /* Adjust text size for tiny screens */
+        text-align: center;
+    }
 }

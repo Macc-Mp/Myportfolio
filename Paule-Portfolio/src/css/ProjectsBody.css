@@ -121,3 +121,34 @@
   
 }
 
+@media (max-width: 600px) {
+    .ProjectsBody h2 {
+        font-size: 24px;
+        left: 0;
+        bottom: 10px;
+        padding: 0 5px;
+    }
+    .ProjectsBody .pj1 h3,
+    .ProjectsBody .pj2 h3,
+    .ProjectsBody .pj3 h3 {
+        font-size: 16px;
+        left: 10px;
+        bottom: 40px;
+    }
+    .ProjectsBody .pj1 p,
+    .ProjectsBody .pj2 p,
+    .ProjectsBody .pj3 p {
+        font-size: 12px;
+        left: 0;
+        bottom: 10px;
+        padding: 0 5px;
+    }
+    .ProjectsBody .pj1 h5,
+    .ProjectsBody .pj2 h5,
+    .ProjectsBody .pj3 h5 {
+        font-size: 12px;
+        left: 10px;
+        bottom: 40px;
+    }
+}
+

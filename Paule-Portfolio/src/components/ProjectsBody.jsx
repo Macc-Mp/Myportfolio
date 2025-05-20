@@ -3,8 +3,6 @@ import {useState, useEffect} from  'react';
 
 import React from 'react';
 function ProjectsBody(){
-    
-    
 
     return(
         
@@ -12,40 +10,58 @@ function ProjectsBody(){
         <h2>Projects</h2>
 
             <div className ='pj1'>
-                <h3>Project 1</h3>
+                <h3>ASP.net Website</h3>
                 <div className='left-card'>
                 
                 </div>
                 <div className='right-card'>
                     <span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                        <p>C# Web-based app for simple database implementation using the ASP.net MVC</p>
                     </span>
             </div>
             </div>
 
             <div className ='pj2'>
-            <   h3>Project 2</h3>
+            <h3>Splash: A 2D Shooter</h3>
                 <div className='left-card'>
                 
                 </div>
                 <div className='right-card'>
                     <span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                    <p>Unity 2D Retro Shooter Game for Android. Goal of the game is to reach the highest possible score as difficulty catches up. </p>
+                    <p>Game Features: </p>
+                    <ul>
+                        <li>Basic Blend Tree Animations</li>
+                        <li>GUI Player Controls</li>
+                        <li>C# Dictionary for Game Escalation</li>
+                        <li>Save local Highscore</li>
+                        <li>Rigidbody Collisions</li>
+                        <li>Point and Lives System</li>
+                        <li>Replayability</li>
+                       
+                    </ul>
                     </span>
             </div>
             </div>
 
             <div className ='pj3'>
-                <h3>Project 3</h3>
+                <h3>Movielist Selection</h3>
                 <div className='left-card'>
                 
                 </div>
                 <div className='right-card'>
                     <span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                    <p>API key requested from themoviedb.org/The Movie Database. This Web-based project made with React + Vite, is part of my learning curve
+                        to understand react hooks.
+                    </p>
+                    <p>Project Features: </p>
+                    <ul>
+                        <li>Browse movies via pagination feature</li>
+                        <li>Favorited movies are only stored locally</li>
+                        <li>Search bar</li>
+                        <li>Screen Responsive </li>
+                        <li>Responsive Design</li>
+                    </ul>
                     </span>
             </div>
             </div>

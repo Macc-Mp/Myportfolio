@@ -2,15 +2,15 @@ import {useState} from 'react'
 import '../css/Footer.css'
 
 function Footer() {
-    const [count, setCount] = useState(0)
+    // const [count, setCount] = useState(0)
     return (
 
         <div className="footer" id='footer'>
 
 
-        <button className='button' onClick={() => setCount((count) => count + 1)}>
+        {/* <button className='button' onClick={() => setCount((count) => count + 1)}>
           count is to {count}
-        </button>
+        </button> */}
 
         <div className = "left-card">
             <h3>Contact</h3>
