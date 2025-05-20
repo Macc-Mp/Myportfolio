@@ -23,6 +23,7 @@ function ProjectsBody(){
 
             <div className ='pj2'>
             <h3>Splash: A 2D Shooter</h3>
+            <img className='proj2image' src = "proj2.png" alt = "proj2" />
                 <div className='left-card'>
                 
                 </div>
@@ -46,7 +47,9 @@ function ProjectsBody(){
 
             <div className ='pj3'>
                 <h3>Movielist Selection</h3>
+                <img className='proj3image' src = "proj3.png" alt = "proj3" />
                 <div className='left-card'>
+
                 
                 </div>
                 <div className='right-card'>

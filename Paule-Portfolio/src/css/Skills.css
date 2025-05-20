@@ -1,3 +1,7 @@
+body{
+    margin: 0;
+}
+
 .Skill-container{
     position: relative;
     height: auto;
