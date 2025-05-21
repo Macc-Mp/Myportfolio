@@ -55,7 +55,7 @@
     font-weight: 400;
     font-style: normal;
     position: relative;
-    bottom: 50px;
+    bottom: 10px;
     left: -50px;
     text-align: justify;
     line-height: 1.5;
@@ -118,12 +118,48 @@
     text-align: center;
     align-items: center;
 
-    margin: 80px 0px 0px 60px;
+    margin: 80px 110px 0px 0px;
   
 }
+
+.ProjectsBody .pj1 .featurelist,
+.ProjectsBody .pj2 .featurelist,
+.ProjectsBody .pj3 .featurelist{
+    margin: 0px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start; /* Aligns items to the left */
+    justify-content: center;
+   
+}
+
 
 .proj2image, .proj3image{
     width: 65%;
     height: 65%;
     border-radius: 15px;
+    margin: 30px 0px 0px 0px;
+    background-color: black;
+    padding: 10px;
+}
+
+.pj1 .buttonlinks,
+.pj2 .buttonlinks,
+.pj3 .buttonlinks{
+    margin-right: 50px;;
+    background-color: black; /* Green background */
+    color: white; /* White text */
+    padding: 10px 10px; /* Adjust padding */
+    font-size: 16px;
+    border: none; /* Remove default borders */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s ease-in-out;
+}
+
+.pj1 .buttonlinks:hover, 
+.pj2 .buttonlinks:hover, 
+.pj3 .buttonlinks:hover {
+    background-color: maroon; /* Changes color on hover */
 }

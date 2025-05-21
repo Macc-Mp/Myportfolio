@@ -20,7 +20,7 @@ function Footer() {
                         <img src={github} alt="GitHub" className="footer-icon" />
                         <span>GitHub</span>
                     </a>
-                    <a href="mailto:your.email@example.com">
+                    <a href="mailto:macmoises12@gmail.com">
                         <img src={email} alt="Email" className="footer-icon" />
                         <span>Email</span>
                     </a>
