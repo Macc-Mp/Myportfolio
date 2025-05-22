@@ -95,6 +95,29 @@
     padding-bottom: 80px;
 }
 
+@keyframes pulseOnHover {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+}
+
+.text:hover,
+.ProjectsBody .pj1:hover,
+.ProjectsBody .pj2:hover,
+.ProjectsBody .pj3:hover {
+    animation: pulseOnHover 3.5s infinite ease-in-out;
+}
+
+
 .ProjectsBody .pj1 .left-card,
 .ProjectsBody .pj2 .left-card,
 .ProjectsBody .pj3 .left-card{

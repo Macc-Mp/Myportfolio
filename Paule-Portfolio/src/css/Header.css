@@ -13,8 +13,8 @@ body, html {
     display: flex;
     justify-content: flex-start; /* Center the button horizontally */
     box-sizing: border-box;
-    /*background-color: #232b2b; */
-    background: url('../assets/Header/paths.gif'); 
+    background-color: black;
+
     align-items: center; /* Center the button vertically */
 }
 
@@ -27,6 +27,8 @@ body, html {
     height: 150px;
     border-radius: 50%
 }
+
+
 
 .text {
     box-sizing: border-box;
@@ -42,6 +44,26 @@ body, html {
     padding: 30px 0px 30px 30px;
     margin-left: 100px;
 }
+
+@keyframes pulseOnHover {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+}
+
+.text:hover {
+    animation: pulseOnHover 1.5s infinite ease-in-out;
+}
+
 
 .text h2 {
     color: var(--Neutral-White, #FFF);
@@ -128,7 +150,7 @@ opacity: 0;
    
 }
 .picture-container img {
-    border-style: dashed;
+    border-style: solid;
     border-width: 20px;
     width: 250%;       /* Make image fill the container */
     height: 50%;      /* Make image fill the container */
