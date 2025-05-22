@@ -131,6 +131,7 @@
     text-align: left;
     align-items: flex-start; /* Aligns items to the left */
     justify-content: center;
+    font-weight: bold;
    
 }
 

@@ -1,56 +1,99 @@
 body{
     margin: 0;
+    background: #0d1321;
+    font-family: "Space Mono", monospace;
 }
 
 .Skill-container{
     position: relative;
-    height: auto;
-    width: 100%; /* Full width of the viewport */
-    background-color: #0d1321  ; /*Air force blue*/
-    margin-top: auto; /* Push the footer to the bottom */
-   
-    justify-content: flex-start; /* Center the button horizontally */
-   
-    
-    padding: 50px 50px;
-    align-items: center; /* Center the button vertically */
-
+    width: 100%;
+    min-height: 60vh;
+    background-color: #0d1321;
+    padding: 50px 5vw;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     box-sizing: border-box;
+    gap: 30px;
+}
+
+.skills-list {
+    width: 100%;
+    max-width: 700px;
+    background: #1a2233;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    padding: 32px 24px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.skills-list h3 {
+    background-color: #3b8ea5;
+    border-radius: 8px;
+    padding: 10px 24px;
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 0 0 18px 0;
+    position: static;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.skills-list ul {
+    padding-left: 24px;
+    margin: 0;
+    color: #eef0f2;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.skills-list ul li {
+    margin-bottom: 8px;
+    padding-left: 4px;
 }
 
 .puzzles {
-    width: 100px; /* Adjust the size of the image */
-    height: auto;
-    transition: transform 0.5s ease-in-out; /* Smooth transition for other effects */
+    width: 90px;
+    height: 90px;
+    margin-bottom: 18px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+   
+    object-fit: contain;
+    transition: transform 0.5s, box-shadow 0.3s;
+    display: block;
+}
+
+.puzzles:hover {
+    transform: scale(1.08) rotate(-6deg);
+    
 }
 
 .puzzles.shaking {
-    animation: shake .5s ease-in-out; /* Apply the shake animation */
+    animation: shake .5s ease-in-out;
 }
-
 
 @keyframes shake {
-  /*  0% { transform: translateY(0); }
-    25% { transform: translateY(-15px); }
-    50% { transform: translateY(10px); }
-    75% { transform: translateY(-20px); }
-    100% { transform: translateY(0); } */
-    
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
 }
 
-.Skill-container .skills-list h3{
-    background-color: cadetblue;
-    border-radius: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-    bottom: 150px;
-    left: 150px;
-    color: white;
+@media (max-width: 600px) {
+    .Skill-container {
+        padding: 30px 2vw;
+    }
+    .skills-list {
+        padding: 18px 8px;
+    }
+    .skills-list h3 {
+        font-size: 1rem;
+        padding: 8px 10px;
+    }
+    .puzzles {
+        width: 60px;
+        height: 60px;
+    }
 }
