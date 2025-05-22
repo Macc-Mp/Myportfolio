@@ -155,12 +155,13 @@
     }
 }
 
+.proj1image:hover,
 .proj2image:hover, 
 .proj3image:hover {
     animation: pulseOnHover 3s infinite ease-in-out;
 }
 
-
+.proj1image,
 .proj2image, .proj3image{
     width: 65%;
     height: 65%;

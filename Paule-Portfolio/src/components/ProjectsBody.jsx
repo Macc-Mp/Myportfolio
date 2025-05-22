@@ -11,7 +11,7 @@ function ProjectsBody(){
 
             <div className ='pj1'>
                 <h3>ASP.net Website</h3>
-
+                <img className='proj1image' src = "proj1.png" alt = "proj1" />
                 <div className='left-card'>
                      <div className='links-card'>
                         <a href = "https://moacworks.itch.io/splash" target="_blank" rel="noopener noreferrer">
