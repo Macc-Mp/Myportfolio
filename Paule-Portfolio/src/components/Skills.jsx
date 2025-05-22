@@ -7,9 +7,11 @@ import mysqll from '../assets/Skills/backend/mysql.png'; // Default import
 //tools
 import gitt from '../assets/Skills/tools/git.png'; // Default import
 import github from '../assets/Skills/tools/github.png'; // Default import
+import uni from '../assets/Skills/tools/unity.png'; // Default import
+//frontend/framework
 import reactt from '../assets/Skills/frontend/react.png'; // Default import
 import csss from '../assets/Skills/frontend/css.png';
-
+import vi  from '../assets/Skills/frontend/vite.svg'; // Default import
 //languages
 import cpp from '../assets/Skills/languages/cpp.png'; // Default import
 import csharp from '../assets/Skills/languages/csharp.png'; // Default import
@@ -17,8 +19,8 @@ import csharp from '../assets/Skills/languages/csharp.png'; // Default import
 function Skills() {
     const skills = [
         { name: 'Languages', images: [cpp, csharp] }, // Use the imported image
-        { name: 'Frontend', images: [reactt, csss] }, // Use the imported image
-        { name: 'Tools', images: [gitt, github] }, // Use the imported image
+        { name: 'Frontend/Framework', images: [reactt, csss, vi] }, // Use the imported image
+        { name: 'Tools', images: [gitt, github, uni] }, // Use the imported image
         { name: 'Backend', images: [mysqll] }, // Use the imported image
 
        

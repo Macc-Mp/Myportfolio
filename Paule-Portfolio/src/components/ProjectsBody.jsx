@@ -31,7 +31,7 @@ function ProjectsBody(){
                         <li>Data Annotations</li>
                         <li>Entity Framework</li>
                         <li>SQL Server Database</li>
-                        <li>Responsive Design</li>
+                       
                     </ul>
             </div>
             </div>
