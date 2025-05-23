@@ -155,7 +155,7 @@ opacity: 0;
     width: 250%;       /* Make image fill the container */
     height: 50%;      /* Make image fill the container */
     object-fit: cover; /* Ensure image covers the area */
-    border-radius: 50%; /* Make the image itself circular */
+
     position: relative;
     transition: opacity 0.5s ease;
     opacity: 1;
