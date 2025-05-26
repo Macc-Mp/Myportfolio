@@ -1,2 +1,5 @@
 cd paule-portfolio
 npm run dev
+
+
+for databases npm install supabase/supa-base

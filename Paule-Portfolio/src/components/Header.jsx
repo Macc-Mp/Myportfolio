@@ -66,7 +66,7 @@ function Header() {
             <div className='text'>
                 <h2>Hi, I'm Moises Paule</h2>
                 {/* Display the visit counter here */}
-                <p>Total Visits: <span className="visit-counter-display">{visitCount}</span></p>
+                <p>Page Loads: <span className="visit-counter-display">{visitCount}</span></p>
 
                 <p>
                     I aspire to be a developer someday.
