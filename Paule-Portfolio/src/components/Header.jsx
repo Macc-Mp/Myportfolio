@@ -8,6 +8,7 @@ function Header() {
     const [showFirst, setShowFirst] = useState(true);
     // State to store the visit count
     const [visitCount, setVisitCount] = useState('Loading...');
+    const [lastVisit, setLastVisit] = useState(new Date());
 
     useEffect(() => {
         // Interval for image fading effect
@@ -42,7 +43,11 @@ function Header() {
                 }
                 const data = await response.json();
                 // Update the state with the fetched count
+                
                 setVisitCount(data.count);
+                setLastVisit(new Date(data.lastVisit)); // Update last visit time
+                // Format the current time for display
+
             } catch (error) {
                 console.error('Error fetching visit count:', error);
                 if (retry < 2) {
@@ -67,6 +72,7 @@ function Header() {
                 <h2>Hi, I'm Moises Paule</h2>
                 {/* Display the visit counter here */}
                 <p>Page Loads: <span className="visit-counter-display">{visitCount}</span></p>
+                <p>Time Stamp:<span className="vist-counter-display">{lastVisit}   </span></p>
 
                 <p>
                     I aspire to be a developer someday.
