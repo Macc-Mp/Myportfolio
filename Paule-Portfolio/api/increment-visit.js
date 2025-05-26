@@ -33,11 +33,11 @@ export default async (req, res) => { // Standard Vercel Serverless Function sign
       return res.status(404).json({ error: 'No row with id=1 found in visits table.' });
     }
 
-    // Increment count
+    // Increment count and update created_at
     const newCount = (row.count || 0) + 1;
     const { error: updateError } = await supabase
       .from('visits')
-      .update({ count: newCount })
+      .update({ count: newCount, created_at: new Date().toISOString() })
       .eq('id', 1);
 
     if (updateError) {

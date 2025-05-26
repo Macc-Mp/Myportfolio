@@ -17,10 +17,10 @@ export default async (req, res) => { // Standard Vercel Serverless Function sign
   }
 
   try {
-    // Fetch the 'count' from the single row in the 'visits' table
+    // Fetch the 'count' and 'created_at' from the single row in the 'visits' table
     const { data, error } = await supabase
       .from('visits')
-      .select('count')
+      .select('count,created_at')
       .eq('id', 1) // Assuming your counter row has ID 1
       .single(); // Expecting only one row
 
@@ -36,7 +36,7 @@ export default async (req, res) => { // Standard Vercel Serverless Function sign
       return res.status(404).json({ message: 'Counter not found or empty. Ensure row with id=1 exists in Supabase.' });
     }
 
-    return res.status(200).json({ count: data.count });
+    return res.status(200).json({ count: data.count, lastVisit: data.created_at });
 
   } catch (error) {
     console.error('Server error:', error);
