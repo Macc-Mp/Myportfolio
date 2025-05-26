@@ -1,9 +1,13 @@
 // api/get-visits.js
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase client
+// Check for required environment variables
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!supabaseUrl || !supabaseServiceRoleKey) {
+  throw new Error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY environment variable');
+}
 
 const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
 
@@ -28,8 +32,7 @@ export default async (req, res) => { // Standard Vercel Serverless Function sign
     }
 
     if (!data || typeof data.count !== 'number') {
-      // This can happen if the row with ID 1 was deleted or never created.
-      // Make sure you inserted the initial row in Supabase as per previous instructions.
+      console.error('No row with id=1 found or count is not a number.');
       return res.status(404).json({ message: 'Counter not found or empty. Ensure row with id=1 exists in Supabase.' });
     }
 
