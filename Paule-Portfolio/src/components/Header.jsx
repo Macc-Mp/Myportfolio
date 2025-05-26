@@ -32,8 +32,8 @@ function Header() {
             }
         };
 
-        // Function to fetch and display the current visit count from the server
-        const fetchAndDisplayVisitCount = async () => {
+        // Function to fetch and display the current visit count from the server, with retry
+        const fetchAndDisplayVisitCount = async (retry = 0) => {
             try {
                 // Send a GET request to your Vercel API to get the current counter value
                 const response = await fetch('/api/get-visits');
@@ -45,7 +45,11 @@ function Header() {
                 setVisitCount(data.count);
             } catch (error) {
                 console.error('Error fetching visit count:', error);
-                setVisitCount('Error'); // Display an error message if fetching fails
+                if (retry < 2) {
+                    setTimeout(() => fetchAndDisplayVisitCount(retry + 1), 1000);
+                } else {
+                    setVisitCount('Error'); // Display an error message if fetching fails
+                }
             }
         };
 

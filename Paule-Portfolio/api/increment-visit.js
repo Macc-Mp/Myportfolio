@@ -13,15 +13,14 @@ export default async (req, res) => { // Standard Vercel Serverless Function sign
   }
 
   try {
-    // Vercel's default parser might handle req.body directly,
-    // but for safety, ensure it's a JSON object if you're sending one
-    // const body = req.body; // If your client-side sends a body, otherwise not needed for counter
-
     // Increment the 'count' for the single row in the 'visits' table
     const { data, error } = await supabase
       .from('visits')
       .update({ count: supabase.raw('count + 1') })
-      .eq('id', 1); // Assuming your counter row has ID 1
+      .eq('id', 1)
+      .select();
+
+    console.log('Supabase increment-visit data:', data, 'error:', error);
 
     if (error) {
       console.error('Error incrementing visit:', error);

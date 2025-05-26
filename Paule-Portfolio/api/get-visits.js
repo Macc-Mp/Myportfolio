@@ -20,12 +20,14 @@ export default async (req, res) => { // Standard Vercel Serverless Function sign
       .eq('id', 1) // Assuming your counter row has ID 1
       .single(); // Expecting only one row
 
+    console.log('Supabase get-visits data:', data, 'error:', error);
+
     if (error) {
       console.error('Error fetching visits:', error);
       return res.status(500).json({ error: 'Failed to fetch visits' });
     }
 
-    if (!data) {
+    if (!data || typeof data.count !== 'number') {
       // This can happen if the row with ID 1 was deleted or never created.
       // Make sure you inserted the initial row in Supabase as per previous instructions.
       return res.status(404).json({ message: 'Counter not found or empty. Ensure row with id=1 exists in Supabase.' });
