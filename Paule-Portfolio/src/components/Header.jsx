@@ -53,6 +53,16 @@ function Header() {
             }
         };
 
+        // Dynamically add LinkedIn badge script if not already present
+        if (!document.querySelector('script[src="https://platform.linkedin.com/badges/js/profile.js"]')) {
+            const script = document.createElement('script');
+            script.src = "https://platform.linkedin.com/badges/js/profile.js";
+            script.async = true;
+            script.defer = true;
+            script.type = "text/javascript";
+            document.body.appendChild(script);
+        }
+
         // Call the functions when the component mounts
         incrementVisitCount(); // Increment the count when the page is visited
         fetchAndDisplayVisitCount(); // Fetch and display the updated count
