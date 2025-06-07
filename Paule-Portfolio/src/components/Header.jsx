@@ -108,9 +108,9 @@ function Header() {
 
             <div className='picture-container'>
                 <img
-                    src={showFirst ? "moises.png" : "alden.png"}
+                    src={"moises.png" }
                     alt='profile'
-                    className={`fade-image ${showFirst ? 'show' : 'hide'}`}
+                    
                 />
             </div>
         </div>
