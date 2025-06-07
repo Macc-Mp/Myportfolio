@@ -54,6 +54,22 @@
     filter: none;
 }
 
+.footer-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-divider {
+    width: 2px;
+    height: 80px;
+    background: #3b8ea5;
+    margin: 0 24px;
+    border-radius: 2px;
+}
+
 @media (max-width: 600px) {
     .footer-content h3 {
         font-size: 1.1rem;
@@ -65,5 +81,15 @@
         width: 22px;
         height: 22px;
         margin-right: 6px;
+    }
+}
+
+@media (max-width: 700px) {
+    .footer-flex {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .footer-divider {
+        display: none;
     }
 }
