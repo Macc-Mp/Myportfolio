@@ -15,7 +15,7 @@ import vi from '../assets/Skills/frontend/vite.svg';
 
 import assp from '../assets/Skills/languages/aspnet.svg';
 import cpp from '../assets/Skills/languages/cpp.svg';
-import csharp from '../assets/Skills/languages/CSharp.svg'; 
+import csharp from '../assets/Skills/languages/csharp.svg'; 
 import js from '../assets/Skills/languages/javascript.svg';
 import mysqll from '../assets/Skills/backend/mysql.svg';
 
