@@ -74,47 +74,32 @@ function Header() {
     }
 
     return (
-        <div className='header'>
-            <div className='text'>
-                <h2>Hi, I'm Moises Paule</h2>
+        <div className="intro">
+            <div className="leftCard">
+                <h1>Hi, I'm Moises Paule</h1>
+                <p>I aspire to be a developer someday. My goal is to gain experience and currently open to any task.</p>
+                    
                 {/* Display the visit counter here */}
                 <p>Page Loads: <span className="visit-counter-display">{visitCount}</span></p>
                 <p>Time Stamp: <span className="visit-counter-display">{formattedCreatedAt}</span></p>
 
-                <p>
-                    I aspire to be a developer someday.
-                    My goal is to gain experience and currently open to any task.
-                </p>
-
-                <div className='images'>
-                    <a href='#footer'>
-                        <img src={contact} alt='contact' />
-                    </a>
-                    <a href='https://www.linkedin.com/in/moises-paule-6968ab328/'>
-                        <img src={linkedin} alt='linked-in' />
-                    </a>
-                    <a href='https://github.com/Macc-Mp'>
-                        <img src={github} alt='github' />
-                    </a>
-                </div>
-
-                
+  
+                <a href="https://www.linkedin.com/in/moises-paule-6968ab328" target="_blank" rel="noopener noreferrer">
+                    <img src="/button.svg" alt="contact-me" className="cctcme" />
+                </a>
             </div>
+            <div className="rightCard">
+                <img src="/moises.webp" alt="Moises Paule Profile Pic" className="profile-image"></img>
 
-            <div id="light">
-                <div id="lineh1"></div>
-                <div id="lineh2"></div>
-            </div>
-
-            <div className='picture-container'>
-                <img
-                    src={"moises.png" }
-                    alt='profile'
-                    
-                />
             </div>
         </div>
+       
+
+
+                
+ 
     );
 }
 
 export default Header;
+

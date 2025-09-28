@@ -18,35 +18,34 @@ function Footer() {
     }, []);
 
     return (
-        <div className="footer" id='footer'>
-            <div className="footer-content">
-                <div className="footer-flex">
-                    <div className="badge-base LI-profile-badge"
-                        data-locale="en_US"
-                        data-size="medium"
-                        data-theme="dark"
-                        data-type="HORIZONTAL"
-                        data-vanity="moises-paule-6968ab328"
-                        data-version="v1">
-                    </div>
-                    <div className="footer-divider"></div>
-                    <div>
-                        <h3>Contact</h3>
-                        <div className="footer-links">
-                         
-                            <a href="https://github.com/Macc-Mp" target="_blank" rel="noopener noreferrer">
-                                <img src={github} alt="GitHub" className="footer-icon" />
-                                <span>GitHub</span>
-                            </a>
-                            <a href="mailto:macmoises12@gmail.com">
-                                <img src={email} alt="Email" className="footer-icon" />
-                                <span>Email</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <section id="contact">
+    <div className="contact">
+        <h2>Contact Me</h2>
+        
+        <div className="contact-container">
+            <div className="contact-left">
+                 <img src="/me.svg" className="editMe" alt="picture of me"></img>
+                 <a href="https://www.linkedin.com/in/moises-paule-6968ab328" target="_blank">My linkedin</a>
             </div>
+
+            <div className="contactLinks">
+                <div className="media-link">
+                    <img src="/fb.svg" alt="Facebook" />
+                    <p><a href="https://www.facebook.com/moises.paule.39" target="_blank" rel="noopener noreferrer">Paule, Moises</a></p>
+                </div>
+                <div className="media-link">
+                    <img src="/github.svg" alt="Github"></img>
+                    <p><a href="https://github.com/Macc-Mp" target="_blank">Macc-Mp (MacMoises)</a></p>
+                </div>
+                <div className="media-link">
+                    <img src="/email.svg" alt="Email"></img>
+                    <p><a href="mailto:macmoises12@gmail.com" target="_blank">macmoises12@gmail.com</a></p>
+                </div>
+            </div>  
         </div>
+    </div>
+</section>
+
     );
 }
 

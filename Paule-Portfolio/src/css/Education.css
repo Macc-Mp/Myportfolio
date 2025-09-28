@@ -1,0 +1,96 @@
+.education {
+    display: flex; /* Ensure it's visible */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    color: var(--white-plain); 
+    margin-top: 40px;
+    margin-bottom: 40px;
+    min-height: unset; /* Ensure it's not collapsed */
+    background: #1a1b1d;
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    font-size: 2em;
+    font-family: 'Space Mono', monospace;
+    position: relative;
+    
+}
+
+.notes {
+    background-color: var(--dim-white);
+    border-radius: 10px;
+    animation: highlight 2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+    transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes highlight {
+    0% {
+        color: var(--dim-white);
+    }
+    100% {
+        color: var(--hover-color);
+    }
+}
+
+.eduCard {
+    width: 80%;
+    margin-top: 20px;
+    padding: 30px;
+    background-color: #1a1b1d;
+    border-radius: 10px;
+    border: 4px solid var(--white-plain) ;
+    box-sizing: border-box;
+}
+
+.eduCard h3{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.outer {
+   
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+    font-family: 'Space Mono', monospace;
+}
+
+.hobby {
+     font-family: 'Space Mono', monospace;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+.left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.right-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    text-align: right;
+}
+
+.edu-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.edu-degree,
+.edu-date,
+.edu-school {
+    margin: 0;
+    font-size: 0.9em;
+    color: var(--dim-white); 
+}

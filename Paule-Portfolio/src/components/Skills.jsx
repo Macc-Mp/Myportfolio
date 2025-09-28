@@ -2,43 +2,38 @@ import '../css/Skills.css';
 import { useState } from 'react';
 import magic8 from '../assets/Skills/magic8ball.png';
 
-import mysqll from '../assets/Skills/backend/mysql.png'; // Default import
-
-//tools
-import gitt from '../assets/Skills/tools/git.png'; // Default import
-import github from '../assets/Skills/tools/github.png'; // Default import
-import uni from '../assets/Skills/tools/unity.png'; // Default import
-import vscode from '../assets/Skills/tools/vscode.png'; // Default import
-import vsstud from '../assets/Skills/tools/vsstud.png'; // Default import
-import figma from '../assets/Skills/tools/figma.png'; // Default import
-//frontend/framework
-import reactt from '../assets/Skills/frontend/react.png'; // Default import
+// Import skill images
+import mysqll from '../assets/Skills/backend/mysql.png';
+import gitt from '../assets/Skills/tools/git.png';
+import github from '../assets/Skills/tools/github.png';
+import uni from '../assets/Skills/tools/unity.png';
+import vscode from '../assets/Skills/tools/vscode.png';
+import vsstud from '../assets/Skills/tools/vsstud.png';
+import figma from '../assets/Skills/tools/figma.png';
+import reactt from '../assets/Skills/frontend/react.png';
 import csss from '../assets/Skills/frontend/css.png';
-import vi  from '../assets/Skills/frontend/vite.svg'; // Default import
-import httml from '../assets/Skills/frontend/httml.png'; // Default import
-import assp from '../assets/Skills/frontend/assp.png'; // Default import
-//languages
-import cpp from '../assets/Skills/languages/cpp.png'; // Default import
-import csharp from '../assets/Skills/languages/csharp.png'; // Default import
-import jss from '../assets/Skills/languages/jss.png'; // Default import
+import vi from '../assets/Skills/frontend/vite.svg';
+import httml from '../assets/Skills/frontend/httml.png';
+import assp from '../assets/Skills/frontend/assp.png';
+import cpp from '../assets/Skills/languages/cpp.png';
+import csharp from '../assets/Skills/languages/csharp.png';
+import jss from '../assets/Skills/languages/jss.png';
 
 function Skills() {
     const skills = [
-        { name: 'Languages', images: [cpp, csharp, jss] }, // Use the imported image
-        { name: 'Frontend/Framework', images: [reactt, csss, vi, httml, assp] }, // Use the imported image
-        { name: 'Tools', images: [gitt, github, uni, vscode, vsstud, figma] }, // Use the imported image
-        { name: 'Backend', images: [mysqll] }, // Use the imported image
+        { name: 'Languages', images: [cpp, csharp, jss] },
+        { name: 'Frontend/Framework', images: [reactt, csss, vi, httml, assp] },
+        { name: 'Tools', images: [gitt, github, uni, vscode, vsstud, figma] },
+        { name: 'Backend', images: [mysqll] },
+    ];
 
-       
-    ]; // List of skills with their images
-
-    const [currentSkillIndex, setCurrentSkillIndex] = useState(0); // Track the current skill index
+    const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
     const [isShaking, setIsShaking] = useState(false);
 
     const handleImageClick = () => {
-        setIsShaking(true); // Start the shake animation
+        setIsShaking(true); // Add the 'shaking' class
         setTimeout(() => {
-            setIsShaking(false); // Stop the shake animation after 0.5 seconds
+            setIsShaking(false); // Remove the 'shaking' class after 0.5 seconds
             setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % skills.length); // Cycle to the next skill
         }, 500); // Match the duration of the shake animation
     };
@@ -47,16 +42,16 @@ function Skills() {
         <div className="Skill-container">
             <img
                 src={magic8}
-                className={`puzzles ${isShaking ? 'shaking' : ''}`} // Add 'shaking' class if isShaking is true
+                className={`puzzles ${isShaking ? 'shaking' : ''}`} // Dynamically add 'shaking' class
                 alt="magic8ball"
-                onClick={handleImageClick} // Trigger shake and cycle skills on click
+                onClick={handleImageClick}
             />
             <div className="skills-list">
-                <div className={skills[currentSkillIndex].name}>
-                    <h3>{skills[currentSkillIndex].name}</h3> {/* Display the skill name */}
+                <div className="skillTitle">
+                    <h3>{skills[currentSkillIndex].name}</h3>
                     <div className="images">
                         {skills[currentSkillIndex].images.map((image, index) => (
-                            <img key={index} src={image} alt={`Skill ${index}`} />
+                            <img key={index} src={image} alt={`Skill ${index}`} className="skill-icon" />
                         ))}
                     </div>
                 </div>

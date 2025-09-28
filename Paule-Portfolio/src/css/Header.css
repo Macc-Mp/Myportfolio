@@ -1,170 +1,96 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
-body, html {
-   
-    height: 50%; /* Ensure the body and html take full height */
+.intro {
+    position: relative;
+    background: linear-gradient(135deg, #1A1E29 60%, #23263a 100%);
+    overflow: hidden;
 }
 
-
-.header {
-    width: 100%; /* Full width of the viewport */
-    height: 70vh; /* Set the height of the footer */
-   
-    display: flex;
-    justify-content: flex-start; /* Center the button horizontally */
-    box-sizing: border-box;
-    background-color: black;
-
-    align-items: center; /* Center the button vertically */
+.intro::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height:100px;
+    background-color: var(--dim-white);
+    border: 2px solid black;
+    border-radius: 60% 40% 50% 70% / 60% 40% 0 0;
+    z-index: 0;
+    animation: wavy-bottom 4s ease-in-out infinite alternate;
 }
 
-
-.profile-pic{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%
-}
-
-
-
-.text {
-    box-sizing: border-box;
-    display: flex;
-    width: 544px;
-    padding: 0; /* Remove padding */
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0; /* Remove gap between elements */
-    margin-top: 100px;
-    background-color: black;
-    border-radius: 10px;
-    padding: 30px 0px 30px 30px;
-    margin-left: 100px;
-}
-
-@keyframes pulseOnHover {
+@keyframes wavy-bottom {
     0% {
-        transform: scale(1);
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        border-radius: 60% 40% 50% 70% / 60% 40% 0 0;        
+    }
+    25% {
+        border-radius: 70% 30% 60% 60% / 50% 50% 0 0;
     }
     50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        border-radius: 40% 60% 70% 50% / 40% 60% 0 0;
+    }
+    75% {
+        border-radius: 80% 20% 60% 70% / 60% 40% 0 0;
+         background-color: var(--dim-white);
     }
     100% {
-        transform: scale(1);
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        border-radius: 60% 40% 50% 70% / 60% 40% 0 0;
     }
 }
 
-.text:hover {
-    animation: pulseOnHover 1.5s infinite ease-in-out;
+.intro {
+    display: flex;
+    justify-content:space-around;
+ 
+    width: 100%;
+    height: 95%;
+    column-gap: 30px;
+    background-color: #1A1E29;
+    
+
 }
 
+.leftCard {
+    width: 45%;
+    height: 70%;
+    margin: 5% 0% 10% 10%;
+    flex-shrink: 0;
+    padding: 0  2% 0 2%;
+    border-radius: 20px;
+    margin-left: 50px;
 
-.text h2 {
+    font-family: 'manrope';
+   
+    background: var(--intro-blue);
+    display: block;
+}
+.leftCard p {
+   color: var(--Neutral-Offwhite, #C7C7C7);
+    font-family: Manrope;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+}
+
+.leftCard h1 {
     color: var(--Neutral-White, #FFF);
     font-family: "Bebas Neue";
-    font-size: 50px;
+    font-size: 90px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1; /* Reduce line height */
-    margin: 0; /* Remove margin */
-    margin-bottom: 30px;
+    line-height: 90%; 
+}
+
+.rightCard {
+    width: 50%;
+    margin: 5% 10% 8% 10%;
    
-
-  
+    border-radius: 20px;
 }
 
-.text p {
-    color: rgba(245, 245, 245, 0.784);
-    text-align: left;
-    margin: 20px 0 0 0; /* Negative top margin to push it upwards */
-    padding: 0; /* Remove padding */
-    line-height: 1.2; /* Adjust line height for better spacing */
-    position: relative;
-    bottom: 20px; /* Adjust this value to move the text upwards */
-    left: -15px; /* Adjust this value to move the text to the left */
-    text-align: justify;
-    font-family: "Space Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
+.rightCard img {
+   border-radius: 3%;
 }
 
-.images{
-    display: flex;
-    align-items: flex-start;
+.cctcme{
+    padding-bottom: 20px;
 }
 
-.images img{
-    margin: 20px 10px 0px 0px;
-    cursor: pointer;
-}
-
-
-#light {
-    position: relative;
-    top: 150px;
-    width: 100%; /* Ensure it spans the full width */
-    height: 400px; /* Adjust based on your design */
-    overflow: hidden; /* Prevent lines from overflowing */
-}
-#lineh1{
-    position: absolute;
-    right: 0;
-    height: 10px;
-    background: steelblue;
-    animation: lineH 4s 5s infinite linear;
-}
-#lineh2{
-    position: absolute;
-    left: 0;
-    top: 40px;
-    height: 10px;
-    background:steelblue;
-    animation: lineH 5s 0.5s infinite linear;
-}
-
-@keyframes lineH{
-    0%{
-        width: 0%;
-        opacity: 1;
-    }
-    100%{
-width: 95%;
-opacity: 0;
-}
-}
-
-.picture-container{
-    margin-top: 30px;;
-    margin-right: 350px;
-    /* Set a fixed height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%; /* Make the container circular */
-   
-}
-.picture-container img {
-    border-style: solid;
-    border-width: 20px;
-    width: 250%;       /* Make image fill the container */
-    height: 50%;      /* Make image fill the container */
-    object-fit: cover; /* Ensure image covers the area */
-
-    position: relative;
-    transition: opacity 0.5s ease;
-    opacity: 1;
-}
-
-.fade-image.hide {
-    opacity: 1;
-}
-
-.fade-image.show {
-    opacity: 1;
-}

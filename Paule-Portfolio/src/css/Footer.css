@@ -1,95 +1,265 @@
-.footer {
-    width: 100%;
-    background: #0d1321;
-    color: #eef0f2;
-    padding: 40px 0 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 2px solid #232b2b;
-    box-sizing: border-box;
-}
-
-.footer-content {
+.contact {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: visible;
 }
 
-.footer-content h3 {
+.contact h2 {
+    color: var(--Neutral-Black, white);
+    font-family: "Bebas Neue";
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 100%;
     margin-bottom: 20px;
-    font-family: "Space Mono", monospace;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
 }
 
-.footer-links {
+.contact-container {
+    border: 5px solid var(--dull-color, #000);
     display: flex;
-    gap: 30px;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    padding: 20px;
+    background-color: var(--white2); 
+    border-radius: 10px;
+    box-sizing: border-box;
+    animation: borderColorChange 3s infinite alternate;
 }
 
-.footer-links a {
+@keyframes borderColorChange {
+    0% {
+        border-color: var(--intro-blue); 
+    }
+    50% {
+        border-color: var(--white2); 
+    }
+    100% {
+        border-color: var(--dull-color, #000); 
+    }
+}
+.contact-left {
+    flex-shrink: 0;
+    
+    background-color: var(--dim-white); 
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.contact-left a {
+    color: var(--intro-blue);
+    font-family: "Space Mono", monospace;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 2px solid var(--intro-blue);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.editMe{
+    width: 300px;
+    height: 300px;
+    padding-bottom: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+.contact-left a:hover {
+    color: var(--white-plain);
+    background-color: var(--intro-blue);
+    text-decoration: none;
+}
+
+.contactLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.media-link {
     display: flex;
     align-items: center;
-    color: #eef0f2;
-    text-decoration: none;
+    gap: 10px;
+    color: var(--dull-color);
     font-family: "Space Mono", monospace;
-    font-size: 1rem;
+    text-decoration: none;
     transition: color 0.2s;
 }
 
-.footer-links a:hover {
-    color: #61dafb;
+.media-link:hover {
+    color: var(--hover-color);
 }
 
-.footer-icon {
-    width: 28px;
-    height: 28px;
-    margin-right: 10px;
-    filter: grayscale(1) brightness(1.2);
-    transition: filter 0.2s;
+.media-link img {
+    width: 35px;
+    filter: invert(0);
 }
 
-.footer-links a:hover .footer-icon {
-    filter: none;
+.media-link p {
+    margin: 0;
 }
 
-.footer-flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+.media-link a {
+    color: inherit; 
+    text-decoration: none; 
 }
 
-.footer-divider {
-    width: 2px;
-    height: 80px;
-    background: #3b8ea5;
-    margin: 0 24px;
-    border-radius: 2px;
+@media only screen and (min-width: 425px) and (max-width:700px){
+    .contact{
+        position:relative;
+        top: 95rem;
+    }
 }
 
 @media (max-width: 600px) {
-    .footer-content h3 {
-        font-size: 1.1rem;
+    .contact-container {
+        flex-direction: column;
+    align-items: center;
+        gap: 20px;
+        width: 95%;
     }
-    .footer-links {
-        gap: 15px;
+
+    .contact-left,
+    .contactLinks {
+        width: 100%;
+        text-align: center;
     }
-    .footer-icon {
-        width: 22px;
-        height: 22px;
-        margin-right: 6px;
+    
+    .contactLinks {
+        align-items: center;
+    }
+
+    .media-link {
+        justify-content: center;
     }
 }
 
-@media (max-width: 700px) {
-    .footer-flex {
-        flex-direction: column;
-        gap: 20px;
+@media (max-width:820px) {
+    .contact-left,
+    .contactLinks {
+        width: 100%;
+        text-align: center;
     }
-    .footer-divider {
-        display: none;
+
+    .contactLinks {
+        align-items: center;
+    }
+
+    .media-link {
+        justify-content: center;
+    }
+    .editMe {
+        width: 100%;
+        height: auto;
+    }
+    .contact h2 {
+        font-size: 40px;
+    }
+    .contact-container {
+        width: 90%;
+    }
+    .contact-left a {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+    .media-link img {
+        width: 20px;
+    }
+    .media-link p {
+        font-size: 14px;
+    }
+    .media-link a {
+        color: inherit;
+        text-decoration: none;
+    }
+    .contactLinks {
+        gap: 15px; 
+    }
+
+}
+
+
+
+@media (min-width: 768px) and (max-width: 820px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+        gap: 24px;
+        padding: 20px 8px;
+    }
+    .contact-left, .contactLinks {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+    .contactLinks {
+        align-items: center;
+        gap: 18px;
+    }
+    .media-link {
+        justify-content: center;
+        font-size: 1.1em;
+    }
+    .media-link img {
+        width: 28px;
+    }
+    .editMe {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 180px;
+        height: 180px;
+    }
+    .contact h2 {
+        font-size: 38px;
     }
 }
+
+.contact::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+    height: 150px;
+    background: var(--dim-white);
+    border-radius: 60% 40% 50% 70% / 60% 40% 0 0;
+    z-index: 0;
+    animation: wavy-contact 10s ease-in-out infinite alternate;
+}
+
+@keyframes wavy-contact {
+    0% {
+        border-radius: 40% 610% 55% 70% / 22% 40% 0 0;
+    }
+    25% {
+        border-radius: 85% 30% 30% 56% / 45% 66% 0 0;
+    }
+    50% {
+        border-radius: 60% 40% 50% 70% / 60% 45% 0 0;
+    }
+    75% {
+        border-radius: 40% 60% 70% 50% / 42% 90% 0 0;
+    }
+    100% {
+        border-radius: 35% 40% 50% 20% / 60% 40% 0 0;
+    }
+}
+
