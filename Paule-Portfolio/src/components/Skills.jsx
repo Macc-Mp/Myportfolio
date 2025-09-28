@@ -3,26 +3,27 @@ import { useState } from 'react';
 import magic8 from '../assets/Skills/magic8ball.png';
 
 // Import skill images
-import mysqll from '../assets/Skills/backend/mysql.png';
-import gitt from '../assets/Skills/tools/git.png';
-import github from '../assets/Skills/tools/github.png';
-import uni from '../assets/Skills/tools/unity.png';
-import vscode from '../assets/Skills/tools/vscode.png';
-import vsstud from '../assets/Skills/tools/vsstud.png';
-import figma from '../assets/Skills/tools/figma.png';
-import reactt from '../assets/Skills/frontend/react.png';
-import csss from '../assets/Skills/frontend/css.png';
+import gitt from '../assets/Skills/tools/git.svg';
+import github from '../assets/Skills/tools/hub.svg';
+import uni from '../assets/Skills/tools/unity.svg';
+import vscode from '../assets/Skills/tools/vscode.svg';
+import vsstud from '../assets/Skills/tools/vsstud.svg';
+import figma from '../assets/Skills/tools/figma.svg';
+import reactt from '../assets/Skills/frontend/react.svg';
+import csss from '../assets/Skills/frontend/css.svg';
 import vi from '../assets/Skills/frontend/vite.svg';
-import httml from '../assets/Skills/frontend/httml.png';
-import assp from '../assets/Skills/frontend/assp.png';
-import cpp from '../assets/Skills/languages/cpp.png';
-import csharp from '../assets/Skills/languages/csharp.png';
-import jss from '../assets/Skills/languages/jss.png';
+
+import assp from '../assets/Skills/languages/aspnet.svg';
+import cpp from '../assets/Skills/languages/cpp.svg';
+import csharp from '../assets/Skills/languages/CSharp.svg'; 
+import js from '../assets/Skills/languages/javascript.svg';
+import mysqll from '../assets/Skills/backend/mysql.svg';
+
 
 function Skills() {
     const skills = [
-        { name: 'Languages', images: [cpp, csharp, jss] },
-        { name: 'Frontend/Framework', images: [reactt, csss, vi, httml, assp] },
+        { name: 'Languages', images: [cpp, csharp, js] },
+        { name: 'Frontend/Framework', images: [reactt, csss, vi, assp] },
         { name: 'Tools', images: [gitt, github, uni, vscode, vsstud, figma] },
         { name: 'Backend', images: [mysqll] },
     ];
@@ -55,6 +56,9 @@ function Skills() {
                         ))}
                     </div>
                 </div>
+            </div>
+            <div>
+                
             </div>
         </div>
     );
