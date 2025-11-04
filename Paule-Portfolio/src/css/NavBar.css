@@ -1,3 +1,4 @@
+/*start of navbar.css */
 h2 {
   vertical-align: center;
   text-align: center;
@@ -18,7 +19,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: var(--dim-white); /* Fixed incorrect var() usage */
+  color: #FFF;
   height: 50px;
   padding: 3em;
 }
@@ -57,7 +58,7 @@ html, body {
 }
 
 .menu li a{
-  color: var(--dim-white);
+  color: var(--Neutral-Offwhite, --dim-white);
   font-family: "Bebas Neue";
   font-size: 1.5rem;
   font-style: normal;
@@ -66,7 +67,7 @@ html, body {
   letter-spacing: -0.32px;
 }
 .menu li a:hover {
-  color: var(--white-plain);
+  color: var(--Neutral-White, --white-plain);
   text-decoration: underline;
 }
 
@@ -97,7 +98,6 @@ html, body {
   position: absolute;
   height: 4px;
   width: 30px;
-  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
   border-radius: 2px;
 }
 
@@ -125,8 +125,15 @@ html, body {
   transform: rotate(-405deg);
 }
 
+.cctcme {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 /*phone*/
-@media only screen and (max-width: 400px) and (min-width: 320px){
+@media only screen and (min-width: 425px) and (max-width: 700px){
   .titleleft {
       position: relative;
       font-size: 24px !important;
@@ -135,16 +142,8 @@ html, body {
   .cctcme {
     width: 150px !important;
   }
-}
 
-.cctcme {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-@media (max-width: 700px) {
-  .menu-button-container {
+   .menu-button-container {
     display: flex;
   }
   .menu {
@@ -162,25 +161,54 @@ html, body {
     margin: 0;
     padding: 0;
     border: 0;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    
   }
   #menu-toggle:checked ~ .menu li {
     border: 1px solid #333;
     height: 2.5em;
     padding: 0.5em;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
+  
+    margin-bottom: 2px;
+}
+    #menu-toggle ~ .menu li:hover {
+        background-color: var(--cool-blue);
+    }
   .menu > li {
     z-index: 1;
     display: flex;
     justify-content: center;
-    margin: 0;
-    padding: 0.5em 0;
-    width: 100%;
+    margin: 2px 2px 2px 2px;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    width: 50%;
+    border-radius: 10px;
     color: white;
     background-color: #222;
+   
+
   }
   .menu > li:not(:last-child) {
     border-bottom: 1px solid #444;
   }
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .top-nav {
+    padding: 2em;
+  }
+
+  .titleleft {
+    font-size: 2.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .menu {
+    margin-top: 2.5rem;
+  }
+  .menu li a {
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    
+  }
+}
+
+/*end of navbar.css */

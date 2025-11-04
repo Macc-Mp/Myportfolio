@@ -1,5 +1,6 @@
+/* start of education.css */
 .education {
-    display: flex; /* Ensure it's visible */
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -8,7 +9,7 @@
     color: var(--white-plain); 
     margin-top: 40px;
     margin-bottom: 40px;
-    min-height: unset; /* Ensure it's not collapsed */
+    min-height: unset;
     background: #1a1b1d;
     position: relative;
     z-index: 1;
@@ -93,4 +94,97 @@ h2 {
     margin: 0;
     font-size: 0.9em;
     color: var(--dim-white); 
+}
+
+@media only screen and (min-width: 425px) and (max-width: 700px) {
+    .education {
+        position: relative;
+        top: 100rem !important;
+        padding: 30px 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .eduCard {
+        width: 95%;
+        padding: 15px;
+    }
+    .edu-date{
+        padding-top: 1rem !important;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+    .notes{
+        font-size: 0.8rem !important;
+    }
+    .outer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    }
+    .left-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+
+    .right-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    h2{
+        font-size: 2.5rem;
+    }
+    .notes {
+        font-size: 200.2rem !important;
+        margin-bottom: 20px;
+    }
+    .education {
+        padding: 30px 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .eduCard {
+       
+        padding: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 10px;
+    }
+    .edu-title{
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .edu-school{
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+    .edu-degree{
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .edu-degree{
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .edu-date{
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 2rem;
+    }
+    .notes{
+        font-size: 2rem !important;
+    }
+    .hobby{
+        font-size: 1.5rem;
+    }
 }

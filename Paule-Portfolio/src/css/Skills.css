@@ -234,9 +234,10 @@
 }
 
 .aboutMe {
+    position: relative; /* needed for pseudo-element */
+    overflow: hidden;   /* contain the shimmer */
     background: linear-gradient(120deg, #1B243B 60%, #797c80 80%, #b3e0ff 100%);
-    background-size: 200% 100%;
-    animation: shining 5s linear infinite;
+    /* keep the base gradient but remove background-position animation */
     fill: var(--primary-bg);
     filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
     display: flex;
@@ -245,15 +246,39 @@
     padding: 20px;
 }
 
-@keyframes shining {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: 0 0;
-    }
+/* shimmer using a pseudo-element and transform for smoother animation */
+.aboutMe::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -60%;              /* start off to the left */
+    width: 120%;             /* wide enough to create the sweep */
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.06) 40%,
+        rgba(255,255,255,0.04) 50%,
+        rgba(255,255,255,0) 100%);
+    transform: translateX(0);
+    will-change: transform;
+    opacity: 0.95;
+    mix-blend-mode: overlay;
+    animation: shimmerX 4.2s linear infinite;
 }
 
+@keyframes shimmerX {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(100%); }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .aboutMe::before {
+        animation: none;
+        opacity: 0; /* hide the shimmer for reduced motion */
+    }
+}
 .text-container {
     width: 80%;
     margin-bottom: 50px;
@@ -289,6 +314,64 @@
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
     gap: 20px; /* Add spacing between the 8-ball and the skills list */
+    position: relative; /* <-- needed so the wave can be absolutely positioned */
+}
+
+/* Wavy SVG wrapper for skills section */
+.skills-wavy-wrapper {
+    position: absolute;
+    bottom: 0; /* sit at the bottom of the skill container */
+    left: 0;
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.skills-wavy-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* wide so translateX movement is visible */
+    height: 100%;
+}
+
+/* wave layers */
+.wave {
+    transform-origin: 0 50%;
+    will-change: transform;
+}
+
+/* front wave (faster, brighter) */
+.wave--front {
+    fill: rgba(27,101,168,0.25); /* bluish */
+    animation: waveMoveFront 6s linear infinite;
+}
+
+/* back wave (slower, dimmer) */
+.wave--back {
+    fill: rgba(27,101,168,0.12);
+    animation: waveMoveBack 10s linear infinite;
+}
+
+/* slide left */
+@keyframes waveMoveFront {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+@keyframes waveMoveBack {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-35%); }
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .wave--front, .wave--back {
+        animation: none;
+        transform: none;
+        opacity: 0.6;
+    }
 }
 
 #magic8 {
@@ -336,6 +419,7 @@
     font-family: raleway;
     font-weight: bold;
     text-align: center;
+    color: var(--white-plain)
    
 }
 

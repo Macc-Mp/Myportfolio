@@ -1,10 +1,12 @@
+/*start of intro.css */
 .intro {
     position: relative;
-    background: linear-gradient(135deg, #1A1E29 60%, #23263a 100%);
     overflow: hidden;
+    /* remove background gradient when using video; keep fallback color */
+    background-color: #0f1720; /* fallback if video unavailable */
 }
 
-.intro::after {
+/* .intro::after {
     content: "";
     position: absolute;
     left: 0; right: 0; bottom: 0;
@@ -13,10 +15,10 @@
     border: 2px solid black;
     border-radius: 60% 40% 50% 70% / 60% 40% 0 0;
     z-index: 0;
-    animation: wavy-bottom 4s ease-in-out infinite alternate;
-}
+    /* animation: wavy-bottom 4s ease-in-out infinite alternate; */
+/* } */ */
 
-@keyframes wavy-bottom {
+/* @keyframes wavy-bottom {
     0% {
         border-radius: 60% 40% 50% 70% / 60% 40% 0 0;        
     }
@@ -33,18 +35,16 @@
     100% {
         border-radius: 60% 40% 50% 70% / 60% 40% 0 0;
     }
-}
+} */
 
 .intro {
     display: flex;
     justify-content:space-around;
- 
+    
     width: 100%;
     height: 95%;
     column-gap: 30px;
-    background-color: #1A1E29;
-    
-
+    background-color: var(--dim-white);
 }
 
 .leftCard {
@@ -52,13 +52,13 @@
     height: 70%;
     margin: 5% 0% 10% 10%;
     flex-shrink: 0;
-    padding: 0  2% 0 2%;
+    padding: 1% 2% 1% 2%;
     border-radius: 20px;
     margin-left: 50px;
 
     font-family: 'manrope';
    
-    background: var(--intro-blue);
+   background: var(--intro-blue);
     display: block;
 }
 .leftCard p {
@@ -73,24 +73,228 @@
 .leftCard h1 {
     color: var(--Neutral-White, #FFF);
     font-family: "Bebas Neue";
-    font-size: 90px;
+    font-size: 80px;
     font-style: normal;
     font-weight: 400;
     line-height: 90%; 
 }
 
 .rightCard {
-    width: 50%;
-    margin: 5% 10% 8% 10%;
-   
-    border-radius: 20px;
-}
-
-.rightCard img {
-   border-radius: 3%;
+    margin-top: 12rem;
+    width: 100%;
+  
+  
+  
 }
 
 .cctcme{
-    padding-bottom: 20px;
+    width: 150px;
+    height: 80px;
 }
 
+/* .rightCard img {
+   border-radius: 50%;
+} */
+
+@media only screen and (min-width: 425px) and (max-width: 700px){
+    .profile-image{
+        width: 250px !important;
+        margin-bottom: 100px !important;   
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin: 0 auto; 
+    }
+
+    .intro {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 6px 0;
+        gap: 0;
+    }
+
+    .leftCard, .rightCard {
+        width: 100%;
+        margin: 5px 0;
+        padding-left: 0;
+
+        width: 100%;
+        padding: 3% 2%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .leftCard h1{
+        font-size: 2.3em;
+        line-height: 1.1;
+        text-align: center;
+        word-break: break-word;
+        font-weight: bold;
+    }
+    .leftCard p {
+        color: var(--dim-white);
+        font-size: 0.9em;
+        text-align: center;
+        word-break: break-word;
+      
+    }  
+
+    .rightCard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 4px 0;
+    }
+
+     /* .rightCard img {
+        width: inherit;
+        height: 100%;
+        border-radius: 20px;
+    } */
+
+    .cctcme {
+        display: block;
+        margin: 0 auto 8px auto;
+        width: 40px;
+        height: auto;
+    }
+     .education {
+        margin-top: 24px !important;
+        padding-top: 16px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+    .intro{
+       position: relative;
+  
+       width: auto;
+       height: auto; 
+    }
+    .leftCard {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 1.5rem;
+    }
+    .leftCard p{
+        font-size: 1.5rem !important;
+        line-height: 1.2;
+        padding-bottom: 20px;
+        text-align: justify;
+    }
+    .cctcme{
+        height: 15%;
+    }
+    /* .rightCard img {
+        border-radius: 20px;
+        background-size:cover;
+        height: 97%;
+        width: 22rem !important;
+        position: relative;
+        right:8.5rem;
+        padding-left:2.5rem;
+       
+    } */
+    /* .intro::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        width: auto;
+       
+    } */
+
+}
+
+/* ensure content sits above video + overlay */
+.leftCard,
+.rightCard {
+    position: relative;
+    z-index: 2; /* higher than .video-overlay (z-index:1) */
+}
+
+/* make the container a circular frame and responsive */
+.picture-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;            /* smaller outer frame */
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 4px;
+    background: linear-gradient(135deg, #2b4b6f, #61a0ff); /* ring color */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.22); /* reduced depth */
+    transition: transform 180ms ease;
+}
+
+/* profile image styles for perfect crop + nice appearance */
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* preserve aspect, crop if needed */
+    border-radius: 50%;      /* ensure circular inside container */
+    display: block;
+    border: 2px solid rgba(255,255,255,0.85); /* thinner inner border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.22);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    background-color: #f0f0f0; /* fallback while image loads */
+}
+
+/* subtle hover for small frame */
+.picture-container:hover,
+.picture-container:focus-within {
+    transform: translateY(-2px); /* subtle lift */
+}
+.picture-container:hover .profile-image,
+.picture-container:focus-within .profile-image {
+    transform: scale(1.02);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.30);
+}
+
+/* tablet */
+@media (max-width: 768px) {
+    .picture-container {
+        width: 72px;
+        height: 72px;
+        padding: 3px;
+    }
+    .profile-image {
+        border-width: 1.5px;
+    }
+}
+
+/* phone */
+@media (max-width: 420px) {
+    .picture-container {
+        width: 56px;
+        height: 56px;
+        padding: 2px;
+    }
+    .profile-image {
+        border-width: 1px;
+    }
+}
+
+/* Video background styles */
+.video-bg {
+ 
+    position: absolute;
+    inset: 0;                 /* shorthand for top:0; right:0; bottom:0; left:0; */
+    width: 100%;
+    height: 90%;
+    object-fit: cover;        /* scale & crop to fill */
+    z-index: 0;
+    pointer-events: none;
+    /* Optional filters */
+    filter: saturate(0.95) contrast(0.95);
+    /* Prevent the video from being blurry on some browsers */
+    backface-visibility: hidden;
+}
+
+/*end of intro.css */

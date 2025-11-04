@@ -41,6 +41,7 @@ function Skills() {
 
     return (
         <div className="Skill-container">
+            <h2 className='skillTitle'>Tech Skills I'm familiar with.</h2>
             <img
                 src={magic8}
                 className={`puzzles ${isShaking ? 'shaking' : ''}`} // Dynamically add 'shaking' class

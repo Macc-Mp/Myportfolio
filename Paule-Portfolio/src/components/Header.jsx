@@ -53,8 +53,6 @@ function Header() {
             }
         };
 
-     
-
         // Call the functions when the component mounts
         incrementVisitCount(); // Increment the count when the page is visited
         fetchAndDisplayVisitCount(); // Fetch and display the updated count
@@ -75,24 +73,31 @@ function Header() {
 
     return (
         <div className="intro">
-            <div className="leftCard">
-                <h1>Hi, I'm Moises Paule</h1>
-                <p>I aspire to be a developer someday. My goal is to gain experience and currently open to any task.</p>
+             <div className="video-wrapper" aria-hidden="true">
+                    <video
+                        className="video-bg"
+                        src="/header-bg/waving.mp4"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                    />
+                </div>
+             <div className="leftCard">
+                 <h1>Hi, I'm Moises Paule</h1>
+                 <p>I aspire to be a developer someday. My goal is to gain experience and currently open to any task.</p>
                     
                 {/* Display the visit counter here */}
-                <p>Page Loads: <span className="visit-counter-display">{visitCount}</span></p>
-                <p>Time Stamp: <span className="visit-counter-display">{formattedCreatedAt}</span></p>
-
-  
+                {/* <p>Page Loads: <span className="visit-counter-display">{visitCount}</span></p> */}
+                {/* <p>Time Stamp: <span className="visit-counter-display">{formattedCreatedAt}</span></p> */}
                 <a href="https://www.linkedin.com/in/moises-paule-6968ab328" target="_blank" rel="noopener noreferrer">
                     <img src="/button.svg" alt="contact-me" className="cctcme" />
                 </a>
             </div>
             <div className="rightCard">
-                <img src="/moises.webp" alt="Moises Paule Profile Pic" className="profile-image"></img>
-
+               
             </div>
-        </div>
+         </div>
        
 
 

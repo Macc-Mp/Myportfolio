@@ -1,3 +1,4 @@
+/*start of projects.css  */
 .projects {
     display: flex;
     flex-direction: column;
@@ -207,7 +208,16 @@
     }
 }
 
-@media (max-width: 600px) {
+@media only screen and (min-width:425px) and (max-width: 700px) {
+     .projects {
+        margin-bottom: 24px !important;
+        padding-bottom: 10px !important;
+    }
+    
+    #magic8{
+        width: 10rem;
+    }
+
     .project-card {
         flex-direction: column;
         align-items: stretch;
@@ -259,5 +269,34 @@
     }
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .projects {
+        margin-bottom: 50rem !important;
+        padding-bottom: 20px !important;
+    }
+    .project-card{
+        padding-bottom: 2rem;
+       
+    }
+   
+    .project-title {
+        font-size: 1.5rem;
+    }
 
+    .project-description, .project-features {
+        word-break: break-word;
+        font-size: 1.1rem;
+    }
+    
+    .tech-icons {
+        margin-top: 15px;
+    }
 
+    .project-image {
+        width: 108% !important;
+        height: 180% !important;
+
+    }
+}
+
+/*end of project.css  */
