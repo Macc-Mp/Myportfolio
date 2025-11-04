@@ -17,9 +17,9 @@ function App() {
         <NavBar />
         <Header />
         <Skills />
-        <ResumeReader />
         <ProjectsBody />
         <Education />
+         <ResumeReader />
         <Footer />
       </div>
       
