@@ -1,0 +1,119 @@
+/* Participation (PartOne) page styles */
+.participation-page {
+    margin: 0;
+    font-family: system-ui, Arial, sans-serif;
+    background: #0f1720;
+    color: #fff;
+    padding: 24px 0;
+}
+
+.participation-page .container {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 16px;
+}
+
+.participation-page .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.participation-page .top a {
+    color: #61dafb;
+    text-decoration: none;
+}
+
+.participation-page h1 {
+    margin: 0 0 12px 0;
+    font-size: 24px;
+}
+
+.participation-page .subtitle {
+    color: #9aa0a6;
+    margin-top: 6px;
+}
+
+.participation-page .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.participation-page .card {
+    background: #111;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 180ms ease;
+}
+
+.participation-page .card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.participation-page .card .caption {
+    padding: 10px;
+    font-size: 14px;
+    color: var(--dim-white, #c7c7c7);
+    text-align: center;
+}
+
+.participation-page .controls {
+    margin-left: auto;
+}
+
+.participation-page .part-back {
+    display: inline-block;
+    padding: 8px 12px;
+    /* set the intended visible color here (was overridden previously) */
+    background: var(--red);
+    color: var(--dim-white);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+
+.participation-page .part-back:hover {
+    transform: translateY(-2px);
+    background: var(--intro-blue);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+}
+
+/* clickable card link */
+.participation-page .card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.participation-page .card-link:hover .card,
+.participation-page .card:hover {
+    transform: translateY(-4px);
+}
+
+/* Increase selector specificity so the link color doesn't get overridden by .top a rules */
+.participation-page .top .controls .part-back,
+.participation-page .top a.part-back {
+    color: #fff;
+    font-weight: 600;
+}
+
+@media (max-width: 420px) {
+    .participation-page .card img {
+        height: 120px;
+    }
+
+    .participation-page h1 {
+        font-size: 20px;
+    }
+}

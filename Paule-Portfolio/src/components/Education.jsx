@@ -31,21 +31,7 @@ function Education(){
                 </div>
 
             </div>
-        <h2 className="notes">Awards/Recognition/Volunteer Work</h2>
-        <div className="outer">
-            <div className="left-col">
-                <p className="edu-degree">Participation in Webinar Series in App Dev, Game Dev and Web Exploitation</p>
-                <p className="edu-degree">Participation in SCS : Introduction to Web Dev  Bootcamp</p>
-                <p className="edu-degree">Completion of MS Student Ambassadors Workshop: GitHub Copilot </p>
-            </div>
-            <div className="right-col">
-                    <p className="edu-date">2024</p>
-                    <p className="edu-date">2024</p>
-                    <p className="edu-date">2024</p>
-                    
-            </div>
-            
-        </div>
+
         <h2 className="notes">Hobby</h2>
         <p className="hobby">Hobby : Sprite and Indie Game Contributor at Itch.io @MoacWorks - itch.io</p>
 
