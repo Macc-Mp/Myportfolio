@@ -6,6 +6,7 @@ import Header from './components/Header'
 import ProjectsBody from './components/ProjectsBody'
 import Education from './components/Education'
 import ResumeReader from './components/ResumeReader'
+import Participation from './components/Participation'    
 //import './App.css'
 import './css/index.css'
 
@@ -20,6 +21,7 @@ function App() {
         <ProjectsBody />
         <Education />
          <ResumeReader />
+        <Participation />
         <Footer />
       </div>
       
