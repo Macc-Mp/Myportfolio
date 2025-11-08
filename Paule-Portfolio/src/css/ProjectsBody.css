@@ -1,24 +1,24 @@
 /*start of projects.css  */
 .projects {
+    /* Container: keep header + description stacked, cards live in #projectCards grid */
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 150vh;
-    padding-bottom: 40px;
-    margin-bottom: 50%;
+    max-width: 1200px;
+    padding: 40px 1.5rem;
+    margin: 0 auto 4rem auto;
+    box-sizing: border-box;
+    overflow: visible;
 }
 
-.projects h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--Neutral-White, #FFF);
-    text-align: center;
-    font-family: "Space Mono";
-    font-size: 60px;
-    font-weight: 700;
-    line-height: 100%;
+/* Project cards grid (separate element) */
+#projectCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .projects-header {
@@ -31,43 +31,47 @@
 }
 
 .project-card {
-    width: 80vw;
-    min-height: 300px;
-    height: 60vh;
-    margin: 30px 0 9% 0;
-    background-color: var(--white2);
-    border-radius: 15px;
-    border: 20px solid var(--dim-white);
+    /* Card style tuned to match the screenshot: compact, dark background, subtle shadow */
+    width: 100%;
+    min-height: 260px;
+    height: auto;
+    margin: 0;
+  
+    color: var(--Neutral-White, #fff);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
     display: flex;
+    flex-direction: column;
     box-sizing: border-box;
-    align-self: flex-start;
-    opacity: 0.8;
-    padding: 20px; 
+    opacity: 1;
+    padding: 0; /* we'll space internal parts individually */
+    overflow: hidden;
 }
 
 .box-content {
-  
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
+    flex-direction: column; /* image on top, content below (card style) */
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 12px;
     width: 100%;
 }
 
 .image-container {
-    width: 40%;
-    flex-shrink: 0; 
+    width: 100%;
+    flex-shrink: 0;
+    display: block;
+    background-color: var(--dim-white);
 }
 
 .project-image {
     width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    border-radius: 10px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: var(--dull-color);
-
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+    border: none;
 }
 
 .project-image:hover {
@@ -80,7 +84,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 60%;
+    width: 100%;
+    padding: 14px 18px 18px 18px;
 }
 
 .left-section {
@@ -92,50 +97,50 @@
 .right-section {
     display: flex;
     flex-direction: column;
-    max-width: 700px;
+    max-width: 100%;
 }
 
 .project-title {
-    color:var(--dull-color);
+    color: var(--Neutral-White, #fff);
     font-family: "Space Mono", monospace;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 120%;
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 .project-description {
-    text-align: justify;
-    color:var(--dull-color);
+    text-align: left;
+    color: var(--Minor-Light, #cfcfcf);
     font-family: "Space Mono", monospace;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    font-weight: bold;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    font-weight: 500;
 }
 
 .project-features {
-    padding-left: 20px;
+    padding-left: 18px;
     list-style-type: disc;
-    color: var(--minor-text);
+    color: var(--Minor-Light, #cfcfcf);
     font-family: "Space Mono", monospace;
-    font-size: 14px;
-    line-height: 1.6;
-    font-weight: bold;
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 500;
 }
 
 .view-button {
     display: inline-block;
-    background-color: var(--dull-color);
-    color: var(--white-plain);
+    background-color: rgba(255,255,255,0.06);
+    color: var(--Neutral-White, #fff);
     font-family: "Space Mono", monospace;
-    font-size: 14px;
-    padding: 8px 18px;
-    border-radius: 20px;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 14px;
     text-decoration: none;
-    margin: 10px 0;
-    transition: background 0.2s ease-in-out;
+    margin: 8px 0 0 0;
+    transition: background 0.15s ease-in-out, transform 0.12s ease;
 }
 
 .view-button:hover {
@@ -144,19 +149,13 @@
 
 .tech-icons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 10px; 
-    margin: 20px auto; 
-    width: fit-content;
-    animation: ColorChange 3s infinite alternate;
-    animation-delay: 2.5s;
-    
-    border-radius: 5px; 
-    padding-top: 20px; 
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    gap: 8px;
+    margin: 10px 0 0 0;
+    width: auto;
+    justify-content: center;
+    margin: 1rem 0;
 }
 
 .tech-icon{    
@@ -221,7 +220,8 @@
     .project-card {
         flex-direction: column;
         align-items: stretch;
-        width: 95vw;
+        width: 100%;
+        max-width: 95%;
         height: auto;
         padding: 10px 4px;
     }
@@ -271,7 +271,8 @@
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .projects {
-        margin-bottom: 50rem !important;
+        /* avoid huge bottom spacing that pushes layout oddly */
+        margin-bottom: 4rem !important;
         padding-bottom: 20px !important;
     }
     .project-card{
@@ -292,11 +293,8 @@
         margin-top: 15px;
     }
 
-    .project-image {
-        width: 108% !important;
-        height: 180% !important;
-
-    }
+    /* don't force images to overflow their cards */
+    /* .project-image default rules will apply */
 }
 
 /*end of project.css  */

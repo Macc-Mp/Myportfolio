@@ -12,8 +12,10 @@ import Participation from './components/Participation'
 //routes for participation pages
 import PartOne from './sub-components/participation-one'
 import PartTwo from './sub-components/participation-two'
+import PartThree from './sub-components/participation-three'
 //import './App.css'
 import './css/index.css'
+import Design from './css/main-bg/design';
 
 
 function App() {
@@ -21,14 +23,19 @@ function App() {
   function Home() {
     return (
       <>
-        <NavBar />
-        <Header />
-        <Skills />
-        <ProjectsBody />
-        <Education />
-        <ResumeReader />
-        <Participation />
-        <Footer />
+        
+        <Design />
+     
+          <NavBar />
+          <Header />
+          <Skills />
+          <ProjectsBody />
+          <Education />
+          <ResumeReader />
+          <Participation />
+          <Footer />
+     
+      
       </>
     )
   }
@@ -37,6 +44,7 @@ function App() {
     { path: '/', element: <Home /> },
     { path: '/participation', element: <PartOne /> },
     { path: '/participation/part-two', element: <PartTwo /> },
+    { path: '/participation/part-three', element: <PartThree /> }
   ])
 
   return <RouterProvider router={router} />

@@ -11,9 +11,12 @@ function Participation() {
             </Link>
 
             <Link className="participation-link" to="/participation/part-two" aria-label="Open event participation part two">
-                <h2>Event Participation</h2>
+                <h2>Innovate and Elevate</h2>
             </Link>
          
+            <Link className="participation-link" to="/participation/part-three" aria-label="Open event participation part three">
+                <h2>Think Microsoft</h2>
+            </Link>
         </div>
         
     );

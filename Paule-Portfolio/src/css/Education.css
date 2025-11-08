@@ -9,8 +9,7 @@
     color: var(--white-plain); 
     margin-top: 40px;
     margin-bottom: 40px;
-    min-height: unset;
-    background: #1a1b1d;
+    min-height: unset; 
     position: relative;
     z-index: 1;
 }

@@ -73,16 +73,7 @@ function Header() {
 
     return (
         <div className="intro">
-             <div className="video-wrapper" aria-hidden="true">
-                    <video
-                        className="video-bg"
-                        src="/header-bg/waving.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                    />
-                </div>
+             
              <div className="leftCard">
                  <h1>Hi, I'm Moises Paule</h1>
                  <p>I aspire to be a developer someday. My goal is to gain experience and currently open to any task.</p>
@@ -95,7 +86,16 @@ function Header() {
                 </a>
             </div>
             <div className="rightCard">
-               
+               <div className="video-wrapper" aria-hidden="true">
+                    <video
+                        className="video-bg"
+                        src="/header-bg/waving.mp4"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                    />
+                </div>
             </div>
          </div>
        

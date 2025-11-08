@@ -72,6 +72,48 @@ function ProjectsBody() {
                 csss,
                 hub
             ]
+        },
+        {
+            title: "Project 4",
+            description: "Description for Project 4.",
+            features: [
+                "Feature 1",
+                "Feature 2",
+                "Feature 3"
+            ],
+            link: "https://project4-link.com",
+            pic: "/projectsPic/placehold.gif",
+            techs: [
+                hub
+            ]
+        },
+        {
+            title: "Project 5",
+            description: "Description for Project 5.",
+            features: [
+                "Feature 1",
+                "Feature 2",
+                "Feature 3"
+            ],
+            link: "https://project5-link.com",
+            pic: "/projectsPic/placehold.gif",
+            techs: [
+                hub
+            ]
+        },
+        {
+            title: "Project 6",
+            description: "Description for Project 6.",
+            features: [
+                "Feature 1",
+                "Feature 2",
+                "Feature 3"
+            ],
+            link: "https://project6-link.com",
+            pic: "/projectsPic/placehold.gif",
+            techs: [
+                hub
+            ]
         }
     ];
 

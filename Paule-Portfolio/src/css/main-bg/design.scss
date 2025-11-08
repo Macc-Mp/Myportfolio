@@ -1,0 +1,125 @@
+@use "sass:math";
+
+@mixin sp-layout {
+  @media screen and (max-width: 750px) {
+    @content;
+  }
+}
+
+/* NOTE: don't apply layout styles to `body` from this decorative stylesheet.
+   Moving the page background into the portal `.stars` ensures importing
+   this file won't change the document flow or center main content. */
+
+@function random_range($min, $max) {
+  // use the sass math module for randomness and rounding to avoid deprecated globals
+  $rand: math.random();
+  $random_range: $min + math.floor($rand * (($max - $min) + 1));
+  @return $random_range;
+}
+
+.stars {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* let clicks pass through */
+  /* place behind main content - use negative z-index so the decorative layer is behind everything
+     in the page. page content has a high z-index so it remains visible above this layer. */
+  z-index: -1;
+  /* page background moved here so importing the stylesheet doesn't change body layout */
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+  /* global speed multiplier: set >1 to slow down, <1 to speed up */
+  /* Increased default to 2 to slow star motion across the site. */
+  --star-speed: 3;
+  /* The rotation was creating a stacking context that interfered with z-index.
+    Remove global rotation; if you want the diagonal motion effect, rotate
+    individual star elements instead (safer for stacking). */
+  transform: none;
+}
+
+.star {
+  $star-count: 50;
+  /* use a fallback so stars remain visible even if --primary-color isn't defined */
+  --star-color: var(--primary-color, #ffffff);
+  --star-tail-length: 6em;
+  --star-tail-height: 2px;
+  --star-width: calc(var(--star-tail-length) / 6);
+  --fall-duration: 9s;
+  --tail-fade-duration: var(--fall-duration);
+
+  position: absolute;
+  top: var(--top-offset);
+  left: 0;
+  width: var(--star-tail-length);
+  height: var(--star-tail-height);
+  color: var(--star-color);
+  background: linear-gradient(45deg, currentColor, transparent);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px currentColor);
+  transform: translate3d(104em, 0, 0);
+  animation: fall calc(var(--fall-duration) * var(--star-speed, 1)) var(--fall-delay) linear infinite, tail-fade calc(var(--tail-fade-duration) * var(--star-speed, 1)) var(--fall-delay) ease-out infinite;
+  
+  @include sp-layout {
+    // For mobile performance, tail-fade animation will be removed QAQ
+    animation: fall calc(var(--fall-duration) * var(--star-speed, 1)) var(--fall-delay) linear infinite;
+  }
+
+  @for $i from 1 through $star-count {
+    &:nth-child(#{$i}) {
+      /* compute numeric ranges then append units to avoid deprecated slash division */
+      --star-tail-length: #{math.div(random_range(500, 750), 100)}em; /* 5em - 7.5em */
+      --top-offset: #{math.div(random_range(0, 10000), 100)}vh; /* 0vh - 100vh */
+      --fall-duration: #{math.div(random_range(6000, 12000), 1000)}s; /* 6s - 12s */
+      --fall-delay: #{math.div(random_range(0, 10000), 1000)}s; /* 0s - 10s */
+    }
+  }
+
+  &::before, &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: calc(var(--star-width) / -2);
+    width: var(--star-width);
+    height: 100%;
+    background: linear-gradient(45deg, transparent, currentColor, transparent);
+    border-radius: inherit;
+    animation: blink 2s linear infinite;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(-30em, 0, 0);
+  }
+}
+
+@keyframes tail-fade {
+  0%, 50% {
+    width: var(--star-tail-length);
+    opacity: 1;
+  }
+
+  70%, 80% {
+    width: 0;
+    opacity: 0.4;
+  }
+
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.6;
+  }
+}
