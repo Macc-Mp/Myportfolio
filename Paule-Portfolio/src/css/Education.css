@@ -319,3 +319,33 @@ h2 {
         font-size: 1.5rem;
     }
 }
+
+/* Road-sign / marquee style flow animation: moves element left-to-right across its container */
+@keyframes flow {
+    0% {
+        transform: translateX(-1%);
+    }
+    100% {
+        transform: translateX(1%);
+    }
+}
+
+.flow {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform;
+    animation: flow 6s linear infinite;
+}
+
+/* speed variants */
+.flow--slow { animation-duration: 12s; }
+.flow--fast { animation-duration: 3.5s; }
+.flow--reverse { animation-direction: reverse; }
+
+/* pause animation on hover for readability */
+.flow:hover { animation-play-state: paused; }
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .flow, .flow--slow, .flow--fast { animation: none; transform: none; }
+}

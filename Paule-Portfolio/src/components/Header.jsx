@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Header.css';
+import '../css/ResumeReader.css';
 import linkedin from '../assets/Header/linkedin.png';
 import github from '../assets/Header/github.png';
 import contact from '../assets/Header/contact.png';
 
+const PDF_PATH = '/upload-resume/paule-resume.pdf';
 function Header() {
     // const [showFirst, setShowFirst] = useState(true);
     // // State to store the visit count
@@ -84,6 +86,18 @@ function Header() {
                 <a href="https://www.linkedin.com/in/moises-paule-6968ab328" target="_blank" rel="noopener noreferrer">
                     <img src="/button.svg" alt="contact-me" className="cctcme" />
                 </a>
+
+                
+                <div className='resume-container'>
+                    <a className='tab2'
+                    href={PDF_PATH}
+                    download="paule-resume.pdf"
+                    >
+                    Download Resume
+                </a>
+                </div>
+             
+
             </div>
             <div className="rightCard">
               

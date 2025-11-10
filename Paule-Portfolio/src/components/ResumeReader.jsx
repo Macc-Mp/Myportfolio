@@ -24,7 +24,7 @@ export default function ResumeReader() {
           </a>
         </div>
 
-        <div className='resume-iframe'>
+        {/* <div className='resume-iframe'>
           <iframe className='res-iframe-container'
             src={PDF_PATH}
             title="Paule Resume"
@@ -34,7 +34,7 @@ export default function ResumeReader() {
               <a href={PDF_PATH} download className='res-iframe-link'>Download resume</a>
             </p>
           </iframe>
-        </div>
+        </div> */}
       </div>
     </section>
   );

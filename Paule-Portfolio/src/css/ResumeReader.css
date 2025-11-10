@@ -41,11 +41,39 @@
 .tab2
 {
     font-family: manrope;
-    padding: 8px 12px;
-    background: #333;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: linear-gradient(180deg,#2b2b2b,#111);
     color: #fff;
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.tab2::before {
+    content: "\2193"; /* down arrow */
+    display: inline-block;
+    font-size: 0.95rem;
+    line-height: 1;
+    padding: 6px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.03);
+    color: #fff;
+}
+
+.tab2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 34px rgba(0,0,0,0.45);
+    background: linear-gradient(180deg,#3a3a3a,#121212);
+}
+
+.tab2:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(96,165,250,0.18);
 }
 
 .resume-iframe
