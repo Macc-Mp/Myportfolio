@@ -41,7 +41,7 @@
 .intro {
     display: flex;
     justify-content:space-around;
-    
+    flex-direction: column;
     width: 100%;
     height: 95%;
     column-gap: 30px;
@@ -49,18 +49,22 @@
 }
 
 .leftCard {
-    width: 45%;
+    flex: 0 0 60%;
+    min-width: 320px;
     height: 70%;
-    margin: 5% 0% 10% 10%;
-    flex-shrink: 0;
+    margin: 5% 0% 10% 0;
     padding: 1% 2% 1% 2%;
     border-radius: 20px;
-    margin-left: 50px;
-    border: 2px solid red;
     font-family: 'manrope';
+    /* visual panel styling */
+    background-color: rgba(255,255,255,0.02);
+   
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
    
    
-    display: block;
+   
 }
 .leftCard p {
    color: var(--Neutral-Offwhite, #C7C7C7);
@@ -80,57 +84,9 @@
     line-height: 90%; 
 }
 
-.rightCard {
-    /* Make the right card visually match the left card:
-       - same width/height
-       - rounded corners
-       - overflow hidden so video respects rounding
-       - subtle glass background to match site aesthetic
-    */
-    width: 45%;
-    height: 70%;
-    margin: 5% 10% 10% 0;
-    flex-shrink: 0;
-    border-radius: 20px;
-    overflow: hidden; /* make video clip to the rounded corners */
-    box-sizing: border-box;
-    background-color: rgba(255,255,255,0.02); /* faint panel fallback */
-    border: 1px solid rgba(255,255,255,0.03);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-    position: relative; /* anchor absolute video-wrapper */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid red; /* debug border to see card edges */
-}
 
-/* Wrapper inside the right card that contains the decorative video. It is
-   positioned to fill the card so the video can be absolutely positioned
-   and object-fit:cover will work reliably. */
-.video-wrapper {
-    position: absolute;
-    inset: 0; /* top:0; right:0; bottom:0; left:0 */
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
-}
 
-/* Optional overlay to darken or tint the video (keeps text readable). */
-.video-wrapper::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(rgba(6,10,15,0.35), rgba(6,10,15,0.15));
-    z-index: 1;
-    pointer-events: none;
-}
 
-/* Ensure any real content children inside the right card sit above the video */
-.rightCard > * {
-    position: relative;
-    z-index: 2;
-}
 
 .cctcme{
     width: 150px;
@@ -186,13 +142,13 @@
       
     }  
 
-    .rightCard {
+    /* .rightCard {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
         margin: 4px 0;
-    }
+    } */
 
      /* .rightCard img {
         width: inherit;
@@ -256,12 +212,6 @@
 
 }
 
-/* ensure content sits above video + overlay */
-.leftCard,
-.rightCard {
-    position: relative;
-    z-index: 2; /* higher than .video-overlay (z-index:1) */
-}
 
 /* make the container a circular frame and responsive */
 .picture-container {

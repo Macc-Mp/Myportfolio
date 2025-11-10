@@ -86,16 +86,16 @@ function Header() {
                 </a>
             </div>
             <div className="rightCard">
-               <div className="video-wrapper" aria-hidden="true">
-                    <video
+              
+                    {/* <video
                         className="video-bg"
                         src="/header-bg/waving.mp4"
                         autoPlay
                         muted
                         loop
                         playsInline
-                    />
-                </div>
+                    /> */}
+           
             </div>
          </div>
        

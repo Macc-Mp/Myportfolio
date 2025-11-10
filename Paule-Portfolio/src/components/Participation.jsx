@@ -17,6 +17,10 @@ function Participation() {
             <Link className="participation-link" to="/participation/part-three" aria-label="Open event participation part three">
                 <h2>Think Microsoft</h2>
             </Link>
+
+            <Link className="participation-link" to="/participation/part-four" aria-label="Open event participation part four">
+                <h2>DataCamp: AI and Data Literacy</h2>
+            </Link> 
         </div>
         
     );

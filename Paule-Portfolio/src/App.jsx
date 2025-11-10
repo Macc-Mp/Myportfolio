@@ -13,6 +13,7 @@ import Participation from './components/Participation'
 import PartOne from './sub-components/participation-one'
 import PartTwo from './sub-components/participation-two'
 import PartThree from './sub-components/participation-three'
+import PartFour from './sub-components/participation-four'
 //import './App.css'
 import './css/index.css'
 import Design from './css/main-bg/design';
@@ -44,7 +45,8 @@ function App() {
     { path: '/', element: <Home /> },
     { path: '/participation', element: <PartOne /> },
     { path: '/participation/part-two', element: <PartTwo /> },
-    { path: '/participation/part-three', element: <PartThree /> }
+    { path: '/participation/part-three', element: <PartThree /> },
+    { path: '/participation/part-four', element: <PartFour /> }
   ])
 
   return <RouterProvider router={router} />
