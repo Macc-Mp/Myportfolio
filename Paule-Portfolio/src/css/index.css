@@ -21,17 +21,18 @@
     --animeThree: #f9f9f9;
 }
 
-/* Ensure page content sits above the decorative background
+/* Ensure page content sits above the decorative background */
 .page-content {
     position: relative;
     z-index: 1;
+   
 }
- */
+
 
 html, body{
     width: auto;
     height: 100%;
-    background-color: var(--dull-color) !important;
+  
 
 }
 

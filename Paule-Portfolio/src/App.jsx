@@ -26,16 +26,16 @@ function App() {
       <>
         
         <Design />
-     
+          <div className="page-content">
           <NavBar />
           <Header />
           <Skills />
           <ProjectsBody />
           <Education />
-          <ResumeReader />
+          {/* <ResumeReader /> */}
           <Participation />
           <Footer />
-     
+          </div>
       
       </>
     )

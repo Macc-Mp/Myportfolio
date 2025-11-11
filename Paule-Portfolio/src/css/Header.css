@@ -1,6 +1,5 @@
 /*start of intro.css */
 .intro {
-    border: 2px solid red;
     z-index: 1;
     position: relative;
     overflow: hidden;
