@@ -287,7 +287,7 @@
     pointer-events: none;
     /* Optional filters - include brightness to dim the video. Tweak --video-dim to change strength */
     --video-dim: 0.45; /* 0 = black, 1 = original */
-    filter: brightness(var(--video-dim)) ;
+    filter: brightness(var(--video-dim));
     /* Prevent the video from being blurry on some browsers */
     backface-visibility: hidden;
 }
