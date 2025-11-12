@@ -30,7 +30,7 @@
   background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
   /* global speed multiplier: set >1 to slow down, <1 to speed up */
   /* Increased default to 2 to slow star motion across the site. */
-  --star-speed: 2;
+  --star-speed: 1.5;
   /* The rotation was creating a stacking context that interfered with z-index.
     Remove global rotation; if you want the diagonal motion effect, rotate
     individual star elements instead (safer for stacking). */

@@ -283,12 +283,30 @@
     width: 100%;
     height: 90%;
     object-fit: cover;        /* scale & crop to fill */
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
-    /* Optional filters */
-    filter: saturate(0.95) contrast(0.95);
+    /* Optional filters - include brightness to dim the video. Tweak --video-dim to change strength */
+    --video-dim: 0.45; /* 0 = black, 1 = original */
+    filter: brightness(var(--video-dim)) ;
     /* Prevent the video from being blurry on some browsers */
     backface-visibility: hidden;
+}
+
+/* Additional safe dim overlay in case filter isn't sufficient or you want a stronger veil.
+   The pseudo-element sits inside .intro (z-index:1) and above the video (z-index:-1) so
+   it darkens the video but remains beneath UI content. Adjust --intro-dim for strength. */
+.intro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 0; /* sits between video (z:-1) and content (intro z:1) */
+    pointer-events: none;
+}
+
+/* Provide a variable to tune the overlay independently */
+.intro {
+    --intro-dim: 0.35; /* kept for reference; change .intro::before background if you prefer var() */
 }
 
 /*end of intro.css */

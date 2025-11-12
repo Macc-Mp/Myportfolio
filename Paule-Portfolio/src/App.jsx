@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Skills from './components/Skills'
@@ -8,6 +8,7 @@ import ProjectsBody from './components/ProjectsBody'
 import Education from './components/Education'
 import ResumeReader from './components/ResumeReader'
 import Participation from './components/Participation'
+import Loading from './components/Loading'
 
 //routes for participation pages
 import PartOne from './sub-components/participation-one'
@@ -16,6 +17,7 @@ import PartThree from './sub-components/participation-three'
 import PartFour from './sub-components/participation-four'
 //import './App.css'
 import './css/index.css'
+import './css/Spinner.css'
 import Design from './css/main-bg/design';
 
 
@@ -24,8 +26,6 @@ function App() {
   function Home() {
     return (
       <>
-        
-        <Design />
           <div className="page-content">
           <NavBar />
           <Header />
@@ -41,6 +41,13 @@ function App() {
     )
   }
 
+  // show a loading spinner for 5 seconds on initial app mount
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 3000)
+    return () => clearTimeout(t)
+  }, [])
+
   const router = createBrowserRouter([
     { path: '/', element: <Home /> },
     { path: '/participation', element: <PartOne /> },
@@ -49,6 +56,13 @@ function App() {
     { path: '/participation/part-four', element: <PartFour /> }
   ])
 
-  return <RouterProvider router={router} />
+  // Always render the decorative background so it can animate while the
+  // app shows the spinner. The Design component renders into a portal.
+  return (
+    <>
+      <Design />
+      {loading ? <Loading /> : <RouterProvider router={router} />}
+    </>
+  )
 }
 export default App

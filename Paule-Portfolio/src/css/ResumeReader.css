@@ -42,7 +42,7 @@
 {
     font-family: manrope;
     display: inline-flex;
-    align-items: center;
+    align-items: left;
     gap: 8px;
     padding: 8px 14px;
     background: linear-gradient(180deg,#2b2b2b,#111);
