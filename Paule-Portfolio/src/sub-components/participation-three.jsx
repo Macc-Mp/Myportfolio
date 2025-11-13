@@ -20,39 +20,18 @@ function PartThree()
        
                <div className="gallery">
                  <div className="card">
-                   <a className="card-link" href="/participation/p2/day1.jpg" target="_blank" rel="noopener noreferrer">
+                   <a className="card-link" href="/participation/p3/career.pdf" target="_blank" rel="noopener noreferrer">
                      <img src="/participation/p2/day1.jpg" alt="Experience screenshot 1" />
-                     <div className="caption">Day (1)</div>
+                     <div className="caption">Day (1) 11/06/2025</div>
                    </a>
                  </div>
        
                   <div className="card">
-                    <a className="card-link" href="/participation/p2/day2.jpg" target="_blank" rel="noopener noreferrer">
+                    <a className="card-link" href="/participation/p3/academic.pdf" target="_blank" rel="noopener noreferrer">
                       <img src="/participation/p2/day2.jpg" alt="Experience screenshot 2" />
-                      <div className="caption">Day (2)</div>
+                      <div className="caption">Day (2) 11/08/2025</div>
                     </a>
                   </div>
-
-                  <div className="card">
-                    <a className="card-link" href="/participation/p2/day3.jpg" target="_blank" rel="noopener noreferrer">
-                      <img src="/participation/p2/day3.jpg" alt="Experience screenshot 2" />
-                      <div className="caption">Day (3)</div>
-                    </a>
-                  </div>
-       
-                 <div className="card">
-                   <a className="card-link" href="/participation/p2/bootcamp.png" target="_blank" rel="noopener noreferrer">
-                     <img src="/participation/p2/bootcamp.png" alt="Bootcamp thumbnail" />
-                     <div className="caption">Bootcamp</div>
-                   </a>
-                 </div>
-
-                 <div className="card">
-                  <a className="card-link" href="/participation/p2/cert.pdf" target="_blank" rel="noopener noreferrer">
-                    <img src="/participation/p2/cert.png" alt="Participation Overview Screenshot" />
-                    <div className="caption">Microsoft Copilot</div>
-                  </a>
-                </div>
        
                </div>
              </div>
