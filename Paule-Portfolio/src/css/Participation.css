@@ -6,15 +6,15 @@
     text-decoration: none;
     background: linear-gradient(135deg,#1A73E8 0%, #2b6fd6 100%);
     color: #fff;
-    padding: 8px 12px;
+    padding: 8px 10px;
     border-radius: 10px;
     box-shadow: 0 6px 18px rgba(26,115,232,0.18);
     transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(193, 193, 193, 0.06);
     cursor: pointer;
     /* responsive flex sizing: allow items to wrap and take sensible width */
-    flex: 1 1 220px; /* grow, shrink, base 220px */
-    max-width: 340px; /* prevents links growing too wide on large screens */
+    flex: 1 1 150px; /* grow, shrink, base 150px */
+    max-width: 300px; /* prevents links growing too wide on large screens */
 }
 
 /* make the inner heading look tidy and inherit the button styles */
