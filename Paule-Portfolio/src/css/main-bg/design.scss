@@ -27,7 +27,7 @@
      in the page. page content has a high z-index so it remains visible above this layer. */
   z-index: -1;
   /* page background moved here so importing the stylesheet doesn't change body layout */
-  background: var(--dull-color);
+  background: radial-gradient(18% 28% at 24% 50%, #CEFAFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 18% 71%, #FFFFFF59 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #3F757AFF 0%, #073AFF00 100%),radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(31% 43% at 7% 98%, #FFFFFFFF 24%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #3E40389C 24%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #3B5C88F5 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #222825F5 24%, #073AFF00 100%),linear-gradient(125deg, #3889C8FF 1%, #4C00FCFF 100%);;
   /* global speed multiplier: set >1 to slow down, <1 to speed up */
   /* Increased default to 2 to slow star motion across the site. */
   --star-speed: 1.5;
