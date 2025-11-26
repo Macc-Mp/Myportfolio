@@ -77,14 +77,14 @@ function Header() {
         <div className="intro">
              
              <div className="leftCard">
-                <video
+                {/* <video
                         className="video-bg"
                         src="/header-bg/waving.mp4"
                         autoPlay
                         muted
                         loop
                         playsInline
-                    />
+                    /> */}
                  <h1>Hi, I'm Moises Paule</h1>
                  <p>I aspire to be a developer someday. My goal is to gain experience and currently open to any task.</p>
                     
@@ -96,29 +96,22 @@ function Header() {
                 </a> */}
 
                 
-                <div className='resume-container'>
+                
+             
+
+            </div>
+            {/* <div className='resume-container'>
                     <a className='tab2'
                     href={PDF_PATH}
                     download="paule-resume.pdf"
                     >
                     Download Resume
                 </a>
-                </div>
-             
-
-            </div>
-            <div className="rightCard">
+                </div> */}
+        
               
-                    {/* <video
-                        className="video-bg"
-                        src="/header-bg/waving.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                    /> */}
-           
-            </div>
+                  
+         
          </div>
        
 

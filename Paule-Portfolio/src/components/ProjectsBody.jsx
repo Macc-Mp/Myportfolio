@@ -82,7 +82,7 @@ function ProjectsBody() {
                 "Feature 3"
             ],
             link: "https://project4-link.com",
-            pic: "/projectsPic/placehold.gif",
+            pic: null,
             techs: [
                 hub
             ]
@@ -96,7 +96,7 @@ function ProjectsBody() {
                 "Feature 3"
             ],
             link: "https://project5-link.com",
-            pic: "/projectsPic/placehold.gif",
+            pic: null,
             techs: [
                 hub
             ]
@@ -110,7 +110,7 @@ function ProjectsBody() {
                 "Feature 3"
             ],
             link: "https://project6-link.com",
-            pic: "/projectsPic/placehold.gif",
+            pic: null,
             techs: [
                 hub
             ]
@@ -127,7 +127,7 @@ function ProjectsBody() {
                         <div className="project-card" key={index}>
                             <div className="box-content">
                                 <div className="image-container">
-                                    <img src={project.pic} alt={project.title} className="project-image" />
+                                    <img src={project.pic} className="project-image" />
                                     <div className="tech-icons">
                                         {project.techs.map((tech, techIndex) => (
                                             <img key={techIndex} src={tech} alt="Tech Icon" className="tech-icon" />

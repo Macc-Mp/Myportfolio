@@ -11,10 +11,8 @@ import Participation from './components/Participation'
 import Loading from './components/Loading'
 
 //routes for participation pages
-import PartOne from './sub-components/participation-one'
-import PartTwo from './sub-components/participation-two'
-import PartThree from './sub-components/participation-three'
-import PartFour from './sub-components/participation-four'
+import { PartOne, PartTwo, PartThree, PartFour } from './sub-components/participation'
+
 //import './App.css'
 import './css/index.css'
 import './css/Spinner.css'
@@ -50,10 +48,10 @@ function App() {
 
   const router = createBrowserRouter([
     { path: '/', element: <Home /> },
-    { path: '/participation', element: <PartOne /> },
-    { path: '/participation/part-two', element: <PartTwo /> },
-    { path: '/participation/part-three', element: <PartThree /> },
-    { path: '/participation/part-four', element: <PartFour /> }
+    { path: '/participation', element: <PartOne/> },
+    { path: '/participation/part-two', element: <PartTwo/> },
+    { path: '/participation/part-three', element: <PartThree/> },
+    { path: '/participation/part-four', element: <PartFour/> },
   ])
 
   // Always render the decorative background so it can animate while the

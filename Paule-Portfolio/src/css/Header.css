@@ -48,11 +48,12 @@
 }
 
 .leftCard {
-    flex: 0 0 60%;
+    flex: 0 0 100%;
     min-width: 320px;
-    height: 70%;
+    height: auto;
     margin: 5% 0% 10% 0;
     padding: 1% 2% 1% 2%;
+    box-sizing: border-box;
     border-radius: 20px;
     font-family: 'manrope';
     /* visual panel styling */
@@ -61,9 +62,7 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.35);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
-   
-   
-   
+
 }
 .leftCard p {
    color: var(--Neutral-Offwhite, #C7C7C7);
@@ -280,8 +279,6 @@
  
     position: absolute;
     inset: 0;                 /* shorthand for top:0; right:0; bottom:0; left:0; */
-    width: 100%;
-    height: 90%;
     object-fit: cover;        /* scale & crop to fill */
     z-index: -1;
     pointer-events: none;
@@ -292,6 +289,13 @@
     backface-visibility: hidden;
 }
 
+
+/* Ensure non-video children of .leftCard render above the video
+.leftCard > *:not(.video-bg) {
+    position: relative;
+    z-index: 1;
+} */
+
 /* Additional safe dim overlay in case filter isn't sufficient or you want a stronger veil.
    The pseudo-element sits inside .intro (z-index:1) and above the video (z-index:-1) so
    it darkens the video but remains beneath UI content. Adjust --intro-dim for strength. */
@@ -299,14 +303,10 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.35);
+   
     z-index: 0; /* sits between video (z:-1) and content (intro z:1) */
     pointer-events: none;
 }
 
-/* Provide a variable to tune the overlay independently */
-.intro {
-    --intro-dim: 0.35; /* kept for reference; change .intro::before background if you prefer var() */
-}
 
 /*end of intro.css */
