@@ -1,8 +1,8 @@
 /* Participation (PartOne) page styles */
 .participation-page {
     margin: 0;
-    font-family: system-ui, Arial, sans-serif;
-    background: #0f1720;
+    font-family: 'Manrope', sans-serif;
+    background: #000000;
     color: #fff;
     padding: 24px 0;
     /* Ensure the dark background always fills the viewport to avoid white gaps */

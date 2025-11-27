@@ -10,6 +10,9 @@
     overflow: visible;
 }
 
+.aLink{
+   
+}
 .contact h2 {
     font-family: Bitcount Grid Single, system-ui;
     letter-spacing: 1.5px;
@@ -120,6 +123,7 @@
     font-family: "Space Mono", monospace;
     text-decoration: none;
     transition: color 0.2s;
+    background: var(--mustard);
 }
 
 .media-link:hover {

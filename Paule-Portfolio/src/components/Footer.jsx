@@ -25,7 +25,7 @@ function Footer() {
         <div className="contact-container">
             <div className="contact-left">
                  <img src="/me.svg" className="editMe" alt="picture of me"></img>
-                 <a href="https://www.linkedin.com/in/moises-paule-6968ab328" target="_blank">My linkedin</a>
+                 <a className="aLink" href="https://www.linkedin.com/in/moises-paule-6968ab328" target="_blank">My linkedin</a>
             </div>
 
             <div className="contactLinks">
@@ -35,11 +35,11 @@ function Footer() {
                 </div>
                 <div className="media-link">
                     <img src="/github.svg" alt="Github"></img>
-                    <p><a href="https://github.com/Macc-Mp" target="_blank">Macc-Mp (MacMoises)</a></p>
+                    <p><a className="aLink" href="https://github.com/Macc-Mp" target="_blank">Macc-Mp (MacMoises)</a></p>
                 </div>
                 <div className="media-link">
                     <img src="/email.svg" alt="Email"></img>
-                    <p><a href="mailto:macmoises12@gmail.com" target="_blank">macmoises12@gmail.com</a></p>
+                    <p><a className="aLink" href="mailto:macmoises12@gmail.com" target="_blank">macmoises12@gmail.com</a></p>
                 </div>
             </div>  
         </div>
