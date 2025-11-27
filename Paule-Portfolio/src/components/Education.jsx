@@ -6,7 +6,6 @@ function Education(){
 
         <section id="education"> {/* Ensure the ID matches the href in NavBar */}
     <div className="education">
-        <h2>More About Me</h2>
         <div className="eduCard">
               <h2 className="notes">Education</h2>
             <div className="outer">

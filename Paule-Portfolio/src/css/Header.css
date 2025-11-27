@@ -18,274 +18,103 @@
     /* animation: wavy-bottom 4s ease-in-out infinite alternate; */
 /* } */ */
 
-/* @keyframes wavy-bottom {
-    0% {
-        border-radius: 60% 40% 50% 70% / 60% 40% 0 0;        
-    }
-    25% {
-        border-radius: 70% 30% 60% 60% / 50% 50% 0 0;
-    }
-    50% {
-        border-radius: 40% 60% 70% 50% / 40% 60% 0 0;
-    }
-    75% {
-        border-radius: 80% 20% 60% 70% / 60% 40% 0 0;
-         background-color: var(--dim-white);
-    }
-    100% {
-        border-radius: 60% 40% 50% 70% / 60% 40% 0 0;
-    }
-} */
 
 .intro {
     display: flex;
-    justify-content:space-around;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
-    height: 95%;
-    column-gap: 30px;
-    background-color: var(--dim-white);
+    min-height: 100vh;
+    background: linear-gradient(135deg, #181a20 0%, #23243a 100%);
+    padding-top: 3rem;
+    box-sizing: border-box;
 }
 
 .leftCard {
-    flex: 0 0 100%;
+    width: 96%;
+    max-width: 1100px;
     min-width: 320px;
-    height: auto;
-    margin: 5% 0% 10% 0;
-    padding: 1% 2% 1% 2%;
+    margin: 0 auto 2.5rem auto;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
     box-sizing: border-box;
-    border-radius: 20px;
-    font-family: 'manrope';
-    /* visual panel styling */
-    background-color: rgba(255,255,255,0.02);
-   
-    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-
-}
-.leftCard p {
-   color: var(--Neutral-Offwhite, #C7C7C7);
-    font-family: Manrope;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%; 
+    border-radius: 24px;
+    font-family: 'Manrope', 'Segoe UI', Arial, sans-serif;
+    background: rgba(30,32,38,0.55);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.04);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    backdrop-filter: blur(16px) saturate(120%);
+    position: relative;
 }
 
 .leftCard h1 {
-    color: var(--Neutral-White, #FFF);
-    font-family: "Bebas Neue";
-    font-size: 80px;
-    font-style: normal;
+    color: var(--dim-white);
+    font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    line-height: 90%; 
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
-
-
-
-
-.cctcme{
-    width: 150px;
-    height: 80px;
+.leftCard p {
+    color: #c7c7c7;
+    font-family: 'Manrope', Arial, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 1.2rem;
 }
 
-/* .rightCard img {
-   border-radius: 50%;
-} */
-
-@media only screen and (min-width: 425px) and (max-width: 700px){
-    .profile-image{
-        width: 250px !important;
-        margin-bottom: 100px !important;   
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 10px;
-        margin: 0 auto; 
-    }
-
-    .intro {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        padding: 6px 0;
-        gap: 0;
-    }
-
-    .leftCard, .rightCard {
-        width: 100%;
-        margin: 5px 0;
-        padding-left: 0;
-
-        width: 100%;
-        padding: 3% 2%;
-        min-width: 0;
-        box-sizing: border-box;
-    }
-
-    .leftCard h1{
-        font-size: 2.3em;
-        line-height: 1.1;
-        text-align: center;
-        word-break: break-word;
-        font-weight: bold;
-    }
-    .leftCard p {
-        color: var(--dim-white);
-        font-size: 0.9em;
-        text-align: center;
-        word-break: break-word;
-      
-    }  
-
-    /* .rightCard {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin: 4px 0;
-    } */
-
-     /* .rightCard img {
-        width: inherit;
-        height: 100%;
-        border-radius: 20px;
-    } */
-
-    .cctcme {
-        display: block;
-        margin: 0 auto 8px auto;
-        width: 40px;
-        height: auto;
-    }
-     .education {
-        margin-top: 24px !important;
-        padding-top: 16px !important;
-    }
+.resume-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 1.5rem;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px){
-    .intro{
-       position: relative;
-  
-       width: auto;
-       height: auto; 
-    }
-    .leftCard {
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-bottom: 1.5rem;
-    }
-    .leftCard p{
-        font-size: 1.5rem !important;
-        line-height: 1.2;
-        padding-bottom: 20px;
-        text-align: justify;
-    }
-    .cctcme{
-        height: 15%;
-    }
-    /* .rightCard img {
-        border-radius: 20px;
-        background-size:cover;
-        height: 97%;
-        width: 22rem !important;
-        position: relative;
-        right:8.5rem;
-        padding-left:2.5rem;
-       
-    } */
-    /* .intro::after{
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 50px;
-        width: auto;
-       
-    } */
-
-}
-
-
-/* make the container a circular frame and responsive */
-.picture-container {
+.tab2 {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 96px;            /* smaller outer frame */
-    height: 96px;
-    border-radius: 50%;
-    overflow: hidden;
-    padding: 4px;
-    background: linear-gradient(135deg, #2b4b6f, #61a0ff); /* ring color */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.22); /* reduced depth */
-    transition: transform 180ms ease;
+    gap: 8px;
+    
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.7em 1.6em;
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    border: none;
+    transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+    cursor: pointer;
+    position: relative;
+}
+.tab2:hover, .tab2:focus {
+    background: linear-gradient(90deg, #414345 0%, #232526 100%);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+    color: var(--dim-white);
+}
+.tab2::before {
+    content: "↓";
+    font-size: 1.2em;
+    margin-right: 8px;
+    opacity: 0.7;
 }
 
-/* profile image styles for perfect crop + nice appearance */
-.profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;       /* preserve aspect, crop if needed */
-    border-radius: 50%;      /* ensure circular inside container */
-    display: block;
-    border: 2px solid rgba(255,255,255,0.85); /* thinner inner border */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.22);
-    transition: transform 180ms ease, box-shadow 180ms ease;
-    background-color: #f0f0f0; /* fallback while image loads */
-}
-
-/* subtle hover for small frame */
-.picture-container:hover,
-.picture-container:focus-within {
-    transform: translateY(-2px); /* subtle lift */
-}
-.picture-container:hover .profile-image,
-.picture-container:focus-within .profile-image {
-    transform: scale(1.02);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.30);
-}
-
-/* tablet */
-@media (max-width: 768px) {
-    .picture-container {
-        width: 72px;
-        height: 72px;
-        padding: 3px;
-    }
-    .profile-image {
-        border-width: 1.5px;
-    }
-}
-
-/* phone */
-@media (max-width: 420px) {
-    .picture-container {
-        width: 56px;
-        height: 56px;
-        padding: 2px;
-    }
-    .profile-image {
-        border-width: 1px;
-    }
-}
-
-/* Video background styles */
 .video-bg {
- 
-    position: absolute;
-    inset: 0;                 /* shorthand for top:0; right:0; bottom:0; left:0; */
-    object-fit: cover;        /* scale & crop to fill */
+    width: 100%;
+    height: 320px;
+    max-height: 340px;
+    border-radius: 18px;
+    object-fit: cover;
     z-index: -1;
     pointer-events: none;
-    /* Optional filters - include brightness to dim the video. Tweak --video-dim to change strength */
-    --video-dim: 0.45; /* 0 = black, 1 = original */
-    filter: brightness(var(--video-dim));
-    /* Prevent the video from being blurry on some browsers */
+    filter: brightness(0.7) blur(1px) grayscale(10%);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    margin-bottom: 0.5rem;
     backface-visibility: hidden;
 }
 
@@ -306,6 +135,13 @@
    
     z-index: 0; /* sits between video (z:-1) and content (intro z:1) */
     pointer-events: none;
+}
+
+/* Move Download Resume button to the right */
+.resume-container {
+        display: flex;
+        justify-content:center;
+        width: 100%;
 }
 
 

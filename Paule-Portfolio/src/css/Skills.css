@@ -7,16 +7,24 @@
 }
 
 .images{
-    background-color: var(--primary-bg);
+    background-color: rgba(10,12,15,0.55);
+    
+    /* Stronger border so the glass edge reads on darker backgrounds */
+    border: 1px solid rgba(255,255,255,0.12);
+    /* Blur + subtle saturation to achieve glassmorphism */
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    backdrop-filter: blur(12px) saturate(120%);
+    /* deeper shadow to lift the card from background */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.02);
     padding: 20px 50px 20px 50px;
     border-radius: 10px;
-    border: 2px solid black;
 }
 
 /* Removed project-specific rules from this file to avoid conflicts with ProjectsBody.css.
     Projects styling now lives in src/css/ProjectsBody.css. */
 
 .tech-icons {
+    filter: grayscale(1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,6 +38,7 @@
 .tech-icon {
     width: 30px;
     height: 30px;
+    filter: grayscale(1);
 }
 
 
@@ -221,43 +230,28 @@
 
 .skill-icon {
     width: var(--skill-icon-size);
+    filter: grayscale(1);
     height: auto;
     margin: 5px;
-    animation: hueRotate 2s infinite;
-    
 }
 
 .skill-icon:hover{
     transform: scale(1.5);
     cursor: pointer;
+    filter: grayscale(0);
 }
 
-@keyframes hueRotate {
-    0% {
-        filter: hue-rotate(15deg);
-    }
-    50% {
-        filter: hue-rotate(30deg);
-    }
-    100% {
-        filter: hue-rotate(45deg);
-    }
-}
-.skillTitle {
-    font-family: raleway;
-    font-weight: bold;
-    text-align: center;
-    color: var(--white-plain)
-   
-}
+
+
 
 .skillTitle h3 {
+    text-align: center;
     font-size: 18px;
-    color: var(--white-plain);
-    background-color: var(--accent-bg);
+    color: var(--mustard);
     padding: 10px 10px 10px 10px;
     border-radius: 2rem;
-    border: 2px solid black;
+    font-family: Bitcount Grid Single, system-ui;
+    letter-spacing: 1.5px;
 }
 
 .shaking {
@@ -265,9 +259,10 @@
 }
 
 .puzzles{
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
+    backdrop-filter: calc();
 }
 
 .puzzles.shaking {

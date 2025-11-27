@@ -121,7 +121,6 @@ function ProjectsBody() {
         <section id="projects">
             <div className="projects">
                 <h2>Projects</h2>
-                <div className="projects-header">Featured projects to showcase my knowledge on C++, C# and JavaScript.</div>
                 <div id="projectCards">
                     {projects.map((project, index) => (
                         <div className="project-card" key={index}>

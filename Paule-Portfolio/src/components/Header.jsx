@@ -77,17 +77,17 @@ function Header() {
         <div className="intro">
              
              <div className="leftCard">
-                {/* <video
-                        className="video-bg"
-                        src="/header-bg/waving.mp4"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                    /> */}
-                 <h1>Hi, I'm Moises Paule</h1>
-                 <p>I aspire to be a developer someday. My goal is to gain experience and currently open to any task.</p>
-                    
+                 <h1>I aspire to be a developer someday. My goal is to gain experience and currently open to any task.</h1>
+                 <div className='resume-container'>
+                    <a className='tab2'
+                    href={PDF_PATH}
+                    download="paule-resume.pdf"
+                    >
+                    Download Resume
+                </a>
+                </div>  
+
+                 
                 {/* Display the visit counter here */}
                 {/* <p>Page Loads: <span className="visit-counter-display">{visitCount}</span></p> */}
                 {/* <p>Time Stamp: <span className="visit-counter-display">{formattedCreatedAt}</span></p> */}
@@ -100,14 +100,7 @@ function Header() {
              
 
             </div>
-            {/* <div className='resume-container'>
-                    <a className='tab2'
-                    href={PDF_PATH}
-                    download="paule-resume.pdf"
-                    >
-                    Download Resume
-                </a>
-                </div> */}
+           
         
               
                   

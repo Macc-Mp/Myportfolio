@@ -1,6 +1,9 @@
 import '../css/Skills.css';
 import { useState } from 'react';
 import magic8 from '../assets/Skills/magic8ball.png';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Import skill images
 import gitt from '../assets/Skills/tools/git.svg';
@@ -18,7 +21,6 @@ import cpp from '../assets/Skills/languages/cpp.svg';
 import csharp from '../assets/Skills/languages/csharp.svg'; 
 import js from '../assets/Skills/languages/javascript.svg';
 import mysqll from '../assets/Skills/backend/mysql.svg';
-
 
 function Skills() {
     const skills = [
@@ -41,7 +43,6 @@ function Skills() {
 
     return (
         <div className="Skill-container">
-            <h2 className='skillTitle'>Tech Skills I'm familiar with.</h2>
             <img
                 src={magic8}
                 className={`puzzles ${isShaking ? 'shaking' : ''}`} // Dynamically add 'shaking' class
@@ -59,7 +60,23 @@ function Skills() {
                 </div>
             </div>
             <div>
-                
+                <Slider
+  dots={true}
+  infinite={true}
+  speed={500}
+  slidesToShow={3}
+  slidesToScroll={1}
+  responsive={[
+    { breakpoint: 768, settings: { slidesToShow: 1 } }
+  ]}
+>
+  {skills.map(skill => (
+    <div key={skill.name}>
+      <img src={skill.icon} alt={skill.name} className="skill-icon" />
+      <div className="skillTitle">{skill.name}</div>
+    </div>
+  ))}
+</Slider>
             </div>
         </div>
     );

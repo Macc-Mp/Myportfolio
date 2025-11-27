@@ -11,8 +11,9 @@
 }
 
 .contact h2 {
-    font-family: "Bebas Neue";
-    font-size: 60px;
+    font-family: Bitcount Grid Single, system-ui;
+    letter-spacing: 1.5px;
+    font-size: 40px;
     font-weight: bold;
     line-height: 100%;
     margin-bottom: 20px;
@@ -62,17 +63,6 @@
     z-index: 1;
 }
 
-/* @keyframes borderColorChange {
-    0% {
-        border-color: var(--intro-blue); 
-    }
-    50% {
-        border-color: var(--white2); 
-    }
-    100% {
-        border-color: var(--dull-color, #000); 
-    }
-} */
 .contact-left {
     flex-shrink: 0;
     border-radius: 10px;

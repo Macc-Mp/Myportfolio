@@ -1,10 +1,12 @@
-/* make the link look like a button */
+.participation-page{
+    background: #000000;
+}
 .participation-link {
     display: inline-flex; /* allow centering and consistent height */
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    background: linear-gradient(135deg,#1A73E8 0%, #2b6fd6 100%);
+    background: var(--mustard);
     color: #fff;
     padding: 8px 10px;
     border-radius: 10px;

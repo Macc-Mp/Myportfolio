@@ -13,13 +13,7 @@ export default function Loading({ gifSrc = '/spinner.gif' }) {
   return (
     <div className="spinner-overlay" role="status" aria-live="polite">
       {showGif ? (
-        <img
-          src={gifSrc}
-          alt="Loading"
-          className="spinner-gif"
-          onError={() => setImgErrored(true)}
-          onLoad={() => setImgLoaded(true)}
-        />
+        <span className="loader"></span>
       ) : (
         <div className="spinner" aria-hidden="true" />
       )}

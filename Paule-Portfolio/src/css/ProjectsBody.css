@@ -12,6 +12,10 @@
     overflow: visible;
 }
 
+.projects h2{
+    font-family: Bitcount Grid Single, system-ui;
+}
+
 /* Project cards grid (separate element) */
 #projectCards {
     display: grid;
@@ -80,10 +84,7 @@
     display: block;
      /* Glass background: a subtle translucent gradient + fallback color for browsers without backdrop-filter */
     background-color: rgba(10,12,15,0.55);
-    background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
-    /* Stronger border so the glass edge reads on darker backgrounds */
-    border: 1px solid rgba(255,255,255,0.12);
-    /* Blur + subtle saturation to achieve glassmorphism */
+   
     -webkit-backdrop-filter: blur(12px) saturate(120%);
     backdrop-filter: blur(12px) saturate(120%);
     /* deeper shadow to lift the card from background */

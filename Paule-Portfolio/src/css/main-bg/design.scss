@@ -27,7 +27,7 @@
      in the page. page content has a high z-index so it remains visible above this layer. */
   z-index: -1;
   /* page background moved here so importing the stylesheet doesn't change body layout */
-  background: #100f1a;
+  background: #0c0c0c;
 
   /* global speed multiplier: set >1 to slow down, <1 to speed up */
   /* Increased default to 2 to slow star motion across the site. */
@@ -39,9 +39,9 @@
 }
 
 .star {
-  $star-count: 25;
+  $star-count: 5;
   /* use a fallback so stars remain visible even if --primary-color isn't defined */
-  --star-color: var(--primary-color, #ffffff);
+  --star-color: var(--mustard);
   --star-tail-length: 6em;
   --star-tail-height: 2px;
   --star-width: calc(var(--star-tail-length) / 6);
@@ -122,5 +122,23 @@
 @keyframes blink {
   50% {
     opacity: 0.6;
+  }
+}
+
+.binary-digit {
+  position: absolute;
+  top: -2em;
+  left: var(--left, 50%);
+  font-family: 'Space Mono', monospace;
+  font-size: 1.5em;
+  color: #00ff41;
+  opacity: 0.7;
+  animation: fallBinary 4s linear infinite;
+}
+
+@keyframes fallBinary {
+  to {
+    top: 110vh;
+    opacity: 0.1;
   }
 }
