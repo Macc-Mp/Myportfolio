@@ -31,7 +31,7 @@ function Footer() {
             <div className="contactLinks">
                 <div className="media-link">
                     <img src="/fb.svg" alt="Facebook" />
-                    <p><a href="https://www.facebook.com/moises.paule.39" target="_blank" rel="noopener noreferrer">Paule, Moises</a></p>
+                    <p><a className="aLink" href="https://www.facebook.com/moises.paule.39" target="_blank" rel="noopener noreferrer">Paule, Moises</a></p>
                 </div>
                 <div className="media-link">
                     <img src="/github.svg" alt="Github"></img>

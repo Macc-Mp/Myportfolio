@@ -11,7 +11,7 @@
 }
 
 .aLink{
-   
+   color: var(--dim-white);
 }
 .contact h2 {
     font-family: Bitcount Grid Single, system-ui;
@@ -104,7 +104,7 @@
 
 .contact-left a:hover {
     color: var(--white-plain);
-    background-color: var(--intro-blue);
+    background-color: var(--mustard);
     text-decoration: none;
 }
 
@@ -119,11 +119,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--dull-color);
+    color: var(--dim-white);
     font-family: "Space Mono", monospace;
     text-decoration: none;
     transition: color 0.2s;
-    background: var(--mustard);
 }
 
 .media-link:hover {
