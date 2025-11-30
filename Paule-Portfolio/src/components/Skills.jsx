@@ -1,6 +1,7 @@
 import '../css/Skills.css';
 import { useState } from 'react';
-import magic8 from '../assets/Skills/magic8ball.png';
+import magic8 from '/v1flame.gif';
+import magic7 from'/v2flame.gif';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -32,6 +33,7 @@ function Skills() {
 
     const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
     const [isShaking, setIsShaking] = useState(false);
+    const [hovered, setHovered] = useState(false);
 
     const handleImageClick = () => {
         setIsShaking(true); // Add the 'shaking' class
@@ -44,10 +46,12 @@ function Skills() {
     return (
         <div className="Skill-container">
             <img
-                src={magic8}
-                className={`puzzles ${isShaking ? 'shaking' : ''}`} // Dynamically add 'shaking' class
+                src={hovered ? magic7 : magic8}
+                className={`puzzles ${isShaking ? 'shaking' : ''}`}
                 alt="magic8ball"
                 onClick={handleImageClick}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
             />
             <div className="skills-list">
                 <div className="skillTitle">
