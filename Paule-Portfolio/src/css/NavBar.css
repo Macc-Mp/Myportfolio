@@ -1,6 +1,6 @@
 /* Style for the .title link in the navbar */
 .title {
-  color: var(--mustard);
+  color: var(--smoke);
   font-weight: 700;
   font-size: 1.3rem;
   text-decoration: none;
@@ -55,7 +55,7 @@ html, body {
 }
 
 .menu li a{
-  color: var(--mustard);
+  color: var(--smoke);
   font-family: "Bitcount Grid Single", system-ui;
   font-size: 1rem;
   font-style: normal;
