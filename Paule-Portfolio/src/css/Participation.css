@@ -91,3 +91,16 @@
         flex-basis: 100%;
     }
 }
+
+/* Transparent overlay to hide signatures on images */
+.signature-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80px; /* Adjust height as needed to cover signature area */
+    background: rgba(0,0,0,2.15); /* more transparent black */
+  pointer-events: none; /* allow clicks to pass through */
+  border-radius: 0 0 10px 10px; /* match image/card corners if needed */
+  z-index: 2;
+}
