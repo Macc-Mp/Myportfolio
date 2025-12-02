@@ -64,23 +64,7 @@ function Skills() {
                 </div>
             </div>
             <div>
-                <Slider
-  dots={true}
-  infinite={true}
-  speed={500}
-  slidesToShow={3}
-  slidesToScroll={1}
-  responsive={[
-    { breakpoint: 768, settings: { slidesToShow: 1 } }
-  ]}
->
-  {skills.map(skill => (
-    <div key={skill.name}>
-      <img src={skill.icon} alt={skill.name} className="skill-icon" />
-      <div className="skillTitle">{skill.name}</div>
-    </div>
-  ))}
-</Slider>
+
             </div>
         </div>
     );
