@@ -12,7 +12,8 @@ import vitee from '../assets/Skills/frontend/vite.svg';
 import reactt from '../assets/Skills/frontend/react.svg';
 
 import htmll from '../assets/Skills/frontend/httml.svg';
-import csss from '../assets/Skills/frontend/css.svg'; 
+import csss from '../assets/Skills/frontend/css.svg';
+import placeholder from '/R.gif'; 
 function ProjectsBody() {
     const projects = [
         {
@@ -82,7 +83,7 @@ function ProjectsBody() {
                 "Feature 3"
             ],
             link: "https://project4-link.com",
-            pic: null,
+            pic: placeholder,
             techs: [
                 hub
             ]
@@ -96,7 +97,7 @@ function ProjectsBody() {
                 "Feature 3"
             ],
             link: "https://project5-link.com",
-            pic: null,
+            pic: placeholder,
             techs: [
                 hub
             ]
@@ -110,7 +111,7 @@ function ProjectsBody() {
                 "Feature 3"
             ],
             link: "https://project6-link.com",
-            pic: null,
+            pic: placeholder,
             techs: [
                 hub
             ]
