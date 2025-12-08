@@ -161,6 +161,7 @@
     display: inline-block;
     background-color: rgba(255,255,255,0.06);
     color: var(--Neutral-White, #fff);
+    color: var(--Neutral-White, #fff);
     font-family: "Space Mono", monospace;
     font-size: 13px;
     padding: 6px 14px;
@@ -172,6 +173,7 @@
 
 .view-button:hover {
     background-color: var(--hover-color);
+    color: var(--Neutral-White, #fff);
 }
 
 .tech-icons {
@@ -190,13 +192,14 @@
     height: 30px;
     animation: hueRotate 3s infinite alternate;
     filter: none;
-    transition: transform 0.1s cubic-bezier(0.4,0,0.2,1);
-    cursor: pointer;
+    cursor:crosshair;
 }
 
-.tech-icon:hover {
-    transform: scale(1.18) translateY(-4px);
-    box-shadow: 0 4px 16px #b3e0ff55;
+.tech-icon:hover, .tech-icons:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+    filter: grayscale(0);
+    box-shadow: 0 2px 10px #b3e0ff55;
 }
 
 @keyframes ColorChange {
