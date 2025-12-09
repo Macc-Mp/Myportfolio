@@ -135,19 +135,19 @@ function PartThree()
        
                <div className="gallery">
                  <div className="card">
-                   <a className="card-link" href="/participation/p3/career.pdf" target="_blank" rel="noopener noreferrer">
+                  
                      <img src="/participation/p2/day1.jpg" alt="Experience screenshot 1" />
                     <div className="signature-overlay"></div>
                      <div className="caption">Day (1) 11/06/2025</div>
-                   </a>
+                 
                  </div>
        
                   <div className="card">
-                    <a className="card-link" href="/participation/p3/academic.pdf" target="_blank" rel="noopener noreferrer">
+                   
                       <img src="/participation/p2/day2.jpg" alt="Experience screenshot 2" />
                     <div className="signature-overlay"></div>
                       <div className="caption">Day (2) 11/08/2025</div>
-                    </a>
+                  
                   </div>
        
                </div>
@@ -172,19 +172,19 @@ function PartFour() {
        
                <div className="gallery">
                  <div className="card">
-                   <a className="card-link" href="/participation/p4/AIF0028990717278.pdf" target="_blank" rel="noopener noreferrer">
+                 
                      <img src="/participation/p4/ai.png" alt="Certificate thumbnail" />
                     <div className="signature-overlay"></div>
                      <div className="caption">Ai Fundamentals</div>
-                   </a>
+                  
                  </div>
        
                  <div className="card">
-                   <a className="card-link" href="/participation/p4/DL0033281569784.pdf" target="_blank" rel="noopener noreferrer">
+                 
                      <img src="/participation/p4/data.png" alt="Participation Overview Screenshot" />
                     <div className="signature-overlay"></div>
                      <div className="caption">Data Literacy</div>
-                   </a>
+                 
                  </div>
                </div>
              </div>
