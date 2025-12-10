@@ -306,7 +306,6 @@
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .projects {
-        /* avoid huge bottom spacing that pushes layout oddly */
         margin-bottom: 4rem !important;
         padding-bottom: 20px !important;
     }
@@ -328,8 +327,5 @@
         margin-top: 15px;
     }
 
-    /* don't force images to overflow their cards */
-    /* .project-image default rules will apply */
+   
 }
-
-/*end of project.css  */
