@@ -44,6 +44,7 @@
     display: inline-flex;
     align-items: left;
     gap: 8px;
+    margin: 0 5px 0 5px;
     padding: 8px 14px;
     background: linear-gradient(180deg,#2b2b2b,#111);
     color: #fff;

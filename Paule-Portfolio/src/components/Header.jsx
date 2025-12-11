@@ -84,8 +84,13 @@ function Header() {
                     download="paule-resume.pdf"
                     >
                     Download Resume
-                </a>
+                   </a>
+                   <a href="" className="tab2">
+                    Let's Connect
+                   </a>
                 </div>  
+
+            
 
                  
                 {/* Display the visit counter here */}

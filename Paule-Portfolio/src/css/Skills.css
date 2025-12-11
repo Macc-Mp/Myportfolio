@@ -20,9 +20,6 @@
     border-radius: 2rem;
 }
 
-/* Removed project-specific rules from this file to avoid conflicts with ProjectsBody.css.
-    Projects styling now lives in src/css/ProjectsBody.css. */
-
 .tech-icons {
     filter: grayscale(1);
     display: flex;
