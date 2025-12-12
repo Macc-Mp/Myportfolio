@@ -24,7 +24,7 @@ function App() {
   function Home() {
     return (
       <>
-          <div className="page-content">
+        <div id="home" className="page-content">
           <NavBar />
           <Header />
           <Skills />
@@ -33,8 +33,7 @@ function App() {
           {/* <ResumeReader /> */}
           <Participation />
           <Footer />
-          </div>
-      
+        </div>
       </>
     )
   }

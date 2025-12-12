@@ -85,7 +85,7 @@ function Header() {
                     >
                     Download Resume
                    </a>
-                   <a href="" className="tab2">
+                   <a href="#contact" className="tab2">
                     Let's Connect
                    </a>
                 </div>  
