@@ -46,13 +46,16 @@
     gap: 8px;
     margin: 0 5px 0 5px;
     padding: 8px 14px;
-    background: linear-gradient(180deg,#2b2b2b,#111);
+    background: linear-gradient(180deg,#b7ad19,#d2ae1e);
     color: #fff;
     border-radius: 8px;
     text-decoration: none;
     border: 1px solid rgba(255,255,255,0.06);
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    background: linear-gradient(270deg, #b7ad19, #d2ae1e, #b7ad19);
+    background-size: 200% 200%;
+    animation: pulse-bg 2s ease-in-out infinite;
 }
 
 .tab2::before {
@@ -65,6 +68,19 @@
     background: rgba(255,255,255,0.03);
     color: #fff;
 }
+
+.tab2:nth-of-type(2)::before {
+    content: "\260E"; /* up arrow */
+}
+
+.tab2:nth-of-type(2){
+    background: linear-gradient(180deg,#5bbce6,#3a707d);
+    background: linear-gradient(270deg, #5bbce6, #3a707d, #5bbce6);
+    background-size: 200% 200%;
+    animation: pulse-bg 2s ease-in-out infinite;
+}
+
+
 
 .tab2:hover {
     transform: translateY(-3px);
@@ -101,4 +117,16 @@
 {
     color: #61dafb;
     margin-left: 8px;
+}
+
+@keyframes pulse-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

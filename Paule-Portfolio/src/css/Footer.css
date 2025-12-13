@@ -143,6 +143,41 @@
     text-decoration: none; 
 }
 
+.footer-tab2
+{
+    font-family: manrope;
+    display: inline-flex;
+    align-items: left;
+    gap: 8px;
+    margin: 0 5px 0 5px;
+    padding: 8px 14px;
+    background: linear-gradient(180deg,#161515,#4c4846);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.footer-tab2::before {
+    content: "\261A"; 
+    display: inline-block;
+    font-size: 0.95rem;
+    line-height: 1;
+    padding: 6px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.03);
+    color: #fff;
+}
+
+
+.footer-tab2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 34px rgba(0,0,0,0.45);
+    background: linear-gradient(180deg,#3a3a3a,#121212);
+}
+
 @media only screen and (min-width: 425px) and (max-width:700px){
     .contact{
         position:relative;
