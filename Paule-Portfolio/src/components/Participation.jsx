@@ -5,7 +5,6 @@ import '../css/Participation.css';
 function Participation() {
     return (
         <div className="participation-center">
-            {/* clickable heading that opens the participation route */}
             <Link className="participation-link" to="/participation" aria-label="Open uCTF participation page">
                 <h2>Micro Trend Careers: uCTF participant</h2>
             </Link>
