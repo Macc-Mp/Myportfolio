@@ -83,7 +83,7 @@ function ProjectsBody() {
                 "Feature 3"
             ],
             link: "https://project4-link.com",
-            pic: placeholder,
+           
             techs: [
                 hub
             ]
@@ -97,7 +97,7 @@ function ProjectsBody() {
                 "Feature 3"
             ],
             link: "https://project5-link.com",
-            pic: placeholder,
+          
             techs: [
                 hub
             ]
@@ -111,7 +111,7 @@ function ProjectsBody() {
                 "Feature 3"
             ],
             link: "https://project6-link.com",
-            pic: placeholder,
+           
             techs: [
                 hub
             ]
@@ -127,7 +127,7 @@ function ProjectsBody() {
                         <div className="project-card" key={index}>
                             <div className="box-content">
                                 <div className="image-container">
-                                    <img src={project.pic} className="project-image" />
+                                    <img src={project.pic} className="project-image" alt="projects"/>
                                     <div className="tech-icons">
                                         {project.techs.map((tech, techIndex) => (
                                             <img key={techIndex} src={tech} alt="Tech Icon" className="tech-icon" />
@@ -137,7 +137,7 @@ function ProjectsBody() {
                                 <div className="project-info-container">
                                     <div className="left-section">
                                         <div className="project-title">{project.title}</div>
-                                        <a href={project.link} className="view-button" target="_blank" rel="noopener noreferrer"></a>
+                                        <a href={project.link} className="view-button" target="_blank" rel="noopener noreferrer">.. </a>
                                     </div>
                                     <div className="right-section">
                                         <div className="project-description">{project.description}</div>

@@ -130,7 +130,8 @@
 }
 
 .media-link img {
-    width: 35px;
+    width: 3rem;
+    height: 2.5rem;
     display: block;
     padding: 8px; /* creates a tappable area */
     border-radius: 10px;
