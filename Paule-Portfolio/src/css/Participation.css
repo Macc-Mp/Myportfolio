@@ -6,18 +6,24 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    background: var(--mustard);
+    background: linear-gradient(270deg, #fbb606, #d4b741, #b7ad19);
     color: #fff;
     padding: 8px 10px;
     border-radius: 10px;
     box-shadow: 0 6px 18px rgba(26,115,232,0.18);
+    /* allow the gradient to move by making it larger than the element */
+    background-size: 200% 200%;
+    background-repeat: no-repeat;
     transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
     border: 1px solid rgba(193, 193, 193, 0.06);
     cursor: pointer;
     /* responsive flex sizing: allow items to wrap and take sensible width */
     flex: 1 1 150px; /* grow, shrink, base 150px */
     max-width: 300px; /* prevents links growing too wide on large screens */
+      
 }
+
+
 
 /* make the inner heading look tidy and inherit the button styles */
 .participation-link h2 {
@@ -94,12 +100,12 @@
 
 /* Transparent overlay to hide signatures on images */
 .signature-overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 80px; /* Adjust height as needed to cover signature area */
-    background: rgba(0,0,0,2.15); /* more transparent black */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 80px; /* Adjust height as needed to cover signature area */
+        background: rgba(0,0,0,0.6); /* semi-transparent black */
   pointer-events: none; /* allow clicks to pass through */
   border-radius: 0 0 10px 10px; /* match image/card corners if needed */
   z-index: 2;

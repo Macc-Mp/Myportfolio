@@ -46,14 +46,13 @@
     gap: 8px;
     margin: 0 5px 0 5px;
     padding: 8px 14px;
-    background: linear-gradient(180deg,#b7ad19,#d2ae1e);
     color: #fff;
     border-radius: 8px;
     text-decoration: none;
     border: 1px solid rgba(255,255,255,0.06);
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-    background: linear-gradient(270deg, #b7ad19, #d2ae1e, #b7ad19);
+    background: linear-gradient(270deg, #c28f0f, #817649, #b7ad19);
     background-size: 200% 200%;
     animation: pulse-bg 2s ease-in-out infinite;
 }
@@ -74,8 +73,7 @@
 }
 
 .tab2:nth-of-type(2){
-    background: linear-gradient(180deg,#5bbce6,#3a707d);
-    background: linear-gradient(270deg, #5bbce6, #3a707d, #5bbce6);
+    background: linear-gradient(270deg, #1569e7, #3a707d, #5bbce6);
     background-size: 200% 200%;
     animation: pulse-bg 2s ease-in-out infinite;
 }

@@ -10,6 +10,7 @@
     margin: 0 auto 4rem auto;
     box-sizing: border-box;
     overflow: visible;
+    margin-top: 15rem;
 }
 
 .projects h2{
@@ -158,21 +159,34 @@
 }
 
 .view-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 28px;
     background-color: rgba(114, 155, 104, 0.06);
     color: var(--Neutral-White, #fff);
     font-family: "Space Mono", monospace;
     font-size: 13px;
-    padding: 6px 14px;
+    padding: 0 8px;
     border-radius: 14px;
     text-decoration: none;
     margin: 8px 0 8px 0;
     transition: background 0.15s ease-in-out, transform 0.12s ease;
+    cursor: pointer;
 }
 
 .view-button:hover {
     background-color: var(--hover-color);
     color: var(--Neutral-White, #fff);
+}
+
+/* show the north-east arrow using a pseudo-element so the element itself remains accessible */
+.view-button::after {
+    content: "\2197"; /* ↗ */
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1;
 }
 
 .tech-icons {

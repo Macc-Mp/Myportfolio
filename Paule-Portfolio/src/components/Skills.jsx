@@ -1,5 +1,5 @@
 import '../css/Skills.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import magic8 from '/v1flame.gif';
 import magic7 from'/v2flame.gif';
 import Slider from "react-slick";
@@ -34,6 +34,8 @@ function Skills() {
     const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
     const [isShaking, setIsShaking] = useState(false);
     const [hovered, setHovered] = useState(false);
+    // Auto-cycle timer ref
+    const intervalRef = useRef(null);
 
     const handleImageClick = () => {
         setIsShaking(true); // Add the 'shaking' class
@@ -43,16 +45,28 @@ function Skills() {
         }, 500); // Match the duration of the shake animation
     };
 
+    // start an infinite auto-cycle every 5 seconds, cleanup on unmount
+    useEffect(() => {
+        const ms = 5000;
+        intervalRef.current = setInterval(() => {
+            handleImageClick();
+        }, ms);
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+        };
+    }, []);
+
     return (
         <div className="Skill-container">
-            <img
+            {/* <img
                 src={hovered ? magic7 : magic8}
                 className={`puzzles ${isShaking ? 'shaking' : ''}`}
                 alt="magic8ball"
                 onClick={handleImageClick}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
-            />
+            /> */}
+            {/* Auto-cycle runs in background every 5s; manual clicks still work. */}
             <div className="skills-list">
                 <div className="skillTitle">
                     <h3>{skills[currentSkillIndex].name}</h3>

@@ -89,33 +89,15 @@ function Header() {
                     Let's Connect
                    </a>
                 </div>  
-
-            
-
-                 
+      
                 {/* Display the visit counter here */}
                 {/* <p>Page Loads: <span className="visit-counter-display">{visitCount}</span></p> */}
                 {/* <p>Time Stamp: <span className="visit-counter-display">{formattedCreatedAt}</span></p> */}
                 {/* <a href="https://www.linkedin.com/in/moises-paule-6968ab328" target="_blank" rel="noopener noreferrer">
                     <img src="/button.svg" alt="contact-me" className="cctcme" />
                 </a> */}
-
-                
-                
-             
-
             </div>
-           
-        
-              
-                  
-         
          </div>
-       
-
-
-                
- 
     );
 }
 

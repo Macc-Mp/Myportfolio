@@ -137,7 +137,7 @@ function ProjectsBody() {
                                 <div className="project-info-container">
                                     <div className="left-section">
                                         <div className="project-title">{project.title}</div>
-                                        <a href={project.link} className="view-button" target="_blank" rel="noopener noreferrer">View</a>
+                                        <a href={project.link} className="view-button" target="_blank" rel="noopener noreferrer"></a>
                                     </div>
                                     <div className="right-section">
                                         <div className="project-description">{project.description}</div>

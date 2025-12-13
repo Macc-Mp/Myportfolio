@@ -68,6 +68,19 @@
     display: block;
 }
 
+/* Ensure images scale from their center and remain centered when hovered */
+.participation-page .card img {
+    object-position: center center;
+    transform-origin: center center;
+    transition: transform 200ms ease;
+    will-change: transform;
+}
+
+.participation-page .card-link:hover img,
+.participation-page .card:hover img {
+    transform: scale(1.06);
+}
+
 .participation-page .card .caption {
     padding: 10px;
     font-size: 14px;
@@ -91,17 +104,12 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.25);
 }
 
-.participation-page .part-back:hover {
-    transform: translateY(-2px);
-    background: var(--intro-blue);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-}
-
 /* clickable card link */
 .participation-page .card-link {
     display: block;
     color: inherit;
     text-decoration: none;
+   
 }
 
 .participation-page .card-link:hover .card,

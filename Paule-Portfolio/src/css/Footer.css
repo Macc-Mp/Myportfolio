@@ -131,7 +131,26 @@
 
 .media-link img {
     width: 35px;
-    filter: invert(0);
+    display: block;
+    padding: 8px; /* creates a tappable area */
+    border-radius: 10px;
+    
+    box-shadow: 0 6px 18px rgba(179, 170, 170, 0.28), 0 1px 0 rgba(255,255,255,0.02) inset;
+    transition: transform 180ms ease, box-shadow 180ms ese, filter 180ms ease, background 180ms ease;
+    filter: none; /* remove invert so icon colors remain natural */
+}
+
+.media-link:hover img,
+.media-link:focus img {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.42);
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.28)) saturate(1.12) contrast(1.02);
+}
+
+/* keyboard focus ring for accessibility */
+.media-link:focus-visible img {
+    outline: 3px solid rgba(99, 102, 241, 0.18);
+    outline-offset: 4px;
 }
 
 .media-link p {
@@ -151,7 +170,7 @@
     gap: 8px;
     margin: 0 5px 0 5px;
     padding: 8px 14px;
-    background: linear-gradient(180deg,#161515,#4c4846);
+    background: linear-gradient(270deg, #68c71a, #32d226);
     color: #fff;
     border-radius: 8px;
     text-decoration: none;
@@ -161,7 +180,7 @@
 }
 
 .footer-tab2::before {
-    content: "\261A"; 
+    content: "\21BB"; 
     display: inline-block;
     font-size: 0.95rem;
     line-height: 1;
