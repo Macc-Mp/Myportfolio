@@ -1,4 +1,3 @@
-/*start of projects.css  */
 .projects {
     /* Container: keep header + description stacked, cards live in #projectCards grid */
     display: flex;

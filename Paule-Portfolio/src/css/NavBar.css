@@ -1,11 +1,10 @@
-/* Style for the .title link in the navbar */
 .title {
   color: var(--smoke);
   font-weight: 700;
   font-size: 1.3rem;
   text-decoration: none;
 }
-/*start of navbar.css */
+
 h2 {
   vertical-align: center;
   text-align: center;
@@ -204,4 +203,3 @@ html, body {
   }
 }
 
-/*end of navbar.css */

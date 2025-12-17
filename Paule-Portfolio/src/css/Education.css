@@ -22,7 +22,6 @@ h2 {
     color: var(--Neutral-White, #fff);
 }
 
-/* dashed divider under the heading to match screenshot */
 .education h2::after {
     content: "";
     display: block;
@@ -90,7 +89,6 @@ h2 {
 }
 
 .outer {
-    /* Timeline container - left column reserved for badges/markers */
     display: block;
     width: 100%;
     margin-bottom: 8px;

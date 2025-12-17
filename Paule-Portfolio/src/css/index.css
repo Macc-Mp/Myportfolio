@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap');
 :root{
     --dull-color: #000;
-    /* default primary color used by main-bg design for stars */
     --primary-color: #ffffff;
     --hover-color: rgb(87, 92, 97);
     --white-plain: #fff;
@@ -20,7 +19,6 @@
     --smoke: whitesmoke;
 }
 
-/* Ensure page content sits above the decorative background */
 .page-content {
     position: relative;
     z-index: 1;
