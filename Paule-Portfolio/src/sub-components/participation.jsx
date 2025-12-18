@@ -18,35 +18,35 @@ function PartOne() {
 
         <div className="gallery">
           <div className="card">
-            <a className="card-link" href="/participation/p1/score1.png" target="_blank" rel="noopener noreferrer">
+            <div className="card-link">
               <img src="/participation/p1/score1.png" alt="Experience screenshot 1" />
-                <div className="signature-overlay"></div>
+              <div className="signature-overlay"></div>
               <div className="caption">Practice Sessions (1)</div>
-            </a>
+            </div>
           </div>
 
           <div className="card">
-            <a className="card-link" href="/participation/p1/score2.png" target="_blank" rel="noopener noreferrer">
+            <div className="card-link">
               <img src="/participation/p1/score2.png" alt="Experience screenshot 2" />
-                <div className="signature-overlay"></div>
+              <div className="signature-overlay"></div>
               <div className="caption">Practice Sessions (2)</div>
-            </a>
+            </div>
           </div>
 
           <div className="card">
-            <a className="card-link" href="/participation/p1/uctf_cert.pdf" target="_blank" rel="noopener noreferrer">
+            <div className="card-link">
               <img src="/participation/p1/teams.jpg" alt="Certificate thumbnail" />
-                <div className="signature-overlay"></div>
+              <div className="signature-overlay"></div>
               <div className="caption">Certificate</div>
-            </a>
+            </div>
           </div>
 
           <div className="card">
-            <a className="card-link" href="/participation/p1/pos.jpg" target="_blank" rel="noopener noreferrer">
+            <div className="card-link">
               <img src="/participation/p1/pos.jpg" alt="Participation Overview Screenshot" />
-                <div className="signature-overlay"></div>
+              <div className="signature-overlay"></div>
               <div className="caption">Placement</div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -72,43 +72,43 @@ function PartTwo()
        
                <div className="gallery">
                  <div className="card">
-                   <a className="card-link" href="/participation/p2/day1.jpg" target="_blank" rel="noopener noreferrer">
+                   <div className="card-link">
                      <img src="/participation/p2/day1.jpg" alt="Experience screenshot 1" />
-                    <div className="signature-overlay"></div>
+                     <div className="signature-overlay"></div>
                      <div className="caption">Day (1)</div>
-                   </a>
+                   </div>
                  </div>
        
                   <div className="card">
-                    <a className="card-link" href="/participation/p2/day2.jpg" target="_blank" rel="noopener noreferrer">
+                    <div className="card-link">
                       <img src="/participation/p2/day2.jpg" alt="Experience screenshot 2" />
-                    <div className="signature-overlay"></div>
+                      <div className="signature-overlay"></div>
                       <div className="caption">Day (2)</div>
-                    </a>
+                    </div>
                   </div>
 
                   <div className="card">
-                    <a className="card-link" href="/participation/p2/day3.jpg" target="_blank" rel="noopener noreferrer">
+                    <div className="card-link">
                       <img src="/participation/p2/day3.jpg" alt="Experience screenshot 2" />
-                    <div className="signature-overlay"></div>
+                      <div className="signature-overlay"></div>
                       <div className="caption">Day (3)</div>
-                    </a>
+                    </div>
                   </div>
        
                  <div className="card">
-                   <a className="card-link" href="/participation/p2/bootcamp.png" target="_blank" rel="noopener noreferrer">
+                   <div className="card-link">
                      <img src="/participation/p2/bootcamp.png" alt="Bootcamp thumbnail" />
-                    <div className="signature-overlay"></div>
+                     <div className="signature-overlay"></div>
                      <div className="caption">Bootcamp</div>
-                   </a>
+                   </div>
                  </div>
 
                  <div className="card">
-                  <a className="card-link" href="/participation/p2/cert.pdf" target="_blank" rel="noopener noreferrer">
+                  <div className="card-link">
                     <img src="/participation/p2/cert.png" alt="Participation Overview Screenshot" />
                     <div className="signature-overlay"></div>
                     <div className="caption">Microsoft Copilot</div>
-                  </a>
+                  </div>
                 </div>
        
                </div>
