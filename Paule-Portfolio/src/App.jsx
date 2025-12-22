@@ -17,6 +17,7 @@ import { PartOne, PartTwo, PartThree, PartFour, PartFive } from './sub-component
 import './css/index.css'
 import './css/Spinner.css'
 import Design from './css/main-bg/design';
+import ScrollProgress from './components/ScrollProgress'
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
   return (
     <>
       <Design />
+      <ScrollProgress />
       {loading ? <Loading /> : <RouterProvider router={router} />}
     </>
   )

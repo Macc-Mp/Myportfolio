@@ -19,6 +19,48 @@
     --smoke: whitesmoke;
 }
 
+/* Hide scrollbar for the whole page (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Scroll progress bar visuals (horizontal top bar) */
+.scroll-progress-root {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 4px;
+    z-index: 9999;
+    pointer-events: none;
+    background: transparent;
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--dim-white);
+    transition: width 120ms linear;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Optional: show a thin track behind the bar */
+.scroll-progress-root::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(0,0,0,0.05);
+}
+
+/* Hide scrollbar for Firefox */
+html, body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
 .page-content {
     position: relative;
     z-index: 1;
