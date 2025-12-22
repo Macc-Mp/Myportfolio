@@ -11,7 +11,7 @@ import Participation from './components/Participation'
 import Loading from './components/Loading'
 
 //routes for participation pages
-import { PartOne, PartTwo, PartThree, PartFour } from './sub-components/participation'
+import { PartOne, PartTwo, PartThree, PartFour, PartFive } from './sub-components/participation'
 
 //import './App.css'
 import './css/index.css'
@@ -51,6 +51,7 @@ function App() {
     { path: '/participation/part-two', element: <PartTwo/> },
     { path: '/participation/part-three', element: <PartThree/> },
     { path: '/participation/part-four', element: <PartFour/> },
+    { path: '/participation/part-five', element: <PartFive/> },
   ])
 
   // Always render the decorative background so it can animate while the

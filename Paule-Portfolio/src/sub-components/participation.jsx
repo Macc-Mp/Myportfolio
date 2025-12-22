@@ -192,4 +192,60 @@ function PartFour() {
     );
 }
 
-export { PartOne, PartTwo, PartThree, PartFour };
+
+function PartFive() {
+    return (
+    <div className="participation-page">
+
+      <div className="container">
+        <div className="top">
+          <div>
+            <h1>HTB: University CTF: Tinsel Trouble Participation</h1>
+            <p className="subtitle">Projects, screenshots and notes from my CTF participation.</p>
+          </div>
+            <div className="controls">
+            <Link className="part-back" to="/" aria-label="Back to site">Back to site</Link>
+          </div>
+        </div>
+
+        <div className="gallery">
+          <div className="card">
+            <div className="card-link">
+              <img src="/participation/p5/1.png" alt="Experience screenshot 1" />
+              <div className="signature-overlay"></div>
+              <div className="caption">Contribution(1)</div>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="card-link">
+              <img src="/participation/p5/2.png" alt="Experience screenshot 2" />
+              <div className="signature-overlay"></div>
+              <div className="caption">Contribution(2)</div>
+            </div>
+          </div>
+
+           <div className="card">
+            <div className="card-link">
+              <img src="/participation/p5/3.png" alt="Experience screenshot 3" />
+              <div className="signature-overlay"></div>
+              <div className="caption">Contribution(3)</div>
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="card-link">
+              <img src="/participation/p5/image.png" alt="Certificate thumbnail" />
+              <div className="signature-overlay"></div>
+              <div className="caption">Certificate</div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export { PartOne, PartTwo, PartThree, PartFour, PartFive };
