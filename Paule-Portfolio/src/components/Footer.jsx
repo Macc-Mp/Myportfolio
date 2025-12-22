@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import '../css/Footer.css'
 import linkedin from '../assets/Header/linkedin.png'
 import github from '../assets/Header/github.png'
-import email from '../assets/Header/contact.png'
+
 
 function Footer() {
     return (
@@ -30,10 +30,9 @@ function Footer() {
                     <p><a className="aLink" href="mailto:macmoises12@gmail.com" target="_blank">macmoises12@gmail.com</a></p>
                 </div>
                <div className="media-link">
-                        <a href="#home" className="footer-tab2">
-                     
-                        </a>
+                        <p><a href="#home" className="footer-tab2"></a></p>
                </div>
+           
             </div>  
         </div>
     </div>

@@ -6,11 +6,10 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-     background: linear-gradient(270deg, #1569e7, #3a707d, #5bbce6);
+     background: linear-gradient(270deg, #333637);
     color: #fff;
     padding: 8px 10px;
     border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(26,115,232,0.18);
     /* allow the gradient to move by making it larger than the element */
     background-size: 200% 200%;
     background-repeat: no-repeat;
@@ -38,7 +37,6 @@
 /* hover / active */
 .participation-link:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 26px rgba(26,115,232,0.22);
     opacity: 0.98;
 }
 .participation-link:active {

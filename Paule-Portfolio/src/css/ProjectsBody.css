@@ -83,7 +83,7 @@
     flex-shrink: 0;
     display: block;
      /* Glass background: a subtle translucent gradient + fallback color for browsers without backdrop-filter */
-    background-color: rgba(10,12,15,0.55);
+    background-color: rgba(41, 45, 50, 0.29);
    
     -webkit-backdrop-filter: blur(12px) saturate(120%);
     backdrop-filter: blur(12px) saturate(120%);
@@ -107,18 +107,31 @@
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.project-info-container {
+.project-card > .box-content > .project-info-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    padding: 14px 18px 18px 18px;
+    /* collapsed by default; expands on hover */
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 18px;
+    opacity: 0;
+    transition: max-height 280ms ease, opacity 180ms ease, padding 180ms ease;
 }
 
 .left-section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+/* expand project info when hovering the card (or keyboard focus-within) */
+.project-card:hover > .box-content > .project-info-container,
+.project-card:focus-within > .box-content > .project-info-container {
+    max-height: 800px; /* large enough to reveal content */
+    padding: 14px 18px 18px 18px;
+    opacity: 1;
 }
 
 .right-section {
@@ -197,7 +210,6 @@
     width: auto;
     justify-content: center;
     margin: 1rem 0;
-    background-color: rgba(55, 60, 67, 0.55);
     padding: 10px;
 }
 
@@ -213,7 +225,7 @@
     transform: scale(1.5);
     cursor: pointer;
     filter: grayscale(0);
-    box-shadow: 0 2px 15px 4px #b3e0ff55;
+    box-shadow: 0 2px 15px 4px #999c9e18;
     border-radius: 1rem;
 
 }
@@ -287,11 +299,15 @@
         align-items: center;
     }
 
-    .project-info-container {
+    .project-card > .box-content > .project-info-container {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        /* keep expanded by default on small screens */
+        max-height: none;
+        padding: 14px 18px 18px 18px;
+        opacity: 1;
     }
 
     .left-section, .right-section {
