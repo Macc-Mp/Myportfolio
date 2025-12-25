@@ -3,7 +3,6 @@ import '../css/Header.css';
 import '../css/ResumeReader.css';
 import linkedin from '../assets/Header/linkedin.png';
 import github from '../assets/Header/github.png';
-import contact from '../assets/Header/contact.png';
 
 const PDF_PATH = '/upload-resume/paule-resume.pdf';
 function Header() {

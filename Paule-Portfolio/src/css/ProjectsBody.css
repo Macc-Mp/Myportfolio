@@ -85,11 +85,12 @@
      /* Glass background: a subtle translucent gradient + fallback color for browsers without backdrop-filter */
     background-color: rgba(41, 45, 50, 0.29);
    
-    -webkit-backdrop-filter: blur(12px) saturate(120%);
+   -webkit-backdrop-filter: blur(12px) saturate(120%);
     backdrop-filter: blur(12px) saturate(120%);
     /* deeper shadow to lift the card from background */
  
-   
+    position: relative; /* needed for sliding cover */
+    overflow: hidden;
 }
 
 .project-image {
@@ -99,6 +100,40 @@
     display: block;
     border-radius: 6px;
     border: none;
+}
+
+/* sliding cover that hides the image until hover */
+.image-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgb(219, 219, 219) 0%, rgba(168, 168, 176, 0.632) 100%);
+    z-index: 4;
+    transform: translateX(0%);
+    transition: transform 420ms cubic-bezier(.2,.9,.2,1), opacity 260ms ease;
+    pointer-events: none;
+}
+
+/* make sure image sits below the cover */
+.image-container .project-image {
+    position: relative;
+    z-index: 1;
+}
+
+/* on hover/focus slide the cover away to reveal the image */
+.project-card:hover > .box-content > .image-container::before,
+.project-card:focus-within > .box-content > .image-container::before {
+    transform: translateX(110%);
+    opacity: 0;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .image-container::before {
+        transition: none;
+        transform: translateX(110%);
+        opacity: 0;
+    }
 }
 
 .project-image:hover {

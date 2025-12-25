@@ -64,7 +64,7 @@ function ProjectsBody() {
                 "View movie details"
             ],
             link: "https://movie-selection-rosy.vercel.app/",
-            pic: "/projectsPic/3.svg",
+            pic: "/projectsPic/3.png",
             techs: [
                 reactt,
                 vitee,
@@ -75,16 +75,15 @@ function ProjectsBody() {
             ]
         },
         {
-            title: "Project 4",
-            description: "Description for Project 4.",
-            features: [
-                "Feature 1",
-                "Feature 2",
-                "Feature 3"
-            ],
-            link: "https://project4-link.com",
-           
+            title: "Web Portfolio",
+            description: "Started from base HTML to React.",
+            pic: "/projectsPic/4.webp",
             techs: [
+                reactt,
+                vitee,
+                htmll,
+                csss,
+                js,
                 hub
             ]
         },
@@ -128,24 +127,32 @@ function ProjectsBody() {
                             <div className="box-content">
                                 <div className="image-container">
                                     <img src={project.pic} className="project-image" alt="projects"/>
-                                    <div className="tech-icons">
-                                        {project.techs.map((tech, techIndex) => (
-                                            <img key={techIndex} src={tech} alt="Tech Icon" className="tech-icon" />
-                                        ))}
-                                    </div>
+                                    {project.techs && project.techs.length > 0 && (
+                                        <div className="tech-icons">
+                                            {project.techs.map((tech, techIndex) => (
+                                                <img key={techIndex} src={tech} alt="Tech Icon" className="tech-icon" />
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="project-info-container">
                                     <div className="left-section">
                                         <div className="project-title">{project.title}</div>
-                                        <a href={project.link} className="view-button" target="_blank" rel="noopener noreferrer">.. </a>
+                                        {project.link && (
+                                            <a href={project.link} className="view-button" target="_blank" rel="noopener noreferrer">.. </a>
+                                        )}
                                     </div>
                                     <div className="right-section">
-                                        <div className="project-description">{project.description}</div>
-                                        <ul className="project-features">
-                                            {project.features.map((feature, featureIndex) => (
-                                                <li key={featureIndex}>{feature}</li>
-                                            ))}
-                                        </ul>
+                                        {project.description && (
+                                            <div className="project-description">{project.description}</div>
+                                        )}
+                                        {project.features && project.features.length > 0 && (
+                                            <ul className="project-features">
+                                                {project.features.map((feature, featureIndex) => (
+                                                    <li key={featureIndex}>{feature}</li>
+                                                ))}
+                                            </ul>
+                                        )}
                                     </div>
                                 </div>
                             </div>

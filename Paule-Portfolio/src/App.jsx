@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense, lazy } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NavBar from './components/NavBar'
-import Skills from './components/Skills'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import ProjectsBody from './components/ProjectsBody'
-import Education from './components/Education'
+const Header = lazy(() => import('./components/Header'))
+const Skills = lazy(() => import('./components/Skills'))
+const ProjectsBody = lazy(() => import('./components/ProjectsBody'))
+const Education = lazy(() => import('./components/Education'))
+const Participation = lazy(() => import('./components/Participation'))
+const Footer = lazy(() => import('./components/Footer'))
 import ResumeReader from './components/ResumeReader'
-import Participation from './components/Participation'
 import Loading from './components/Loading'
 
 //routes for participation pages
@@ -27,13 +27,15 @@ function App() {
       <>
         <div id="home" className="page-content">
           <NavBar />
-          <Header />
-          <Skills />
-          <ProjectsBody />
-          <Education />
-          {/* <ResumeReader /> */}
-          <Participation />
-          <Footer />
+          <Suspense fallback={<div className="suspense-fallback" />}>
+            <Header />
+            <Skills />
+            <ProjectsBody />
+            <Education />
+            {/* <ResumeReader /> */}
+            <Participation />
+            <Footer />
+          </Suspense>
         </div>
       </>
     )

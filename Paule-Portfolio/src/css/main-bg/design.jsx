@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 // using a React portal. This keeps it outside the main #root subtree so
 // app-level stacking contexts (transforms/filters on ancestors) cannot
 // accidentally place the background above page UI.
-export default function Design({ count = 50 }) {
+export default function Design({ count = 5 }) {
   const [mounted, setMounted] = useState(false);
   const [container] = useState(() => document && document.createElement('div'));
 
