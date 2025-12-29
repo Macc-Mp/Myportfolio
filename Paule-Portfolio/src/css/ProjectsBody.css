@@ -95,7 +95,10 @@
 
 .project-image {
     width: 100%;
-    height: 180px;
+    /* let the browser preserve intrinsic ratio for layout and avoid upscaling */
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 180px; /* visual cap to keep card compact */
     object-fit: cover;
     display: block;
     border-radius: 6px;

@@ -114,7 +114,14 @@ function ProjectsBody() {
                         <div className="project-card" key={index}>
                             <div className="box-content">
                                 <div className="image-container">
-                                    <img src={project.pic} className="project-image" alt="projects"/>
+                                    <img
+                                        src={project.pic}
+                                        className="project-image"
+                                        alt={project.title + " screenshot"}
+                                        width="640"
+                                        height="360"
+                                        loading="lazy"
+                                    />
                                     {project.techs && project.techs.length > 0 && (
                                         <div className="tech-icons">
                                             {project.techs.map((tech, techIndex) => (
