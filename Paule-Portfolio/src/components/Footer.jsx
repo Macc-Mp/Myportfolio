@@ -29,9 +29,6 @@ function Footer() {
                     <img src="/email.svg" alt="Email"></img>
                     <p><a className="aLink" href="mailto:macmoises12@gmail.com" target="_blank">macmoises12@gmail.com</a></p>
                 </div>
-               <div className="media-link">
-                        <p><a href="#home" className="footer-tab2"></a></p>
-               </div>
            
             </div>  
         </div>

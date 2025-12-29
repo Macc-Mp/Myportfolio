@@ -69,7 +69,7 @@ function Skills() {
             {/* Auto-cycle runs in background every 5s; manual clicks still work. */}
             <div className="skills-list">
                 <div className="skillTitle">
-                    <h3>{skills[currentSkillIndex].name}</h3>
+                    <h1>{skills[currentSkillIndex].name}</h1>
                     <div className="images">
                         {skills[currentSkillIndex].images.map((image, index) => (
                             <img key={index} src={image} alt={`Skill ${index}`} className="skill-icon" />

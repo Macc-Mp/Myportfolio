@@ -20,11 +20,10 @@ function ProjectsBody() {
             title: "Sales Predictor",
             description: "C# Web-based app for predicting sales performance using ASP.net core MVC with C# LightGBM, EPPLUS and SQL.",
             features: [
-                "Predict Under-performing, Normal and Best Seller sales of an item based on evaluated spreadsheet data.",
-                "Using gradient boosting decision trees."
+                null
             ],
-            link: "https://moacworks.itch.io/splash",
-            pic: "/projectsPic/1.svg",
+            link: "https://salespredictor-gucwfabagye5fhbt.eastasia-01.azurewebsites.net/",
+            pic: "/projectsPic/1.webp",
             techs: [
                 csharp,
                 aspp,
@@ -37,13 +36,7 @@ function ProjectsBody() {
             title: "Splash: 2D shooter",
             description: "Unity 2D Retro Shooter Game for Android. Goal of the game is to reach the highest possible score as difficulty catches up.",
             features: [
-                "Basic Blend Tree Animations",
-                "GUI Player Controls",
-                "Rule based Escalation",
-                "Save local Highscore",
-                "Rigidbody Collisions",
-                "Point, Powerup and Lives System",
-                "Replayability"
+                null
             ],
             link: "https://moacworks.itch.io/splash",
             pic: "/projectsPic/2.svg",
@@ -56,15 +49,10 @@ function ProjectsBody() {
             title: "Movielist Selection",
             description: "API key requested from themoviedb.org/The Movie Database. This Web-based project made with React + Vite, is part of my learning curve to understand react hooks.",
             features: [
-                "Browse movies via pagination feature",
-                "Favorite movies stored locally",
-                "Search bar",
-                "Screen Responsive",
-                "Responsive Design",
-                "View movie details"
+               null
             ],
             link: "https://movie-selection-rosy.vercel.app/",
-            pic: "/projectsPic/3.png",
+            pic: "/projectsPic/3.webp",
             techs: [
                 reactt,
                 vitee,
@@ -139,20 +127,20 @@ function ProjectsBody() {
                                     <div className="left-section">
                                         <div className="project-title">{project.title}</div>
                                         {project.link && (
-                                            <a href={project.link} className="view-button" target="_blank" rel="noopener noreferrer">.. </a>
+                                            <a href={project.link} className="view-button" target="_blank" rel="noopener noreferrer">↗</a>
                                         )}
                                     </div>
                                     <div className="right-section">
                                         {project.description && (
                                             <div className="project-description">{project.description}</div>
                                         )}
-                                        {project.features && project.features.length > 0 && (
+                                        {/* {project.features && project.features.length > 0 && (
                                             <ul className="project-features">
                                                 {project.features.map((feature, featureIndex) => (
                                                     <li key={featureIndex}>{feature}</li>
                                                 ))}
                                             </ul>
-                                        )}
+                                        )} */}
                                     </div>
                                 </div>
                             </div>

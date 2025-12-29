@@ -107,9 +107,11 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgb(219, 219, 219) 0%, rgba(168, 168, 176, 0.632) 100%);
+    /* subtle dark overlay to dim the image until the card is hovered */
+    background: linear-gradient(180deg, rgba(0,0,0,0.36), rgba(0,0,0,0.28));
     z-index: 4;
     transform: translateX(0%);
+    opacity: 1;
     transition: transform 420ms cubic-bezier(.2,.9,.2,1), opacity 260ms ease;
     pointer-events: none;
 }
@@ -186,7 +188,7 @@
 }
 
 .project-description {
-    text-align: left;
+    text-align: justify;
     color: var(--Minor-Light, #cfcfcf);
     font-family: "Space Mono", monospace;
     font-size: 13px;
@@ -209,14 +211,14 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
+    width: 50px;
     height: 28px;
-    background-color: rgba(114, 155, 104, 0.06);
+    background-color: var(--mustard);
     color: var(--Neutral-White, #fff);
     font-family: "Space Mono", monospace;
-    font-size: 13px;
-    padding: 0 8px;
-    border-radius: 14px;
+    font-size: 13px; 
+    padding: 6px 15px;
+    border-radius: 10px;
     text-decoration: none;
     margin: 8px 0 8px 0;
     transition: background 0.15s ease-in-out, transform 0.12s ease;
@@ -228,12 +230,8 @@
     color: var(--Neutral-White, #fff);
 }
 
-/* show the north-east arrow using a pseudo-element so the element itself remains accessible */
-.view-button::after {
-    content: "\2197"; /* ↗ */
-    display: inline-block;
-    font-size: 14px;
-    line-height: 1;
+.view-button::before {
+    content: '\2197'; /* Unicode for external link icon */
 }
 
 .tech-icons {
