@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import "../css/sub-components/participation.css";
 function PartOne() {
   return (
     <div className="participation-page">
+
+      <HoverCenterManager />
 
       <div className="container">
         <div className="top">
@@ -58,6 +60,7 @@ function PartTwo()
 {
     return (
         <div className="participation-page">
+      <HoverCenterManager />
        
              <div className="container">
                <div className="top">
@@ -121,6 +124,7 @@ function PartThree()
 {
     return (
       <div className="participation-page">
+  <HoverCenterManager />
        
              <div className="container">
                <div className="top">
@@ -159,6 +163,7 @@ function PartThree()
 function PartFour() {
     return (
         <div className="participation-page">
+      <HoverCenterManager />
        
              <div className="container">
                <div className="top">
@@ -196,6 +201,7 @@ function PartFour() {
 function PartFive() {
     return (
     <div className="participation-page">
+  <HoverCenterManager />
 
       <div className="container">
         <div className="top">
@@ -249,3 +255,87 @@ function PartFive() {
 }
 
 export { PartOne, PartTwo, PartThree, PartFour, PartFive };
+
+function HoverCenterManager() {
+  useEffect(() => {
+    // Create overlay container with close button
+    const overlay = document.createElement('div');
+    overlay.id = 'pc-overlay';
+    overlay.innerHTML = '<div class="backdrop"></div><div class="clone"><button class="pc-close" aria-label="Close">×</button><img src="" alt=""/><div class="caption"></div></div>';
+    document.body.appendChild(overlay);
+
+    const cloneImg = overlay.querySelector('img');
+    const cloneCap = overlay.querySelector('.caption');
+    const closeBtn = overlay.querySelector('.pc-close');
+    let visible = false;
+    let persistent = false;
+    let activeCard = null;
+
+    function showFor(card, opts = {}) {
+      const img = card.querySelector('img');
+      const cap = card.querySelector('.caption');
+      if (!img) return;
+      activeCard = card;
+      cloneImg.src = img.src;
+      cloneImg.alt = img.alt || '';
+      cloneCap.textContent = cap ? cap.textContent : '';
+      if (opts.persist) {
+        persistent = true;
+        overlay.classList.add('persistent');
+      } else {
+        overlay.classList.remove('persistent');
+      }
+      overlay.classList.add('visible');
+      visible = true;
+    }
+
+    function hide() {
+      if (persistent) return; // don't hide while persistent
+      if (!visible) return;
+      overlay.classList.remove('visible');
+      overlay.classList.remove('persistent');
+      visible = false;
+      persistent = false;
+      activeCard = null;
+    }
+
+    function close() {
+      overlay.classList.remove('visible');
+      overlay.classList.remove('persistent');
+      visible = false;
+      persistent = false;
+      activeCard = null;
+    }
+
+    // Hover behavior removed — overlay opens only on click.
+
+    function onDocClick(e) {
+      const clickedCard = e.target && e.target.closest && e.target.closest('.card');
+      // If user clicked a card, open persistent overlay for that card
+      if (clickedCard) {
+        showFor(clickedCard, { persist: true });
+        return;
+      }
+      // Click outside card: if backdrop or close button clicked, close overlay
+      if (e.target.closest && e.target.closest('#pc-overlay .backdrop')) { close(); }
+      if (e.target.classList && e.target.classList.contains('pc-close')) { close(); }
+    }
+
+    function onKey(e) { if (e.key === 'Escape') close(); }
+
+    // Use named scroll handler so it can be removed correctly
+    function onScroll() { if (!persistent) hide(); }
+
+    document.addEventListener('click', onDocClick);
+    document.addEventListener('keydown', onKey);
+    window.addEventListener('scroll', onScroll, true);
+
+    return () => {
+      document.removeEventListener('click', onDocClick);
+      document.removeEventListener('keydown', onKey);
+      window.removeEventListener('scroll', onScroll, true);
+      overlay.remove();
+    };
+  }, []);
+  return null;
+}
