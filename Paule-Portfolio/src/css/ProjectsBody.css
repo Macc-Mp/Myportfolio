@@ -64,7 +64,7 @@
 
 .project-card:hover {
     transform: translateY(-6px);
- 
+    cursor: pointer;
     -webkit-backdrop-filter: blur(18px) saturate(140%);
     backdrop-filter: blur(18px) saturate(140%);
 }
