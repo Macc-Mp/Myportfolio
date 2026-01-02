@@ -12,6 +12,8 @@
 
 .aLink{
    color: var(--dim-white);
+   font-size: 1rem;
+   font-weight: bold;
 }
 .contact h2 {
     font-family: Bitcount Grid Single, system-ui;
@@ -125,9 +127,7 @@
     transition: color 0.2s;
 }
 
-.media-link:hover {
-    color: var(--hover-color);
-}
+
 
 .media-link img {
     width: 3rem;
@@ -164,7 +164,7 @@
 }
 
 
-@media only screen and (min-width: 425px) and (max-width:700px){
+@media only screen and (min-width: 425px) and (max-width:800px){
     .contact{
         position:relative;
         top: 95rem;
