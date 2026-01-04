@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-     background: linear-gradient(270deg, #333637);
+     background: linear-gradient(270deg, #628695a1);
     color: #fff;
     padding: 8px 10px;
     border-radius: 10px;
@@ -14,7 +14,7 @@
     background-size: 200% 200%;
     background-repeat: no-repeat;
     transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
-    border: 1px solid rgba(193, 193, 193, 0.06);
+    border: 2.5px solid rgba(210, 202, 202, 0.534);
     cursor: pointer;
     /* responsive flex sizing: allow items to wrap and take sensible width */
     flex: 1 1 150px; /* grow, shrink, base 150px */
