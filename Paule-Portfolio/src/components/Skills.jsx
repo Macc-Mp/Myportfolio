@@ -21,6 +21,8 @@ import assp from '../assets/Skills/languages/aspnet.svg';
 import cpp from '../assets/Skills/languages/cpp.svg';
 import csharp from '../assets/Skills/languages/csharp.svg'; 
 import js from '../assets/Skills/languages/javascript.svg';
+
+import pgrest from '../assets/Skills/backend/postgresql.svg';
 import mysqll from '../assets/Skills/backend/mysql.svg';
 
 function Skills() {
@@ -28,7 +30,7 @@ function Skills() {
         { name: 'Languages', images: [cpp, csharp, js] },
         { name: 'Frontend/Framework', images: [reactt, csss, vi, assp] },
         { name: 'Tools', images: [gitt, github, uni, vscode, vsstud, figma] },
-        { name: 'Backend', images: [mysqll] },
+        { name: 'Backend', images: [mysqll, pgrest] },
     ];
 
     const [currentSkillIndex, setCurrentSkillIndex] = useState(0);

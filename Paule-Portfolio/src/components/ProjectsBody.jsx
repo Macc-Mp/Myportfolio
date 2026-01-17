@@ -3,6 +3,8 @@ import React from 'react';
 import csharp from '../assets/Skills/languages/csharp.svg';
 import js from '../assets/Skills/languages/javascript.svg';    
 import aspp from '../assets/Skills/languages/aspnet.svg';
+
+import pgrest from '../assets/Skills/backend/postgresql.svg';
 import mysqll from '../assets/Skills/backend/mysql.svg';
 import hub from '../assets/Skills/tools/hub.svg';  
 
@@ -23,7 +25,7 @@ function ProjectsBody() {
                 null
             ],
             link: "https://salespredictor-gucwfabagye5fhbt.eastasia-01.azurewebsites.net/",
-            pic: "/projectsPic/1.webp",
+            pic: "/projectsPic/predict_sale.webp",
             techs: [
                 csharp,
                 aspp,
@@ -39,10 +41,37 @@ function ProjectsBody() {
                 null
             ],
             link: "https://moacworks.itch.io/splash",
-            pic: "/projectsPic/2.svg",
+            pic: "/projectsPic/game.svg",
             techs: [
                 unity,
                 csharp,
+            ]
+        },
+        {
+            title: "My_Kiosk",
+            description: "Developed with Blazor .NET8, Supabase. Allow orders and track order history",
+            pic: "/projectsPic/kiosk.webp",
+            techs: [
+                csharp,
+                csss,
+                pgrest,
+                hub
+  
+            ],
+            link: "https://kioskmenu-d6hna9fjhmbga0ev.eastasia-01.azurewebsites.net/",
+           
+        },
+        {
+            title: "Web Portfolio",
+            description: "Started from base HTML to React.",
+            pic: "/projectsPic/web_port.webp",
+            techs: [
+                reactt,
+                vitee,
+                htmll,
+                csss,
+                js,
+                hub
             ]
         },
         {
@@ -52,26 +81,13 @@ function ProjectsBody() {
                null
             ],
             link: "https://movie-selection-rosy.vercel.app/",
-            pic: "/projectsPic/3.webp",
+            pic: "/projectsPic/movie_select.webp",
             techs: [
                 reactt,
                 vitee,
                 js,
                 htmll,
                 csss,
-                hub
-            ]
-        },
-        {
-            title: "Web Portfolio",
-            description: "Started from base HTML to React.",
-            pic: "/projectsPic/4.webp",
-            techs: [
-                reactt,
-                vitee,
-                htmll,
-                csss,
-                js,
                 hub
             ]
         },
@@ -89,20 +105,7 @@ function ProjectsBody() {
                 hub
             ]
         },
-        {
-            title: "Project 6",
-            description: "Description for Project 6.",
-            features: [
-                "Feature 1",
-                "Feature 2",
-                "Feature 3"
-            ],
-            link: "https://project6-link.com",
-           
-            techs: [
-                hub
-            ]
-        }
+        
     ];
 
     return (
