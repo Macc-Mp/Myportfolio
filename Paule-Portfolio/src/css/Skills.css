@@ -230,6 +230,9 @@
     filter: grayscale(1);
     height: auto;
     margin: 5px;
+    background-color: whitesmoke;
+    border-radius: .5rem;
+    padding: 5px 5px 5px 5px;
 }
 
 .skill-icon:hover{

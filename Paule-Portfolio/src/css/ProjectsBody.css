@@ -255,6 +255,10 @@
     animation: hueRotate 3s infinite alternate;
     filter: none;
     cursor:crosshair;
+    background-color: whitesmoke;
+    border-radius: .5rem;
+    padding: 0 5px 0 5px;
+
 }
 
 .tech-icon:hover, .tech-icons:hover {

@@ -6,8 +6,8 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-     background: linear-gradient(270deg, #628695a1);
-    color: #fff;
+     background: linear-gradient(270deg, whitesmoke);
+    color: #000000;
     padding: 8px 10px;
     border-radius: 10px;
     /* allow the gradient to move by making it larger than the element */
