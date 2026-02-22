@@ -8,7 +8,6 @@ const Education = lazy(() => import('./components/Education'))
 const Participation = lazy(() => import('./components/Participation'))
 const Footer = lazy(() => import('./components/Footer'))
 import ResumeReader from './components/ResumeReader'
-import Loading from './components/Loading'
 
 //routes for participation pages
 import { PartOne, PartTwo, PartThree, PartFour, PartFive } from './sub-components/participation'
@@ -41,12 +40,13 @@ function App() {
     )
   }
 
-  // show a loading spinner for 5 seconds on initial app mount
-  const [loading, setLoading] = useState(true)
+  // spinner disabled: render app immediately
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 3000)
     return () => clearTimeout(t)
-  }, [])
+  },   []
+)
 
   const router = createBrowserRouter([
     { path: '/', element: <Home /> },
