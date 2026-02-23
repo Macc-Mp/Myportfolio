@@ -1,37 +1,37 @@
 .participation-page{
-    background: #000000;
+    background: rgba(0, 0, 0, 0.4); /* Transparent black */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
 }
 .participation-link {
-    display: inline-flex; /* allow centering and consistent height */
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-     background: linear-gradient(270deg, whitesmoke);
-    color: #000000;
-    padding: 8px 10px;
-    border-radius: 10px;
-    /* allow the gradient to move by making it larger than the element */
-    background-size: 200% 200%;
-    background-repeat: no-repeat;
-    transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
-    border: 2.5px solid rgba(210, 202, 202, 0.534);
-    cursor: pointer;
-    /* responsive flex sizing: allow items to wrap and take sensible width */
-    flex: 1 1 150px; /* grow, shrink, base 150px */
-    max-width: 300px; /* prevents links growing too wide on large screens */
-      
+   
+      background: rgba(102, 100, 100, 0.136); /* Semi-transparent black */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 280px;
+    margin: 10px;
 }
 
+.participation-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
 
-
-/* make the inner heading look tidy and inherit the button styles */
 .participation-link h2 {
-    margin: 0;
-    font-size: 1.1rem;
-    line-height: 1.2;
-    color: inherit;
-    font-weight: 700;
-    padding: 0; /* spacing handled by the link */
+    margin: 10px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* hover / active */
@@ -60,19 +60,15 @@
     }
 }
 
-
+/* Redesigned participation boxes */
 .participation-center {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* let items stretch vertically for consistent card height */
-    width: 100%;
-    gap: 1rem; /* modern gap for both row/column spacing */
-    flex-wrap: wrap; /* allow wrapping into multiple rows on small screens */
-    min-height: 40vh;
-    box-sizing: border-box;
-    padding: 12px 8px; /* small padding so items don't touch edges when wrapping */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
 }
-
 
 @media (max-width: 900px) {
     .participation-center {
@@ -103,7 +99,9 @@
     right: 0;
     bottom: 0;
     height: 80px; /* Adjust height as needed to cover signature area */
-        background: rgba(0,0,0,0.6); /* semi-transparent black */
+        background: rgba(0,0,0,0.3); /* Semi-transparent black */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
   pointer-events: none; /* allow clicks to pass through */
   border-radius: 0 0 10px 10px; /* match image/card corners if needed */
   z-index: 2;
