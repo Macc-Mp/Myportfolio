@@ -76,7 +76,35 @@ function Header() {
         <div className="intro">
              
              <div className="leftCard">
-                 <h1>I aspire to be a developer someday. My goal is to gain experience and currently open to any task.</h1>
+                <div className="animate">
+                    <video className="video-bg" autoPlay loop muted>
+                    <source src="/header-bg/waving.mp4" type="video/mp4" />
+                    </video>
+                </div>
+                <div className="json-container">
+     
+     
+                    <div className="json-content">
+                        <div className="json-bracket">{'{'}</div>
+                        <div className="json-line">
+                        <span className="json-key">"name"</span><span className="json-punct">: </span>
+                        <span className="json-string">"Moises Paule"</span><span className="json-punct">,</span>
+                        </div>
+                        
+                        <div className="json-line">
+                        <span className="json-key">"interest"</span><span className="json-punct">: </span>
+                        <span className="json-string">"Software Developer"</span><span className="json-punct">,</span>
+                        </div>
+                        
+                        <div className="json-line">
+                        <span className="json-key">"from"</span><span className="json-punct">: </span>
+                        <span className="json-string">"Laguna"</span>
+                        </div>
+                        <div className="json-bracket">{'}'}</div>
+                    </div>
+
+      
+    </div>
                  <div className='resume-container'>
                     <a className='tab2'
                     href={PDF_PATH}
