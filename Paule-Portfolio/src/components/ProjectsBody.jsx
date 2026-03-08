@@ -124,16 +124,17 @@ function ProjectsBody() {
                                 </div>
                                 <div className="project-info-container">
                                     <div className="left-section">
+                                        
                                         <div className="project-title">{project.title}</div>
                                         {project.link && (
                                             <a href={project.link} className="" target="_blank" rel="noopener noreferrer">
-                                                <img className="repo-button" src="https://img.icons8.com/?size=100&id=XiFtFerWpzp4&format=png&color=000000" alt="View" />
+                                                <img className="repo-button" src="https://img.icons8.com/?size=100&id=0GU4b5gZ4PdA&format=png&color=FFFFFF" alt="View" />
                                             </a>
                                         )}
 
                                         {project.repo && (
                                             <a href={project.repo} target="_blank" rel="noopener noreferrer">
-                                                <img className="repo-button" src="https://img.icons8.com/?size=100&id=IxsfsPDcvw0S&format=png&color=000000" alt="Repo" />
+                                                <img className="repo-button" src="/github.svg" alt="Repo" />
                                             </a>
                                         )}
                                     </div>

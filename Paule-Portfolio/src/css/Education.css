@@ -159,6 +159,23 @@ h2 {
     margin: 0;
 }
 
+/* Ensure checkpoint-style dot appears before all edu-title headings,
+   even when `.edu-row` wrapper isn't present. */
+.edu-title {
+    position: relative;
+}
+.edu-title::before {
+    content: "";
+    position: absolute;
+    left: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.06);
+}
 /* Title row: title on left, date to the right */
 .edu-row .title-row {
     display: flex;
