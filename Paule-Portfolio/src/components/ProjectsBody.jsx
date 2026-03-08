@@ -17,6 +17,7 @@ import htmll from '../assets/Skills/frontend/httml.svg';
 import csss from '../assets/Skills/frontend/css.svg';
 import placeholder from '/R.gif'; 
 function ProjectsBody() {
+
     const projects = [
         {
             title: "Sales Predictor",
@@ -25,6 +26,7 @@ function ProjectsBody() {
                 null
             ],
             link: "https://salespredictor-gucwfabagye5fhbt.eastasia-01.azurewebsites.net/",
+            repo: "https://github.com/Macc-Mp/BestSellerPredictorMVC",
             pic: "/projectsPic/predict_sale.webp",
             techs: [
                 csharp,
@@ -80,7 +82,8 @@ function ProjectsBody() {
             features: [
                null
             ],
-            link: "https://movie-selection-rosy.vercel.app/",
+            link: "https://movie-selection-show-10n16covo-moises-projects-087c620f.vercel.app/",
+            repo: "https://github.com/Macc-Mp/MovieSelection-Show",
             pic: "/projectsPic/movie_select.webp",
             techs: [
                 reactt,
@@ -88,20 +91,6 @@ function ProjectsBody() {
                 js,
                 htmll,
                 csss,
-                hub
-            ]
-        },
-        {
-            title: "Project 5",
-            description: "Description for Project 5.",
-            features: [
-                "Feature 1",
-                "Feature 2",
-                "Feature 3"
-            ],
-            link: "https://project5-link.com",
-          
-            techs: [
                 hub
             ]
         },
@@ -137,7 +126,15 @@ function ProjectsBody() {
                                     <div className="left-section">
                                         <div className="project-title">{project.title}</div>
                                         {project.link && (
-                                            <a href={project.link} className="view-button" target="_blank" rel="noopener noreferrer">↗</a>
+                                            <a href={project.link} className="" target="_blank" rel="noopener noreferrer">
+                                                <img className="repo-button" src="https://img.icons8.com/?size=100&id=XiFtFerWpzp4&format=png&color=000000" alt="View" />
+                                            </a>
+                                        )}
+
+                                        {project.repo && (
+                                            <a href={project.repo} target="_blank" rel="noopener noreferrer">
+                                                <img className="repo-button" src="https://img.icons8.com/?size=100&id=IxsfsPDcvw0S&format=png&color=000000" alt="Repo" />
+                                            </a>
                                         )}
                                     </div>
                                     <div className="right-section">
