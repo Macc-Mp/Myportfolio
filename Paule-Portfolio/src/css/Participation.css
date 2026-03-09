@@ -106,3 +106,54 @@
   border-radius: 0 0 10px 10px; /* match image/card corners if needed */
   z-index: 2;
 }
+
+/* Carousel styles: continuous slow scrolling */
+.participation-center {
+    width: 100%;
+    overflow: hidden; /* hide overflowing items during animation */
+}
+
+.participation-carousel {
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* ensure items line up horizontally and don't wrap */
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    /* animation: adjust duration for speed (larger = slower) */
+    animation: scroll-left 40s linear infinite;
+}
+
+.carousel-track:focus,
+.carousel-track:hover {
+    animation-play-state: paused; /* pause on hover or when focused for accessibility */
+}
+
+.participation-link {
+    flex: 0 0 auto; /* prevent shrinking; keep natural width */
+    min-width: 240px; /* control size of each slide */
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* move by one set (we duplicate items in markup) */
+    }
+}
+
+/* on small screens reduce speed and item size */
+@media (max-width: 600px) {
+    .carousel-track {
+        gap: 12px;
+        animation-duration: 60s;
+    }
+    .participation-link {
+        min-width: 180px;
+    }
+}

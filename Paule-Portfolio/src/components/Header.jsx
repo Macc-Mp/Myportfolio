@@ -93,7 +93,7 @@ function Header() {
                         
                         <div className="json-line">
                         <span className="json-key">"interest"</span><span className="json-punct">: </span>
-                        <span className="json-string">"Software Developer"</span><span className="json-punct">,</span>
+                        <span className="json-string">"Web and Game Development"</span><span className="json-punct">,</span>
                         </div>
                         
                         <div className="json-line">

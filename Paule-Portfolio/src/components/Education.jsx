@@ -32,9 +32,6 @@ function Education(){
 
             </div>
 
-        <h2 className="notes">Hobby</h2>
-        <p className="hobby">Hobby : Sprite and Indie Game Contributor at Itch.io @MoacWorks - itch.io</p>
-
         </div>
     </div>
 </section> 
