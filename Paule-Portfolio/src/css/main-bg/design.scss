@@ -43,78 +43,87 @@
   /* use a fallback so stars remain visible even if --primary-color isn't defined */
   --star-color: var(--white-plain);
   --star-tail-length: 6em;
-  --star-tail-height: 2px;
-  --star-width: calc(var(--star-tail-length) / 6);
+  --star-tail-width: 2px;
+  --star-width: calc(var(--star-tail-width) * 4);
   --fall-duration: 9s;
   --tail-fade-duration: var(--fall-duration);
 
   position: absolute;
-  top: var(--top-offset);
-  left: 0;
-  width: var(--star-tail-length);
-  height: var(--star-tail-height);
+  top: -10vh; /* start slightly above the viewport */
+  left: var(--left-offset);
+  width: var(--star-tail-width);
+  height: var(--star-tail-length);
   color: var(--star-color);
-  background: linear-gradient(45deg, currentColor, transparent);
-  border-radius: 50%;
+  background: none; /* tail moved to ::before so we can layer it behind the dot */
   filter: drop-shadow(0 0 6px currentColor);
-  transform: translate3d(104em, 0, 0);
-  animation: fall-horizontal calc(var(--fall-duration) * var(--star-speed, 1)) var(--fall-delay) linear infinite, tail-fade calc(var(--tail-fade-duration) * var(--star-speed, 1)) var(--fall-delay) ease-out infinite;
+  transform: translate3d(0, -10vh, 0);
+  animation: fall-vertical calc(var(--fall-duration) * var(--star-speed, 1)) var(--fall-delay) linear infinite;
   
   @include sp-layout {
-    // For mobile performance, tail-fade animation will be removed QAQ
-    animation: fall calc(var(--fall-duration) * var(--star-speed, 1)) var(--fall-delay) linear infinite;
+    // For mobile performance, tail-fade animation will be removed
+    animation: fall-vertical calc(var(--fall-duration) * var(--star-speed, 1)) var(--fall-delay) linear infinite;
   }
 
   @for $i from 1 through $star-count {
     &:nth-child(#{$i}) {
       --star-tail-length: #{math.div(random_range(500, 750), 100)}em; /* 5em - 7.5em */
-      --top-offset: #{math.div(random_range(0, 10000), 100)}vh; /* 0vh - 100vh */
+      --left-offset: #{math.div(random_range(0, 10000), 100)}vw; /* 0vw - 100vw */
       --fall-duration: #{math.div(random_range(6000, 12000), 1000)}s; /* 6s - 12s */
       --fall-delay: #{math.div(random_range(0, 10000), 1000)}s; /* 0s - 10s */
     }
   }
 
-  &::before, &::after {
+  /* Tail (rendered first, behind the dot) */
+  &::before {
     position: absolute;
     content: '';
-    top: 0;
-    left: calc(var(--star-width) / -2);
-    width: var(--star-width);
-    height: 100%;
-    background: linear-gradient(45deg, transparent, currentColor, transparent);
-    border-radius: inherit;
-    animation: blink 2s linear infinite;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: var(--star-width);
+    width: var(--star-tail-width);
+    height: calc(var(--star-tail-length) - var(--star-width));
+    background: linear-gradient(to top, currentColor, transparent);
+    border-radius: calc(var(--star-tail-width) / 2);
+    z-index: -1; /* place tail behind the star dot visually */
+    animation: tail-fade calc(var(--tail-fade-duration) * var(--star-speed, 1)) var(--fall-delay) ease-out infinite;
   }
 
-  &::before {
-    transform: rotate(45deg);
-  }
-
+  /* Dot (rendered on top of tail) */
   &::after {
-    transform: rotate(-45deg);
+    position: absolute;
+    content: '';
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: var(--star-width);
+    height: var(--star-width);
+    background: radial-gradient(circle, currentColor 0%, rgba(255,255,255,0.1) 40%, transparent 60%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: blink 2s linear infinite;
   }
 }
 
 
-@keyframes fall-horizontal {
+@keyframes fall-vertical {
   to {
-    transform: translate3d(-30em, 0, 0);
+    transform: translate3d(0, 110vh, 0);
   }
 }
 
 @keyframes tail-fade {
   0%, 50% {
-    width: var(--star-tail-length);
+    height: calc(var(--star-tail-length) - var(--star-width));
     opacity: 1;
   }
 
   70%, 80% {
-    width: 0;
+    height: 0;
     opacity: 0.4;
   }
 
   100% {
-    width: 0;
+    height: 0;
     opacity: 0;
   }
 }

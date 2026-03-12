@@ -113,6 +113,7 @@
     margin-bottom: 1.5rem;
 }
 
+/* 
 .video-bg {
     position: absolute;
     top: 0;
@@ -126,7 +127,7 @@
     box-shadow: 0 4px 24px rgba(0,0,0,0.18);
     margin-bottom: 0.5rem;
     backface-visibility: hidden;
-}
+} */
 
 .intro::before {
     content: "";
