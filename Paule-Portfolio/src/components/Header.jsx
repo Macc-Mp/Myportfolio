@@ -4,7 +4,7 @@ import '../css/ResumeReader.css';
 import linkedin from '../assets/Header/linkedin.png';
 import github from '../assets/Header/github.png';
 
-const PDF_PATH = '/upload-resume/paule-resume.pdf';
+const PDF_PATH = '/upload-resume/pauleResume.pdf';
 function Header() {
     // const [showFirst, setShowFirst] = useState(true);
     // // State to store the visit count
