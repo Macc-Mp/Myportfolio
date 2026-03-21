@@ -1,282 +1,84 @@
-:root {
-    --primary-bg: #E5E4DE;
-    --accent-bg: #5489BB;
-    --border-radius: 16px;
-    --border-color: #000;
-    --skill-icon-size: 50px;
-}
-
-.images{
-    background-color: rgba(55, 60, 67, 0.55);
-    
-    /* Stronger border so the glass edge reads on darker backgrounds */
-    border: 1px solid rgba(255,255,255,0.12);
-    /* Blur + subtle saturation to achieve glassmorphism */
-    -webkit-backdrop-filter: blur(12px) saturate(120%);
-    backdrop-filter: blur(12px) saturate(120%);
-    /* deeper shadow to lift the card from background */
-    box-shadow: 0 8px 32px 12px rgba(0,0,0,0.18), 0 1px 0 rgba(255,255,255,0.02) inset;
-    padding: 20px 50px 20px 50px;
-    border-radius: 2rem;
-}
-
-.tech-icons {
-    filter: grayscale(1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-    width: 20px;
-    height: 20px;
-
-}
-
-.tech-icon {
-    width: 30px;
-    height: 30px;
-    filter: grayscale(1);
-}
-
-
-.media-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #a46de6;
-    font-family: "Space Mono", monospace;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.media-link:hover {
-    color: white;
-}
-
-.media-link img {
-    width: 24px;
-    filter: invert(1);
-}
-
-.media-link p {
-    margin: 0;
-}
-
-.media-link a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.aboutMe {
-    position: relative; /* needed for pseudo-element */
-    overflow: hidden;   /* contain the shimmer */
-    background: linear-gradient(120deg, #1B243B 60%, #797c80 80%, #b3e0ff 100%);
-    /* keep the base gradient but remove background-position animation */
-    fill: var(--primary-bg);
-    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-/* shimmer using a pseudo-element and transform for smoother animation */
-.aboutMe::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -60%;              /* start off to the left */
-    width: 120%;             /* wide enough to create the sweep */
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(90deg,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.06) 40%,
-        rgba(255,255,255,0.04) 50%,
-        rgba(255,255,255,0) 100%);
-    transform: translateX(0);
-    will-change: transform;
-    opacity: 0.95;
-    mix-blend-mode: overlay;
-    animation: shimmerX 4.2s linear infinite;
-}
-
-@keyframes shimmerX {
-    from { transform: translateX(-100%); }
-    to   { transform: translateX(100%); }
-}
-
-/* Respect users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .aboutMe::before {
-        animation: none;
-        opacity: 0; /* hide the shimmer for reduced motion */
-    }
-}
-.text-container {
-    width: 80%;
-    margin-bottom: 50px;
-}
-
-.start {
-    font-family: Manrope;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--white-plain);
-}
-
-.end {
-    font-family: Manrope;
-    font-size: 20px;
-    text-align: justify;
-    color: var(--white-plain);
-}
-.bottomCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.Skill-container {
-    width: 100%;
-    height: 20vh; /* Ensure it takes the full viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    gap: 20px; /* Add spacing between the 8-ball and the skills list */
-    position: relative; /* <-- needed so the wave can be absolutely positioned */
-}
-
-/* Wavy SVG wrapper for skills section */
-.skills-wavy-wrapper {
-    position: absolute;
-    bottom: 0; /* sit at the bottom of the skill container */
-    left: 0;
-    width: 100%;
-    height: 70px;
+.skills-section {
+    padding: 60px 0;
+    background: transparent;
     overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.skills-wavy-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%; /* wide so translateX movement is visible */
-    height: 100%;
-}
-
-/* wave layers */
-.wave {
-    transform-origin: 0 50%;
-    will-change: transform;
-}
-
-/* front wave (faster, brighter) */
-.wave--front {
-    fill: rgba(27,101,168,0.25); /* bluish */
-    animation: waveMoveFront 6s linear infinite;
-}
-
-/* back wave (slower, dimmer) */
-.wave--back {
-    fill: rgba(27,101,168,0.12);
-    animation: waveMoveBack 10s linear infinite;
-}
-
-/* slide left */
-@keyframes waveMoveFront {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-}
-@keyframes waveMoveBack {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-35%); }
-}
-
-/* respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .wave--front, .wave--back {
-        animation: none;
-        transform: none;
-        opacity: 0.6;
-    }
-}
-
-#magic8 {
-    width: 150px;
-    height: 150px; 
-    cursor: pointer;
-    display: block; 
-    margin: 0 auto; /* Center horizontally if needed */
-}
-
-.skills-list {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
-    margin-top: 20px;
-    
 }
 
-.skill-icon {
-    width: var(--skill-icon-size);
-    filter: grayscale(1);
-    height: auto;
-    margin: 5px;
-    background-color: whitesmoke;
-    border-radius: .5rem;
-    padding: 5px 5px 5px 5px;
-}
-
-.skill-icon:hover{
-    transform: scale(1.5);
-    cursor: pointer;
-    filter: grayscale(0);
-    box-shadow: 0 2px 15px 4px #b3e0ff55;
-    border-radius: 1rem;
-}
-
-
-
-
-.skillTitle h1 {
-    text-align: center;
-    font-size: 18px;
+.skills-header {
+    font-family: 'Bitcount Grid Single', sans-serif;
     color: var(--mustard);
-    padding: 10px 10px 10px 10px;
-    border-radius: 2rem;
-    font-family: Bitcount Grid Single, system-ui;
-    letter-spacing: 1.5px;
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
 }
 
-.shaking {
-    /* replaced with a small vertical "Mario-style" bounce */
-    animation: mario-bounce 0.7s cubic-bezier(.25,.8,.25,1);
+/* 1. The Track */
+.marquee-container {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-.puzzles{
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    will-change: transform;
+.marquee-content {
+    display: flex;
+    gap: 30px;
+    animation: scroll 30s linear infinite;
+    padding: 20px 0;
 }
 
-.puzzles.shaking {
-    animation: mario-bounce 0.7s cubic-bezier(.25,.8,.25,1);
+/* 2. The Modern Skill Card */
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 16px;
+    min-width: 100px;
+    transition: all 0.3s ease;
 }
 
-@keyframes mario-bounce {
-    0%   { transform: translateY(0) scale(1); }
-    10%  { transform: translateY(-10px) scale(1.04); }
-    28%  { transform: translateY(0) scale(0.995); }
-    48%  { transform: translateY(-6px) scale(1.02); }
-    68%  { transform: translateY(0) scale(0.995); }
-    100% { transform: translateY(0) scale(1); }
+.skill-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-10px);
+    border-color: var(--mustard);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.skill-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    filter: grayscale(0.5);
+    transition: 0.3s;
+}
+
+.skill-card:hover .skill-img {
+    filter: grayscale(0) drop-shadow(0 0 8px var(--mustard));
+}
+
+.skill-card span {
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* 3. The Animation */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Pause on hover so people can read */
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
 }

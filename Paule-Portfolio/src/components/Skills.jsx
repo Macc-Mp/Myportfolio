@@ -25,58 +25,33 @@ import js from '../assets/Skills/languages/javascript.svg';
 import pgrest from '../assets/Skills/backend/postgresql.svg';
 import mysqll from '../assets/Skills/backend/mysql.svg';
 
+import React from 'react';
+import '../css/Skills.css';
+
+// ... (keep all your imports same as before)
+
 function Skills() {
-    const skills = [
-        { name: 'Languages', images: [cpp, csharp, js] },
-        { name: 'Frontend/Framework', images: [reactt, csss, vi, assp] },
-        { name: 'Tools', images: [gitt, github, uni, vscode, vsstud, figma] },
-        { name: 'Backend', images: [mysqll, pgrest] },
+    // Combine all images into one flat array for the marquee
+    const allSkills = [
+        { img: cpp, name: 'C++' }, { img: csharp, name: 'C#' }, { img: js, name: 'JS' },
+        { img: reactt, name: 'React' }, { img: csss, name: 'CSS' }, { img: vi, name: 'Vite' },
+        { img: gitt, name: 'Git' }, { img: github, name: 'GitHub' }, { img: uni, name: 'Unity' },
+        { img: vscode, name: 'VSCode' }, { img: figma, name: 'Figma' }, { img: mysqll, name: 'MySQL' }
     ];
 
-    const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
-    const [isShaking, setIsShaking] = useState(false);
-    const [hovered, setHovered] = useState(false);
-    // Auto-cycle timer ref
-    const intervalRef = useRef(null);
-
-    const handleImageClick = () => {
-        setIsShaking(true); // Add the 'shaking' class
-        setTimeout(() => {
-            setIsShaking(false); // Remove the 'shaking' class after 0.5 seconds
-            setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % skills.length); // Cycle to the next skill
-        }, 500); // Match the duration of the shake animation
-    };
-
-    // start an infinite auto-cycle every 5 seconds, cleanup on unmount
-    useEffect(() => {
-        const ms = 5000;
-        intervalRef.current = setInterval(() => {
-            handleImageClick();
-        }, ms);
-        return () => {
-            if (intervalRef.current) clearInterval(intervalRef.current);
-        };
-    }, []);
-
     return (
-        <div className="Skill-container">
-            {/* <img
-                src={hovered ? magic7 : magic8}
-                className={`puzzles ${isShaking ? 'shaking' : ''}`}
-                alt="magic8ball"
-                onClick={handleImageClick}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-            /> */}
-            {/* Auto-cycle runs in background every 5s; manual clicks still work. */}
-            <div className="skills-list">
-                <div className="skillTitle">
-                    <h1>{skills[currentSkillIndex].name}</h1>
-                    <div className="images">
-                        {skills[currentSkillIndex].images.map((image, index) => (
-                            <img key={index} src={image} alt={`Skill ${index}`} className="skill-icon" />
-                        ))}
-                    </div>
+        <div className="skills-section">
+            <h1 className="skills-header">Tech Stack & Tools</h1>
+            
+            <div className="marquee-container">
+                <div className="marquee-content">
+                    {/* We double the array to create a seamless infinite loop */}
+                    {[...allSkills, ...allSkills].map((skill, index) => (
+                        <div className="skill-card" key={index}>
+                            <img src={skill.img} alt={skill.name} className="skill-img" />
+                            <span>{skill.name}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

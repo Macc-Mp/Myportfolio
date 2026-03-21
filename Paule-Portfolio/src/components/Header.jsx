@@ -76,11 +76,11 @@ function Header() {
         <div className="intro">
              
              <div className="leftCard">
-                {/* <div className="animate">
-                    <video className="video-bg" autoPlay loop muted>
+                <div className="animate">
+                    <video className="video-bg" autoPlay loop muted preload="auto">
                     <source src="/header-bg/waving.mp4" type="video/mp4" />
                     </video>
-                </div> */}
+                </div>
                 <div className="json-container">
      
      

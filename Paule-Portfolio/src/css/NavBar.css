@@ -1,205 +1,124 @@
-.title {
-  color: var(--smoke);
-  font-weight: 700;
-  font-size: 1.3rem;
-  text-decoration: none;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&family=JetBrains+Mono:wght@800&display=swap');
+
+:root {
+    --nav-bg: rgba(20, 20, 20, 0.85); /* Slightly darker for better contrast */
+    --nav-border: rgba(255, 255, 255, 0.1);
+    --smoke: #b3b3b3;
+    --white-plain: #ffffff;
+    --mustard: #ffcc00;
 }
 
-h2 {
-  vertical-align: center;
-  text-align: center;
+/* 1. Positioning the whole bar */
+.navbar-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999; /* Ensure it's above everything */
+    width: auto;
 }
 
-html, body {
-  margin: 0;
-  height: 100%;
+.modern-nav {
+    display: flex;
+    align-items: center;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--nav-border);
+    padding: 12px 30px;
+    border-radius: 50px;
+    gap: 40px;
+    position: relative;
 }
 
-* {
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
-.top-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  color: #FFF;
-  height: 50px;
-  padding: 3em;
-}
-
-.titleleft {
-  font-family: "Manrope", sans-serif;
-  font-weight: 700;
-  line-height: 150%;
-  letter-spacing: 1.5px;
-  overflow: hidden;
-  white-space: nowrap;
-  
-}
-
-.title{
-  text-decoration: none;
-}
-
+/* 2. Desktop Menu Logic */
 .menu {
-  z-index: 9999;
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
 }
 
-.menu li a{
-  color: var(--smoke);
-  font-family: "Bitcount Grid Single", system-ui;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; 
-  letter-spacing: 1px;
-}
-.menu li a:hover {
-  color: var(--Neutral-White, --white-plain);
-  text-decoration: underline;
-}
-
-.menu > li {
-  margin: 0 1rem;
-  overflow: hidden;
-}
-
+/* Hide burger by default (Desktop) */
 .menu-button-container {
-  display: none;
-  height: 100%;
-  width: 30px;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: none; 
 }
 
 #menu-toggle {
-  display: none;
+    display: none;
 }
 
-.menu-button,
-.menu-button::before,
-.menu-button::after {
-  display: block;
-  background-color: var(--white-plain);
-  position: absolute;
-  height: 4px;
-  width: 30px;
-  border-radius: 2px;
+/* 3. Link Styling */
+.menu li a, .nav-logo .title {
+    color: var(--smoke);
+    text-decoration: none;
+    font-family: "Bitcount Grid Single", system-ui;
+    transition: 0.3s;
 }
 
-.menu-button::before {
-  content: '';
-  margin-top: -8px;
+.nav-logo .title {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--white-plain);
 }
 
-.menu-button::after {
-  content: '';
-  margin-top: 8px;
+.menu li a:hover {
+    color: var(--mustard);
 }
 
-#menu-toggle:checked + .menu-button-container .menu-button::before {
-  margin-top: 0px;
-  transform: rotate(405deg);
-}
-
-#menu-toggle:checked + .menu-button-container .menu-button {
-  background: rgba(255, 255, 255, 0);
-}
-
-#menu-toggle:checked + .menu-button-container .menu-button::after {
-  margin-top: 0px;
-  transform: rotate(-405deg);
-}
-
-.cctcme {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-
-/*phone*/
-@media only screen and (min-width: 425px) and (max-width: 700px){
-
-  .cctcme {
-    width: 150px !important;
-  }
-
-   .menu-button-container {
-    display: flex;
-  }
-  .menu {
-    position: absolute;
-    top: 0;
-    margin-top: 80px;
-    left: 0;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-  #menu-toggle ~ .menu li {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    
-  }
-  #menu-toggle:checked ~ .menu li {
-    border: 1px solid #333;
-    height: 2.5em;
-    padding: 0.5em;
-  
-    margin-bottom: 2px;
-}
-    #menu-toggle ~ .menu li:hover {
-        background-color: var(--cool-blue);
+/* 4. Mobile Logic (The "Burger" Fix) */
+@media (max-width: 768px) {
+    /* Show the burger only on mobile */
+    .menu-button-container {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 10001;
     }
-  .menu > li {
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    margin: 2px 2px 2px 2px;
-    padding: 0.5em 0.5em 0.5em 0.5em;
-    width: 50%;
-    border-radius: 10px;
-    color: white;
-    background-color: #222;
-   
 
-  }
-  .menu > li:not(:last-child) {
-    border-bottom: 1px solid #444;
-  }
+    /* Hide desktop links by default on mobile */
+    .menu {
+        position: absolute;
+        top: 100%; /* Sits right under the pill */
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        flex-direction: column;
+        width: 200px;
+        background: var(--nav-bg);
+        border: 1px solid var(--nav-border);
+        border-radius: 20px;
+        padding: 20px;
+        gap: 15px;
+        text-align: center;
+        
+        /* The "Hidden" State */
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    /* The "Visible" State when checkbox is checked */
+    #menu-toggle:checked ~ .menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(20px);
+    }
+
+    /* Hamburger Lines */
+    .menu-button, .menu-button::before, .menu-button::after {
+        display: block;
+        background-color: var(--white-plain);
+        height: 2px;
+        width: 25px;
+        border-radius: 2px;
+        position: relative;
+        transition: 0.4s;
+    }
+    .menu-button::before { content: ''; position: absolute; top: -8px; }
+    .menu-button::after { content: ''; position: absolute; top: 8px; }
+
+    /* Transform burger to 'X' */
+    #menu-toggle:checked + .menu-button-container .menu-button { background: transparent; }
+    #menu-toggle:checked + .menu-button-container .menu-button::before { transform: rotate(45deg); top: 0; }
+    #menu-toggle:checked + .menu-button-container .menu-button::after { transform: rotate(-45deg); top: 0; }
 }
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .top-nav {
-    padding: 2em;
-  }
-
-  .titleleft {
-    font-size: 2.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .menu {
-    margin-top: 2.5rem;
-  }
-  .menu li a {
-    font-size: 1.5rem;
-    letter-spacing: 1.5px;
-    
-  }
-}
-

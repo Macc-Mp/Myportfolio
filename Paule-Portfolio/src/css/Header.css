@@ -1,148 +1,141 @@
-/*start of intro.css */
-.intro {
-    z-index: 1;
-    position: relative;
-    overflow: hidden;
-    /* remove background gradient when using video; keep fallback color */
+/* 1. Configuration & Global Variables */
+:root {
+    --card-bg: linear-gradient(145deg, rgba(40, 40, 45, 0.7) 0%, rgba(20, 20, 25, 0.85) 100%);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --accent-glow: rgba(156, 220, 254, 0.15);
+    --white-plain: #ffffff;
+    --dim-white: #b3b3b3;
+    --mustard: #ffcc00;
 }
 
-/* .intro::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height:100px;
-    background-color: var(--dim-white);
-    border: 2px solid black;
-    border-radius: 60% 40% 50% 70% / 60% 40% 0 0;
-    z-index: 0;
-    /* animation: wavy-bottom 4s ease-in-out infinite alternate; */
-/* } */ */
-
-
+/* 2. Main Section Layout */
 .intro {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #181a20 0%, #23243a 100%);
-    padding-top: 3rem;
+    background: #0f0f12; /* Deep charcoal/black */
+    padding: 2rem;
     box-sizing: border-box;
-}
-
-/* Container for the whole snippet */
-.json-container {
-  display: flex;
-  float: left;
-  background-color: #181a20;
-  color: #d4d4d4;
-  font-family: 'Fira Code', 'Courier New', monospace;
-  padding: 20px 20px 20px 20px;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #333;
-  width: fit-content;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.json-bracket {
-  color: #ffd700;
-  font-weight: bold;
-}
-
-.json-content {
-  padding-left: 20px;
-}
-
-.json-line {
-  margin: 4px 0;
-}
-
-.json-key {
-  color: #9cdcfe; /* Blue for keys */
-}
-
-.json-string {
-  color: #ce9178; /* Orange for strings */
-}
-
-.json-punct {
-  color: #d4d4d4; /* Neutral for : and , */
-}
-
-.leftCard {
-    width: 96%;
-    max-width: 1100px;
-    min-width: 320px;
-    margin: 2.5rem auto 2.5rem auto;
-    padding: 2.5rem 2.5rem 2rem 2.5rem;
-    box-sizing: border-box;
-    border-radius: 24px;
-    font-family: 'Manrope', 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(135deg, rgba(115, 114, 114, 0.6) 0%, rgba(91, 87, 87, 0.35) 100%);
-    border: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.04);
-    -webkit-backdrop-filter: blur(16px) saturate(120%);
-    backdrop-filter: blur(16px) saturate(120%);
     position: relative;
+    overflow: hidden;
 }
 
-.leftCard h1 {
-    color: var(--dim-white);
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    line-height: 1.1;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.leftCard p {
-    color: #c7c7c7;
-    font-family: 'Manrope', Arial, sans-serif;
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    margin-bottom: 1.2rem;
-}
-
-.resume-container {
-    display: flex;
-    justify-content: flex-end;
+/* 3. The LeftCard (Parent Container) */
+.leftCard {
     width: 100%;
-    margin-bottom: 1.5rem;
+    max-width: 850px;
+    padding: 3.5rem 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 28px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    position: relative;
+    overflow: hidden; /* Clips the video to the rounded corners */
 }
 
-/* 
-.video-bg {
+/* 4. The Video Background Fix */
+.animate {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    pointer-events: none;
-    filter: brightness(0.7) blur(1px) grayscale(10%);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-    margin-bottom: 0.5rem;
-    backface-visibility: hidden;
-} */
-
-.intro::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-   
-    z-index: 0; /* sits between video (z:-1) and content (intro z:1) */
-    pointer-events: none;
+    z-index: 0; /* Layer 0: Background */
+    pointer-events: none; /* Allows clicking buttons through the video */
 }
 
-/* Move Download Resume button to the right */
+.video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video fills the card without stretching */
+    filter: brightness(0.3) blur(1px); /* Darken so text is readable */
+    opacity: 0.7;
+}
+
+.video-bg {
+    filter: brightness(0.6) blur(0.1px);
+}
+
+/* 5. JSON Container Styling */
+.json-container {
+    position: relative;
+    z-index: 2; /* Layer 2: Above Video */
+    display: block;
+    background-color: rgba(10, 10, 12, 0.7);
+    color: #d4d4d4;
+    font-family: 'Fira Code', 'JetBrains Mono', monospace;
+    padding: 2.5rem;
+    margin: 0 auto 2.5rem auto;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    width: fit-content;
+    box-shadow: inset 0 2px 15px rgba(0,0,0,0.5);
+}
+
+/* Syntax Highlighting */
+.json-bracket { color: #ffd700; font-weight: bold; }
+.json-key { color: #9cdcfe; }
+.json-string { color: #ce9178; }
+.json-punct { color: #808080; }
+.json-line { margin: 6px 0; line-height: 1.6; }
+
+/* 6. Action Buttons (Resume/Connect) */
 .resume-container {
-        display: flex;
-        justify-content:center;
-        width: 100%;
+    position: relative;
+    z-index: 2; /* Layer 2: Above Video */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
 }
 
+.tab2 {
+    padding: 12px 30px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white-plain);
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.tab2:hover {
+    background: var(--white-plain);
+    color: #000;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+}
+
+/* 7. Mobile Responsiveness */
+@media (max-width: 650px) {
+    .leftCard {
+        padding: 2.5rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .json-container {
+        padding: 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    .resume-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .tab2 {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+}
