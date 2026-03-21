@@ -44,13 +44,13 @@ function Skills() {
             <h1 className="skills-header">Tech Stack & Tools</h1>
             
             <div className="marquee-container">
-                <div className="marquee-content">
+                <div className="marquee-content" style={{ animationDelay: '0.8s' }}>
                     {/* We double the array to create a seamless infinite loop */}
                     {[...allSkills, ...allSkills].map((skill, index) => (
                         <div className="skill-card" key={index}>
                             <img src={skill.img} alt={skill.name} className="skill-img" />
                             <span>{skill.name}</span>
-                        </div>
+                        </div>  
                     ))}
                 </div>
             </div>

@@ -44,6 +44,7 @@
     border-radius: 16px;
     min-width: 100px;
     transition: all 0.3s ease;
+    filter: grayscale(100%);
 }
 
 .skill-card:hover {
@@ -51,6 +52,7 @@
     transform: translateY(-10px);
     border-color: var(--mustard);
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    filter: grayscale(0%);
 }
 
 .skill-img {
