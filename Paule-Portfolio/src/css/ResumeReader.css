@@ -58,18 +58,11 @@
 }
 
 .tab2::before {
-    content: "\2193"; /* down arrow */
-    display: inline-block;
-    font-size: 0.95rem;
-    line-height: 1;
-    padding: 6px;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.03);
-    color: #fff;
+    content: none; /* no icon */
 }
 
 .tab2:nth-of-type(2)::before {
-    content: "\260E"; /* up arrow */
+    content: none; /* no icon */
 }
 
 .tab2:nth-of-type(2){
