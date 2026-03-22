@@ -1,161 +1,100 @@
-.participation-page{
-    background: rgba(0, 0, 0, 0.4); /* Transparent black */
-    backdrop-filter: blur(10px); /* Frosted glass effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
+/* Container & Background */
+.participation-page {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
 }
+
+.participation-center {
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+    position: relative;
+}
+
+/* Carousel Track */
+.carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    white-space: nowrap;
+    width: max-content; /* Critical for smooth scrolling */
+    animation: scroll-left 30s linear infinite;
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+/* Individual Card Styling */
 .participation-link {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-   
-    background: rgba(102, 100, 100, 0.136); /* Semi-transparent black */
-    backdrop-filter: blur(5px); /* Frosted glass effect */
-    -webkit-backdrop-filter: blur(5px); /* For Safari */
-    color: #fff;
-    padding: 5px 10px 5px 10px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-    max-width: 280px;
-    margin: 10px;
-
-    font-family: 'Fira Code', 'Courier New', monospace;
-}
-
-.participation-link:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    
+    /* Modern Glassmorphism */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    color: #e0e0e0;
+    padding: 20px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-width: 260px;
+    flex: 0 0 auto;
+    font-family: 'Fira Code', monospace;
 }
 
 .participation-link h2 {
-    margin: 10px 0;
-    font-size: 1.2rem;
-    font-weight: bold;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
     text-align: center;
+    color: #00d4ff; /* Tech Blue */
 }
 
-/* hover / active */
+/* Hover & Interactive States */
 .participation-link:hover {
-    transform: translateY(-3px);
-    opacity: 0.98;
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(0, 212, 255, 0.5);
+    box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+    color: #fff;
 }
+
 .participation-link:active {
-    transform: translateY(-1px) scale(.997);
+    transform: translateY(-2px) scale(0.98);
 }
 
-/* keyboard focus visible */
-.participation-link:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(26,115,232,0.18);
-}
-
-/* small-screen adjustments */
-@media (max-width: 600px) {
-    .participation-link {
-        padding: 8px 12px;
-        border-radius: 8px;
-    }
-    .participation-link h2 {
-        font-size: 1rem;
-    }
-}
-
-/* Redesigned participation boxes */
-.participation-center {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-}
-
-@media (max-width: 900px) {
-    .participation-center {
-        min-height: 30vh;
-        padding: 24px 0; 
-    }
-}
-
-@media (max-width: 600px) {
-    .participation-center {
-        min-height: auto;
-        padding: 12px 0;
-        /* stack fully on very narrow screens */
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .participation-link {
-        width: 100%;
-        max-width: none;
-        flex-basis: 100%;
-    }
-}
-
-/* Transparent overlay to hide signatures on images */
-.signature-overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 80px; /* Adjust height as needed to cover signature area */
-        background: rgba(0,0,0,0.3); /* Semi-transparent black */
-    backdrop-filter: blur(5px); /* Frosted glass effect */
-    -webkit-backdrop-filter: blur(5px); /* For Safari */
-  pointer-events: none; /* allow clicks to pass through */
-  border-radius: 0 0 10px 10px; /* match image/card corners if needed */
-  z-index: 2;
-}
-
-/* Carousel styles: continuous slow scrolling */
-.participation-center {
-    width: 100%;
-    overflow: hidden; /* hide overflowing items during animation */
-}
-
-.participation-carousel {
-    width: 100%;
-}
-
-.carousel-track {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    /* ensure items line up horizontally and don't wrap */
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    /* animation: adjust duration for speed (larger = slower) */
-    animation: scroll-left 40s linear infinite;
-}
-
-.carousel-track:focus,
-.carousel-track:hover {
-    animation-play-state: paused; /* pause on hover or when focused for accessibility */
-}
-
-.participation-link {
-    flex: 0 0 auto; /* prevent shrinking; keep natural width */
-    min-width: 240px; /* control size of each slide */
-}
-
+/* Animation */
 @keyframes scroll-left {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%); /* move by one set (we duplicate items in markup) */
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-/* on small screens reduce speed and item size */
-@media (max-width: 600px) {
+/* Responsive Adjustments */
+@media (max-width: 768px) {
     .carousel-track {
-        gap: 12px;
-        animation-duration: 60s;
+        gap: 15px;
+        animation-duration: 20s; /* Faster scroll for shorter distance */
     }
+    
     .participation-link {
-        min-width: 180px;
+        min-width: 200px;
+        padding: 15px;
+    }
+
+    .participation-link h2 {
+        font-size: 0.95rem;
     }
 }

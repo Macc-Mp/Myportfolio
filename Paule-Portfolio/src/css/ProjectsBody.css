@@ -11,9 +11,10 @@
 }
 
 .projects h2 {
-    font-family: Bitcount Grid Single, system-ui;
+    font-family: 'JetBrains Mono', monospace;
     color: white;
     margin-bottom: 2rem;
+    
 }
 
 #projectCards {
