@@ -74,57 +74,72 @@ function Header() {
 
     return (
         <div className="intro">
-             
-             <div className="leftCard">
-                {/* <div className="animate">
-                    <video className="video-bg" autoPlay loop muted preload="auto">
-                    <source src="/header-bg/waving.mp4" type="video/mp4" />
-                    </video>
-                </div> */}
-                <div className="json-container">
-     
-     
-                    <div className="json-content">
-                        <div className="json-bracket">{'{'}</div>
-                        <div className="json-line">
-                        <span className="json-key">"name"</span><span className="json-punct">: </span>
-                        <span className="json-string">"Moises Paule"</span><span className="json-punct">,</span>
+            <div className="leftCard windows-bezel">
+                
+                {/* Windows Command Prompt Window */}
+                <div className="json-container cmd-style windows-version">
+                    
+                    {/* Windows Title Bar */}
+                    <div className="terminal-header">
+                        <div className="terminal-title">
+                            <span className="cmd-icon"></span> 
+                            Command Prompt
                         </div>
-                        
-                        <div className="json-line">
-                        <span className="json-key">"interest"</span><span className="json-punct">: </span>
-                        <span className="json-string">"Web and Game Development"</span><span className="json-punct">,</span>
+                        <div className="windows-controls">
+                            <span className="win-btn">─</span>
+                            <span className="win-btn">▢</span>
+                            <span className="win-btn close">✕</span>
                         </div>
-                        
-                        <div className="json-line">
-                        <span className="json-key">"from"</span><span className="json-punct">: </span>
-                        <span className="json-string">"Laguna"</span>
-                        </div>
-                        <div className="json-bracket">{'}'}</div>
                     </div>
 
-      
-    </div>
-                 <div className='resume-container'>
-                    <a className='tab2'
-                    href={PDF_PATH}
-                    download="paule-resume.pdf"
+                    {/* Windows CMD Body */}
+                    <div className="json-content cmd-view">
+                        <div className="cmd-line">
+                            <span className="prompt">C:\Users\Moises\Portfolio&gt;</span>
+                            <span className="cmd-text">dir /s</span>
+                        </div>
+
+                        <div className="file-tree">
+                            <div className="tree-header"> Volume in drive C is OS_INSTALL</div>
+                            <div className="tree-header"> Volume Serial Number is 2026-LAGUNA</div>
+                            <br />
+                            <div className="tree-header"> Directory of C:\Users\Moises\Portfolio</div>
+                            <br />
+                            <div className="dir-row">03/22/2026  01:30 PM    &lt;DIR&gt;          Identity</div>
+                            <div className="dir-row">03/22/2026  01:32 PM    &lt;DIR&gt;          Specialization</div>
+                            <div className="dir-row">03/22/2026  01:35 PM    &lt;DIR&gt;          Location</div>
+                            <div className="dir-row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 File(s) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 bytes</div>
+                            <br />
+                            <div className="tree-header"> Directory of C:\Users\Moises\Portfolio\Identity</div>
+                            <div className="dir-row">03/22/2026  01:30 PM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,024 moises_paule.txt</div>
+                            <br />
+                            <div className="tree-header"> Directory of C:\Users\Moises\Portfolio\Specialization</div>
+                            <div className="dir-row">03/22/2026  01:32 PM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4,096 web_dev.exe</div>
+                            <div className="dir-row">03/22/2026  01:33 PM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8,192 game_engine.dll</div>
+                        </div>
+
+                        {/* Active Input Line */}
+                        <div className="cmd-line active-prompt">
+                            <span className="prompt">C:\Users\Moises\Portfolio&gt;</span>
+                            <span className="cursor">_</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Windows Styled Buttons */}
+                <div className='resume-container'>
+                    <a className='tab2 win-action'
+                        href={PDF_PATH}
+                        download="paule-resume.pdf"
                     >
-                    Download Resume
-                   </a>
-                   <a href="#contact" className="tab2">
-                    Let's Connect
-                   </a>
-                </div>  
-      
-                {/* Display the visit counter here */}
-                {/* <p>Page Loads: <span className="visit-counter-display">{visitCount}</span></p> */}
-                {/* <p>Time Stamp: <span className="visit-counter-display">{formattedCreatedAt}</span></p> */}
-                {/* <a href="https://www.linkedin.com/in/moises-paule-6968ab328" target="_blank" rel="noopener noreferrer">
-                    <img src="/button.svg" alt="contact-me" className="cctcme" />
-                </a> */}
+                        Download Resume
+                    </a>
+                    <a href="#contact" className="tab2 win-action">
+                        Let's Connect
+                    </a>
+                </div>   
             </div>
-         </div>
+        </div>
     );
 }
 
