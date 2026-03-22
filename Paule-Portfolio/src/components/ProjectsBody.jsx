@@ -82,14 +82,33 @@ function ProjectsBody() {
                                         <h3 className="project-title">{project.title}</h3>
                                         <div className="project-links">
                                             {project.link && (
-                                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-action-link">
-                                                        {/* Replace the img with this div */}
-                                                        <div className="external-link-icon"></div>
-                                                    </a>
-                                                )}
+                                                <a
+                                                    href={project.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="project-action-link"
+                                                    aria-label={`Open ${project.title} live demo`}
+                                                    title={`Open ${project.title} live demo`}
+                                                >
+                                                    {/* Visual icon (decorative for screen readers) */}
+                                                    <div className="external-link-icon" aria-hidden="true"></div>
+                                                    {/* Accessible link text for screen readers */}
+                                                    <span className="sr-only">Open {project.title} live demo</span>
+                                                </a>
+                                            )}
                                             {project.repo && (
-                                                <a href={project.repo} target="_blank" rel="noopener noreferrer">
-                                                    <img className="action-icon" src="/github.svg" alt="repo" />
+                                                <a
+                                                    href={project.repo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    aria-label={`View ${project.title} source code`}
+                                                    title={`View ${project.title} source code`}
+                                                >
+                                                    <img
+                                                        className="action-icon"
+                                                        src="/github.svg"
+                                                        alt={`Repository for ${project.title}`}
+                                                    />
                                                 </a>
                                             )}
                                         </div>
