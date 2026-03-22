@@ -6,12 +6,22 @@
     width: 100%;
     padding: 40px 20px;
     box-sizing: border-box;
-    color: var(--white-plain); 
+    color: #FFFFFF; /* fixed education section font color */
     margin-top: 40px;
     margin-bottom: 40px;
-    min-height: unset; 
+    min-height: unset;
     position: relative;
     z-index: 1;
+}
+
+/* Ensure edu text is always readable */
+.edu-title,
+.edu-degree,
+.edu-date,
+.edu-school,
+.notes {
+    padding: 5px;
+    color: #FFFFFF;
 }
 
 h2 {
@@ -195,12 +205,11 @@ h2 {
 .edu-school {
     margin: 0;
     font-size: 0.9em;
-    color: var(--primary-white); 
 }
 
 /* School name style */
 .edu-row .edu-school {
-    color: rgba(255,255,255,0.9);
+    color:gray !important;
     font-weight: 600;
 }
 
