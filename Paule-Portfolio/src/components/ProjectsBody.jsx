@@ -82,10 +82,11 @@ function ProjectsBody() {
                                         <h3 className="project-title">{project.title}</h3>
                                         <div className="project-links">
                                             {project.link && (
-                                                <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                                    <img className="action-icon" src="https://img.icons8.com/?size=100&id=0GU4b5gZ4PdA&format=png&color=FFFFFF" alt="link" />
-                                                </a>
-                                            )}
+                                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-action-link">
+                                                        {/* Replace the img with this div */}
+                                                        <div className="external-link-icon"></div>
+                                                    </a>
+                                                )}
                                             {project.repo && (
                                                 <a href={project.repo} target="_blank" rel="noopener noreferrer">
                                                     <img className="action-icon" src="/github.svg" alt="repo" />

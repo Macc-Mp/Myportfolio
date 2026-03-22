@@ -168,3 +168,53 @@
         height: 28px;
     }
 }
+
+/* --- Pure CSS External Link Icon --- */
+.external-link-icon {
+    width: 14px;
+    height: 14px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    position: relative;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    margin-right: 4px; /* Adjustment for alignment */
+}
+
+/* The arrow part of the icon */
+.external-link-icon::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+}
+
+/* The diagonal line of the arrow */
+.external-link-icon::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 12px;
+    height: 2px;
+    background-color: white;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+
+/* --- Hover Effects --- */
+.project-action-link:hover .external-link-icon {
+    transform: translate(2px, -2px); /* Moves icon diagonally up-right */
+}
+
+.project-action-link:hover .external-link-icon,
+.project-action-link:hover .external-link-icon::before {
+    border-color: var(--tech-blue, #00d4ff); /* Glows blue on hover */
+}
+
+.project-action-link:hover .external-link-icon::after {
+    background-color: var(--tech-blue, #00d4ff);
+}
