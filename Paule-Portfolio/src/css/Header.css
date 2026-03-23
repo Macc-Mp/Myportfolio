@@ -143,13 +143,14 @@
     font-family: sans-serif;
     transition: all 0.3s ease;
     margin: 1rem 0 2rem 0;
+    box-shadow: 0 0 20px var(--accent-glow);
 }
 
 .tab2:hover {
     background: var(--white-plain);
     color: #000;
     transform: scale(1.05);
-    box-shadow: 0 0 20px var(--accent-glow);
+   
 }
 
 /* 8. Video "Skin" Background */
