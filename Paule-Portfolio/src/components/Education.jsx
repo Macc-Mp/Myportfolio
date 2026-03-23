@@ -4,7 +4,7 @@ function Education(){
 
     return( 
 
-        <section id="education"> {/* Ensure the ID matches the href in NavBar */}
+    <section id="education"> {/* Ensure the ID matches the href in NavBar */}
     <div className="education">
         <div className="eduCard">
               <h2 className="notes">Education</h2>

@@ -2,8 +2,6 @@
     width: 100%;
     overflow: hidden;
     padding: 60px 0;
-    background: #050505;
-    /* The "Fade Out" Mask */
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }

@@ -40,7 +40,7 @@ function Skills() {
     ];
 
     return (
-        <div className="skills-section">
+        <div className="skills-section" id="skills">
             <h1 className="skills-header">Tech Stack & Tools</h1>
             
             <div className="marquee-container">
