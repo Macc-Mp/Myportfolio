@@ -1,100 +1,127 @@
-/* Container & Background */
-.participation-page {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-}
-
 .participation-center {
     width: 100%;
     overflow: hidden;
-    padding: 40px 0;
-    position: relative;
+    padding: 60px 0;
+    background: #050505;
+    /* The "Fade Out" Mask */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-/* Carousel Track */
 .carousel-track {
     display: flex;
-    align-items: center;
-    gap: 25px;
-    white-space: nowrap;
-    width: max-content; /* Critical for smooth scrolling */
-    animation: scroll-left 30s linear infinite;
+    gap: 30px;
+    width: max-content;
+    animation: scroll-left 40s linear infinite;
 }
 
 .carousel-track:hover {
     animation-play-state: paused;
 }
 
-/* Individual Card Styling */
-.participation-link {
+/* Node Card Base */
+.node-card {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    text-decoration: none;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+/* The Grid Background inside the card */
+.node-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    
-    /* Modern Glassmorphism */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    
-    color: #e0e0e0;
-    padding: 20px 30px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    min-width: 260px;
-    flex: 0 0 auto;
-    font-family: 'Fira Code', monospace;
+    pointer-events: none;
 }
 
-.participation-link h2 {
+/* Central Hub */
+.main-hub {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent);
+    z-index: 2;
+}
+
+/* Floating Nodes */
+.orbit-node {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.6s ease;
+}
+
+/* Randomly scatter and animate nodes */
+.orbit-node:nth-child(2) { transform: translate(-40px, -20px); animation: float 4s infinite; }
+.orbit-node:nth-child(3) { transform: translate(50px, 10px); animation: float 5s infinite 1s; }
+.orbit-node:nth-child(4) { transform: translate(-10px, 40px); animation: float 3s infinite 0.5s; }
+.orbit-node:nth-child(5) { transform: translate(30px, -35px); animation: float 6s infinite; }
+
+/* Text & Labels */
+.node-info {
+    z-index: 3;
+    transition: transform 0.4s ease;
+}
+
+.node-status {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.4);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.node-title {
     margin: 0;
-    font-size: 1.1rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-align: center;
-    color: #00d4ff; /* Tech Blue */
-}
-
-/* Hover & Interactive States */
-.participation-link:hover {
-    transform: translateY(-10px) scale(1.02);
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(0, 212, 255, 0.5);
-    box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+    font-size: 1rem;
+    font-family: 'Fira Code', monospace;
     color: #fff;
+    font-weight: 400;
 }
 
-.participation-link:active {
-    transform: translateY(-2px) scale(0.98);
+/* Hover Effects */
+.node-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px var(--accent);
 }
 
-/* Animation */
+.node-card:hover .orbit-node {
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+}
+
+.node-card:hover .node-info {
+    transform: translateX(5px);
+}
+
+/* Animations */
 @keyframes scroll-left {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .carousel-track {
-        gap: 15px;
-        animation-duration: 20s; /* Faster scroll for shorter distance */
-    }
-    
-    .participation-link {
-        min-width: 200px;
-        padding: 15px;
-    }
-
-    .participation-link h2 {
-        font-size: 0.95rem;
-    }
+@keyframes float {
+    0%, 100% { transform: translate(var(--tw-translate-x), var(--tw-translate-y)); }
+    50% { transform: translate(calc(var(--tw-translate-x) + 5px), calc(var(--tw-translate-y) - 5px)); }
 }

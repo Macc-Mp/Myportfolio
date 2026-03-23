@@ -1,26 +1,44 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import '../css/Participation.css';
 
 function Participation() {
     const items = [
-        { to: '/participation', title: 'MicroTrendCareers: uCTF', aria: 'Open uCTF participation page' },
-        { to: '/participation/part-two', title: 'Innovate and Elevate', aria: 'Open event participation part two' },
-        { to: '/participation/part-three', title: 'Think Microsoft', aria: 'Open event participation part three' },
-        { to: '/participation/part-four', title: 'DataCamp: AI/Data Lit.', aria: 'Open event participation part four' },
-        { to: '/participation/part-five', title: 'HackTheBox uCTF', aria: 'Open event participation part five' }
+        { to: '/participation', label: 'uCaptureTheFlag', nodes: 8, color: '#00ff41' },
+        { to: '/participation/part-two', label: 'Innovate', nodes: 5, color: '#ff007a' },
+        { to: '/participation/part-three', label: 'Microsoft', nodes: 4, color: '#00a4ef' },
+        { to: '/participation/part-four', label: 'DataCamp', nodes: 6, color: '#03ef62' },
+        { to: '/participation/part-five', label: 'HackTheBox - Tinsel Trouble', nodes: 10, color: '#9fe52d' }
     ];
 
-    // render the items twice for seamless infinite scroll
     const doubleItems = [...items, ...items];
 
     return (
         <div className="participation-center">
-            <div className="participation-carousel" aria-hidden="false">
-                <div className="carousel-track" tabIndex={0}>
+            <div className="participation-carousel">
+                <div className="carousel-track">
                     {doubleItems.map((it, i) => (
-                        <Link key={`${it.to}-${i}`} className="participation-link" to={it.to} aria-label={it.aria}>
-                            <h2>{it.title}</h2>
+                        <Link 
+                            key={`${it.to}-${i}`} 
+                            className="node-card" 
+                            to={it.to}
+                            style={{ '--accent': it.color }}
+                        >
+                            {/* The Network Visual */}
+                            <div className="node-grid">
+                                <div className="main-hub"></div>
+                                {[...Array(it.nodes)].map((_, n) => (
+                                    <div key={n} className="orbit-node"></div>
+                                ))}
+                                
+                            </div>
+                            
+                            {/* Minimal Text Indicator */}
+                            
+                            <div className="node-info">
+                                 <span className="node-status">Participations</span>
+                                <h2 className="node-title">{it.label}</h2>
+                            </div>
                         </Link>
                     ))}
                 </div>
