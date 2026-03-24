@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import Loading from './components/Loading'
 const Header = lazy(() => import('./components/Header'))
 const Skills = lazy(() => import('./components/Skills'))
 const ProjectsBody = lazy(() => import('./components/ProjectsBody'))
@@ -40,13 +41,13 @@ function App() {
     )
   }
 
-  // spinner disabled: render app immediately
-  const [loading, setLoading] = useState(false)
+  // show spinner for a short launch animation
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 3000)
     return () => clearTimeout(t)
-  },   []
-)
+  }, [])
+
 
   const router = createBrowserRouter([
     { path: '/', element: <Home /> },

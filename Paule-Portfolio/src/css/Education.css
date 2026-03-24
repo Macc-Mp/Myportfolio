@@ -1,12 +1,12 @@
 /* 1. Base Container */
-.education {
-    padding: 60px 20px;
+#education {
+    padding: 80px 20px;
     display: flex;
     justify-content: center;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Fira Code', monospace; /* Consistent with your Footer */
 }
 
-.eduCard {
+.edu-mission-container {
     width: 100%;
     max-width: 800px;
     position: relative;
@@ -14,7 +14,7 @@
 }
 
 /* 2. The Minimalist Vertical Rail */
-.eduCard::before {
+.edu-mission-container::before {
     content: "";
     position: absolute;
     left: 0;
@@ -36,97 +36,103 @@
     gap: 15px;
 }
 
-/* Decorative bracket next to title */
-.notes::before {
-    content: "[";
-    color: #fff;
-}
-.notes::after {
-    content: "]";
-    color: #fff;
-}
+/* Brackets around the title */
+.notes::before { content: "["; color: #fff; }
+.notes::after { content: "]"; color: #fff; }
 
-/* 4. Education Rows */
-.edu-row {
+/* 4. Quest Nodes (The Rows) */
+.quest-node {
     position: relative;
     margin-bottom: 50px;
+    transition: transform 0.3s ease;
 }
 
-/* The Horizontal "Connector" Line */
-.edu-row::before {
+/* The Horizontal Connector Line */
+.quest-node::before {
     content: "";
     position: absolute;
     left: -40px;
-    top: 12px;
-    width: 20px;
+    top: 14px;
+    width: 25px;
     height: 1px;
     background: var(--tech-blue);
     box-shadow: 0 0 8px var(--tech-blue);
 }
 
-/* The Active Indicator (Current Education) */
-.edu-row.current::after {
-    content: "ACTIVE_SESSION";
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-size: 0.6rem;
-    color: var(--btn-yellow);
-    border: 1px solid var(--btn-yellow);
-    padding: 2px 6px;
-    opacity: 0.8;
+/* 5. Quest Info Styling */
+.quest-info {
+    padding-left: 10px;
 }
 
-/* 5. Typography */
 .edu-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #fff;
     margin: 0 0 5px 0;
+    text-transform: uppercase;
 }
 
 .edu-degree {
-    font-size: 0.9rem;
-    color: #aaa;
+    font-size: 0.95rem;
+    color: var(--dim-white);
     margin: 0;
-}
-
-.edu-school {
-    font-size: 0.85rem;
-    color: var(--tech-blue);
-    margin: 5px 0 15px 0;
-    opacity: 0.8;
 }
 
 .edu-date {
     font-size: 0.8rem;
-    color: #555;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 4px 8px;
+    color: #666;
+    margin-top: 8px;
     display: inline-block;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    padding-left: 10px;
 }
 
-/* 6. Interaction */
-.edu-row {
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    cursor: default;
+/* 6. Status Badges (Metadata) */
+.quest-meta {
+    margin-bottom: 8px;
+    display: flex;
+    gap: 15px;
+    font-size: 0.65rem;
+    font-family: monospace;
 }
 
-.edu-row:hover {
+.quest-id {
+    color: var(--mustard);
+}
+
+.quest-status {
+    color: #444;
+    letter-spacing: 1px;
+}
+
+/* Active Mission Highlighting */
+.quest-node.active .quest-status {
+    color: var(--tech-blue);
+    text-shadow: 0 0 5px var(--tech-blue);
+}
+
+.quest-node.active .edu-title {
+    color: var(--white-plain);
+}
+
+/* 7. Interaction */
+.quest-node:hover {
     transform: translateX(10px);
 }
 
-.edu-row:hover .edu-title {
+.quest-node:hover .edu-title {
     color: var(--tech-blue);
 }
 
-/* Simple Mobile Fix */
-@media (max-width: 600px) {
-    .eduCard { padding-left: 30px; }
-    .edu-row::before { width: 15px; left: -30px; }
-    .edu-row.current::after { display: none; }
+.quest-node:hover::before {
+    width: 35px; /* Line grows on hover */
+    background: var(--mustard);
+    box-shadow: 0 0 10px var(--mustard);
 }
 
-.status-tag {
-    color: white;
+/* 8. Mobile Adjustments */
+@media (max-width: 600px) {
+    .edu-mission-container { padding-left: 30px; }
+    .quest-node::before { width: 15px; left: -30px; }
+    .edu-title { font-size: 1rem; }
 }
