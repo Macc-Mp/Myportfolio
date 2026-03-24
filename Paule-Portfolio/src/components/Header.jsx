@@ -20,9 +20,10 @@ function Header() {
         const x = (e.clientX - centerX) / (rect.width / 2);
         const y = (e.clientY - centerY) / (rect.height / 2);
 
-        // Update CSS variables for only the joystick offset (controller body stays static)
-        card.style.setProperty('--joyX', `${x * 15}px`); // Joystick horizontal slide
-        card.style.setProperty('--joyY', `${y * 15}px`); // Joystick vertical slide
+        // Update CSS variables for the joystick offset
+        // We multiply by 15 for a subtle 15px travel distance
+        card.style.setProperty('--joyX', `${x * 15}px`); 
+        card.style.setProperty('--joyY', `${y * 15}px`); 
     };
 
     const handleMouseLeave = () => {
@@ -36,49 +37,59 @@ function Header() {
 
     return (
         <div className="intro" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-            {/* Added ref and dynamic transform style */}
-            <div 
-                className="leftCard" 
-                ref={cardRef}
-            >
-                {/* Background Video */}
+            
+            <div className="leftCard" ref={cardRef}>
+                
+                {/* 1. Background Video Layer */}
                 <div className="animate">
                     <video className="video-bg" autoPlay loop muted playsInline>
                         <source src="/your-video-path.mp4" type="video/mp4" />
                     </video>
                 </div>
 
-                {/* The "Screen" */}
-                <div className="json-container">
-                    <div className="json-data">
-                        <span className="json-bracket">{'{'}</span>
-                        <div style={{ paddingLeft: '20px' }}>
-                            <div>
-                                <span className="json-key">"name"</span>: 
-                                <span className="json-string"> "Moises Paule"</span>,
-                            </div>
-                            <div>
-                                <span className="json-key">"role"</span>: 
-                                <span className="json-string"> "Fullstack Developer"</span>,
-                            </div>
-                            <div>
-                                <span className="json-key">"specialization"</span>: 
-                                <span className="json-string"> "Game & Web Dev"</span>
-                            </div>
+                {/* 2. Game Title Card (The "Screen") */}
+                <div className="game-title-card">
+                    <div className="scanner-line"></div>
+                    
+                    <div className="card-header">
+                        <span className="player-tag">P1 // ACTIVE</span>
+                        <div className="level-badge">LV. 7</div>
+                    </div>
+
+                    <h1 className="hero-name">MOISES PAULE</h1>
+
+                    <div className="class-selection">
+                        {/* <div className="class-item active">
+                            <span className="dot"></span> FULLSTACK_DEV
                         </div>
-                        <span className="json-bracket">{'}'}</span>
+                        <div className="class-item">
+                            <span className="dot"></span> GAME_DESIGNER
+                        </div> */}
+                    </div>
+
+                    <div className="stats-container">
+                        <div className="stat-row">
+                            <span>HP</span> 
+                            <div className="bar"><div className="fill" style={{width: '90%'}}></div></div>
+                        </div>
+
+                    </div>
+
+                    <div className="press-start">
+                        <span className="blink">▶</span> Aspiring Software Dev., Interested in Game Design and Web Development. <span className="blink">◀</span>
                     </div>
                 </div>
 
-                {/* Bottom Center Buttons */}
+                {/* 3. Action Buttons (The Menu) */}
                 <div className="resume-container">
                     <a className="tab2" href={PDF_PATH} download="paule-resume.pdf">
-                        Download Resume
+                        DOWNLOAD RESUME
                     </a>
                     <a href="#contact" className="tab2">
-                        Let's Connect
+                        LET'S CONNECT
                     </a>
                 </div>
+
             </div>
         </div>
     );
