@@ -1,40 +1,66 @@
 import { useEffect } from 'react'
 import '../css/Footer.css'
-import linkedin from '../assets/Header/linkedin.png'
-import github from '../assets/Header/github.png'
-
 
 function Footer() {
     return (
         <section id="contact">
-    <div className="contact">
-        <h2>Collaborate with me</h2>
-        
-        <div className="contact-container">
-            <div className="contact-left">
-                 <img src="/me.svg" className="editMe" alt="picture of me"></img>
-                 <a className="aLink" href="https://www.linkedin.com/in/moises-paule-6968ab328" target="_blank">My linkedin</a>
+            <div className="contact">
+                {/* HUD Header with sub-text */}
+                <div className="hud-header">
+                    <span className="status-indicator">● ONLINE</span>
+                    <h2>INITIATE_COLLABORATION</h2>
+                    <p className="subtitle">SEND_INVITE_TO_SQUAD</p>
+                </div>
+                
+                <div className="contact-container">
+                    {/* Left: Player ID Card */}
+                    <div className="contact-left">
+                        <div className="image-scanner">
+                            <div className="scan-bar"></div>
+                            <img src="/me.svg" className="editMe" alt="picture of me" />
+                        </div>
+                        <div className="id-tag">
+                            <span className="label">UID:</span>
+                            <a className="aLink profile-link" href="https://www.linkedin.com/in/moises-paule-6968ab328" target="_blank" rel="noreferrer">
+                                My LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Right: Comms Channels */}
+                    <div className="contactLinks">
+                        <div className="channel-label">COMM_CHANNELS</div>
+                        
+                        <div className="media-link">
+                            <div className="bracket-icon">
+                                <img src="/fb.svg" alt="Facebook" />
+                            </div>
+                            <a className="aLink" href="https://www.facebook.com/moises.paule.39" target="_blank" rel="noopener noreferrer">
+                                <span className="link-text">Paule, Moises</span>
+                            </a>
+                        </div>
+
+                        <div className="media-link">
+                            <div className="bracket-icon">
+                                <img src="/github.svg" alt="Github" />
+                            </div>
+                            <a className="aLink" href="https://github.com/Macc-Mp" target="_blank" rel="noreferrer">
+                                <span className="link-text">Macc-Mp</span>
+                            </a>
+                        </div>
+
+                        <div className="media-link">
+                            <div className="bracket-icon">
+                                <img src="/email.svg" alt="Email" />
+                            </div>
+                            <a className="aLink" href="mailto:macmoises12@gmail.com">
+                                <span className="link-text">macmoises12@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>  
+                </div>
             </div>
-
-            <div className="contactLinks">
-                <div className="media-link">
-                    <img src="/fb.svg" alt="Facebook" />
-                    <p><a className="aLink" href="https://www.facebook.com/moises.paule.39" target="_blank" rel="noopener noreferrer">Paule, Moises</a></p>
-                </div>
-                <div className="media-link">
-                    <img src="/github.svg" alt="Github"></img>
-                    <p><a className="aLink" href="https://github.com/Macc-Mp" target="_blank">Macc-Mp (MacMoises)</a></p>
-                </div>
-                <div className="media-link">
-                    <img src="/email.svg" alt="Email"></img>
-                    <p><a className="aLink" href="mailto:macmoises12@gmail.com" target="_blank">macmoises12@gmail.com</a></p>
-                </div>
-           
-            </div>  
-        </div>
-    </div>
-</section>
-
+        </section>
     );
 }
 

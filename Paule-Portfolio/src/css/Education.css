@@ -1,365 +1,132 @@
-/* start of education.css */
+/* 1. Base Container */
 .education {
+    padding: 60px 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 40px 20px;
-    box-sizing: border-box;
-    color: #FFFFFF; /* fixed education section font color */
-    margin-top: 40px;
-    margin-bottom: 40px;
-    min-height: unset;
-    position: relative;
-    z-index: 1;
-}
-
-/* Ensure edu text is always readable */
-.edu-title,
-.edu-degree,
-.edu-date,
-.edu-school,
-.notes {
-    padding: 5px;
-    color: #FFFFFF;
-}
-
-h2 {
-    font-size: 2.4rem;
+    justify-content: center;
     font-family: 'JetBrains Mono', monospace;
-    position: relative;
-    margin: 0 0 12px 0;
-    color: var(--Neutral-White, #fff);
 }
-
-.education h2::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    border-bottom: 2px dashed rgba(174, 158, 158, 0.06);
-    margin: 14px 0 18px 0;
-}
-
-.notes {
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 1.5px;
-    border-radius: 10px;
-  
-}
-
 
 .eduCard {
-    width: 85%;
-    margin-top: 20px;
-    padding: 30px 28px;
-    /* dark translucent glass for the card itself */
-    /* background-color: rgba(6,6,6,0.36);
-    -webkit-backdrop-filter: blur(10px) saturate(120%);
-    backdrop-filter: blur(10px) saturate(120%);
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.06); */
-    box-sizing: border-box;
-    position: relative; /* for timeline rule */
-    z-index: 2; /* ensure card content sits above the blurred background layer */
-    box-shadow: 0 0 20px var(--accent-glow);
-}
-
-/* translucent blurry black veil behind education content to create a frosted dark backdrop */
-.education::before {
-    content: "";
-    position: absolute;
-    inset: 0; /* top:0; right:0; bottom:0; left:0 */
-    background: transparent;
-    /* blur the page content behind this layer to create a soft, blurry black background */
-    -webkit-backdrop-filter: blur(12px) saturate(120%);
-    backdrop-filter: blur(12px) saturate(120%);
-    z-index: 0;
-    pointer-events: none; /* keep underlying content interactive */
-}
-
-/* Respect prefers-reduced-motion and avoid heavy backdrop effects for accessibility */
-@media (prefers-reduced-motion: reduce) {
-    .education::before {
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-        background: rgba(0,0,0,0.6);
-    }
-    /* disable card blur for reduced-motion users */
-    .eduCard {
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-        background-color: rgba(6,6,6,0.7);
-    }
-}
-
-.eduCard h3{
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 0;
-}
-
-.outer {
-    display: block;
     width: 100%;
-    margin-bottom: 8px;
-    font-family: 'JetBrains Mono', monospace;
-    padding-left: 96px; /* space for timeline column */
+    max-width: 800px;
+    position: relative;
+    padding-left: 40px;
 }
 
-/* vertical timeline line */
+/* 2. The Minimalist Vertical Rail */
 .eduCard::before {
     content: "";
     position: absolute;
-    left: 56px; /* aligns with badges' center */
-    top: 38px;
-    bottom: 28px;
-    width: 2px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-    border-radius: 2px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
-.hobby {
-     font-family: 'JetBrains Mono', monospace;
-    text-align: center;
-    margin: 0 auto;
-    display: block;
-}
-.left-col,
-.right-col {
-    display: block;
-}
-
-/* Each edu item row - reuse existing structure but give spacing */
-.outer .edu-row {
-    position: relative;
-    margin-bottom: 26px;
-}
-
-/* badge for each entry shown left of the content */
-.edu-row .edu-title::before {
-    content: "";
-    position: absolute;
-    left: -96px; /* anchored into the reserved timeline column */
-    top: 2px;
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
-    background: linear-gradient(180deg,#8b1e3f,#5a0f2a);
-    border: 2px solid rgba(255,255,255,0.06);
- 
-    display: inline-block;
-}
-
-/* small circular connector dot centered on the vertical line */
-.edu-row .edu-title::after {
-    content: "";
-    position: absolute;
-    left: -70px;
-    top: 18px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    border: 2px solid rgba(255,255,255,0.06);
-}
-
-.edu-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 0;
-}
-
-/* Ensure checkpoint-style dot appears before all edu-title headings,
-   even when `.edu-row` wrapper isn't present. */
-.edu-title {
-    position: relative;
-}
-.edu-title::before {
-    content: "";
-    position: absolute;
-    left: -70px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    border: 2px solid rgba(255,255,255,0.06);
-}
-/* Title row: title on left, date to the right */
-.edu-row .title-row {
+/* 3. The Section Header */
+.notes {
+    font-size: 1.5rem;
+    color: var(--tech-blue);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 3rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
-.edu-row .title-row .edu-date {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 600;
-}
-
-.edu-degree,
-.edu-date,
-.edu-school {
-    margin: 0;
-    font-size: 0.9em;
-}
-
-/* School name style */
-.edu-row .edu-school {
-    color:gray !important;
-    font-weight: 600;
-}
-
-/* Tag/chips styling (if you add tags later) */
-.edu-tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin: 10px 0 8px 0;
-}
-.edu-tags .tag {
-    background: rgba(255,255,255,0.03);
+/* Decorative bracket next to title */
+.notes::before {
+    content: "[";
     color: #fff;
-    padding: 6px 10px;
-    border-radius: 16px;
+}
+.notes::after {
+    content: "]";
+    color: #fff;
+}
+
+/* 4. Education Rows */
+.edu-row {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+/* The Horizontal "Connector" Line */
+.edu-row::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: 12px;
+    width: 20px;
+    height: 1px;
+    background: var(--tech-blue);
+    box-shadow: 0 0 8px var(--tech-blue);
+}
+
+/* The Active Indicator (Current Education) */
+.edu-row.current::after {
+    content: "ACTIVE_SESSION";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 0.6rem;
+    color: var(--btn-yellow);
+    border: 1px solid var(--btn-yellow);
+    padding: 2px 6px;
+    opacity: 0.8;
+}
+
+/* 5. Typography */
+.edu-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 5px 0;
+}
+
+.edu-degree {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin: 0;
+}
+
+.edu-school {
     font-size: 0.85rem;
-    border: 1px solid rgba(255,255,255,0.04);
+    color: var(--tech-blue);
+    margin: 5px 0 15px 0;
+    opacity: 0.8;
 }
 
-/* Achievement bullets */
-.edu-bullets {
-    margin: 8px 0 0 0;
-    padding-left: 18px;
-    color: rgba(255,255,255,0.65);
-}
-.edu-bullets li {
-    margin-bottom: 6px;
-    line-height: 1.45;
-    font-size: 0.95rem;
-}
-
-@media only screen and (min-width: 425px) and (max-width: 700px) {
-    .education {
-        position: relative;
-        top: 100rem !important;
-        padding: 30px 10px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    .eduCard {
-        width: 95%;
-        padding: 15px;
-    }
-    .edu-date{
-        padding-top: 1rem !important;
-        font-size: 1rem;
-        font-weight: bold;
-        margin-top: 1rem;
-    }
-    .notes{
-        font-size: 0.8rem !important;
-    }
-    .outer {
-        padding-left: 72px;
-        width: 100%;
-    }
-    .left-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    }
-
-    .right-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: right;
-    }
-
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-    h2{
-        font-size: 2.5rem;
-    }
-    .notes {
-        font-size: 200.2rem !important;
-        margin-bottom: 20px;
-    }
-    .education {
-        padding: 30px 20px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    .eduCard {
-       
-        padding: 20px;
-        margin-bottom: 20px;
-        width: 100%;
-        padding: 10px;
-    }
-    .edu-title{
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    .edu-school{
-        margin-bottom: 10px;
-        font-size: 1.1rem;
-    }
-    .edu-degree{
-        font-size: 1.1rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    .edu-degree{
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    .edu-date{
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-top: 2rem;
-    }
-    .notes{
-        font-size: 2rem !important;
-    }
-    .hobby{
-        font-size: 1.5rem;
-    }
-}
-
-/* Road-sign / marquee style flow animation: moves element left-to-right across its container */
-@keyframes flow {
-    0% {
-        transform: translateX(-1%);
-    }
-    100% {
-        transform: translateX(1%);
-    }
-}
-
-.flow {
+.edu-date {
+    font-size: 0.8rem;
+    color: #555;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 4px 8px;
     display: inline-block;
-    white-space: nowrap;
-    will-change: transform;
-    animation: flow 6s linear infinite;
 }
 
-/* speed variants */
-.flow--slow { animation-duration: 12s; }
-.flow--fast { animation-duration: 3.5s; }
-.flow--reverse { animation-direction: reverse; }
+/* 6. Interaction */
+.edu-row {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    cursor: default;
+}
 
-/* pause animation on hover for readability */
-.flow:hover { animation-play-state: paused; }
+.edu-row:hover {
+    transform: translateX(10px);
+}
 
-/* Respect reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-    .flow, .flow--slow, .flow--fast { animation: none; transform: none; }
+.edu-row:hover .edu-title {
+    color: var(--tech-blue);
+}
+
+/* Simple Mobile Fix */
+@media (max-width: 600px) {
+    .eduCard { padding-left: 30px; }
+    .edu-row::before { width: 15px; left: -30px; }
+    .edu-row.current::after { display: none; }
+}
+
+.status-tag {
+    color: white;
 }

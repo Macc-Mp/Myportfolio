@@ -53,7 +53,7 @@ function Header() {
                     
                     <div className="card-header">
                         <span className="player-tag">P1 // ACTIVE</span>
-                        <div className="level-badge">LV. 7</div>
+                        <div className="level-badge">LV. 67</div>
                     </div>
 
                     <h1 className="hero-name">MOISES PAULE</h1>
