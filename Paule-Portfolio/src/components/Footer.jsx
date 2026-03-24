@@ -8,7 +8,7 @@ function Footer() {
     return (
         <section id="contact">
     <div className="contact">
-        <h2>Contact Me</h2>
+        <h2>Collaborate with me</h2>
         
         <div className="contact-container">
             <div className="contact-left">

@@ -21,7 +21,7 @@
 }
 
 .contact h2 {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Fira Code', monospace;
     color: var(--white-plain);
     font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 2.5rem;
@@ -100,7 +100,7 @@
 .media-link p:visited {
     color: var(--dim-white) !important; /* Forces color even if visited */
     text-decoration: none;
-    font-family: var(--space-mono);
+    font-family: 'Fira Code', monospace;
     font-weight: bold;
     font-size: 1.1rem;
     transition: color 0.3s ease;

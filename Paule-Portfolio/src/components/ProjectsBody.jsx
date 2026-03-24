@@ -34,7 +34,7 @@ function ProjectsBody() {
         {
             title: "My_Kiosk",
             description: "Developed with Blazor .NET8, Supabase. Allow orders and track order history",
-            pic: "/projectsPic/kiosk.webp",
+            pic: "/projectsPic/kiosk.png",
             techs: [csharp, csss, pgrest, hub],
             link: "https://kioskmenu-d6hna9fjhmbga0ev.eastasia-01.azurewebsites.net/",
         },
@@ -47,9 +47,9 @@ function ProjectsBody() {
         {
             title: "Movielist Selection",
             description: "API key requested from themoviedb.org/The Movie Database. This Web-based project made with React + Vite, is part of my learning curve to understand react hooks.",
-            link: "https://movie-selection-show-10n16covo-moises-projects-087c620f.vercel.app/",
+            link: "https://movie-selection-show-aqp6.vercel.app/",
             repo: "https://github.com/Macc-Mp/MovieSelection-Show",
-            pic: "/projectsPic/movie_select.webp",
+            pic: "/projectsPic/movie_select.png",
             techs: [reactt, vitee, js, htmll, csss, hub]
         },
     ];
