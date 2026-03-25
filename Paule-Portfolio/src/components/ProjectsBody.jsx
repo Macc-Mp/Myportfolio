@@ -36,7 +36,7 @@ function ProjectsBody() {
             description: "Developed with Blazor .NET8, Supabase. Allow orders and track order history",
             pic: "/projectsPic/kiosk.png",
             techs: [csharp, csss, pgrest, hub],
-            link: "https://kioskmenu-d6hna9fjhmbga0ev.eastasia-01.azurewebsites.net/",
+            link: "https://kiosk-show.azurewebsites.net//",
         },
         {
             title: "Web Portfolio",
