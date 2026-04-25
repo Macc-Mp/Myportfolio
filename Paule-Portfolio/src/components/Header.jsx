@@ -1,44 +1,13 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import '../css/Header.css';
 
 const PDF_PATH = '/upload-resume/pauleResume.pdf';
 
 function Header() {
-    const cardRef = useRef(null);
-
-    const handleMouseMove = (e) => {
-        const card = cardRef.current;
-        if (!card) return;
-
-        const rect = card.getBoundingClientRect();
-        
-        // Calculate the center of the card
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-
-        // Calculate mouse distance from center (-1 to 1 scale)
-        const x = (e.clientX - centerX) / (rect.width / 2);
-        const y = (e.clientY - centerY) / (rect.height / 2);
-
-        // Update CSS variables for the joystick offset
-        // We multiply by 15 for a subtle 15px travel distance
-        card.style.setProperty('--joyX', `${x * 15}px`); 
-        card.style.setProperty('--joyY', `${y * 15}px`); 
-    };
-
-    const handleMouseLeave = () => {
-        const card = cardRef.current;
-        if (!card) return;
-
-        // Reset joystick position smoothly when mouse leaves
-        card.style.setProperty('--joyX', '0px');
-        card.style.setProperty('--joyY', '0px');
-    };
-
     return (
-        <div className="intro" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <div className="intro">
             
-            <div className="leftCard" ref={cardRef}>
+            <div className="leftCard">
                 
                 {/* 1. Background Video Layer */}
                 <div className="animate">

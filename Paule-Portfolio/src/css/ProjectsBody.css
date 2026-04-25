@@ -8,7 +8,7 @@
     padding: 20px 1.5rem;
     margin: 5rem auto 4rem auto;
     box-sizing: border-box;
-    box-shadow: 0 0 20px var(--accent-glow);
+    /* box-shadow: 0 0 20px var(--accent-glow); */
 }
 
 .projects h2 {
@@ -30,14 +30,22 @@
 .project-card {
     width: 100%;
     border-radius: 12px;
-    background-color: rgba(10, 12, 15, 0.55);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+    background: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px) saturate(120%);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    gap: 18px;
+    padding: 18px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projectCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 55px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .project-card:hover {
@@ -50,7 +58,9 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    background: #1a1a1e;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
 }
 
 .project-image {
@@ -58,6 +68,7 @@
     aspect-ratio: 16 / 9;
     object-fit: cover;
     display: block;
+    border-radius: 12px;
 }
 
 /* --- Static Tech Stack Row (Alignment Fix) --- */

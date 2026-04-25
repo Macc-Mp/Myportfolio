@@ -8,10 +8,6 @@
     --btn-red: #ff4d4d;
     --btn-green: #2ecc71;
     --btn-yellow: #f1c40f;
-    
-    /* Mouse Tracking Variables */
-    --joyX: 0px;
-    --joyY: 0px;
 }
 
 /* 2. Layout */
@@ -24,65 +20,34 @@
     overflow: hidden;
 }
 
-/* 3. Controller Body */
+/* 3. Header Card Body */
 .leftCard {
     width: 90%;
     max-width: 1000px;
-    padding: 4rem 2rem;
+    padding: 3.5rem 2rem;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 60px 60px 140px 140px;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
-    clip-path: polygon(12% 0%, 88% 0%, 100% 20%, 100% 80%, 94% 100%, 72% 100%, 62% 82%, 38% 82%, 28% 100%, 6% 100%, 0% 80%, 0% 20%);
-}
-
-/* 4. Joystick (Left) */
-.leftCard::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 7%;
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(circle at 35% 35%, #444, #111 70%, #000);
-    border-radius: 50%;
-    z-index: 10;
-    transform: translateY(calc(-50% + var(--joyY))) translateX(var(--joyX));
-    box-shadow: inset calc(var(--joyX) * -0.5) calc(var(--joyY) * -0.5) 15px rgba(0,0,0,0.9), 0 10px 20px rgba(0,0,0,0.5);
-    transition: transform 0.1s ease-out;
-}
-
-/* 5. ABXY Buttons (Right) */
-.leftCard::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 10%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    background: var(--tech-blue);
-    border-radius: 50%;
-    z-index: 5;
-    box-shadow: 0 -35px 0 2px var(--btn-red), 0 35px 0 2px var(--btn-green), -35px 0 0 2px var(--btn-yellow), 35px 0 0 2px var(--tech-blue);
+    border-radius: 40px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.65);
+    overflow: hidden;
 }
 
 /* 6. Game Title Card (The Center Screen) */
 .game-title-card {
     position: relative;
     z-index: 2;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.88);
     padding: 2.5rem;
     width: 70%;
-    max-width: 500px;
+    max-width: 520px;
     border-left: 4px solid var(--tech-blue);
-    transform: skewX(-4deg);
-    box-shadow: 15px 15px 0px rgba(0, 212, 255, 0.1);
-    border-radius: 4px;
+    transform: none;
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+    border-radius: 20px;
     overflow: hidden;
 }
 
@@ -205,7 +170,7 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    clip-path: inherit;
+    clip-path: none;
 }
 
 .video-bg {
@@ -218,8 +183,7 @@
 
 /* 10. Mobile Responsiveness */
 @media (max-width: 850px) {
-    .leftCard::before, .leftCard::after { display: none; }
-    .leftCard { clip-path: none; border-radius: 30px; width: 95%; }
+    .leftCard { border-radius: 30px; width: 95%; }
     .game-title-card { width: 90%; transform: none; }
     .hero-name { font-size: 2.2rem; }
 }

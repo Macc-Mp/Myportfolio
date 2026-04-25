@@ -59,7 +59,7 @@
     width: 100%;
     max-width: 900px;
     padding: 50px;
-    background: var(--hud-bg);
+    background: var(--card-bg);
     border: 1px solid var(--hud-border);
     position: relative;
     /* Hard-edged gaming UI shape */
