@@ -36,7 +36,7 @@ function Participation() {
                             {/* Minimal Text Indicator */}
                             
                             <div className="node-info">
-                                 <span className="node-status">Participations</span>
+                                 <span className="status-indicator">Participations</span>
                                 <h2 className="node-title">{it.label}</h2>
                             </div>
                         </Link>

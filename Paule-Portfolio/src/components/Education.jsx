@@ -33,7 +33,7 @@ export default function Education() {
                 <span className="quest-id">LVL_02</span>
                 <span className="quest-status">ARCHIVED</span>
               </div>
-              <h3 className="edu-title">STI COLLEGE STA. CRUZ</h3>
+              <h3 className="edu-title">SYSTEMS TECHNOLOGY INSTITUTE COLLEGE STA. CRUZ</h3>
               <p className="edu-degree">STEM Strand</p>
               <p className="edu-date">2020 // 2022</p>
             </div>
@@ -47,7 +47,7 @@ export default function Education() {
                 <span className="quest-id">LVL_01</span>
                 <span className="quest-status">ARCHIVED</span>
               </div>
-              <h3 className="edu-title">Pedro Guevarra Memorial NHS</h3>
+              <h3 className="edu-title">PEDRO GUEVARRA MEMORIAL NATIONAL HIGH SCHOOL</h3>
               <p className="edu-date">2016 // 2020</p>
             </div>
           </div>

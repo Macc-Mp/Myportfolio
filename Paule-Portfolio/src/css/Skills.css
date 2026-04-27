@@ -7,6 +7,39 @@
     align-items: center;
 }
 
+.skills-section.compact-skills {
+    padding: 30px 0 0;
+}
+
+.skills-section.compact-skills .skills-header {
+    margin-bottom: 18px;
+    font-size: 1.2rem;
+}
+
+.skills-section.compact-skills .marquee-container {
+    width: 100%;
+    max-width: 760px;
+}
+
+.skills-section.compact-skills .marquee-content {
+    gap: 16px;
+    padding: 10px 0;
+}
+
+.skills-section.compact-skills .skill-card {
+    padding: 14px;
+    min-width: 85px;
+}
+
+.skills-section.compact-skills .skill-img {
+    width: 36px;
+    height: 36px;
+}
+
+.skills-section.compact-skills .skill-card span {
+    font-size: 0.75rem;
+}
+
 .skills-header {
     font-family: 'Jetbrains', monospace;
     color: whitesmoke;

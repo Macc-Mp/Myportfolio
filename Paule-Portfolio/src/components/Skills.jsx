@@ -30,7 +30,7 @@ import '../css/Skills.css';
 
 // ... (keep all your imports same as before)
 
-function Skills() {
+function Skills({ compact = false }) {
     // Combine all images into one flat array for the marquee
     const allSkills = [
         { img: cpp, name: 'C++' }, { img: csharp, name: 'C#' }, { img: js, name: 'JS' },
@@ -40,7 +40,7 @@ function Skills() {
     ];
 
     return (
-        <div className="skills-section" id="skills">
+        <div className={`skills-section ${compact ? 'compact-skills' : ''}`} id="skills">
             <h1 className="skills-header">Tech Stack & Tools</h1>
             
             <div className="marquee-container">

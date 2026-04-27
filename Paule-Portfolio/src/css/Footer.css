@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 20px;
+    padding: 60px 20px;
     font-family: 'Fira Code', monospace;
     color: var(--white-plain);
 }
@@ -21,7 +21,7 @@
 /* 3. Header HUD Style */
 .hud-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
 }
 
 .status-indicator {
@@ -55,10 +55,10 @@
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1.3fr;
-    gap: 40px;
+    gap: 24px;
     width: 100%;
-    max-width: 900px;
-    padding: 50px;
+    max-width: 800px;
+    padding: 30px;
     background: var(--card-bg);
     border: 1px solid var(--hud-border);
     position: relative;
@@ -73,15 +73,15 @@
     flex-direction: column;
     align-items: center;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
-    padding-right: 20px;
+    padding-right: 16px;
 }
 
 .image-scanner {
     position: relative;
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 /* Removed scanning bar animation to keep pic regular as requested */
@@ -124,16 +124,13 @@
 .media-link {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     text-decoration: none;
     transition: 0.3s ease;
 }
 
 .bracket-icon {
-    padding: 10px;
-    border-left: 3px solid var(--tech-blue);
-    background: rgba(0, 212, 255, 0.05);
-    display: flex;
+    padding: 8px;
     align-items: center;
     justify-content: center;
     transition: 0.3s;

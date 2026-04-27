@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Loading from './components/Loading'
 const Header = lazy(() => import('./components/Header'))
-const Skills = lazy(() => import('./components/Skills'))
 const ProjectsBody = lazy(() => import('./components/ProjectsBody'))
 const Education = lazy(() => import('./components/Education'))
 const Participation = lazy(() => import('./components/Participation'))
@@ -29,7 +28,6 @@ function App() {
           <NavBar />
           <Suspense fallback={<div className="suspense-fallback" />}>
             <Header />
-            <Skills />
             <ProjectsBody />
             <Education />
             {/* <ResumeReader /> */}

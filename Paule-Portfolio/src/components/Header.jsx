@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/Header.css';
+import Skills from './Skills';
 
 const PDF_PATH = '/upload-resume/pauleResume.pdf';
 
@@ -59,6 +60,7 @@ function Header() {
                     </a>
                 </div>
 
+                <Skills compact />
             </div>
         </div>
     );
