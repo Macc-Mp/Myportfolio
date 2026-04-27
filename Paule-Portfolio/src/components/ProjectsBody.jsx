@@ -1,5 +1,5 @@
 import '../css/ProjectsBody.css';
-import React from 'react';
+import React, { useState } from 'react';
 
 // Import your assets
 import csharp from '../assets/Skills/languages/csharp.svg';
@@ -15,6 +15,7 @@ import htmll from '../assets/Skills/frontend/httml.svg';
 import csss from '../assets/Skills/frontend/css.svg';
 
 function ProjectsBody() {
+    const [activeIndex, setActiveIndex] = useState(null);
     const projects = [
         {
             title: "Sales Predictor",
@@ -60,7 +61,11 @@ function ProjectsBody() {
                 <h2>Projects</h2>
                 <div id="projectCards">
                     {projects.map((project, index) => (
-                        <div className="project-card" key={index}>
+                        <div
+                            className={`project-card${activeIndex === index ? ' expanded' : ''}`}
+                            key={index}
+                            onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+                        >
                             <div className="box-content">
                                 {/* IMAGE SECTION */}
                                 <div className="image-container">
@@ -89,6 +94,7 @@ function ProjectsBody() {
                                                     className="project-action-link"
                                                     aria-label={`Open ${project.title} live demo`}
                                                     title={`Open ${project.title} live demo`}
+                                                    onClick={(e) => e.stopPropagation()}
                                                 >
                                                     {/* Visual icon (decorative for screen readers) */}
                                                     <div className="external-link-icon" aria-hidden="true"></div>
@@ -103,6 +109,7 @@ function ProjectsBody() {
                                                     rel="noopener noreferrer"
                                                     aria-label={`View ${project.title} source code`}
                                                     title={`View ${project.title} source code`}
+                                                    onClick={(e) => e.stopPropagation()}
                                                 >
                                                     <img
                                                         className="action-icon"

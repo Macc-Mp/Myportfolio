@@ -9,7 +9,7 @@ function Footer() {
                 <div className="hud-header">
                     <span className="status-indicator">● ONLINE</span>
                     <h2>INITIATE_COLLABORATION</h2>
-                    <p className="subtitle">SEND_INVITE_TO_SQUAD</p>
+                    <p className="subtitle">COLLABORATE_WITH_ME</p>
                 </div>
                 
                 <div className="contact-container">
