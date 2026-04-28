@@ -48,13 +48,74 @@
     letter-spacing: 2px;
 }
 
-/* 1. The Track */
+/* Pixel person overlay */
 .marquee-container {
     width: 100%;
     display: flex;
     overflow: hidden;
+    position: relative;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.skills-person {
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.skills-person.active {
+    opacity: 1;
+}
+
+.pixel-person {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    background: rgba(6, 40, 100, 0.88);
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    border-radius: 14px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}
+
+.emoticon-text {
+    color: #4bb0ff;
+    font-family: 'Jetbrains', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    user-select: none;
+}
+
+.person-arm {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 22px;
+    height: 4px;
+    background: #4bb0ff;
+    border-radius: 999px;
+    transform-origin: left center;
+    transform: translateX(-50%) rotate(0deg);
+    transition: transform 0.25s ease;
+}
+
+.person-arm.left {
+    transform: translateX(-50%) rotate(-40deg);
+}
+
+.person-arm.right {
+    transform: translateX(-50%) rotate(40deg);
+}
+
+.person-arm.center {
+    transform: translateX(-50%) rotate(0deg);
 }
 
 .marquee-content {

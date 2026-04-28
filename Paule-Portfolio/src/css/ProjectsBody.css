@@ -30,17 +30,56 @@
 
 /* --- The Project Card --- */
 .project-card {
+    position: relative;
     width: 100%;
     border-radius: 12px;
     background: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     gap: 18px;
     padding: 18px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     box-shadow: 0 0 20px rgba(var(--glow, 0 212 255), 0.12);
+}
+
+.project-peek-wrapper {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-peek-wrapper.visible {
+    opacity: 1;
+}
+
+.project-peek-emoticon {
+    color: #4bb0ff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.96rem;
+    background: rgba(6, 40, 100, 0.90);
+    border: 1px solid rgba(0, 212, 255, 0.24);
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    white-space: nowrap;
+}
+
+.project-peek-wrapper.top {
+    top: -14px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+.project-peek-wrapper.bottom {
+    bottom: -14px;
+    left: 50%;
+    transform: translate(-50%, 100%);
 }
 
 .project-card:hover {

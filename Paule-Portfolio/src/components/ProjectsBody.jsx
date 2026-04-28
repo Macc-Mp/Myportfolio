@@ -16,6 +16,11 @@ import csss from '../assets/Skills/frontend/css.svg';
 
 function ProjectsBody() {
     const [activeIndex, setActiveIndex] = useState(null);
+    const [hoveredCard, setHoveredCard] = useState(null);
+    const [peekDirection, setPeekDirection] = useState('top');
+    const directions = ['top', 'bottom'];
+    const getRandomDirection = () => directions[Math.floor(Math.random() * directions.length)];
+
     const projects = [
         {
             title: "Sales Predictor",
@@ -70,8 +75,16 @@ function ProjectsBody() {
                             className={`project-card${activeIndex === index ? ' expanded' : ''}`}
                             key={index}
                             onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+                            onMouseEnter={() => {
+                                setHoveredCard(index);
+                                setPeekDirection(getRandomDirection());
+                            }}
+                            onMouseLeave={() => setHoveredCard(null)}
                             style={{ '--glow': project.glow }}
                         >
+                            <div className={`project-peek-wrapper ${peekDirection} ${hoveredCard === index ? 'visible' : ''}`}>
+                                <div className="project-peek-emoticon">^0^</div>
+                            </div>
                             <div className="box-content">
                                 {/* IMAGE SECTION */}
                                 <div className="image-container">

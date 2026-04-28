@@ -6,6 +6,70 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
+.participation-carousel {
+    position: relative;
+}
+
+.participation-person {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.participation-person.active {
+    opacity: 1;
+}
+
+.pixel-person {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    background: rgba(6, 40, 100, 0.88);
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    border-radius: 14px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}
+
+.emoticon-text {
+    color: #4bb0ff;
+    font-family: 'Jetbrains', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    user-select: none;
+}
+
+.person-arm {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 22px;
+    height: 4px;
+    background: #4bb0ff;
+    border-radius: 999px;
+    transform-origin: left center;
+    transform: translateX(-50%) rotate(0deg);
+    transition: transform 0.25s ease;
+}
+
+.person-arm.left {
+    transform: translateX(-50%) rotate(-40deg);
+}
+
+.person-arm.right {
+    transform: translateX(-50%) rotate(40deg);
+}
+
+.person-arm.center {
+    transform: translateX(-50%) rotate(0deg);
+}
+
 .carousel-track {
     display: flex;
     gap: 30px;
@@ -31,7 +95,124 @@
     justify-content: flex-end;
     padding: 20px;
     transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-    overflow: hidden;
+    overflow: visible;
+}
+
+.node-peek-wrapper {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.node-peek-wrapper.visible {
+    opacity: 1;
+}
+
+.node-peek-emoticon {
+    color: #4bb0ff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.96rem;
+    background: rgba(6, 40, 100, 0.90);
+    border: 1px solid rgba(0, 212, 255, 0.24);
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    white-space: nowrap;
+}
+
+.node-peek-arm {
+    position: absolute;
+    width: 18px;
+    height: 4px;
+    opacity: 0.95;
+    transition: transform 0.2s ease;
+    background: #4bb0ff;
+    border-radius: 999px;
+}
+
+.node-peek-arm::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4bb0ff;
+}
+
+.node-peek-arm.top::after {
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.node-peek-arm.bottom::after {
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.node-peek-arm.left::after {
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.node-peek-arm.right::after {
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.node-peek-arm.top {
+    top: calc(100% + 2px);
+    left: 50%;
+    transform: translate(-50%, 0) rotate(180deg);
+}
+
+.node-peek-arm.bottom {
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translate(-50%, 0) rotate(0deg);
+}
+
+.node-peek-arm.left {
+    left: calc(100% + 2px);
+    top: 50%;
+    transform: translate(0, -50%) rotate(90deg);
+}
+
+.node-peek-arm.right {
+    right: calc(100% + 2px);
+    top: 50%;
+    transform: translate(0, -50%) rotate(-90deg);
+}
+
+.node-peek-wrapper.top {
+    top: -14px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+.node-peek-wrapper.bottom {
+    bottom: -14px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+}
+
+.node-peek-wrapper.left {
+    left: -14px;
+    top: 50%;
+    transform: translate(-100%, -50%);
+}
+
+.node-peek-wrapper.right {
+    right: -14px;
+    top: 50%;
+    transform: translate(100%, -50%);
 }
 
 /* The Grid Background inside the card */
