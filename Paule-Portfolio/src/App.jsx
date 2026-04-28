@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react'
+import React, { Suspense, lazy } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NavBar from './components/NavBar'
-import Loading from './components/Loading'
 const Header = lazy(() => import('./components/Header'))
 const ProjectsBody = lazy(() => import('./components/ProjectsBody'))
 const Education = lazy(() => import('./components/Education'))
@@ -14,7 +13,6 @@ import { PartOne, PartTwo, PartThree, PartFour, PartFive } from './sub-component
 
 //import './App.css'
 import './css/index.css'
-import './css/Spinner.css'
 import Design from './css/main-bg/design';
 import ScrollProgress from './components/ScrollProgress'
 
@@ -39,12 +37,7 @@ function App() {
     )
   }
 
-  // show spinner for a short launch animation
-  const [loading, setLoading] = useState(true)
-  useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 3000)
-    return () => clearTimeout(t)
-  }, [])
+  // loading screen disabled
 
 
   const router = createBrowserRouter([
@@ -56,13 +49,12 @@ function App() {
     { path: '/participation/part-five', element: <PartFive/> },
   ])
 
-  // Always render the decorative background so it can animate while the
-  // app shows the spinner. The Design component renders into a portal.
+  // Always render the decorative background. The Design component renders into a portal.
   return (
     <>
       <Design />
       <ScrollProgress />
-      {loading ? <Loading /> : <RouterProvider router={router} />}
+      <RouterProvider router={router} />
     </>
   )
 }

@@ -13,7 +13,7 @@ function Header() {
                 {/* 1. Background Video Layer */}
                 <div className="animate">
                     <video className="video-bg" autoPlay loop muted playsInline>
-                        <source src="/your-video-path.mp4" type="video/mp4" />
+                        {/* <source src="/your-video-path.mp4" type="video/mp4" /> */}
                     </video>
                 </div>
 
