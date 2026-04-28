@@ -23,14 +23,16 @@ function ProjectsBody() {
             link: "https://salespredictor-gucwfabagye5fhbt.eastasia-01.azurewebsites.net/",
             repo: "https://github.com/Macc-Mp/BestSellerPredictorMVC",
             pic: "/projectsPic/predict_sale.webp",
-            techs: [csharp, aspp, js, mysqll, hub]
+            techs: [csharp, aspp, js, mysqll, hub],
+            glow: '0, 212, 255'
         },
         {
             title: "Splash: 2D shooter",
             description: "Unity 2D Retro Shooter Game for Android. Goal of the game is to reach the highest possible score as difficulty catches up.",
             link: "https://moacworks.itch.io/splash",
             pic: "/projectsPic/game.svg",
-            techs: [unity, csharp]
+            techs: [unity, csharp],
+            glow: '255, 99, 132'
         },
         {
             title: "My_Kiosk",
@@ -38,12 +40,14 @@ function ProjectsBody() {
             pic: "/projectsPic/kiosk.png",
             techs: [csharp, csss, pgrest, hub],
             link: "https://kiosk-show.azurewebsites.net//",
+            glow: '118, 255, 101'
         },
         {
             title: "Web Portfolio",
             description: "Started from base HTML to React.",
             pic: "/projectsPic/web_port.webp",
-            techs: [reactt, vitee, htmll, csss, js, hub]
+            techs: [reactt, vitee, htmll, csss, js, hub],
+            glow: '255, 184, 49'
         },
         {
             title: "Movielist Selection",
@@ -51,7 +55,8 @@ function ProjectsBody() {
             link: "https://movie-selection-show-aqp6.vercel.app/",
             repo: "https://github.com/Macc-Mp/MovieSelection-Show",
             pic: "/projectsPic/movie_select.png",
-            techs: [reactt, vitee, js, htmll, csss, hub]
+            techs: [reactt, vitee, js, htmll, csss, hub],
+            glow: '146, 100, 255'
         },
     ];
 
@@ -65,6 +70,7 @@ function ProjectsBody() {
                             className={`project-card${activeIndex === index ? ' expanded' : ''}`}
                             key={index}
                             onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+                            style={{ '--glow': project.glow }}
                         >
                             <div className="box-content">
                                 {/* IMAGE SECTION */}

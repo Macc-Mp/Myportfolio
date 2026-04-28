@@ -1,28 +1,33 @@
-:root {
-  --dot-bg: #050505;
-  --dot-color: rgba(255, 255, 255, 0.16);
-  --dot-size: 1px;
-  --dot-space: 34px;
-}
-
-html, body {
+html {
   min-height: 100%;
-  background: #0505052e;
+  background-color: #090a0f;
+  background-image:
+    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.08), transparent 8%),
+    radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.06), transparent 8%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.05), transparent 10%),
+    linear-gradient(180deg, #06070f 0%, #111523 45%, #090a12 100%);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #e7ebff;
 }
 
 #design-portal {
   position: fixed;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
   overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.dotted-grid {
+#design-portal .dotted-grid {
   position: absolute;
   inset: 0;
-  background-color: rgba(5, 5, 5, 0.95);
-  background-image: radial-gradient(circle at center, var(--dot-color) 1px, transparent 0);
-  background-position: 0 0;
-  background-size: var(--dot-space) var(--dot-space);
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(255, 255, 255, 0.06), transparent 1px),
+    radial-gradient(circle at 92% 85%, rgba(255, 255, 255, 0.05), transparent 1px),
+    radial-gradient(circle at 55% 45%, rgba(255, 255, 255, 0.04), transparent 1px),
+    radial-gradient(circle at 25% 70%, rgba(255, 255, 255, 0.03), transparent 1px);
+  background-size: 80px 80px, 120px 120px, 160px 160px, 220px 220px;
+  opacity: 0.55;
+  mix-blend-mode: screen;
 }
