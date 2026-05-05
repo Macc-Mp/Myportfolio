@@ -138,3 +138,70 @@
     .quest-node::before { width: 15px; left: -30px; }
     .edu-title { font-size: 1rem; }
 }
+
+/* Add below your existing @media (max-width: 600px) block */
+
+@media (max-width: 320px) {
+
+    #education {
+        padding: 40px 12px;
+    }
+
+    .edu-mission-container {
+        padding-left: 22px; /* just enough for the rail + connector */
+    }
+
+    /* Section header: rein in letter-spacing so it fits on one line */
+    .notes {
+        font-size: 1rem;
+        letter-spacing: 2px;
+        gap: 8px;
+        margin-bottom: 2rem;
+    }
+
+    /* Quest nodes: tighten vertical rhythm */
+    .quest-node {
+        margin-bottom: 32px;
+    }
+
+    /* Connector line: shorter and pulled in to match new padding */
+    .quest-node::before {
+        left: -22px;
+        width: 12px;
+        top: 12px;
+    }
+
+    /* Disable translateX hover — no room to slide at 320px */
+    .quest-node:hover {
+        transform: none;
+    }
+
+    /* Keep hover line growth minimal so it doesn't overshoot */
+    .quest-node:hover::before {
+        width: 14px;
+    }
+
+    .quest-info {
+        padding-left: 6px;
+    }
+
+    .edu-title {
+        font-size: 0.88rem;
+        letter-spacing: 0px;
+    }
+
+    .edu-degree {
+        font-size: 0.82rem;
+    }
+
+    .edu-date {
+        font-size: 0.7rem;
+        margin-top: 6px;
+        padding-left: 7px;
+    }
+
+    .quest-meta {
+        gap: 8px;
+        font-size: 0.58rem;
+    }
+}

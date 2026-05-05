@@ -283,3 +283,162 @@
 .project-action-link:hover .external-link-icon::after {
     background-color: var(--tech-blue, #00d4ff);
 }
+
+/* Add to the bottom of your projects CSS */
+
+@media (max-width: 320px) {
+
+    .projects {
+        padding: 12px 0.65rem;
+        margin: 2.5rem auto 2rem auto;
+    }
+
+    .projects h2 {
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+        text-align: center;
+    }
+
+    /* Key fix: drop minmax floor so the grid doesn't force a 300px column */
+    #projectCards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        width: 100%;
+        padding: 12px;
+        gap: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Always show info — hover is unusable on 320px touch screens */
+    .project-info-container {
+        max-height: none;
+        opacity: 1;
+        padding: 10px 12px 14px 12px;
+    }
+
+    .project-card-header {
+        margin-bottom: 8px;
+        gap: 6px;
+    }
+
+    .project-title {
+        font-size: 1rem;
+        letter-spacing: -0.5px;
+        text-shadow: 1px 1px 0px rgba(77, 122, 255, 0.85);
+    }
+
+    .project-links {
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    .action-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .project-description {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
+    .tech-stack-row {
+        gap: 8px;
+        padding: 8px 6px;
+        flex-wrap: wrap;
+    }
+
+    .tech-icon-static {
+        width: 26px;
+        height: 26px;
+        padding: 4px;
+    }
+
+    /* Hide peek tooltips — they overflow at this width */
+    .project-peek-wrapper {
+        display: none;
+    }
+}
+
+/* Replace your existing @media (max-width: 768px) block with this */
+
+@media (max-width: 768px) {
+
+    .projects {
+        padding: 16px 1.25rem;
+        margin: 3.5rem auto 3rem auto;
+    }
+
+    .projects h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    /* Two columns where possible, single column when tight */
+    #projectCards {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+    }
+
+    .project-card {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    /* Always show info on touch — hover doesn't exist */
+    .project-info-container {
+        max-height: none;
+        opacity: 1;
+        padding: 14px 16px 18px 16px;
+        overflow: visible;
+    }
+
+    .project-card-header {
+        margin-bottom: 10px;
+    }
+
+    .project-title {
+        font-size: 1.15rem;
+        letter-spacing: -0.75px;
+    }
+
+    .project-links {
+        gap: 10px;
+    }
+
+    .action-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .project-description {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .tech-stack-row {
+        padding: 10px 8px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .tech-icon-static {
+        width: 28px;
+        height: 28px;
+        padding: 4px;
+    }
+
+    /* Disable hover lift — causes layout jank on touch scroll */
+    .project-card:hover {
+        transform: none;
+    }
+
+    /* Hide peek tooltips — no hover state on touch */
+    .project-peek-wrapper {
+        display: none;
+    }
+}

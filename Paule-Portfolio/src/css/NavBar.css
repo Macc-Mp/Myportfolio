@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&family=JetBrains+Mono:wght@800&display=swap');
 
 :root {
-    --nav-bg: rgba(20, 20, 20, 0.85); /* Slightly darker for better contrast */
+    --nav-bg: rgba(20, 20, 20, 0.85);
     --nav-border: rgba(255, 255, 255, 0.1);
     --smoke: #b3b3b3;
     --white-plain: #ffffff;
@@ -14,7 +14,7 @@
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 9999; /* Ensure it's above everything */
+    z-index: 9999;
     width: auto;
 }
 
@@ -42,7 +42,7 @@
 
 /* Hide burger by default (Desktop) */
 .menu-button-container {
-    display: none; 
+    display: none;
 }
 
 #menu-toggle {
@@ -66,9 +66,8 @@
     color: var(--mustard);
 }
 
-/* 4. Mobile Logic (The "Burger" Fix) */
+/* 4. Mobile Logic (768px) */
 @media (max-width: 768px) {
-    /* Show the burger only on mobile */
     .menu-button-container {
         display: flex;
         flex-direction: column;
@@ -76,10 +75,9 @@
         z-index: 10001;
     }
 
-    /* Hide desktop links by default on mobile */
     .menu {
         position: absolute;
-        top: 100%; /* Sits right under the pill */
+        top: 100%;
         left: 50%;
         transform: translateX(-50%) translateY(10px);
         flex-direction: column;
@@ -90,21 +88,17 @@
         padding: 20px;
         gap: 15px;
         text-align: center;
-        
-        /* The "Hidden" State */
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
     }
 
-    /* The "Visible" State when checkbox is checked */
     #menu-toggle:checked ~ .menu {
         opacity: 1;
         visibility: visible;
         transform: translateX(-50%) translateY(20px);
     }
 
-    /* Hamburger Lines */
     .menu-button, .menu-button::before, .menu-button::after {
         display: block;
         background-color: var(--white-plain);
@@ -115,10 +109,52 @@
         transition: 0.4s;
     }
     .menu-button::before { content: ''; position: absolute; top: -8px; }
-    .menu-button::after { content: ''; position: absolute; top: 8px; }
+    .menu-button::after  { content: ''; position: absolute; top:  8px; }
 
-    /* Transform burger to 'X' */
     #menu-toggle:checked + .menu-button-container .menu-button { background: transparent; }
-    #menu-toggle:checked + .menu-button-container .menu-button::before { transform: rotate(45deg); top: 0; }
-    #menu-toggle:checked + .menu-button-container .menu-button::after { transform: rotate(-45deg); top: 0; }
+    #menu-toggle:checked + .menu-button-container .menu-button::before { transform: rotate(45deg);  top: 0; }
+    #menu-toggle:checked + .menu-button-container .menu-button::after  { transform: rotate(-45deg); top: 0; }
+}
+
+/* 5. Narrow mobile fixes (320px) */
+@media (max-width: 375px) {
+    /* Pill: shrink padding & gap so it fits without overflow */
+    .modern-nav {
+        padding: 9px 16px;
+        gap: 12px;
+        border-radius: 40px;
+    }
+
+    /* Logo: cap width and ellipsis if the name is long */
+    .nav-logo .title {
+        font-size: 0.78rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 130px;
+    }
+
+    /* Dropdown: fill viewport width minus gutters instead of fixed 200px */
+    .menu {
+        width: calc(100vw - 32px);
+        min-width: 0;
+        padding: 14px;
+        gap: 12px;
+        border-radius: 14px;
+    }
+
+    #menu-toggle:checked ~ .menu {
+        transform: translateX(-50%) translateY(16px);
+    }
+
+    .menu li a {
+        font-size: 0.82rem;
+    }
+
+    /* Burger lines: slightly narrower to match tighter pill */
+    .menu-button,
+    .menu-button::before,
+    .menu-button::after {
+        width: 20px;
+    }
 }

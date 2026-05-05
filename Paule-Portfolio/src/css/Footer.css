@@ -183,3 +183,91 @@
         height: 180px;
     }
 }
+
+/* Add below your existing @media (max-width: 768px) block */
+
+@media (max-width: 320px) {
+
+    .contact {
+        padding: 32px 10px;
+    }
+
+    /* Header: rein in letter-spacing on h2 and subtitle */
+    .hud-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .hud-header h2 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        margin: 10px 0;
+    }
+
+    .subtitle {
+        font-size: 0.68rem;
+        letter-spacing: 2px;
+    }
+
+    .status-indicator {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+    }
+
+    /* Container: tighter padding, no clip-path (it clips content at this width) */
+    .contact-container {
+        padding: 16px 12px;
+        gap: 16px;
+        clip-path: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Left: smaller image, less bottom padding */
+    .contact-left {
+        padding: 0 0 18px 0;
+    }
+
+    .image-scanner {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    .id-tag {
+        font-size: 0.68rem;
+        text-align: center;
+    }
+
+    /* Right: tighten gap between links */
+    .channel-label {
+        font-size: 0.58rem;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+    }
+
+    .contactLinks {
+        gap: 16px;
+    }
+
+    .media-link {
+        gap: 10px;
+    }
+
+    /* Disable translateX — no room to slide at 320px */
+    .media-link:hover {
+        transform: none;
+    }
+
+    .media-link img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .bracket-icon {
+        padding: 5px;
+    }
+
+    .aLink {
+        font-size: 0.88rem;
+    }
+}
