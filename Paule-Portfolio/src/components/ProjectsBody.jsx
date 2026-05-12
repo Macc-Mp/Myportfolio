@@ -29,6 +29,7 @@ function ProjectsBody() {
             repo: "https://github.com/Macc-Mp/BestSellerPredictorMVC",
             pic: "/projectsPic/predict_sale.webp",
             techs: [csharp, aspp, js, mysqll, hub],
+            demo_gif: "/projectsPic/predict_sale.gif",
             glow: '0, 212, 255'
         },
         {
@@ -37,6 +38,7 @@ function ProjectsBody() {
             link: "https://moacworks.itch.io/splash",
             pic: "/projectsPic/game.svg",
             techs: [unity, csharp],
+            demo_gif: "/projectsPic/game.gif",
             glow: '255, 99, 132'
         },
         {
@@ -45,6 +47,7 @@ function ProjectsBody() {
             pic: "/projectsPic/kiosk.png",
             techs: [csharp, csss, pgrest, hub],
             link: "https://kiosk-show.azurewebsites.net//",
+            demo_gif: "/projectsPic/kiosk.gif",
             glow: '118, 255, 101'
         },
         {
@@ -61,6 +64,7 @@ function ProjectsBody() {
             repo: "https://github.com/Macc-Mp/MovieSelection-Show",
             pic: "/projectsPic/movie_select.png",
             techs: [reactt, vitee, js, htmll, csss, hub],
+            demo_gif: "/projectsPic/movie_select.gif",
             glow: '146, 100, 255'
         },
     ];
@@ -68,7 +72,7 @@ function ProjectsBody() {
     return (
         <section id="projects">
             <div className="projects">
-                <h2>Projects</h2>
+                <h2 className='notes'>Projects</h2>
                 <div id="projectCards">
                     {projects.map((project, index) => (
                         <div
@@ -88,7 +92,11 @@ function ProjectsBody() {
                             <div className="box-content">
                                 {/* IMAGE SECTION */}
                                 <div className="image-container">
-                                    <img src={project.pic} className="project-image" alt={project.title} />
+                                    <img
+                                        src={hoveredCard === index && project.demo_gif ? project.demo_gif : project.pic}
+                                        className="project-image"
+                                        alt={project.title}
+                                    />
                                 </div>
 
                                 {/* STATIC TECH STACK ROW (Matches image_fde310.png) */}

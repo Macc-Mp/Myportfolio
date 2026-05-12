@@ -104,6 +104,12 @@
     object-fit: cover;
     display: block;
     border-radius: 12px;
+    filter: grayscale(100%);
+    transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.project-card:hover .project-image {
+    filter: grayscale(0%);
 }
 
 /* --- Static Tech Stack Row (Alignment Fix) --- */
