@@ -12,7 +12,6 @@ import github from '../assets/Skills/tools/hub.svg';
 import uni from '../assets/Skills/tools/unity.svg';
 import vscode from '../assets/Skills/tools/vscode.svg';
 import vsstud from '../assets/Skills/tools/vsstud.svg';
-import figma from '../assets/Skills/tools/figma.svg';
 import reactt from '../assets/Skills/frontend/react.svg';
 import csss from '../assets/Skills/frontend/css.svg';
 import vi from '../assets/Skills/frontend/vite.svg';
@@ -24,6 +23,7 @@ import js from '../assets/Skills/languages/javascript.svg';
 
 import pgrest from '../assets/Skills/backend/postgresql.svg';
 import mysqll from '../assets/Skills/backend/mysql.svg';
+import pman from '../assets/Skills/backend/Postman.svg';
 
 import React from 'react';
 
@@ -38,7 +38,8 @@ function Skills({ compact = false }) {
         { img: cpp, name: 'C++' }, { img: csharp, name: 'C#' }, { img: js, name: 'JS' },
         { img: reactt, name: 'React' }, { img: csss, name: 'CSS' }, { img: vi, name: 'Vite' },
         { img: gitt, name: 'Git' }, { img: github, name: 'GitHub' }, { img: uni, name: 'Unity' },
-        { img: vscode, name: 'VSCode' }, { img: figma, name: 'Figma' }, { img: mysqll, name: 'MySQL' }
+        { img: vscode, name: 'VSCode' }, { img: mysqll, name: 'MySQL' }, 
+        { img: pman, name: 'Postman' }
     ];
 
     useEffect(() => {

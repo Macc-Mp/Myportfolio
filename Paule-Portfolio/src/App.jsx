@@ -7,7 +7,6 @@ const Education = lazy(() => import('./components/Education'))
 const Participation = lazy(() => import('./components/Participation'))
 const Footer = lazy(() => import('./components/Footer'))
 import ResumeReader from './components/ResumeReader'
-
 //routes for participation pages
 import { PartOne, PartTwo, PartThree, PartFour, PartFive } from './sub-components/participation'
 
@@ -23,6 +22,7 @@ function App() {
     return (
       <>
         <div id="home" className="page-content">
+         
           <NavBar />
           <Suspense fallback={<div className="suspense-fallback" />}>
             <Header />
@@ -47,7 +47,14 @@ function App() {
     { path: '/participation/part-three', element: <PartThree/> },
     { path: '/participation/part-four', element: <PartFour/> },
     { path: '/participation/part-five', element: <PartFive/> },
-  ])
+  ],
+  {
+    future: {
+      v7_startTransition: true,
+      v7_relativeSplatPath: true, // It's good practice to opt-in to this one as well
+    },
+  }
+)
 
   // Always render the decorative background. The Design component renders into a portal.
   return (
