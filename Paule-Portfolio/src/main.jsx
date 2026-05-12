@@ -9,7 +9,7 @@ root.render(
   <StrictMode>
     <>
       <App />
-      {import.meta.env.MODE === 'development' && <SpeedInsights />}
+      <SpeedInsights />
     </>
   </StrictMode>,
 )
