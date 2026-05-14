@@ -82,6 +82,29 @@
     font-size: 14px;
     color: var(--dim-white, #c7c7c7);
     text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.participation-page .card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.participation-page .card-link .signature-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .participation-page .controls {
@@ -146,12 +169,28 @@
     transition: transform 200ms ease;
 }
 
+#pc-overlay .clone::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 28%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    pointer-events: none;
+    z-index: 1;
+}
+
 #pc-overlay .clone img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: contain;
     max-height: 60vh;
+    position: relative;
+    z-index: 0;
 }
 
 #pc-overlay .clone .caption {
@@ -159,6 +198,8 @@
     text-align: center;
     color: #fff;
     background: rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 2;
 }
 
 #pc-overlay .pc-close {

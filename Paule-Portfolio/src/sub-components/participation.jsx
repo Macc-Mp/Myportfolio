@@ -271,6 +271,17 @@ function HoverCenterManager() {
     let persistent = false;
     let activeCard = null;
 
+    cloneImg.draggable = false;
+    cloneImg.oncontextmenu = (e) => e.preventDefault();
+    overlay.addEventListener('dragstart', (e) => {
+      if (e.target.closest && e.target.closest('img')) e.preventDefault();
+    });
+    overlay.addEventListener('contextmenu', (e) => {
+      if (e.target.closest && e.target.closest('#pc-overlay img')) {
+        e.preventDefault();
+      }
+    });
+
     function showFor(card, opts = {}) {
       const img = card.querySelector('img');
       const cap = card.querySelector('.caption');
@@ -321,17 +332,25 @@ function HoverCenterManager() {
       if (e.target.classList && e.target.classList.contains('pc-close')) { close(); }
     }
 
+    function onContextMenu(e) {
+      if (e.target.closest && e.target.closest('.card img, #pc-overlay img')) {
+        e.preventDefault();
+      }
+    }
+
     function onKey(e) { if (e.key === 'Escape') close(); }
 
     // Use named scroll handler so it can be removed correctly
     function onScroll() { if (!persistent) hide(); }
 
     document.addEventListener('click', onDocClick);
+    document.addEventListener('contextmenu', onContextMenu);
     document.addEventListener('keydown', onKey);
     window.addEventListener('scroll', onScroll, true);
 
     return () => {
       document.removeEventListener('click', onDocClick);
+      document.removeEventListener('contextmenu', onContextMenu);
       document.removeEventListener('keydown', onKey);
       window.removeEventListener('scroll', onScroll, true);
       overlay.remove();
