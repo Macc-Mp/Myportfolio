@@ -14,6 +14,10 @@ import reactt from '../assets/Skills/frontend/react.svg';
 import htmll from '../assets/Skills/frontend/httml.svg';
 import csss from '../assets/Skills/frontend/css.svg';
 
+import tss from '../assets/Skills/languages/typescript.svg';
+import mngdb from '../assets/Skills/backend/mongodb.svg';
+import tw from '../assets/Skills/frontend/tailwind-css.svg';
+
 function ProjectsBody() {
     const [activeIndex, setActiveIndex] = useState(null);
     const [hoveredCard, setHoveredCard] = useState(null);
@@ -22,6 +26,15 @@ function ProjectsBody() {
     const getRandomDirection = () => directions[Math.floor(Math.random() * directions.length)];
 
     const projects = [
+        {
+            title: "SignNU",
+            description: "Approval and Signatory System - Email Notifications, Role-based Access, Chat System, 2FA",
+            link: "signnu.work",
+            pic: "/projectsPic/signnu.svg",
+            techs: [ js, tss, mngdb, hub, tw],
+            demo_gif: "/projectsPic/signnu.gif",
+            glow: '255, 99, 132'
+        },
         {
             title: "Sales Predictor",
             description: "C# Web-based app for predicting sales performance using ASP.net core MVC with C# LightGBM, EPPLUS and SQL.",
