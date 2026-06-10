@@ -29,7 +29,7 @@ function ProjectsBody() {
         {
             title: "SignNU",
             description: "Approval and Signatory System - Email Notifications, Role-based Access, Chat System, 2FA",
-            link: "signnu.work",
+            link: "https://www.signnu.work/login",
             pic: "/projectsPic/signnu.svg",
             techs: [ js, tss, mngdb, hub, tw],
             demo_gif: "/projectsPic/signnu.gif",
