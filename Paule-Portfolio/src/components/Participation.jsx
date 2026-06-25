@@ -46,30 +46,35 @@ function Participation() {
 
     const emoticonText = hoveredCard !== null ? '^0^' : '^v^';
 
-    const items = [
-        { to: '/participation', label: 'uCaptureTheFlag', nodes: 8, color: '#00ff41' },
-        { to: '/participation/part-two', label: 'Innovate', nodes: 5, color: '#ff007a' },
-        { to: '/participation/part-three', label: 'Microsoft', nodes: 4, color: '#00a4ef' },
-        { to: '/participation/part-four', label: 'DataCamp', nodes: 6, color: '#03ef62' },
-        { to: '/participation/part-five', label: 'HackTheBox - Tinsel Trouble', nodes: 10, color: '#9fe52d' }
-    ];
+    const credentials = {
+        participation: [
+                { to: '/participation', label: 'uCaptureTheFlag', nodes: 8, color: '#00ff41' },
+                { to: '/participation/part-two', label: 'Innovate', nodes: 5, color: '#ff007a' },
+                { to: '/participation/part-five', label: 'HackTheBox - Tinsel Trouble', nodes: 10, color: '#9fe52d' }
+          ],
+        certifications: [
+                { to: '/participation/part-three', label: 'Microsoft', nodes: 4, color: '#00a4ef' },
+                { to: '/participation/part-four', label: 'DataCamp', nodes: 6, color: '#03ef62' },
+        ]
+};
 
-    const doubleItems = [...items, ...items];
-
+    const doubleCertifications = [...credentials.certifications, ...credentials.certifications];
+    const doubleParticipation = [...credentials.participation, ...credentials.participation];
     return (
         <div className="participation-center">
             <div className="participation-carousel" ref={participationRef}>
-                <div className={`participation-person ${hoveredCard !== null ? 'active' : ''}`} style={{ transform: `translateX(${personOffset}px)` }}>
-                    <div className="pixel-person">
-                        <div className="emoticon-text">{emoticonText}</div>
-                        <div className={`person-arm ${pointDirection}`} />
-                    </div>
+                
+                {/* ================= CERTIFICATIONS SECTION ================= */}
+                <div className="hud-header">
+                    <p className="project-title">CERTIFICATIONS</p>
                 </div>
-                <div className="carousel-track">
-                    {doubleItems.map((it, i) => (
+                
+                <div className="carousel-track"> 
+
+                    {doubleCertifications.map((it, i) => (
                         <Link 
-                            key={`${it.to}-${i}`} 
-                            className="node-card" 
+                            key={`cert-${it.to}-${i}`}
+                            className="node-card"
                             to={it.to}
                             ref={(el) => {
                                 if (el && !cardRefs.current.includes(el)) cardRefs.current.push(el);
@@ -84,18 +89,54 @@ function Participation() {
                                 {[...Array(it.nodes)].map((_, n) => (
                                     <div key={n} className="orbit-node"></div>
                                 ))}
-                                
                             </div>
-                            
                             {/* Minimal Text Indicator */}
-                            
                             <div className="node-info">
-                                 <span className="status-indicator">Participations</span>
+                                <span className="status-indicator">Certification</span>
                                 <h2 className="node-title">{it.label}</h2>
                             </div>
                         </Link>
                     ))}
                 </div>
+
+                <br />
+
+                {/* ================= PARTICIPATIONS SECTION ================= */}
+                <div className="hud-header">
+                    <p className="project-title">PARTICIPATIONS</p>
+                </div>
+                
+                <div className="carousel-track">
+                    
+                    {doubleParticipation.map((it, i) => (
+                        <Link 
+                            key={`part-${it.to}-${i}`} 
+                            className="node-card" 
+                            to={it.to}
+                            ref={(el) => {
+                                if (el && !cardRefs.current.includes(el)) cardRefs.current.push(el);
+                            }}
+                            style={{ '--accent': it.color }}
+                            onMouseEnter={() => handleCardHover(i + doubleCertifications.length)} // Offset hover index if sharing tracking state
+                            onMouseLeave={handleCardLeave}
+                        >
+                            {/* The Network Visual */}
+                            <div className="node-grid">
+                                <div className="main-hub"></div>
+                                {[...Array(it.nodes)].map((_, n) => (
+                                    <div key={n} className="orbit-node"></div>
+                                ))}
+                            </div>
+                            
+                            {/* Minimal Text Indicator */}
+                            <div className="node-info">
+                                <span className="status-indicator">Participation</span>
+                                <h2 className="node-title">{it.label}</h2>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+
             </div>
         </div>
     );
