@@ -27,7 +27,7 @@ jobs:
       run: npx playwright install --with-deps
 
     # 1. Build the production application files
-     Silber- name: Build local app (Vite)
+    - name: Build local app (Vite)
       run: npm run build
 
     # 2. Force-start Vite's preview server in the background and wait a few seconds for it to boot up
