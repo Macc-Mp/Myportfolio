@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('User can navigate to the Projects section', async ({ page }) => {
   // 1. Go to your portfolio
-  await page.goto('http://localhost:5173');
+  await page.goto('http://127.0.0.1:5173');
 
   // 2. Find the Projects button/link and click it
   // We use a regular expression to match the text roughly
