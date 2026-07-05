@@ -5,7 +5,7 @@ test.describe('Landing Page Diagnostics', () => {
 
   // This runs before every single test in this block
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:5173');
+    await page.goto('http://127.0.0.1:5173');
   });
 
 // 1. Structural Check
