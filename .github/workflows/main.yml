@@ -38,7 +38,7 @@ jobs:
 
     # 3. Execute tests against the background server
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test --update-snapshots
 
     - name: Upload Report Artifact
       uses: actions/upload-pages-artifact@v3
