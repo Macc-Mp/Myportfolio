@@ -3,18 +3,19 @@ name: Lighthouse Performance Audit
 on:
   pull_request:
     branches: [ main, master ]
-    # Only run if frontend files change, saving private repo minutes
+    # Saves private repository minutes by only running when frontend files change
     paths:
       - 'Paule-Portfolio/src/**'
       - 'Paule-Portfolio/public/**'
       - 'Paule-Portfolio/package.json'
+  workflow_dispatch: # Allows you to trigger this specific workflow manually via the GitHub Actions tab
 
-# Cancel previous runs if a developer pushes new code to the same PR
+# Cancels older running builds if you push a new commit to the same PR
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-# Force all terminal commands to run inside your subfolder
+# Sets the default terminal location to your subfolder for standard commands
 defaults:
   run:
     working-directory: ./Paule-Portfolio
@@ -32,7 +33,7 @@ jobs:
         with:
           node-version: 22
           cache: 'npm'
-          # Pointing to your specific package-lock location
+          # Fixes the Setup-Node lockfile error
           cache-dependency-path: './Paule-Portfolio/package-lock.json' 
 
       - name: Install dependencies
@@ -44,7 +45,11 @@ jobs:
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v12
         with:
-          # Targets the build folder inside Paule-Portfolio
+          # Fixes the Lighthouse plugin lockfile error
+          workingDirectory: './Paule-Portfolio'
+          
+          # Points to your build output folder
           staticDistDir: './Paule-Portfolio/dist' 
+          
           uploadArtifacts: true 
           temporaryPublicStorage: true
