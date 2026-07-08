@@ -3,8 +3,21 @@ name: Lighthouse Performance Audit
 on:
   pull_request:
     branches: [ main, master ]
-  push:
-    branches: [ main, master ]
+    # Only run if frontend files change, saving private repo minutes
+    paths:
+      - 'Paule-Portfolio/src/**'
+      - 'Paule-Portfolio/public/**'
+      - 'Paule-Portfolio/package.json'
+
+# Cancel previous runs if a developer pushes new code to the same PR
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# Force all terminal commands to run inside your subfolder
+defaults:
+  run:
+    working-directory: ./Paule-Portfolio
 
 jobs:
   lighthouse-ci:
@@ -17,8 +30,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
+          # Pointing to your specific package-lock location
+          cache-dependency-path: './Paule-Portfolio/package-lock.json' 
 
       - name: Install dependencies
         run: npm ci
@@ -29,10 +44,7 @@ jobs:
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v12
         with:
-          # If your build outputs static files, point to that folder (e.g., ./dist or ./build)
-          # Otherwise, use `serverCommand: npm run start` if it requires a running server
-          staticDistDir: './dist' 
-          
-          # This creates a temporary public report link so you can view the full breakdown
+          # Targets the build folder inside Paule-Portfolio
+          staticDistDir: './Paule-Portfolio/dist' 
           uploadArtifacts: true 
           temporaryPublicStorage: true
