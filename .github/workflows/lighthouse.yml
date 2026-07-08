@@ -45,11 +45,9 @@ jobs:
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v12
         with:
-          # Fixes the Lighthouse plugin lockfile error
-          workingDirectory: './Paule-Portfolio'
-          
-          # Points to your build output folder
-          staticDistDir: './Paule-Portfolio/dist' 
-          
+          # Tells Lighthouse to start the Vite server inside your folder manually
+          serverCommand: npm run dev --prefix ./Paule-Portfolio
+          # Scans the local port Vite usually serves up (e.g., http://localhost:5173)
+          urls: 'http://localhost:5173'
           uploadArtifacts: true 
           temporaryPublicStorage: true
