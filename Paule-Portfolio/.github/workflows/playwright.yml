@@ -46,7 +46,9 @@ jobs:
   # 2. THE CD JOB (Deploy to Vercel)
   # ----------------------------------------------------
   deploy:
-    needs: test # 💡 Ensures this job ONLY runs if all browser tests passed green!
+    needs: test
+    # 💡 ADD THIS LINE BELOW: Only deploy on an actual push/merge to master, never on a PR!
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
