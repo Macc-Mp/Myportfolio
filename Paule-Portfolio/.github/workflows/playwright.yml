@@ -41,3 +41,38 @@ jobs:
         # 3. Fix the artifact path so it uploads the report from the right folder
         path: Paule-Portfolio/playwright-report/
         retention-days: 30
+
+  # ----------------------------------------------------
+  # 2. THE CD JOB (Deploy to Vercel)
+  # ----------------------------------------------------
+  # ----------------------------------------------------
+  # 2. THE CD JOB (Deploy to Vercel)
+  # ----------------------------------------------------
+  deploy:
+    needs: test
+    # Direct to Vercel, This line tells GitHub to completely SKIP this job if it's a Pull Request!
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+        
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        
+      - name: Deploy Production to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
