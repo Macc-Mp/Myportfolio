@@ -11,7 +11,7 @@ function NavBar() {
                 
                 {/* Checkbox for mobile remains for logic */}
                 <input id="menu-toggle" type="checkbox" />
-                <label className="menu-button-container" htmlFor="menu-toggle"> 
+                <label className="menu-button-container" htmlFor="menu-toggle" aria-label="Open navigation menu"> 
                     <div className="menu-button"></div> 
                 </label>
 
