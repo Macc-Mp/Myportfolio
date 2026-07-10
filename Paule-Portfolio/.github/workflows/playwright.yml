@@ -50,7 +50,7 @@ jobs:
   # ----------------------------------------------------
   deploy:
     needs: test
-    # 💡 This line tells GitHub to completely SKIP this job if it's a Pull Request!
+    # Direct to Vercel, This line tells GitHub to completely SKIP this job if it's a Pull Request!
     if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     steps:
