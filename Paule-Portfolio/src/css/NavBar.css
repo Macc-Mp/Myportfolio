@@ -22,13 +22,28 @@
     display: flex;
     align-items: center;
     background: var(--nav-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
     border: 1px solid var(--nav-border);
     padding: 12px 30px;
     border-radius: 50px;
     gap: 40px;
     position: relative;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modern-nav:hover {
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 0 30px rgba(0, 212, 255, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 /* 2. Desktop Menu Logic */
@@ -54,7 +69,24 @@
     color: var(--smoke);
     text-decoration: none;
     font-family: "Bitcount Grid Single", system-ui;
-    transition: 0.3s;
+    transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                text-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+}
+
+/* Active/hover underline */
+.menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--mustard);
+    border-radius: 999px;
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 0 6px rgba(255, 204, 0, 0.3);
 }
 
 .nav-logo .title {
@@ -64,6 +96,12 @@
 
 .menu li a:hover {
     color: var(--mustard);
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.15);
+}
+
+.menu li a:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 /* 4. Mobile Logic (768px) */
@@ -73,6 +111,8 @@
         flex-direction: column;
         cursor: pointer;
         z-index: 10001;
+        gap: 5px;
+        padding: 4px;
     }
 
     .menu {
@@ -82,15 +122,20 @@
         transform: translateX(-50%) translateY(10px);
         flex-direction: column;
         width: 200px;
-        background: var(--nav-bg);
-        border: 1px solid var(--nav-border);
+        background: rgba(15, 18, 30, 0.85);
+        backdrop-filter: blur(24px) saturate(1.4);
+        -webkit-backdrop-filter: blur(24px) saturate(1.4);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 20px;
         padding: 20px;
         gap: 15px;
         text-align: center;
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     #menu-toggle:checked ~ .menu {
@@ -99,6 +144,7 @@
         transform: translateX(-50%) translateY(20px);
     }
 
+    /* Burger lines */
     .menu-button, .menu-button::before, .menu-button::after {
         display: block;
         background-color: var(--white-plain);
@@ -106,26 +152,39 @@
         width: 25px;
         border-radius: 2px;
         position: relative;
-        transition: 0.4s;
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                    opacity 0.25s ease,
+                    background-color 0.25s ease;
     }
     .menu-button::before { content: ''; position: absolute; top: -8px; }
     .menu-button::after  { content: ''; position: absolute; top:  8px; }
 
     #menu-toggle:checked + .menu-button-container .menu-button { background: transparent; }
-    #menu-toggle:checked + .menu-button-container .menu-button::before { transform: rotate(45deg);  top: 0; }
-    #menu-toggle:checked + .menu-button-container .menu-button::after  { transform: rotate(-45deg); top: 0; }
+    #menu-toggle:checked + .menu-button-container .menu-button::before {
+        transform: rotate(45deg);
+        top: 0;
+        background-color: var(--mustard);
+    }
+    #menu-toggle:checked + .menu-button-container .menu-button::after {
+        transform: rotate(-45deg);
+        top: 0;
+        background-color: var(--mustard);
+    }
+
+    /* Mobile link hover — no underline animation, just color */
+    .menu li a::after {
+        display: none;
+    }
 }
 
 /* 5. Narrow mobile fixes (320px) */
 @media (max-width: 375px) {
-    /* Pill: shrink padding & gap so it fits without overflow */
     .modern-nav {
         padding: 9px 16px;
         gap: 12px;
         border-radius: 40px;
     }
 
-    /* Logo: cap width and ellipsis if the name is long */
     .nav-logo .title {
         font-size: 0.78rem;
         white-space: nowrap;
@@ -134,7 +193,6 @@
         max-width: 130px;
     }
 
-    /* Dropdown: fill viewport width minus gutters instead of fixed 200px */
     .menu {
         width: calc(100vw - 32px);
         min-width: 0;
@@ -151,7 +209,6 @@
         font-size: 0.82rem;
     }
 
-    /* Burger lines: slightly narrower to match tighter pill */
     .menu-button,
     .menu-button::before,
     .menu-button::after {
