@@ -26,41 +26,109 @@
     width: 92%;
     max-width: 940px;
     padding: 2.25rem 1.5rem;
-    background: var(--card-bg);
+    background: rgba(15, 18, 30, 0.7);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
     border: 1px solid var(--card-border);
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 32px;
-    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.6);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 28px 60px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
     overflow: hidden;
+    transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* 6. Game Title Card (The Center Screen) */
+.leftCard:hover {
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 28px 60px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(0, 212, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Corner glow accents */
+.leftCard::before,
+.leftCard::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 0;
+}
+
+.leftCard::before {
+    top: -20px;
+    right: -20px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.12), transparent 70%);
+    border-radius: 50%;
+}
+
+.leftCard::after {
+    bottom: -20px;
+    left: -20px;
+    background: radial-gradient(circle, rgba(255, 77, 77, 0.08), transparent 70%);
+    border-radius: 50%;
+}
+
+.leftCard:hover::before,
+.leftCard:hover::after {
+    opacity: 1;
+}
+
+/* 6. Game Title Card */
 .game-title-card {
     position: relative;
     z-index: 2;
     background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 1.75rem;
     width: 78%;
     max-width: 520px;
     border-left: 4px solid var(--tech-blue);
     transform: none;
-    box-shadow: 0 18px 34px rgba(0, 212, 255, 0.1);
+    box-shadow:
+        0 18px 34px rgba(0, 212, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
     border-radius: 18px;
     overflow: hidden;
+    transition: box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                border-left-color 0.4s ease;
+}
+
+.game-title-card:hover {
+    box-shadow:
+        0 18px 40px rgba(0, 212, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    border-left-color: #33e0ff;
 }
 
 .scanner-line {
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 4px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
     background: linear-gradient(to right, transparent, var(--tech-blue), transparent);
     opacity: 0.4;
     animation: scan 4s linear infinite;
+    filter: blur(0.5px);
 }
 
-@keyframes scan { 0% { top: -5%; } 100% { top: 105%; } }
+@keyframes scan {
+    0% { top: -5%; }
+    100% { top: 105%; }
+}
 
 .card-header {
     display: flex;
@@ -76,6 +144,11 @@
     padding: 2px 10px;
     font-weight: 900;
     font-size: 0.75rem;
+    transition: box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.player-tag:hover {
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
 }
 
 .level-badge {
@@ -83,6 +156,13 @@
     font-weight: bold;
     border: 1px solid var(--tech-blue);
     padding: 2px 8px;
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.level-badge:hover {
+    border-color: #33e0ff;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.25);
 }
 
 .hero-name {
@@ -97,6 +177,11 @@
     text-shadow: 3px 3px 0px var(--btn-red);
     text-align: center;
     width: 100%;
+    transition: text-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-name:hover {
+    text-shadow: 3px 3px 0px var(--btn-red), 0 0 30px rgba(255, 77, 77, 0.2);
 }
 
 /* 7. Stats & Skills */
@@ -119,12 +204,22 @@
     flex-grow: 1;
     height: 8px;
     background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    overflow: hidden;
 }
 
 .fill {
     height: 100%;
-    background: var(--tech-blue);
+    background: linear-gradient(90deg, var(--tech-blue), #33e0ff);
     box-shadow: 0 0 10px var(--tech-blue);
+    border-radius: 999px;
+    animation: fillGrow 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform-origin: left;
+}
+
+@keyframes fillGrow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
 }
 
 .press-start {
@@ -158,16 +253,23 @@
     padding: 10px 24px;
     border: 2px solid #fff;
     clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     background: transparent;
     margin: 0 0 1rem 0;
+    position: relative;
 }
 
 .tab2:hover {
     background: var(--white-plain);
     color: #000;
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 10px 20px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(255, 255, 255, 0.08);
+}
+
+.tab2:active {
+    transform: translateY(-2px) scale(1.02);
 }
 
 /* 9. Video Skin */
@@ -184,6 +286,11 @@
     object-fit: cover;
     opacity: 0.4;
     filter: grayscale(1) contrast(1.2);
+    transition: opacity 0.5s ease;
+}
+
+.leftCard:hover .video-bg {
+    opacity: 0.45;
 }
 
 /* 10. Tablet breakpoint */
@@ -193,9 +300,8 @@
     .hero-name { font-size: 2.2rem; }
 }
 
-/* 11. 425px — gentle header adjustments */
+/* 11. 425px */
 @media (max-width: 480px) {
-    /* ADD — force the wrapper to truly center its child */
     .intro {
         align-items: center;
         justify-content: center;
@@ -204,17 +310,14 @@
         width: 100%;
     }
 
-    /* CHANGE — add margin: auto so the card self-centers even if flex fails */
     .leftCard {
         width: 95%;
         margin-left: auto;
         margin-right: auto;
         padding: 1.75rem 1.25rem;
         border-radius: 24px;
-        box-sizing: border-box; /* ADD — prevents padding from pushing width over 95% */
+        box-sizing: border-box;
     }
-
- 
 
     .game-title-card {
         width: 95%;
@@ -259,7 +362,7 @@
     }
 }
 
-/* 12. 375px and below — tighter squeeze */
+/* 12. 375px */
 @media (max-width: 375px) {
     .leftCard {
         width: 96%;
@@ -324,14 +427,13 @@
         padding: 0.85rem 0.75rem;
         border-radius: 10px;
         box-sizing: border-box;
-        border-left-width: 3px; /* slim the accent line slightly */
+        border-left-width: 3px;
     }
 
-    /* Hero name: 320px viewport, so 13vw ≈ 41.6px — bold but contained */
     .hero-name {
         font-size: clamp(1.75rem, 13vw, 2.2rem);
         letter-spacing: -0.5px;
-        text-shadow: 2px 2px 0px var(--btn-red); /* tighten shadow too */
+        text-shadow: 2px 2px 0px var(--btn-red);
     }
 
     .card-header {
@@ -363,7 +465,7 @@
     }
 
     .bar {
-        height: 6px; /* slightly thinner so rows breathe */
+        height: 6px;
     }
 
     .press-start {

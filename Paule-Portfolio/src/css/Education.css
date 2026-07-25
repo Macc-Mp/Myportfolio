@@ -3,8 +3,7 @@
     padding: 80px 20px;
     display: flex;
     justify-content: center;
-    font-family: 'Fira Code', monospace; /* Consistent with your Footer */
-    
+    font-family: 'Fira Code', monospace;
 }
 
 .edu-mission-container {
@@ -12,7 +11,6 @@
     max-width: 800px;
     position: relative;
     padding-left: 40px;
-
 }
 
 /* 2. The Minimalist Vertical Rail */
@@ -23,7 +21,13 @@
     top: 0;
     bottom: 0;
     width: 1px;
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.12) 15%,
+        rgba(255, 255, 255, 0.12) 85%,
+        transparent 100%
+    );
 }
 
 /* 3. The Section Header */
@@ -35,18 +39,23 @@
     margin-bottom: 3rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
+    background: linear-gradient(135deg, #ffffff 0%, #a0c4ff 50%, var(--tech-blue, #4d7aff) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* Brackets around the title */
-.notes::before { content: "["; color: #fff; }
-.notes::after { content: "]"; color: #fff; }
+.notes::before { content: "["; color: #fff; -webkit-text-fill-color: #fff; }
+.notes::after { content: "]"; color: #fff; -webkit-text-fill-color: #fff; }
 
 /* 4. Quest Nodes (The Rows) */
 .quest-node {
     position: relative;
     margin-bottom: 50px;
-    transition: transform 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* The Horizontal Connector Line */
@@ -59,11 +68,31 @@
     height: 1px;
     background: var(--tech-blue);
     box-shadow: 0 0 8px var(--tech-blue);
+    transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                background 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+/* Glow dot at the end of connector */
+.quest-node::after {
+    content: "";
+    position: absolute;
+    left: -42px;
+    top: 11px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--tech-blue);
+    box-shadow: 0 0 8px var(--tech-blue);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                background 0.35s ease,
+                box-shadow 0.35s ease;
 }
 
 /* 5. Quest Info Styling */
 .quest-info {
     padding-left: 10px;
+    text-align: center;
 }
 
 .edu-title {
@@ -72,6 +101,7 @@
     color: #fff;
     margin: 0 0 5px 0;
     text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
 .edu-degree {
@@ -93,6 +123,7 @@
 .quest-meta {
     margin-bottom: 8px;
     display: flex;
+    justify-content: center;
     gap: 15px;
     font-size: 0.65rem;
     font-family: monospace;
@@ -105,6 +136,8 @@
 .quest-status {
     color: #444;
     letter-spacing: 1px;
+    transition: color 0.3s ease,
+                text-shadow 0.3s ease;
 }
 
 /* Active Mission Highlighting */
@@ -117,6 +150,12 @@
     color: var(--white-plain);
 }
 
+.quest-node.active::after {
+    background: var(--tech-blue);
+    transform: scale(1.4);
+    box-shadow: 0 0 12px var(--tech-blue);
+}
+
 /* 7. Interaction */
 .quest-node:hover {
     transform: translateX(10px);
@@ -127,19 +166,24 @@
 }
 
 .quest-node:hover::before {
-    width: 35px; /* Line grows on hover */
+    width: 35px;
     background: var(--mustard);
     box-shadow: 0 0 10px var(--mustard);
+}
+
+.quest-node:hover::after {
+    background: var(--mustard);
+    box-shadow: 0 0 12px var(--mustard);
+    transform: scale(1.3);
 }
 
 /* 8. Mobile Adjustments */
 @media (max-width: 600px) {
     .edu-mission-container { padding-left: 30px; }
     .quest-node::before { width: 15px; left: -30px; }
+    .quest-node::after { left: -32px; }
     .edu-title { font-size: 1rem; }
 }
-
-/* Add below your existing @media (max-width: 600px) block */
 
 @media (max-width: 320px) {
 
@@ -148,10 +192,9 @@
     }
 
     .edu-mission-container {
-        padding-left: 22px; /* just enough for the rail + connector */
+        padding-left: 22px;
     }
 
-    /* Section header: rein in letter-spacing so it fits on one line */
     .notes {
         font-size: 1rem;
         letter-spacing: 2px;
@@ -159,24 +202,26 @@
         margin-bottom: 2rem;
     }
 
-    /* Quest nodes: tighten vertical rhythm */
     .quest-node {
         margin-bottom: 32px;
     }
 
-    /* Connector line: shorter and pulled in to match new padding */
     .quest-node::before {
         left: -22px;
         width: 12px;
         top: 12px;
     }
 
-    /* Disable translateX hover — no room to slide at 320px */
+    .quest-node::after {
+        left: -24px;
+        width: 5px;
+        height: 5px;
+    }
+
     .quest-node:hover {
         transform: none;
     }
 
-    /* Keep hover line growth minimal so it doesn't overshoot */
     .quest-node:hover::before {
         width: 14px;
     }

@@ -5,10 +5,10 @@
     --white-plain: #ffffff;
     --dim-text: #a0a0a0;
     --hud-border: rgba(255, 255, 255, 0.15);
-    --hud-bg: rgba(20, 20, 20, 0.6); /* Slightly lighter than pure black to see the card */
+    --hud-bg: rgba(20, 20, 20, 0.6);
 }
 
-/* 2. Main Section - Pure Black Background */
+/* 2. Main Section */
 .contact {
     display: flex;
     flex-direction: column;
@@ -33,15 +33,18 @@
 }
 
 @keyframes pulse-status {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+    0%, 100% { opacity: 1; text-shadow: 0 0 8px rgba(0, 255, 136, 0.4); }
+    50% { opacity: 0.4; text-shadow: 0 0 2px rgba(0, 255, 136, 0.1); }
 }
 
 .hud-header h2 {
     font-size: clamp(1.8rem, 5vw, 2.8rem);
     margin: 15px 0;
     letter-spacing: 5px;
-    color: var(--white-plain);
+    background: linear-gradient(135deg, #ffffff 0%, #a0c4ff 50%, var(--tech-blue, #4d7aff) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .subtitle {
@@ -59,12 +62,53 @@
     width: 100%;
     max-width: 800px;
     padding: 30px;
-    background: var(--card-bg);
+    background: rgba(15, 18, 30, 0.65);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
     border: 1px solid var(--hud-border);
     position: relative;
-    /* Hard-edged gaming UI shape */
     clip-path: polygon(0% 0%, 96% 0%, 100% 4%, 100% 100%, 4% 100%, 0% 96%);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 1);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 12px 40px rgba(0, 212, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-container:hover {
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 16px 48px rgba(0, 212, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Glow corner accents */
+.contact-container::before,
+.contact-container::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-container::before {
+    top: -1px;
+    right: -1px;
+    background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.15), transparent 70%);
+}
+
+.contact-container::after {
+    bottom: -1px;
+    left: -1px;
+    background: radial-gradient(circle at bottom left, rgba(255, 204, 0, 0.1), transparent 70%);
+}
+
+.contact-container:hover::before,
+.contact-container:hover::after {
+    opacity: 1;
 }
 
 /* 5. Left Section: Profile ID */
@@ -82,18 +126,31 @@
     height: 200px;
     overflow: hidden;
     margin-bottom: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Removed scanning bar animation to keep pic regular as requested */
+.image-scanner:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
 .scan-bar {
-    display: none; 
+    display: none;
 }
 
 .editMe {
     width: 100%;
     height: 100%;
     display: block;
-    filter: none; /* Keeps picture exactly as is */
+    filter: none;
+    transition: filter 0.35s ease;
+}
+
+.image-scanner:hover .editMe {
+    filter: brightness(1.05);
 }
 
 .id-tag {
@@ -126,20 +183,36 @@
     align-items: center;
     gap: 16px;
     text-decoration: none;
-    transition: 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    padding: 6px 8px;
+    border-radius: 8px;
+    margin: -6px -8px;
+}
+
+.media-link:hover {
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .bracket-icon {
     padding: 8px;
     align-items: center;
     justify-content: center;
-    transition: 0.3s;
+    border-radius: 6px;
+    transition: border-left-color 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
 .media-link img {
     width: 28px;
     height: 28px;
-    filter: invert(1); /* Turns black icons white */
+    filter: invert(1);
+    transition: filter 0.3s ease,
+                transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.media-link:hover img {
+    transform: scale(1.1);
 }
 
 .aLink {
@@ -147,7 +220,8 @@
     color: var(--white-plain) !important;
     font-weight: bold;
     font-size: 1.1rem;
-    transition: 0.3s;
+    transition: color 0.3s ease,
+                text-shadow 0.3s ease;
 }
 
 /* 7. Hover Interactions */
@@ -158,10 +232,12 @@
 .media-link:hover .bracket-icon {
     border-left-color: var(--mustard);
     background: rgba(255, 204, 0, 0.1);
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.15);
 }
 
 .media-link:hover .aLink {
     color: var(--mustard) !important;
+    text-shadow: 0 0 12px rgba(255, 204, 0, 0.2);
 }
 
 /* 8. Mobile Responsiveness */
@@ -184,15 +260,12 @@
     }
 }
 
-/* Add below your existing @media (max-width: 768px) block */
-
 @media (max-width: 320px) {
 
     .contact {
         padding: 32px 10px;
     }
 
-    /* Header: rein in letter-spacing on h2 and subtitle */
     .hud-header {
         margin-bottom: 1.5rem;
     }
@@ -213,7 +286,6 @@
         letter-spacing: 1px;
     }
 
-    /* Container: tighter padding, no clip-path (it clips content at this width) */
     .contact-container {
         padding: 16px 12px;
         gap: 16px;
@@ -222,7 +294,6 @@
         box-sizing: border-box;
     }
 
-    /* Left: smaller image, less bottom padding */
     .contact-left {
         padding: 0 0 18px 0;
     }
@@ -238,7 +309,6 @@
         text-align: center;
     }
 
-    /* Right: tighten gap between links */
     .channel-label {
         font-size: 0.58rem;
         letter-spacing: 1px;
@@ -253,9 +323,9 @@
         gap: 10px;
     }
 
-    /* Disable translateX — no room to slide at 320px */
     .media-link:hover {
         transform: none;
+        background: transparent;
     }
 
     .media-link img {

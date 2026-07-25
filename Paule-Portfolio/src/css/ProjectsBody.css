@@ -9,14 +9,27 @@
     padding: 20px 1.5rem;
     margin: 5rem auto 4rem auto;
     box-sizing: border-box;
-    /* box-shadow: 0 0 20px var(--accent-glow); */
+}
+
+/* Section divider line */
+.projects::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-glow, #00d4ff), var(--tech-blue, #4d7aff));
+    border-radius: 999px;
+    margin-bottom: 2.5rem;
 }
 
 .projects h2 {
     font-family: 'JetBrains Mono', monospace;
     color: white;
     margin-bottom: 2rem;
-    
+    background: linear-gradient(135deg, #ffffff 0%, #a0c4ff 50%, var(--tech-blue, #4d7aff) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 #projectCards {
@@ -32,23 +45,52 @@
 .project-card {
     position: relative;
     width: 100%;
-    border-radius: 12px;
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    background: rgba(15, 18, 30, 0.65);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     overflow: visible;
     display: flex;
     flex-direction: column;
     gap: 18px;
     padding: 18px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    box-shadow: 0 0 20px rgba(var(--glow, 0 212 255), 0.12);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.25),
+        0 8px 32px rgba(var(--glow, 0 212 255), 0.06);
+    will-change: transform, box-shadow;
+}
+
+/* Animated glow ring on hover */
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(
+        135deg,
+        rgba(var(--glow, 0 212 255), 0) 0%,
+        rgba(var(--glow, 0 212 255), 0.25) 50%,
+        rgba(var(--glow, 0 212 255), 0) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .project-peek-wrapper {
     position: absolute;
     z-index: 10;
     opacity: 0;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
     display: flex;
     align-items: center;
@@ -63,11 +105,14 @@
     color: #4bb0ff;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.96rem;
-    background: rgba(6, 40, 100, 0.90);
-    border: 1px solid rgba(0, 212, 255, 0.24);
+    background: rgba(6, 40, 100, 0.85);
+    backdrop-filter: blur(12px) saturate(1.3);
+    -webkit-backdrop-filter: blur(12px) saturate(1.3);
+    border: 1px solid rgba(0, 212, 255, 0.2);
     border-radius: 999px;
     padding: 0.45rem 0.8rem;
     white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0, 212, 255, 0.1);
 }
 
 .project-peek-wrapper.top {
@@ -84,8 +129,15 @@
 
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 0 28px rgba(var(--glow, 0 212 255), 0.30);
-    border-color: rgba(var(--glow, 0 212 255), 0.24);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        0 12px 40px rgba(var(--glow, 0 212 255), 0.15),
+        0 0 60px rgba(var(--glow, 0 212 255), 0.08);
+    border-color: rgba(var(--glow, 0 212 255), 0.2);
+}
+
+.project-card:hover::before {
+    opacity: 1;
 }
 
 /* --- Image Section --- */
@@ -93,9 +145,30 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
+}
+
+/* Gradient overlay on image */
+.image-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        transparent 50%,
+        rgba(15, 18, 30, 0.4) 100%
+    );
+    border-radius: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.project-card:hover .image-container::after {
+    opacity: 1;
 }
 
 .project-image {
@@ -105,39 +178,45 @@
     display: block;
     border-radius: 12px;
     filter: grayscale(100%);
-    transition: filter 0.25s ease, transform 0.25s ease;
+    transition: filter 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .project-card:hover .project-image {
     filter: grayscale(0%);
+    transform: scale(1.03);
 }
 
-/* --- Static Tech Stack Row (Alignment Fix) --- */
+/* --- Static Tech Stack Row --- */
 .tech-stack-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
-    padding: 15px 10px;
-    background: rgba(255, 255, 255, 0.03); /* Subtle background contrast */
+    gap: 10px;
+    padding: 14px 12px;
+    background: rgba(255, 255, 255, 0.02);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
     z-index: 5;
 }
 
 .tech-icon-static {
     width: 34px;
     height: 34px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     padding: 5px;
     object-fit: contain;
-    transition: transform 0.2s ease;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.25s ease,
+                box-shadow 0.25s ease;
     filter: grayscale(100%) brightness(0.8);
 }
 
 .tech-icon-static:hover {
-    transform: scale(1.15);
+    transform: scale(1.18) translateY(-2px);
     filter: grayscale(0%) brightness(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* --- Info Section (Reveals on Hover) --- */
@@ -146,16 +225,18 @@
     flex-direction: column;
     width: 100%;
     box-sizing: border-box;
-    max-height: 0; /* Hidden state */
+    max-height: 0;
     opacity: 0;
     overflow: hidden;
     padding: 0 20px;
-    transition: max-height 0.4s ease-in-out, opacity 0.3s ease, padding 0.3s ease;
+    transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .project-card:hover .project-info-container,
 .project-card.expanded .project-info-container {
-    max-height: 400px; /* Reveal state */
+    max-height: 400px;
     opacity: 1;
     padding: 20px 20px 25px 20px;
 }
@@ -178,7 +259,11 @@
     line-height: 1;
     letter-spacing: -1px;
     text-transform: uppercase;
-    text-shadow: 2px 2px 0px rgba(77, 122, 255, 0.85);
+    background: linear-gradient(135deg, #ffffff 0%, #c8d8ff 40%, var(--tech-blue, #4d7aff) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(77, 122, 255, 0.35));
 }
 
 .project-links {
@@ -194,7 +279,7 @@
     padding: 0;
     margin: -1px;
     overflow: hidden;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
 }
@@ -203,20 +288,22 @@
     width: 26px;
     height: 26px;
     filter: brightness(0.9);
-    transition: transform 0.2s ease, filter 0.2s;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.25s ease;
 }
 
 .action-icon:hover {
-    transform: scale(1.2);
-    filter: brightness(1.2);
+    transform: scale(1.25) translateY(-1px);
+    filter: brightness(1.3);
 }
 
 /* --- Description --- */
 .project-description {
     font-family: "Space Mono", monospace;
     font-size: 14px;
-    color: #cfcfcf;
-    line-height: 1.5;
+    color: #c8c8c8;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
     margin: 0;
     text-align: justify;
     text-justify: inter-word;
@@ -224,19 +311,76 @@
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
+
+    .projects {
+        padding: 16px 1.25rem;
+        margin: 3.5rem auto 3rem auto;
+    }
+
+    .projects h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    #projectCards {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2rem;
+    }
+
+    .project-card {
+        padding: 14px;
+        gap: 12px;
+    }
+
     .project-info-container {
         max-height: none;
         opacity: 1;
-        padding: 20px;
+        padding: 14px 16px 18px 16px;
+        overflow: visible;
     }
-    
+
+    .project-card-header {
+        margin-bottom: 10px;
+    }
+
+    .project-title {
+        font-size: 1.15rem;
+        letter-spacing: -0.75px;
+    }
+
+    .project-links {
+        gap: 10px;
+    }
+
+    .action-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .project-description {
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
     .tech-stack-row {
-        padding: 10px;
+        padding: 10px 8px;
+        gap: 10px;
+        flex-wrap: wrap;
     }
-    
+
     .tech-icon-static {
         width: 28px;
         height: 28px;
+        padding: 4px;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+
+    .project-peek-wrapper {
+        display: none;
     }
 }
 
@@ -247,11 +391,11 @@
     border-left: 2px solid white;
     border-bottom: 2px solid white;
     position: relative;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    margin-right: 4px; /* Adjustment for alignment */
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.25s ease;
+    margin-right: 4px;
 }
 
-/* The arrow part of the icon */
 .external-link-icon::before {
     content: "";
     position: absolute;
@@ -263,7 +407,6 @@
     border-right: 2px solid white;
 }
 
-/* The diagonal line of the arrow */
 .external-link-icon::after {
     content: "";
     position: absolute;
@@ -278,20 +421,19 @@
 
 /* --- Hover Effects --- */
 .project-action-link:hover .external-link-icon {
-    transform: translate(2px, -2px); /* Moves icon diagonally up-right */
+    transform: translate(2px, -2px);
 }
 
 .project-action-link:hover .external-link-icon,
 .project-action-link:hover .external-link-icon::before {
-    border-color: var(--tech-blue, #00d4ff); /* Glows blue on hover */
+    border-color: var(--tech-blue, #00d4ff);
 }
 
 .project-action-link:hover .external-link-icon::after {
     background-color: var(--tech-blue, #00d4ff);
 }
 
-/* Add to the bottom of your projects CSS */
-
+/* --- Small Screens --- */
 @media (max-width: 320px) {
 
     .projects {
@@ -305,7 +447,6 @@
         text-align: center;
     }
 
-    /* Key fix: drop minmax floor so the grid doesn't force a 300px column */
     #projectCards {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -318,7 +459,6 @@
         box-sizing: border-box;
     }
 
-    /* Always show info — hover is unusable on 320px touch screens */
     .project-info-container {
         max-height: none;
         opacity: 1;
@@ -333,7 +473,6 @@
     .project-title {
         font-size: 1rem;
         letter-spacing: -0.5px;
-        text-shadow: 1px 1px 0px rgba(77, 122, 255, 0.85);
     }
 
     .project-links {
@@ -363,87 +502,6 @@
         padding: 4px;
     }
 
-    /* Hide peek tooltips — they overflow at this width */
-    .project-peek-wrapper {
-        display: none;
-    }
-}
-
-/* Replace your existing @media (max-width: 768px) block with this */
-
-@media (max-width: 768px) {
-
-    .projects {
-        padding: 16px 1.25rem;
-        margin: 3.5rem auto 3rem auto;
-    }
-
-    .projects h2 {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
-
-    /* Two columns where possible, single column when tight */
-    #projectCards {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 2rem;
-    }
-
-    .project-card {
-        padding: 14px;
-        gap: 12px;
-    }
-
-    /* Always show info on touch — hover doesn't exist */
-    .project-info-container {
-        max-height: none;
-        opacity: 1;
-        padding: 14px 16px 18px 16px;
-        overflow: visible;
-    }
-
-    .project-card-header {
-        margin-bottom: 10px;
-    }
-
-    .project-title {
-        font-size: 1.15rem;
-        letter-spacing: -0.75px;
-    }
-
-    .project-links {
-        gap: 10px;
-    }
-
-    .action-icon {
-        width: 22px;
-        height: 22px;
-    }
-
-    .project-description {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-    .tech-stack-row {
-        padding: 10px 8px;
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-    .tech-icon-static {
-        width: 28px;
-        height: 28px;
-        padding: 4px;
-    }
-
-    /* Disable hover lift — causes layout jank on touch scroll */
-    .project-card:hover {
-        transform: none;
-    }
-
-    /* Hide peek tooltips — no hover state on touch */
     .project-peek-wrapper {
         display: none;
     }
