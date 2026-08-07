@@ -8,9 +8,32 @@
 
 .edu-mission-container {
     width: 100%;
-    max-width: 800px;
+    max-width: 1100px;
     position: relative;
     padding-left: 40px;
+}
+
+/* 2a. Two-column split: education timeline (left) + carousel (right) */
+.edu-split {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.edu-left {
+    min-width: 0;
+}
+
+.edu-right {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.edu-right .participation-center {
+    padding: 10px 0;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
 /* 2. The Minimalist Vertical Rail */
@@ -178,6 +201,14 @@
 }
 
 /* 8. Mobile Adjustments */
+@media (max-width: 900px) {
+    .edu-mission-container { max-width: 620px; }
+    .edu-split {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+}
+
 @media (max-width: 600px) {
     .edu-mission-container { padding-left: 30px; }
     .quest-node::before { width: 15px; left: -30px; }
