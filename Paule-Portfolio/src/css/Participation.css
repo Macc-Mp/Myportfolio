@@ -10,6 +10,20 @@
     position: relative;
 }
 
+.carousel-track-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--tech-blue);
+    margin: 0 0 12px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.participation-carousel .carousel-track + .carousel-track-label {
+    margin-top: 32px;
+}
+
 .participation-person {
     position: absolute;
     top: -12px;
@@ -258,6 +272,15 @@
 .node-info {
     z-index: 3;
     transition: transform 0.4s ease;
+}
+
+.node-card .status-indicator {
+    display: block;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00ff88;
+    margin-bottom: 4px;
 }
 
 .node-status {

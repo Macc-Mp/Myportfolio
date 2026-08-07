@@ -1,142 +1,50 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Participation.css';
 
 function Participation() {
-    const participationRef = useRef(null);
-    const cardRefs = useRef([]);
-    const [hoveredCard, setHoveredCard] = useState(null);
-    const [personOffset, setPersonOffset] = useState(0);
-    const [pointDirection, setPointDirection] = useState('center');
-    const directions = ['top', 'right', 'bottom', 'left'];
-    const getRandomDirection = () => directions[Math.floor(Math.random() * directions.length)];
+    const certifications = [
+        { to: '/participation/part-three', label: 'Microsoft', nodes: 4, color: '#00a4ef', type: 'Certification' },
+        { to: '/participation/part-four', label: 'DataCamp', nodes: 6, color: '#03ef62', type: 'Certification' },
+    ];
 
-    const updatePersonPosition = (index) => {
-        const container = participationRef.current;
-        const target = cardRefs.current[index];
-        if (!container || !target) return;
+    const participations = [
+        { to: '/participation', label: 'uCaptureTheFlag', nodes: 8, color: '#00ff41', type: 'Participation' },
+        { to: '/participation/part-two', label: 'Innovate', nodes: 5, color: '#ff007a', type: 'Participation' },
+        { to: '/participation/part-five', label: 'HackTheBox - Tinsel Trouble', nodes: 10, color: '#9fe52d', type: 'Participation' },
+    ];
 
-        const containerRect = container.getBoundingClientRect();
-        const targetRect = target.getBoundingClientRect();
-        const offset = targetRect.left + targetRect.width / 2 - (containerRect.left + containerRect.width / 2);
-        setPersonOffset(offset);
-        setPointDirection(offset > 12 ? 'right' : offset < -12 ? 'left' : 'center');
+    const renderTrack = (items) => {
+        const loop = [...items, ...items];
+        return loop.map((it, i) => (
+            <Link
+                key={`${it.to}-${i}`}
+                className="node-card"
+                to={it.to}
+                style={{ '--accent': it.color }}
+            >
+                <div className="node-grid">
+                    <div className="main-hub"></div>
+                    {[...Array(it.nodes)].map((_, n) => (
+                        <div key={n} className="orbit-node"></div>
+                    ))}
+                </div>
+                <div className="node-info">
+                    <span className="status-indicator">{it.type}</span>
+                    <h2 className="node-title">{it.label}</h2>
+                </div>
+            </Link>
+        ));
     };
 
-    useEffect(() => {
-        const handleResize = () => {
-            if (hoveredCard !== null) {
-                updatePersonPosition(hoveredCard);
-            }
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, [hoveredCard]);
-
-    const handleCardHover = (index) => {
-        setHoveredCard(index);
-        updatePersonPosition(index);
-    };
-
-    const handleCardLeave = () => {
-        setHoveredCard(null);
-        setPersonOffset(0);
-        setPointDirection('center');
-    };
-
-    const emoticonText = hoveredCard !== null ? '^0^' : '^v^';
-
-    const credentials = {
-        participation: [
-                { to: '/participation', label: 'uCaptureTheFlag', nodes: 8, color: '#00ff41' },
-                { to: '/participation/part-two', label: 'Innovate', nodes: 5, color: '#ff007a' },
-                { to: '/participation/part-five', label: 'HackTheBox - Tinsel Trouble', nodes: 10, color: '#9fe52d' }
-          ],
-        certifications: [
-                { to: '/participation/part-three', label: 'Microsoft', nodes: 4, color: '#00a4ef' },
-                { to: '/participation/part-four', label: 'DataCamp', nodes: 6, color: '#03ef62' },
-        ]
-};
-
-    const doubleCertifications = [...credentials.certifications, ...credentials.certifications];
-    const doubleParticipation = [...credentials.participation, ...credentials.participation];
     return (
         <div className="participation-center">
-            <div className="participation-carousel" ref={participationRef}>
-                
-                {/* ================= CERTIFICATIONS SECTION ================= */}
-                <div className="hud-header">
-                    <p className="project-title">CERTIFICATIONS</p>
-                </div>
-                
-                <div className="carousel-track"> 
+            <div className="participation-carousel">
+                <div className="carousel-track-label">CERTIFICATIONS</div>
+                <div className="carousel-track">{renderTrack(certifications)}</div>
 
-                    {doubleCertifications.map((it, i) => (
-                        <Link 
-                            key={`cert-${it.to}-${i}`}
-                            className="node-card"
-                            to={it.to}
-                            ref={(el) => {
-                                if (el && !cardRefs.current.includes(el)) cardRefs.current.push(el);
-                            }}
-                            style={{ '--accent': it.color }}
-                            onMouseEnter={() => handleCardHover(i)}
-                            onMouseLeave={handleCardLeave}
-                        >
-                            {/* The Network Visual */}
-                            <div className="node-grid">
-                                <div className="main-hub"></div>
-                                {[...Array(it.nodes)].map((_, n) => (
-                                    <div key={n} className="orbit-node"></div>
-                                ))}
-                            </div>
-                            {/* Minimal Text Indicator */}
-                            <div className="node-info">
-                                <span className="status-indicator">Certification</span>
-                                <h2 className="node-title">{it.label}</h2>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-
-                <br />
-
-                {/* ================= PARTICIPATIONS SECTION ================= */}
-                <div className="hud-header">
-                    <p className="project-title">PARTICIPATIONS</p>
-                </div>
-                
-                <div className="carousel-track">
-                    
-                    {doubleParticipation.map((it, i) => (
-                        <Link 
-                            key={`part-${it.to}-${i}`} 
-                            className="node-card" 
-                            to={it.to}
-                            ref={(el) => {
-                                if (el && !cardRefs.current.includes(el)) cardRefs.current.push(el);
-                            }}
-                            style={{ '--accent': it.color }}
-                            onMouseEnter={() => handleCardHover(i + doubleCertifications.length)} // Offset hover index if sharing tracking state
-                            onMouseLeave={handleCardLeave}
-                        >
-                            {/* The Network Visual */}
-                            <div className="node-grid">
-                                <div className="main-hub"></div>
-                                {[...Array(it.nodes)].map((_, n) => (
-                                    <div key={n} className="orbit-node"></div>
-                                ))}
-                            </div>
-                            
-                            {/* Minimal Text Indicator */}
-                            <div className="node-info">
-                                <span className="status-indicator">Participation</span>
-                                <h2 className="node-title">{it.label}</h2>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-
+                <div className="carousel-track-label">PARTICIPATIONS</div>
+                <div className="carousel-track">{renderTrack(participations)}</div>
             </div>
         </div>
     );
