@@ -14,6 +14,19 @@ import './css/index.css'
 import Design from './css/main-bg/design';
 import ScrollProgress from './components/ScrollProgress'
 
+// Graceful fallback for route-level errors so the React Router
+// default ErrorBoundary never flashes an "Unexpected Application Error".
+function RouteErrorBoundary() {
+  return (
+    <div style={{ color: '#e7ebff', textAlign: 'center', padding: '4rem 1.5rem', fontFamily: 'sans-serif' }}>
+      <h2>Something went wrong.</h2>
+      <p>
+        <a href="/" style={{ color: '#00d4ff' }}>Go back to the site</a>
+      </p>
+    </div>
+  )
+}
+
 
 function App() {
   // Home layout as its own element so routes can switch pages cleanly.
@@ -39,12 +52,12 @@ function App() {
 
 
   const router = createBrowserRouter([
-    { path: '/', element: <Home /> },
-    { path: '/participation', element: <PartOne/> },
-    { path: '/participation/part-two', element: <PartTwo/> },
-    { path: '/participation/part-three', element: <PartThree/> },
-    { path: '/participation/part-four', element: <PartFour/> },
-    { path: '/participation/part-five', element: <PartFive/> },
+    { path: '/', element: <Home />, errorElement: <RouteErrorBoundary /> },
+    { path: '/participation', element: <PartOne/>, errorElement: <RouteErrorBoundary /> },
+    { path: '/participation/part-two', element: <PartTwo/>, errorElement: <RouteErrorBoundary /> },
+    { path: '/participation/part-three', element: <PartThree/>, errorElement: <RouteErrorBoundary /> },
+    { path: '/participation/part-four', element: <PartFour/>, errorElement: <RouteErrorBoundary /> },
+    { path: '/participation/part-five', element: <PartFive/>, errorElement: <RouteErrorBoundary /> },
   ],
   {
     future: {

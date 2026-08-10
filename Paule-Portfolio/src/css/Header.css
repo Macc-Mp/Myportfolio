@@ -12,6 +12,7 @@
 
 /* 2. Layout */
 .intro {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,68 +22,37 @@
     overflow: hidden;
 }
 
+/* 2b. Background Layer (outer div) */
+.intro-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
 /* 3. Header Card Body */
+/* The outer card is invisible so the 3D vortex shows through;
+   only the inner game-title-card keeps its own visual style. */
 .leftCard {
     width: 92%;
     max-width: 940px;
     padding: 2.25rem 1.5rem;
-    background: rgba(15, 18, 30, 0.7);
-    backdrop-filter: blur(24px) saturate(1.4);
-    -webkit-backdrop-filter: blur(24px) saturate(1.4);
-    border: 1px solid var(--card-border);
+    background: transparent;
+    border: 1px solid transparent;
     position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 32px;
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.3),
-        0 28px 60px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    box-shadow: none;
     overflow: hidden;
     transition: box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
                 border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .leftCard:hover {
-    border-color: rgba(255, 255, 255, 0.14);
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.3),
-        0 28px 60px rgba(0, 0, 0, 0.5),
-        0 0 60px rgba(0, 212, 255, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-/* Corner glow accents */
-.leftCard::before,
-.leftCard::after {
-    content: '';
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    z-index: 0;
-}
-
-.leftCard::before {
-    top: -20px;
-    right: -20px;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.12), transparent 70%);
-    border-radius: 50%;
-}
-
-.leftCard::after {
-    bottom: -20px;
-    left: -20px;
-    background: radial-gradient(circle, rgba(255, 77, 77, 0.08), transparent 70%);
-    border-radius: 50%;
-}
-
-.leftCard:hover::before,
-.leftCard:hover::after {
-    opacity: 1;
+    border-color: transparent;
+    box-shadow: none;
 }
 
 /* 6. Game Title Card */
