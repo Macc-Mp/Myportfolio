@@ -1,21 +1,21 @@
 import React from 'react';
 import '../css/Header.css';
 import Skills from './Skills';
+import ImageVortex from './ImageVortex';
 
 const PDF_PATH = '/upload-resume/pauleResume.pdf';
 
 function Header() {
     return (
         <div className="intro">
-            
+
+            {/* Background Layer (outer div, full viewport) */}
+            <div className="intro-bg">
+                <ImageVortex />
+            </div>
+
             <div className="leftCard">
                 
-                {/* 1. Background Video Layer */}
-                <div className="animate">
-                    <video className="video-bg" autoPlay loop muted playsInline>
-                        {/* <source src="/your-video-path.mp4" type="video/mp4" /> */}
-                    </video>
-                </div>
 
                 {/* 2. Game Title Card (The "Screen") */}
                 <div className="game-title-card">

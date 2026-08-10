@@ -1,0 +1,69 @@
+/* 3D Diagonal Vortex Background — project gifs fly diagonally toward the center */
+.vortex-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    perspective: 900px;
+    --u: clamp(130px, 20vw, 240px);
+    background: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.15), rgba(4, 6, 12, 0.4));
+}
+
+.vortex-scene {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transform: rotateX(16deg);
+}
+
+.vortex-item {
+    position: absolute;
+    width: clamp(84px, 16vw, 130px);
+    height: clamp(56px, 10vw, 88px);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 212, 255, 0.35);
+    box-shadow: 0 0 28px rgba(0, 212, 255, 0.2), inset 0 0 20px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    animation: vortex-converge 10s linear infinite;
+    animation-delay: calc(var(--i) * -1.25s);
+    will-change: transform, opacity;
+}
+
+.vortex-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.35) contrast(1.15) brightness(0.85);
+}
+
+@keyframes vortex-converge {
+    0% {
+        transform: translate3d(calc(var(--x0) * var(--u)), calc(var(--y0) * var(--u)), -200px)
+            rotate(var(--rot)) scale(1);
+        opacity: 0;
+    }
+    12% { opacity: 0.9; }
+    60% {
+        transform: translate3d(calc(var(--x0) * var(--u) * 0.25), calc(var(--y0) * var(--u) * 0.25), -40px)
+            rotate(calc(var(--rot) * 0.3)) scale(0.75);
+        opacity: 0.75;
+    }
+    100% {
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(0.12);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vortex-scene,
+    .vortex-item { animation: none; }
+    .vortex-item {
+        opacity: 0.35;
+        transform: translate3d(calc(var(--x0) * var(--u)), calc(var(--y0) * var(--u)), -200px);
+    }
+}
