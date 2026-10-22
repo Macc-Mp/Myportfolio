@@ -52,9 +52,9 @@ function Header() {
 
                 {/* 3. Action Buttons (The Menu) */}
                 <div className="resume-container">
-                    <a className="tab2" href={PDF_PATH} download="paule-resume.pdf">
+                    {/* <a className="tab2" href={PDF_PATH} download="paule-resume.pdf">
                         DOWNLOAD RESUME
-                    </a>
+                    </a> */}
                     <a href="#contact" className="tab2">
                         LET'S CONNECT
                     </a>
