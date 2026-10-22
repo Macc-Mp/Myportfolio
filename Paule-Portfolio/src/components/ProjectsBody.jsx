@@ -13,7 +13,7 @@ import vitee from '../assets/Skills/frontend/vite.svg';
 import reactt from '../assets/Skills/frontend/react.svg';
 import htmll from '../assets/Skills/frontend/httml.svg';
 import csss from '../assets/Skills/frontend/css.svg';
-
+import ppython from '../assets/Skills/languages/python.svg';
 import tss from '../assets/Skills/languages/typescript.svg';
 import mngdb from '../assets/Skills/backend/mongodb.svg';
 import tw from '../assets/Skills/frontend/tailwind-css.svg';
@@ -26,6 +26,15 @@ function ProjectsBody() {
     const getRandomDirection = () => directions[Math.floor(Math.random() * directions.length)];
 
     const projects = [
+        {
+            title: "e-Nurse",
+            description: "Tf-IDF+ LinearSVC RAG Model for token free Healthcare related information retrieval. Built with React, Vite, FastAPI, and PostgreSQL.",
+            link: "https://e-nurse.onrender.com/",
+            pic: "/projectsPic/enurse.png",
+            repo: "https://github.com/Macc-Mp/e-NUrse",
+            techs: [ppython],
+            glow: '200, 79, 132'
+        },
         {
             title: "SignNU",
             description: "Approval and Signatory System - Email Notifications, Role-based Access, Chat System, 2FA",
