@@ -341,3 +341,152 @@
         font-size: 0.88rem;
     }
 }
+
+/* 9. Compact embedded variant (merged into the PROGRESS section) */
+.compact-contact-section {
+    width: 100%;
+}
+
+.contact.compact {
+    padding: 0;
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact.compact .hud-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px 16px;
+    margin-bottom: 20px;
+}
+
+.contact.compact .hud-header h2 {
+    font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.contact.compact .subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.contact.compact .status-indicator {
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+}
+
+.contact.compact .contact-container {
+    max-width: 100%;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 16px 22px;
+}
+
+.contact.compact .contact-left {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    padding-right: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact.compact .image-scanner {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 0;
+    border-radius: 10px;
+    flex: 0 0 auto;
+}
+
+.contact.compact .id-tag {
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+
+.contact.compact .contactLinks {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+}
+
+.contact.compact .channel-label {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: 0.58rem;
+    letter-spacing: 1.5px;
+}
+
+.contact.compact .media-link {
+    margin: 0;
+    padding: 4px 6px;
+    gap: 10px;
+}
+
+.contact.compact .media-link:hover {
+    transform: translateX(4px);
+}
+
+.contact.compact .bracket-icon {
+    padding: 4px;
+}
+
+.contact.compact .media-link img {
+    width: 20px;
+    height: 20px;
+}
+
+.contact.compact .aLink {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .contact.compact .contact-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .contact.compact .contact-left {
+        justify-content: center;
+        padding: 0 0 14px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact.compact .contactLinks {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact.compact {
+        margin-top: 32px;
+        padding-top: 24px;
+    }
+
+    .contact.compact .hud-header {
+        gap: 6px 10px;
+        margin-bottom: 14px;
+    }
+
+    .contact.compact .contact-container {
+        padding: 14px 16px;
+    }
+
+    .contact.compact .contactLinks {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .contact.compact .channel-label {
+        flex-basis: auto;
+    }
+}

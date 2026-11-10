@@ -21,7 +21,7 @@
 }
 
 .participation-carousel .carousel-track + .carousel-track-label {
-    margin-top: 32px;
+    margin-top: 20px;
 }
 
 .participation-person {
@@ -86,7 +86,7 @@
 
 .carousel-track {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     width: max-content;
     animation: scroll-left 40s linear infinite;
 }
@@ -98,8 +98,8 @@
 /* Node Card Base */
 .node-card {
     position: relative;
-    width: 280px;
-    height: 180px;
+    width: 250px;
+    height: 160px;
     background: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;

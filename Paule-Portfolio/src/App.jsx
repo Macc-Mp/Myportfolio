@@ -4,7 +4,6 @@ import NavBar from './components/NavBar'
 const Header = lazy(() => import('./components/Header'))
 const ProjectsBody = lazy(() => import('./components/ProjectsBody'))
 const Education = lazy(() => import('./components/Education'))
-const Footer = lazy(() => import('./components/Footer'))
 import ResumeReader from './components/ResumeReader'
 //routes for participation pages
 import { PartOne, PartTwo, PartThree, PartFour, PartFive } from './sub-components/participation'
@@ -41,7 +40,6 @@ function App() {
             <ProjectsBody />
             <Education />
             {/* <ResumeReader /> */}
-            <Footer />
           </Suspense>
         </div>
       </>
