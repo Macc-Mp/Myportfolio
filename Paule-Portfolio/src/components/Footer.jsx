@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import '../css/Footer.css'
 
-function Footer() {
+function Footer({ compact = false }) {
     return (
-        <section id="contact">
-            <div className="contact">
+        <section id="contact" className={compact ? 'compact-contact-section' : undefined}>
+            <div className={`contact${compact ? ' compact' : ''}`}>
                 {/* HUD Header with sub-text */}
                 <div className="hud-header">
                     <span className="status-indicator">● ONLINE</span>

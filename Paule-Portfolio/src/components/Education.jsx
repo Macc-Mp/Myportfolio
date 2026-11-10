@@ -1,5 +1,6 @@
 import React from 'react';
 import Participation from './Participation';
+import Footer from './Footer';
 import '../css/Education.css';
 
 export default function Education() {
@@ -63,6 +64,9 @@ export default function Education() {
             <Participation />
           </div>
         </div>
+
+        {/* Compact collaboration block, merged into the same section */}
+        <Footer compact />
       </div>
     </section>
   );

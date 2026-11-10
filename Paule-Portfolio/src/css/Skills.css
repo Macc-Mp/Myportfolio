@@ -8,12 +8,12 @@
 }
 
 .skills-section.compact-skills {
-    padding: 30px 0 0;
+    padding: 16px 0 0;
 }
 
 .skills-section.compact-skills .skills-header {
-    margin-bottom: 18px;
-    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-size: 1rem;
 }
 
 .skills-section.compact-skills .marquee-container {
@@ -22,22 +22,22 @@
 }
 
 .skills-section.compact-skills .marquee-content {
-    gap: 16px;
-    padding: 10px 0;
+    gap: 12px;
+    padding: 6px 0;
 }
 
 .skills-section.compact-skills .skill-card {
-    padding: 14px;
-    min-width: 85px;
+    padding: 10px;
+    min-width: 74px;
 }
 
 .skills-section.compact-skills .skill-img {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
 }
 
 .skills-section.compact-skills .skill-card span {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
 }
 
 .skills-header {
