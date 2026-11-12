@@ -1,5 +1,5 @@
 import '../css/ProjectsBody.css';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Import your assets
 import csharp from '../assets/Skills/languages/csharp.svg';
@@ -22,13 +22,55 @@ function ProjectsBody() {
     const [activeIndex, setActiveIndex] = useState(null);
     const [hoveredCard, setHoveredCard] = useState(null);
     const [peekDirection, setPeekDirection] = useState('top');
+    const closeTimeout = useRef(null);
     const directions = ['top', 'bottom'];
     const getRandomDirection = () => directions[Math.floor(Math.random() * directions.length)];
 
+    const clearCloseTimeout = () => {
+        if (closeTimeout.current) {
+            clearTimeout(closeTimeout.current);
+            closeTimeout.current = null;
+        }
+    };
+
+    const handleCardEnter = (index) => {
+        clearCloseTimeout();
+        setHoveredCard(index);
+        setPeekDirection(getRandomDirection());
+    };
+
+    const handleCardLeave = () => {
+        clearCloseTimeout();
+        closeTimeout.current = setTimeout(() => {
+            closeTimeout.current = null;
+            setHoveredCard(null);
+        }, 160);
+    };
+
+    const handleOverlayEnter = () => {
+        clearCloseTimeout();
+    };
+
+    const handleOverlayLeave = () => {
+        clearCloseTimeout();
+        setHoveredCard(null);
+    };
+
+    useEffect(() => clearCloseTimeout, []);
+
     const projects = [
         {
+            title: "Offline Handwriting  Text Recognition (Ongoing Thesis)",
+            description: "Offline Handwriting Text Recognition using CNN+TCN+CTC. with gated fusion Built with Python",
+            pic: "/projectsPic/htr.png",
+            repo: "https://github.com/Macc-Mp/HTR-CNN-TCN-CTC-GF",
+            demo_gif: "/projectsPic/HTR.gif",
+            techs: [ppython],
+            glow: '255, 99, 132'
+        },
+        {
             title: "e-Nurse",
-            description: "Tf-IDF+ LinearSVC RAG Model for token free Healthcare related information retrieval. Built with React, Vite, FastAPI, and PostgreSQL.",
+            description: "Tf-IDF+ LinearSVC RAG Model for token free Healthcare related information retrieval.",
             link: "https://e-nurse.onrender.com/",
             pic: "/projectsPic/enurse.png",
             repo: "https://github.com/Macc-Mp/e-NUrse",
@@ -91,21 +133,20 @@ function ProjectsBody() {
         },
     ];
 
+    const hoveredProject = hoveredCard !== null ? projects[hoveredCard] : null;
+
     return (
         <section id="projects">
             <div className="projects">
-                <h2 className='notes'>Projects</h2>
+                {/* <h2 className='notes'>Projects</h2> */}
                 <div id="projectCards">
                     {projects.map((project, index) => (
                         <div
                             className={`project-card${activeIndex === index ? ' expanded' : ''}`}
                             key={index}
                             onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                            onMouseEnter={() => {
-                                setHoveredCard(index);
-                                setPeekDirection(getRandomDirection());
-                            }}
-                            onMouseLeave={() => setHoveredCard(null)}
+                            onMouseEnter={() => handleCardEnter(index)}
+                            onMouseLeave={handleCardLeave}
                             style={{ '--glow': project.glow }}
                         >
                             <div className={`project-peek-wrapper ${peekDirection} ${hoveredCard === index ? 'visible' : ''}`}>
@@ -121,17 +162,8 @@ function ProjectsBody() {
                                     />
                                 </div>
 
-                                {/* STATIC TECH STACK ROW (Matches image_fde310.png) */}
-                                {project.techs && (
-                                    <div className="tech-stack-row">
-                                        {project.techs.map((tech, i) => (
-                                            <img key={i} src={tech} alt="stack" className="tech-icon-static" />
-                                        ))}
-                                    </div>
-                                )}
-
-                                {/* HOVER INFO SECTION */}
-                                <div className="project-info-container">
+                                <div className="project-body">
+                                    {/* HEADER: title + links */}
                                     <div className="project-card-header">
                                         <h3 className="project-title">{project.title}</h3>
                                         <div className="project-links">
@@ -169,13 +201,95 @@ function ProjectsBody() {
                                             )}
                                         </div>
                                     </div>
-                                    <p className="project-description">{project.description}</p>
+
+                                    {/* STATIC TECH STACK ROW */}
+                                    {project.techs && (
+                                        <div className="tech-stack-row">
+                                            {project.techs.map((tech, i) => (
+                                                <img key={i} src={tech} alt="stack" className="tech-icon-static" />
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {/* DESCRIPTION (clamped, expands on click) */}
+                                    <div className="project-info-container">
+                                        <p className="project-description">{project.description}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
+
+            {hoveredProject && (
+                <div
+                    className="project-overlay"
+                    style={{ '--glow': hoveredProject.glow }}
+                >
+                    <div
+                        className="project-overlay-card"
+                        onMouseEnter={handleOverlayEnter}
+                        onMouseLeave={handleOverlayLeave}
+                    >
+                        <div className="project-overlay-media">
+                            <img
+                                src={hoveredProject.demo_gif || hoveredProject.pic}
+                                alt=""
+                                className="project-overlay-image"
+                            />
+                            <span className="project-overlay-index">
+                                {String(hoveredCard + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+                            </span>
+                        </div>
+
+                        <div className="project-overlay-content">
+                            <div className="project-overlay-meta">
+                                <span className="project-overlay-tag">PROJECT FILE</span>
+                                <span>{hoveredProject.repo ? 'OPEN SOURCE' : 'LIVE BUILD'}</span>
+                            </div>
+
+                            <h3 className="project-overlay-title">{hoveredProject.title}</h3>
+                            <p className="project-overlay-description">{hoveredProject.description}</p>
+
+                            {hoveredProject.techs && (
+                                <div className="project-overlay-techs">
+                                    {hoveredProject.techs.map((tech, i) => (
+                                        <img key={i} src={tech} alt="" className="project-overlay-tech" />
+                                    ))}
+                                </div>
+                            )}
+
+                            <div className="project-overlay-links">
+                                {hoveredProject.link && (
+                                    <a
+                                        href={hoveredProject.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="project-overlay-link"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <span className="project-overlay-link-dot" />
+                                        LIVE DEMO
+                                    </a>
+                                )}
+                                {hoveredProject.repo && (
+                                    <a
+                                        href={hoveredProject.repo}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="project-overlay-link"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <span className="project-overlay-link-dot" />
+                                        SOURCE CODE
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }

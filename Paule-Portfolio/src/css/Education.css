@@ -1,6 +1,6 @@
 /* 1. Base Container */
 #education {
-    padding: 56px 20px 48px;
+    padding: 40px 20px 34px;
     display: flex;
     justify-content: center;
     font-family: 'Fira Code', monospace;
@@ -8,16 +8,16 @@
 
 .edu-mission-container {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1000px;
     position: relative;
-    padding-left: 40px;
+    padding-left: 36px;
 }
 
 /* 2a. Two-column split: education timeline (left) + carousel (right) */
 .edu-split {
     display: grid;
     grid-template-columns: 1fr 1.4fr;
-    gap: 40px;
+    gap: 28px;
     align-items: center;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .edu-right .participation-center {
-    padding: 10px 0;
+    padding: 6px 0;
     mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
@@ -55,11 +55,11 @@
 
 /* 3. The Section Header */
 .notes {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--tech-blue);
     text-transform: uppercase;
-    letter-spacing: 5px;
-    margin-bottom: 2rem;
+    letter-spacing: 4px;
+    margin-bottom: 1.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,7 +76,7 @@
 /* 4. Quest Nodes (The Rows) */
 .quest-node {
     position: relative;
-    margin-bottom: 34px;
+    margin-bottom: 24px;
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
                 opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -119,36 +119,36 @@
 }
 
 .edu-title {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #fff;
-    margin: 0 0 5px 0;
+    margin: 0 0 4px 0;
     text-transform: uppercase;
     transition: color 0.3s ease;
 }
 
 .edu-degree {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     color: var(--dim-white);
     margin: 0;
 }
 
 .edu-date {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #666;
-    margin-top: 8px;
+    margin-top: 6px;
     display: inline-block;
     border-left: 2px solid rgba(255, 255, 255, 0.1);
-    padding-left: 10px;
+    padding-left: 9px;
 }
 
 /* 6. Status Badges (Metadata) */
 .quest-meta {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: flex;
     justify-content: center;
-    gap: 15px;
-    font-size: 0.65rem;
+    gap: 12px;
+    font-size: 0.6rem;
     font-family: monospace;
 }
 
@@ -202,10 +202,10 @@
 
 /* 8. Mobile Adjustments */
 @media (max-width: 900px) {
-    .edu-mission-container { max-width: 620px; }
+    .edu-mission-container { max-width: 600px; }
     .edu-split {
         grid-template-columns: 1fr;
-        gap: 44px;
+        gap: 32px;
     }
 }
 
@@ -213,7 +213,7 @@
     .edu-mission-container { padding-left: 30px; }
     .quest-node::before { width: 15px; left: -30px; }
     .quest-node::after { left: -32px; }
-    .edu-title { font-size: 1rem; }
+    .edu-title { font-size: 0.95rem; }
 }
 
 @media (max-width: 320px) {

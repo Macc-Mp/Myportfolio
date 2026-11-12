@@ -10,15 +10,30 @@
     --btn-yellow: #f1c40f;
 }
 
-/* 2. Layout */
+/* 2. Layout: hero (left) + projects (right) share one row */
 .intro {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: 2rem;
     width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
     min-height: auto;
-    padding: 104px 0 48px;
+    padding: 104px 2rem 32px;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+/* 2a. Hero stage (keeps the vortex behind the hero card only) */
+.intro-hero {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 0;
     overflow: hidden;
 }
 
@@ -27,6 +42,51 @@
     position: absolute;
     inset: 0;
     z-index: 0;
+}
+
+/* 2c. Projects share the row beside the hero card */
+.intro-projects {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Keep the hero card filling its column and aligned to the left edge */
+.intro-hero .leftCard {
+    width: 100%;
+    max-width: 640px;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.intro-hero .game-title-card {
+    width: 100%;
+    max-width: 460px;
+    box-sizing: border-box;
+}
+
+.intro-hero .hero-name {
+    margin: 0;
+    text-align: left;
+}
+
+.intro-hero .press-start {
+    text-align: left;
+}
+
+.intro-hero .resume-container {
+    justify-content: flex-start;
+    margin-left: 0;
+}
+
+.intro-hero .skills-section {
+    align-items: flex-start;
+    width: 100%;
 }
 
 /* 3. Header Card Body */
@@ -62,9 +122,9 @@
     background: rgba(0, 0, 0, 0.88);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    padding: 1.25rem 1.5rem;
-    width: 78%;
-    max-width: 480px;
+    padding: 1rem 1.25rem;
+    width: 72%;
+    max-width: 420px;
     border-left: 4px solid var(--tech-blue);
     transform: none;
     box-shadow:
@@ -104,16 +164,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
     font-family: 'Courier New', monospace;
 }
 
 .player-tag {
     background: var(--tech-blue);
     color: #000;
-    padding: 2px 10px;
+    padding: 2px 8px;
     font-weight: 900;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     transition: box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -125,7 +185,8 @@
     color: var(--tech-blue);
     font-weight: bold;
     border: 1px solid var(--tech-blue);
-    padding: 2px 8px;
+    padding: 2px 6px;
+    font-size: 0.66rem;
     transition: border-color 0.3s ease,
                 box-shadow 0.3s ease;
 }
@@ -136,27 +197,27 @@
 }
 
 .hero-name {
-    font-size: clamp(2rem, 4.2vw, 2.6rem);
+    font-size: clamp(1.6rem, 3.6vw, 2.1rem);
     font-family: 'Arial Black', sans-serif;
     margin: 0 auto;
     line-height: 1;
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
     text-transform: uppercase;
     font-style: italic;
     color: #fff;
-    text-shadow: 3px 3px 0px var(--btn-red);
+    text-shadow: 2px 2px 0px var(--btn-red);
     text-align: center;
     width: 100%;
     transition: text-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-name:hover {
-    text-shadow: 3px 3px 0px var(--btn-red), 0 0 30px rgba(255, 77, 77, 0.2);
+    text-shadow: 2px 2px 0px var(--btn-red), 0 0 30px rgba(255, 77, 77, 0.2);
 }
 
 /* 7. Stats & Skills */
 .stats-container {
-    margin-top: 0.6rem;
+    margin-top: 0.5rem;
 }
 
 .stat-row {
@@ -166,13 +227,14 @@
     margin-bottom: 4px;
     font-family: monospace;
     font-weight: bold;
+    font-size: 0.8rem;
 }
 
-.stat-row span { width: 40px; color: var(--tech-blue); }
+.stat-row span { width: 36px; color: var(--tech-blue); }
 
 .bar {
     flex-grow: 1;
-    height: 8px;
+    height: 6px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 999px;
     overflow: hidden;
@@ -193,11 +255,11 @@
 }
 
 .press-start {
-    margin-top: 0.6rem;
+    margin-top: 0.5rem;
     text-align: center;
     font-family: monospace;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
+    font-size: 0.64rem;
+    letter-spacing: 1.4px;
     color: #888;
 }
 
@@ -208,7 +270,7 @@
 .resume-container {
     display: flex;
     gap: 18px;
-    margin-top: 0.9rem;
+    margin-top: 0.65rem;
     z-index: 5;
     flex-wrap: wrap;
     justify-content: center;
@@ -219,13 +281,13 @@
     color: #fff;
     font-family: sans-serif;
     font-weight: 900;
-    font-size: 0.78rem;
-    padding: 8px 20px;
+    font-size: 0.72rem;
+    padding: 7px 16px;
     border: 2px solid #fff;
     clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     background: transparent;
-    margin: 0 0 0.6rem 0;
+    margin: 0 0 0.4rem 0;
     position: relative;
 }
 
@@ -263,21 +325,31 @@
     opacity: 0.45;
 }
 
+/* Keep the name readable in the narrower left column */
+@media (max-width: 1300px) and (min-width: 1101px) {
+    .hero-name { font-size: 1.65rem; }
+}
+
+/* 9b. Stack hero above projects on narrower screens */
+@media (max-width: 1100px) {
+    .intro {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 96px 1.5rem 24px;
+    }
+}
+
 /* 10. Tablet breakpoint */
 @media (max-width: 850px) {
     .leftCard { border-radius: 30px; width: 95%; }
     .game-title-card { width: 90%; transform: none; }
-    .hero-name { font-size: 2.2rem; }
+    .hero-name { font-size: 1.7rem; }
 }
 
 /* 11. 425px */
 @media (max-width: 480px) {
     .intro {
-        align-items: center;
-        justify-content: center;
-        padding: 88px 0 32px;
-        box-sizing: border-box;
-        width: 100%;
+        padding: 88px 1.25rem 16px;
     }
 
     .leftCard {
@@ -291,14 +363,14 @@
 
     .game-title-card {
         width: 95%;
-        padding: 1.5rem 1.25rem;
+        padding: 1.1rem 1rem;
         border-radius: 14px;
         box-sizing: border-box;
     }
 
     .hero-name {
-        font-size: clamp(2.2rem, 10vw, 2.8rem);
-        letter-spacing: -1.5px;
+        font-size: clamp(1.6rem, 8vw, 2rem);
+        letter-spacing: -1px;
     }
 
     .player-tag {
@@ -315,8 +387,8 @@
     .stat-row span { width: 36px; font-size: 0.72rem; }
 
     .press-start {
-        font-size: 0.7rem;
-        letter-spacing: 2px;
+        font-size: 0.62rem;
+        letter-spacing: 1.2px;
     }
 
     .resume-container {
@@ -348,8 +420,8 @@
     }
 
     .hero-name {
-        font-size: clamp(2rem, 11vw, 2.8rem);
-        letter-spacing: -1px;
+        font-size: clamp(1.5rem, 9vw, 1.9rem);
+        letter-spacing: -0.75px;
     }
 
     .player-tag { font-size: 0.65rem; padding: 2px 7px; }
@@ -359,8 +431,8 @@
     .stat-row span { width: 32px; font-size: 0.7rem; }
 
     .press-start {
-        font-size: 0.65rem;
-        letter-spacing: 1.5px;
+        font-size: 0.6rem;
+        letter-spacing: 1px;
     }
 
     .resume-container { gap: 10px; margin-top: 1rem; }
@@ -376,11 +448,7 @@
 @media (max-width: 320px) {
 
     .intro {
-        padding: 80px 0 24px;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        box-sizing: border-box;
+        padding: 80px 0.75rem 16px;
     }
 
     .leftCard {
@@ -401,7 +469,7 @@
     }
 
     .hero-name {
-        font-size: clamp(1.75rem, 13vw, 2.2rem);
+        font-size: clamp(1.4rem, 10vw, 1.8rem);
         letter-spacing: -0.5px;
         text-shadow: 2px 2px 0px var(--btn-red);
     }
