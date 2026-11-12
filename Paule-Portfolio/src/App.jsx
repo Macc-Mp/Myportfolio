@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NavBar from './components/NavBar'
 const Header = lazy(() => import('./components/Header'))
-const ProjectsBody = lazy(() => import('./components/ProjectsBody'))
 const Education = lazy(() => import('./components/Education'))
 import ResumeReader from './components/ResumeReader'
 //routes for participation pages
@@ -37,7 +36,6 @@ function App() {
           <NavBar />
           <Suspense fallback={<div className="suspense-fallback" />}>
             <Header />
-            <ProjectsBody />
             <Education />
             {/* <ResumeReader /> */}
           </Suspense>

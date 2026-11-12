@@ -1,0 +1,169 @@
+/* --- Work experience badges --- */
+.experience-section {
+    width: 100%;
+    max-width: 460px;
+    margin-top: 0.75rem;
+    box-sizing: border-box;
+}
+
+.experience-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.45rem;
+    font-family: 'Courier New', monospace;
+}
+
+.experience-title {
+    margin: 0;
+    color: var(--tech-blue);
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.experience-count {
+    padding: 2px 7px;
+    border: 1px solid rgba(0, 212, 255, 0.35);
+    border-radius: 999px;
+    background: rgba(0, 212, 255, 0.06);
+    color: var(--tech-blue);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.work-badge {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid rgba(0, 212, 255, 0.22);
+    border-left: 3px solid var(--tech-blue);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.work-badge:hover {
+    border-color: rgba(0, 212, 255, 0.5);
+    box-shadow:
+        0 8px 22px rgba(0, 212, 255, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transform: translateX(3px);
+}
+
+.work-badge-icon {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    padding: 3px;
+    border: 1px solid rgba(0, 212, 255, 0.35);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    object-fit: contain;
+    box-sizing: border-box;
+}
+
+.work-badge-body {
+    min-width: 0;
+    flex: 1;
+}
+
+.work-badge-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.52rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.work-badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #2ecc71;
+}
+
+.work-badge-status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 7px currentColor;
+    animation: workBadgePulse 1.6s ease-in-out infinite;
+}
+
+@keyframes workBadgePulse {
+    50% { opacity: 0.35; }
+}
+
+.work-badge-period {
+    color: rgba(231, 235, 255, 0.45);
+    white-space: nowrap;
+}
+
+.work-badge-role {
+    margin: 0.15rem 0 0;
+    color: #fff;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+}
+
+.work-badge-company {
+    margin: 0.1rem 0 0;
+    color: var(--tech-blue);
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.work-badge-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 0.4rem;
+}
+
+.work-badge-tag {
+    padding: 1px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(231, 235, 255, 0.7);
+    font-family: 'Courier New', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+    .experience-section {
+        max-width: 100%;
+    }
+
+    .work-badge-meta {
+        font-size: 0.5rem;
+    }
+
+    .work-badge-role {
+        font-size: 0.78rem;
+    }
+}
