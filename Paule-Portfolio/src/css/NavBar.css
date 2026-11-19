@@ -46,6 +46,39 @@
     border-color: rgba(255, 255, 255, 0.12);
 }
 
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid var(--nav-border);
+    background: transparent;
+    color: var(--smoke);
+    cursor: pointer;
+    transition: color 0.3s ease,
+                border-color 0.3s ease,
+                background-color 0.3s ease;
+}
+
+.theme-toggle svg {
+    width: 17px;
+    height: 17px;
+}
+
+.theme-toggle:hover {
+    color: var(--mustard);
+    border-color: var(--mustard);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--mustard);
+    outline-offset: 3px;
+}
+
 /* 2. Desktop Menu Logic */
 .menu {
     display: flex;
@@ -214,4 +247,32 @@
     .menu-button::after {
         width: 20px;
     }
+}
+
+html[data-theme='light'] .modern-nav {
+    --nav-bg: rgba(255, 255, 255, 0.88);
+    --nav-border: rgba(0, 0, 0, 0.12);
+    --smoke: #333;
+    --white-plain: #111;
+    --mustard: #a36f00;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme='light'] .modern-nav:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.16),
+        0 0 0 1px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme='light'] .menu {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
