@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Oswald:wght@200..700&family=Rubik+Maze&family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap');
 :root{
-    --dull-color: #000;
+    --dull-color: #111;
+    --page-bg: #111;
+    --page-text: #e7ebff;
     --primary-color: #ffffff;
     --hover-color: rgb(87, 92, 97);
     --white-plain: #fff;
@@ -17,6 +19,60 @@
     --animeThree: #f9f9f9;
     --mustard: #b88c46;
     --smoke: whitesmoke;
+}
+
+html[data-theme='light'] {
+    --page-bg: #d9d9d9;
+    --page-text: #1a1a1a;
+}
+
+html[data-theme='light'] .notes {
+    background-image: linear-gradient(135deg, #0b3d52 0%, #1f6f8b 50%, #005f73 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+html[data-theme='light'] .notes::before,
+html[data-theme='light'] .notes::after {
+    color: #1a1a1a;
+    -webkit-text-fill-color: #1a1a1a;
+}
+
+html[data-theme='light'] .contact {
+    color: #1a1a1a;
+}
+
+html[data-theme='light'] .hud-header h2 {
+    background-image: linear-gradient(135deg, #0b3d52 0%, #1f6f8b 50%, #005f73 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+html[data-theme='light'] .subtitle {
+    color: #005f73;
+    opacity: 1;
+}
+
+html[data-theme='light'] .status-indicator {
+    color: #0a7f4f;
+}
+
+html[data-theme='light'] .edu-title,
+html[data-theme='light'] .quest-node.active .edu-title,
+html[data-theme='light'] .skills-header,
+html[data-theme='light'] .edu-degree {
+    color: #1a1a1a;
+}
+
+html[data-theme='light'] .edu-date,
+html[data-theme='light'] .quest-status {
+    color: #444;
+}
+
+html[data-theme='light'] .edu-mission-container::before {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.18) 15%, rgba(0, 0, 0, 0.18) 85%, transparent 100%);
 }
 
 /* Hide scrollbar for the whole page (Chrome, Safari, Opera) */
@@ -57,6 +113,7 @@
 
 /* Hide scrollbar for Firefox */
 html, body {
+    background-color: var(--page-bg, #111);
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
     scroll-behavior: smooth; /* smooth section anchor scrolling */
